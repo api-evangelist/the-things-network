@@ -1,0 +1,83 @@
+aid: the-things-network
+name: The Things Stack — FinOps Mapping
+description: FinOps Framework / FOCUS-aligned mapping of the cost surface for The Things Network community network (free) and The Things Stack Cloud / Enterprise commercial offerings.
+license: Apache-2.0
+specVersion: 0.1
+focusVersion: '1.1'
+provider:
+  name: The Things Industries
+  serviceCategory: IoT Connectivity
+  serviceSubCategory: LoRaWAN Network Server
+
+billingModels:
+  - id: open-source-self-hosted
+    name: Self-Hosted Open Source
+    chargeCategory: Usage
+    chargeDescription: No license fee — only the customer's own infrastructure costs (compute, storage, network egress) incurred running The Things Stack under Apache 2.0.
+    pricingUnit: instance-hour
+    pricingCurrency: USD
+
+  - id: ttn-community
+    name: The Things Network Community Network
+    chargeCategory: Other
+    chargeDescription: Free under The Things Network fair-use policy. No invoice issued; cost surface is the user's own gateway hardware and backhaul.
+    pricingUnit: free
+    pricingCurrency: USD
+
+  - id: cloud-discovery
+    name: The Things Stack Cloud — Discovery
+    chargeCategory: Usage
+    chargeDescription: Free Cloud tenant up to 10 devices and 10 gateways. No invoice until upgrade.
+    pricingUnit: tenant-month
+    pricingCurrency: USD
+
+  - id: cloud-standard-plus
+    name: The Things Stack Cloud — Standard / Plus
+    chargeCategory: Usage
+    chargeDescription: Subscription with 1,000 included devices and pay-as-you-go device overage. Unlimited gateways, applications, and teams.
+    pricingUnit: device-month
+    pricingCurrency: USD
+
+  - id: enterprise-license
+    name: The Things Stack Enterprise
+    chargeCategory: Commitment
+    chargeDescription: Annual self-hosted license with commercial support, multi-tenancy, and NOC. Custom contract.
+    pricingUnit: license-year
+    pricingCurrency: USD
+
+costAllocationDimensions:
+  - tenant_id
+  - application_id
+  - organization_id
+  - region
+  - cluster
+
+usageMetrics:
+  - id: devices
+    description: Count of registered end devices in a tenant; primary billing dimension for Cloud Standard / Plus.
+    unit: device
+  - id: gateways
+    description: Count of registered gateways; not billed (unlimited on Standard / Plus).
+    unit: gateway
+  - id: uplinks
+    description: Number of uplink messages processed by the Application Server per tenant.
+    unit: message
+  - id: downlinks
+    description: Number of downlink messages scheduled by the Network Server per tenant.
+    unit: message
+  - id: gateway-airtime
+    description: Sum of LoRa airtime transmitted by gateways. Used to apportion duty-cycle fairness, not billed.
+    unit: second
+
+attribution:
+  - level: tenant
+    via: tenant_id header / OAuth subject
+  - level: application
+    via: ApplicationIdentifiers.application_id
+  - level: device
+    via: EndDeviceIdentifiers.device_id
+
+reporting:
+  - Network Operations Center (NOC) dashboard (Plus tier)
+  - Storage Integration (postgres / clickhouse) for raw uplink / downlink history
+  - gRPC Events stream for real-time cost and usage signal

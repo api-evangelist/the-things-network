@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-structure.org/draft-01/schema",
+  "name": "the-things-network",
+  "title": "The Things Stack — JSON Structure Overview",
+  "description": "Top-level entity model exposed by The Things Stack v3 APIs.",
+  "entities": [
+    {
+      "name": "User",
+      "service": "IdentityServer",
+      "key": "user_id",
+      "summary": "Account principal; owns applications, gateways, organizations, API keys, sessions."
+    },
+    {
+      "name": "Organization",
+      "service": "IdentityServer",
+      "key": "organization_id",
+      "summary": "Multi-user tenant scope; collaborator of applications, gateways, and clients."
+    },
+    {
+      "name": "Application",
+      "service": "IdentityServer + ApplicationServer",
+      "key": "application_id",
+      "summary": "Owns end devices, webhooks, pub/sub integrations, payload formatters, and storage."
+    },
+    {
+      "name": "EndDevice",
+      "service": "IdentityServer + ApplicationServer + NetworkServer + JoinServer",
+      "key": "device_id (scoped to application_ids) + dev_eui + join_eui",
+      "summary": "LoRaWAN device record split across AS, NS, JS for application metadata, MAC state, and session keys."
+    },
+    {
+      "name": "Gateway",
+      "service": "IdentityServer + GatewayServer",
+      "key": "gateway_id + eui",
+      "summary": "LoRa packet forwarder endpoint; reports status, uplinks, and downlinks."
+    },
+    {
+      "name": "ApplicationWebhook",
+      "service": "ApplicationServer",
+      "key": "webhook_id (scoped to application_ids)",
+      "summary": "HTTP delivery target with per-message-kind path mapping."
+    },
+    {
+      "name": "ApplicationPubSub",
+      "service": "ApplicationServer",
+      "key": "pub_sub_id (scoped to application_ids)",
+      "summary": "NATS / MQTT / AWS / Azure pub-sub integration."
+    },
+    {
+      "name": "APIKey",
+      "service": "IdentityServer",
+      "key": "api_key_id (scoped to owner: user/org/application/gateway/client)",
+      "summary": "Token-based credential; carries a set of rights (RIGHT_* enum)."
+    },
+    {
+      "name": "OAuthClient",
+      "service": "IdentityServer",
+      "key": "client_id",
+      "summary": "OAuth 2.0 client registration; supports authorization-code, refresh tokens, PKCE."
+    },
+    {
+      "name": "Event",
+      "service": "All servers (stream)",
+      "key": "unique_id + time",
+      "summary": "Real-time event published by IS/AS/NS/GS/JS for any entity change or message lifecycle."
+    },
+    {
+      "name": "FrequencyPlan",
+      "service": "Configuration",
+      "key": "frequency_plan_id",
+      "summary": "LoRaWAN regional parameter selection (EU_863_870, US_902_928, etc.)."
+    }
+  ],
+  "relationships": [
+    { "from": "User", "to": "APIKey", "kind": "owns" },
+    { "from": "User", "to": "Organization", "kind": "member-of" },
+    { "from": "Organization", "to": "Application", "kind": "collaborator" },
+    { "from": "Application", "to": "EndDevice", "kind": "owns" },
+    { "from": "Application", "to": "ApplicationWebhook", "kind": "owns" },
+    { "from": "Application", "to": "ApplicationPubSub", "kind": "owns" },
+    { "from": "User", "to": "Gateway", "kind": "owns" },
+    { "from": "Gateway", "to": "EndDevice", "kind": "receives-uplink-from" },
+    { "from": "EndDevice", "to": "FrequencyPlan", "kind": "uses" }
+  ]
+}

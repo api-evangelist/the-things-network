@@ -1,0 +1,1166 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/the-things-network/json-schema/the-things-stack-application-up-schema.json",
+  "title": "v3ApplicationUp",
+  "description": "JSON Schema for v3ApplicationUp, extracted from The Things Stack v3.36 api.swagger.json",
+  "definitions": {
+    "v3ApplicationUp": {
+      "type": "object",
+      "properties": {
+        "end_device_ids": {
+          "$ref": "#/definitions/v3EndDeviceIdentifiers"
+        },
+        "correlation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server time when the Application Server received the message."
+        },
+        "uplink_message": {
+          "$ref": "#/definitions/v3ApplicationUplink"
+        },
+        "uplink_normalized": {
+          "$ref": "#/definitions/v3ApplicationUplinkNormalized"
+        },
+        "join_accept": {
+          "$ref": "#/definitions/v3ApplicationJoinAccept"
+        },
+        "downlink_ack": {
+          "$ref": "#/definitions/v3ApplicationDownlink"
+        },
+        "downlink_nack": {
+          "$ref": "#/definitions/v3ApplicationDownlink"
+        },
+        "downlink_sent": {
+          "$ref": "#/definitions/v3ApplicationDownlink"
+        },
+        "downlink_failed": {
+          "$ref": "#/definitions/v3ApplicationDownlinkFailed"
+        },
+        "downlink_queued": {
+          "$ref": "#/definitions/v3ApplicationDownlink"
+        },
+        "downlink_queue_invalidated": {
+          "$ref": "#/definitions/v3ApplicationInvalidatedDownlinks"
+        },
+        "location_solved": {
+          "$ref": "#/definitions/v3ApplicationLocation"
+        },
+        "service_data": {
+          "$ref": "#/definitions/v3ApplicationServiceData"
+        },
+        "simulated": {
+          "type": "boolean",
+          "description": "Signals if the message is coming from the Network Server or is simulated.\nThe Application Server automatically sets this field, and callers must not manually set it."
+        }
+      },
+      "description": "Application uplink message."
+    },
+    "v3ApplicationServiceData": {
+      "type": "object",
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        },
+        "locations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/lorawanv3Location"
+          },
+          "description": "End device location metadata, set by the Application Server while handling the message."
+        },
+        "version_ids": {
+          "$ref": "#/definitions/v3EndDeviceVersionIdentifiers",
+          "description": "End device version identifiers, set by the Application Server while handling the message."
+        },
+        "network_ids": {
+          "$ref": "#/definitions/v3NetworkIdentifiers",
+          "description": "Network identifiers, set by the Network Server that handles the message."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Attributes for devices, set by the Application Server while handling the message."
+        }
+      }
+    },
+    "v3EndDeviceVersionIdentifiers": {
+      "type": "object",
+      "properties": {
+        "brand_id": {
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "hardware_version": {
+          "type": "string"
+        },
+        "firmware_version": {
+          "type": "string"
+        },
+        "band_id": {
+          "type": "string"
+        }
+      },
+      "description": "Identifies an end device model with version information."
+    },
+    "lorawanv3Location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The North\u2013South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative."
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative."
+        },
+        "altitude": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The altitude (meters), where 0 is the mean sea level."
+        },
+        "accuracy": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The accuracy of the location (meters)."
+        },
+        "source": {
+          "$ref": "#/definitions/v3LocationSource",
+          "description": "Source of the location information."
+        }
+      }
+    },
+    "v3LocationSource": {
+      "type": "string",
+      "enum": [
+        "SOURCE_UNKNOWN",
+        "SOURCE_GPS",
+        "SOURCE_REGISTRY",
+        "SOURCE_IP_GEOLOCATION",
+        "SOURCE_WIFI_RSSI_GEOLOCATION",
+        "SOURCE_BT_RSSI_GEOLOCATION",
+        "SOURCE_LORA_RSSI_GEOLOCATION",
+        "SOURCE_LORA_TDOA_GEOLOCATION",
+        "SOURCE_COMBINED_GEOLOCATION"
+      ],
+      "default": "SOURCE_UNKNOWN",
+      "description": " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
+    },
+    "v3NetworkIdentifiers": {
+      "type": "object",
+      "properties": {
+        "net_id": {
+          "type": "string",
+          "format": "string",
+          "example": "000013",
+          "description": "LoRa Alliance NetID."
+        },
+        "ns_id": {
+          "type": "string",
+          "format": "string",
+          "example": "70B3D57ED000ABCD",
+          "description": "LoRaWAN NSID (EUI-64) that uniquely identifies the Network Server instance."
+        },
+        "tenant_id": {
+          "type": "string",
+          "description": "Optional tenant identifier for multi-tenant deployments."
+        },
+        "cluster_id": {
+          "type": "string",
+          "description": "Cluster identifier of the Network Server."
+        },
+        "cluster_address": {
+          "type": "string",
+          "description": "Cluster address of the Network Server."
+        },
+        "tenant_address": {
+          "type": "string",
+          "description": "Optional tenant address for multi-tenant deployments."
+        }
+      },
+      "description": "Identifies a Network Server."
+    },
+    "v3EndDeviceIdentifiers": {
+      "type": "object",
+      "properties": {
+        "device_id": {
+          "type": "string"
+        },
+        "application_ids": {
+          "$ref": "#/definitions/v3ApplicationIdentifiers"
+        },
+        "dev_eui": {
+          "type": "string",
+          "format": "string",
+          "example": "70B3D57ED000ABCD",
+          "description": "The LoRaWAN DevEUI."
+        },
+        "join_eui": {
+          "type": "string",
+          "format": "string",
+          "example": "70B3D57ED000ABCD",
+          "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+        },
+        "dev_addr": {
+          "type": "string",
+          "format": "string",
+          "example": "2600ABCD",
+          "description": "The LoRaWAN DevAddr."
+        }
+      }
+    },
+    "v3ApplicationIdentifiers": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v3ApplicationDownlinkFailed": {
+      "type": "object",
+      "properties": {
+        "downlink": {
+          "$ref": "#/definitions/v3ApplicationDownlink"
+        },
+        "error": {
+          "$ref": "#/definitions/v3ErrorDetails"
+        },
+        "locations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/lorawanv3Location"
+          },
+          "description": "End device location metadata, set by the Application Server while handling the message."
+        },
+        "version_ids": {
+          "$ref": "#/definitions/v3EndDeviceVersionIdentifiers",
+          "description": "End device version identifiers, set by the Application Server while handling the message."
+        },
+        "network_ids": {
+          "$ref": "#/definitions/v3NetworkIdentifiers",
+          "description": "Network identifiers, set by the Network Server that handles the message."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Attributes for devices, set by the Application Server while handling the message."
+        }
+      }
+    },
+    "v3ErrorDetails": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "description": "Namespace of the error (typically the package name in The Things Stack)."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the error."
+        },
+        "message_format": {
+          "type": "string",
+          "description": "The default (fallback) message format that should be used for the error.\nThis is also used if the client does not have a translation for the error."
+        },
+        "attributes": {
+          "type": "object",
+          "description": "Attributes that should be filled into the message format. Any extra attributes\ncan be displayed as error details."
+        },
+        "correlation_id": {
+          "type": "string",
+          "description": "The correlation ID of the error can be used to correlate the error to stack\ntraces the network may (or may not) store about recent errors."
+        },
+        "cause": {
+          "$ref": "#/definitions/v3ErrorDetails",
+          "description": "The error that caused this error."
+        },
+        "code": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The status code of the error."
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          },
+          "description": "The details of the error."
+        }
+      },
+      "description": "Error details that are communicated over gRPC (and HTTP) APIs.\nThe messages (for translation) are stored as \"error:<namespace>:<name>\"."
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "v3ApplicationDownlink": {
+      "type": "object",
+      "properties": {
+        "session_key_id": {
+          "type": "string",
+          "format": "byte",
+          "description": "Join Server issued identifier for the session keys used by this downlink."
+        },
+        "f_port": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "f_cnt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "frm_payload": {
+          "type": "string",
+          "format": "byte",
+          "description": "The frame payload of the downlink message.\nThe payload is encrypted if the skip_payload_crypto field of the EndDevice\nis true."
+        },
+        "decoded_payload": {
+          "type": "object",
+          "description": "The decoded frame payload of the downlink message.\nWhen scheduling downlink with a message processor configured for the end device (see formatters) or application (see default_formatters),\nthis fields acts as input for the downlink encoder, and the output is set to frm_payload.\nWhen reading downlink (listing the queue, downlink message events, etc), this fields acts as output of the downlink decoder, and the input is frm_payload."
+        },
+        "decoded_payload_warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Warnings generated by the message processor while encoding frm_payload (scheduling downlink) or decoding the frm_payload (reading downlink)."
+        },
+        "confirmed": {
+          "type": "boolean"
+        },
+        "class_b_c": {
+          "$ref": "#/definitions/ApplicationDownlinkClassBC",
+          "description": "Optional gateway and timing information for class B and C.\nIf set, this downlink message will only be transmitted as class B or C downlink.\nIf not set, this downlink message may be transmitted in class A, B and C."
+        },
+        "priority": {
+          "$ref": "#/definitions/v3TxSchedulePriority",
+          "description": "Priority for scheduling the downlink message."
+        },
+        "correlation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confirmed_retry": {
+          "$ref": "#/definitions/ApplicationDownlinkConfirmedRetry"
+        },
+        "locations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/lorawanv3Location"
+          },
+          "description": "End device location metadata, set by the Application Server while handling the message."
+        },
+        "version_ids": {
+          "$ref": "#/definitions/v3EndDeviceVersionIdentifiers",
+          "description": "End device version identifiers, set by the Application Server while handling the message."
+        },
+        "network_ids": {
+          "$ref": "#/definitions/v3NetworkIdentifiers",
+          "description": "Network identifiers, set by the Network Server that handles the message."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Attributes for devices, set by the Application Server while handling the message."
+        }
+      }
+    },
+    "ApplicationDownlinkClassBC": {
+      "type": "object",
+      "properties": {
+        "gateways": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v3ClassBCGatewayIdentifiers"
+          },
+          "description": "Possible gateway identifiers, antenna index, and group index to use for this downlink message.\nThe Network Server selects one of these gateways for downlink, based on connectivity, signal quality, channel utilization and an available slot.\nIf none of the gateways can be selected, the downlink message fails.\nIf empty, a gateway and antenna is selected automatically from the gateways seen in recent uplinks.\nIf group index is set, gateways will be grouped by the index for the Network Server to select one gateway per group."
+        },
+        "absolute_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Absolute time when the downlink message should be transmitted.\nThis requires the gateway to have GPS time synchronization.\nIf the time is in the past or if there is a scheduling conflict, the downlink message fails.\nIf null, the time is selected based on slot availability. This is recommended in class B mode."
+        }
+      }
+    },
+    "v3ClassBCGatewayIdentifiers": {
+      "type": "object",
+      "properties": {
+        "gateway_ids": {
+          "$ref": "#/definitions/lorawanv3GatewayIdentifiers"
+        },
+        "antenna_index": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "group_index": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "lorawanv3GatewayIdentifiers": {
+      "type": "object",
+      "properties": {
+        "gateway_id": {
+          "type": "string"
+        },
+        "eui": {
+          "type": "string",
+          "format": "string",
+          "example": "70B3D57ED000ABCD",
+          "description": "Secondary identifier, which can only be used in specific requests."
+        }
+      }
+    },
+    "v3TxSchedulePriority": {
+      "type": "string",
+      "enum": [
+        "LOWEST",
+        "LOW",
+        "BELOW_NORMAL",
+        "NORMAL",
+        "ABOVE_NORMAL",
+        "HIGH",
+        "HIGHEST"
+      ],
+      "default": "LOWEST"
+    },
+    "ApplicationDownlinkConfirmedRetry": {
+      "type": "object",
+      "properties": {
+        "attempt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The number of attempted confirmed downlink acknowledgements."
+        },
+        "max_attempts": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The maximum number of confirmed downlink acknowledgement attempts.\nIf null, the Application Server configuration is used instead."
+        }
+      }
+    },
+    "v3ApplicationUplinkNormalized": {
+      "type": "object",
+      "properties": {
+        "session_key_id": {
+          "type": "string",
+          "format": "byte",
+          "description": "Join Server issued identifier for the session keys used by this uplink."
+        },
+        "f_port": {
+          "type": "integer",
+          "format": "int64",
+          "description": "LoRaWAN FPort of the uplink message."
+        },
+        "f_cnt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "LoRaWAN FCntUp of the uplink message."
+        },
+        "frm_payload": {
+          "type": "string",
+          "format": "byte",
+          "description": "The frame payload of the uplink message.\nThis field is always decrypted with AppSKey."
+        },
+        "normalized_payload": {
+          "type": "object",
+          "description": "The normalized frame payload of the uplink message.\nThis field is set for each item in normalized_payload in the corresponding ApplicationUplink message."
+        },
+        "normalized_payload_warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "This field is set to normalized_payload_warnings in the corresponding ApplicationUplink message."
+        },
+        "rx_metadata": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/lorawanv3RxMetadata"
+          },
+          "description": "A list of metadata for each antenna of each gateway that received this message."
+        },
+        "settings": {
+          "$ref": "#/definitions/lorawanv3TxSettings",
+          "description": "Transmission settings used by the end device."
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server time when the Network Server received the message."
+        },
+        "confirmed": {
+          "type": "boolean",
+          "description": "Indicates whether the end device used confirmed data uplink."
+        },
+        "consumed_airtime": {
+          "type": "string",
+          "description": "Consumed airtime for the transmission of the uplink message. Calculated by Network Server using the raw payload size and the transmission settings."
+        },
+        "locations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/lorawanv3Location"
+          },
+          "description": "End device location metadata, set by the Application Server while handling the message."
+        },
+        "version_ids": {
+          "$ref": "#/definitions/v3EndDeviceVersionIdentifiers",
+          "description": "End device version identifiers, set by the Application Server while handling the message."
+        },
+        "network_ids": {
+          "$ref": "#/definitions/v3NetworkIdentifiers",
+          "description": "Network identifiers, set by the Network Server that handles the message."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Attributes for devices, set by the Application Server while handling the message."
+        }
+      }
+    },
+    "lorawanv3TxSettings": {
+      "type": "object",
+      "properties": {
+        "data_rate": {
+          "$ref": "#/definitions/v3DataRate",
+          "description": "Data rate."
+        },
+        "frequency": {
+          "type": "string",
+          "format": "uint64",
+          "description": "Frequency (Hz)."
+        },
+        "enable_crc": {
+          "type": "boolean",
+          "description": "Send a CRC in the packet; only on uplink; on downlink, CRC should not be enabled."
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Timestamp of the gateway concentrator when the uplink message was received, or when the downlink message should be transmitted (microseconds).\nOn downlink, set timestamp to 0 and time to null to use immediate scheduling."
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time of the gateway when the uplink message was received, or when the downlink message should be transmitted.\nFor downlink, this requires the gateway to have GPS time synchronization."
+        },
+        "downlink": {
+          "$ref": "#/definitions/TxSettingsDownlink",
+          "description": "Transmission settings for downlink."
+        },
+        "concentrator_timestamp": {
+          "type": "string",
+          "format": "int64",
+          "description": "Concentrator timestamp for the downlink as calculated by the Gateway Server scheduler.\nThis value takes into account necessary offsets such as the RTT (Round Trip Time) and TOA (Time Of Arrival).\nThis field is set and used only by the Gateway Server."
+        }
+      },
+      "description": "TxSettings contains the settings for a transmission.\nThis message is used on both uplink and downlink.\nOn downlink, this is a scheduled transmission."
+    },
+    "v3DataRate": {
+      "type": "object",
+      "properties": {
+        "lora": {
+          "$ref": "#/definitions/v3LoRaDataRate"
+        },
+        "fsk": {
+          "$ref": "#/definitions/v3FSKDataRate"
+        },
+        "lrfhss": {
+          "$ref": "#/definitions/v3LRFHSSDataRate"
+        }
+      }
+    },
+    "v3FSKDataRate": {
+      "type": "object",
+      "properties": {
+        "bit_rate": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Bit rate (bps)."
+        }
+      }
+    },
+    "v3LoRaDataRate": {
+      "type": "object",
+      "properties": {
+        "bandwidth": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Bandwidth (Hz)."
+        },
+        "spreading_factor": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "coding_rate": {
+          "type": "string"
+        }
+      }
+    },
+    "v3LRFHSSDataRate": {
+      "type": "object",
+      "properties": {
+        "modulation_type": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "operating_channel_width": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Operating Channel Width (Hz)."
+        },
+        "coding_rate": {
+          "type": "string"
+        }
+      }
+    },
+    "TxSettingsDownlink": {
+      "type": "object",
+      "properties": {
+        "antenna_index": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Index of the antenna on which the uplink was received and/or downlink must be sent."
+        },
+        "tx_power": {
+          "type": "number",
+          "format": "float",
+          "description": "Transmission power (dBm). Only on downlink."
+        },
+        "invert_polarization": {
+          "type": "boolean",
+          "description": "Invert LoRa polarization; false for LoRaWAN uplink, true for downlink."
+        }
+      },
+      "description": "Transmission settings for downlink."
+    },
+    "lorawanv3RxMetadata": {
+      "type": "object",
+      "properties": {
+        "gateway_ids": {
+          "$ref": "#/definitions/lorawanv3GatewayIdentifiers"
+        },
+        "packet_broker": {
+          "$ref": "#/definitions/lorawanv3PacketBrokerMetadata"
+        },
+        "relay": {
+          "$ref": "#/definitions/lorawanv3RelayMetadata"
+        },
+        "antenna_index": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp at the end of the transmission, provided by the gateway. The accuracy is undefined."
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Gateway concentrator timestamp when the Rx finished (microseconds)."
+        },
+        "fine_timestamp": {
+          "type": "string",
+          "format": "uint64",
+          "description": "Gateway's internal fine timestamp when the Rx finished (nanoseconds)."
+        },
+        "encrypted_fine_timestamp": {
+          "type": "string",
+          "format": "byte",
+          "description": "Encrypted gateway's internal fine timestamp when the Rx finished (nanoseconds)."
+        },
+        "encrypted_fine_timestamp_key_id": {
+          "type": "string"
+        },
+        "rssi": {
+          "type": "number",
+          "format": "float",
+          "description": "Received signal strength indicator (dBm).\nThis value equals `channel_rssi`."
+        },
+        "signal_rssi": {
+          "type": "number",
+          "format": "float",
+          "description": "Received signal strength indicator of the signal (dBm)."
+        },
+        "channel_rssi": {
+          "type": "number",
+          "format": "float",
+          "description": "Received signal strength indicator of the channel (dBm)."
+        },
+        "rssi_standard_deviation": {
+          "type": "number",
+          "format": "float",
+          "description": "Standard deviation of the RSSI during preamble."
+        },
+        "snr": {
+          "type": "number",
+          "format": "float",
+          "description": "Signal-to-noise ratio (dB)."
+        },
+        "frequency_offset": {
+          "type": "string",
+          "format": "int64",
+          "description": "Frequency offset (Hz)."
+        },
+        "location": {
+          "$ref": "#/definitions/lorawanv3Location",
+          "description": "Antenna location; injected by the Gateway Server."
+        },
+        "downlink_path_constraint": {
+          "$ref": "#/definitions/v3DownlinkPathConstraint",
+          "description": "Gateway downlink path constraint; injected by the Gateway Server."
+        },
+        "uplink_token": {
+          "type": "string",
+          "format": "byte",
+          "description": "Uplink token to be included in the Tx request in class A downlink; injected by gateway, Gateway Server or fNS."
+        },
+        "channel_index": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Index of the gateway channel that received the message."
+        },
+        "hopping_width": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Hopping width; a number describing the number of steps of the LR-FHSS grid."
+        },
+        "frequency_drift": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Frequency drift in Hz between start and end of an LR-FHSS packet (signed)."
+        },
+        "gps_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp at the end of the transmission, provided by the gateway.\nGuaranteed to be based on a GPS PPS signal, with an accuracy of 1 millisecond."
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp at which the Gateway Server has received the message."
+        },
+        "advanced": {
+          "type": "object",
+          "title": "Advanced metadata fields\n- can be used for advanced information or experimental features that are not yet formally defined in the API\n- field names are written in snake_case"
+        }
+      },
+      "description": "Contains metadata for a received message. Each antenna that receives\na message corresponds to one RxMetadata."
+    },
+    "lorawanv3PacketBrokerMetadata": {
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "string",
+          "description": "Message identifier generated by Packet Broker Router."
+        },
+        "forwarder_net_id": {
+          "type": "string",
+          "format": "string",
+          "example": "000013",
+          "description": "LoRa Alliance NetID of the Packet Broker Forwarder Member."
+        },
+        "forwarder_tenant_id": {
+          "type": "string",
+          "description": "Tenant ID managed by the Packet Broker Forwarder Member."
+        },
+        "forwarder_cluster_id": {
+          "type": "string",
+          "description": "Forwarder Cluster ID of the Packet Broker Forwarder."
+        },
+        "forwarder_gateway_eui": {
+          "type": "string",
+          "format": "string",
+          "example": "70B3D57ED000ABCD",
+          "description": "Forwarder gateway EUI."
+        },
+        "forwarder_gateway_id": {
+          "type": "string",
+          "description": "Forwarder gateway ID."
+        },
+        "home_network_net_id": {
+          "type": "string",
+          "format": "string",
+          "example": "000013",
+          "description": "LoRa Alliance NetID of the Packet Broker Home Network Member."
+        },
+        "home_network_tenant_id": {
+          "type": "string",
+          "description": "Tenant ID managed by the Packet Broker Home Network Member.\nThis value is empty if it cannot be determined by the Packet Broker Router."
+        },
+        "home_network_cluster_id": {
+          "type": "string",
+          "description": "Home Network Cluster ID of the Packet Broker Home Network."
+        },
+        "hops": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v3PacketBrokerRouteHop"
+          },
+          "description": "Hops that the message passed. Each Packet Broker Router service appends an entry."
+        }
+      }
+    },
+    "v3PacketBrokerRouteHop": {
+      "type": "object",
+      "properties": {
+        "received_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time when the service received the message."
+        },
+        "sender_name": {
+          "type": "string",
+          "description": "Sender of the message, typically the authorized client identifier."
+        },
+        "sender_address": {
+          "type": "string",
+          "description": "Sender IP address or host name."
+        },
+        "receiver_name": {
+          "type": "string",
+          "description": "Receiver of the message."
+        },
+        "receiver_agent": {
+          "type": "string",
+          "description": "Receiver agent."
+        }
+      }
+    },
+    "lorawanv3RelayMetadata": {
+      "type": "object",
+      "properties": {
+        "device_id": {
+          "type": "string",
+          "description": "End device identifiers of the relay."
+        },
+        "wor_channel": {
+          "$ref": "#/definitions/lorawanv3RelayWORChannel",
+          "description": "Wake on radio channel."
+        }
+      }
+    },
+    "lorawanv3RelayWORChannel": {
+      "type": "string",
+      "enum": [
+        "RELAY_WOR_CHANNEL_DEFAULT",
+        "RELAY_WOR_CHANNEL_SECONDARY"
+      ],
+      "default": "RELAY_WOR_CHANNEL_DEFAULT"
+    },
+    "v3DownlinkPathConstraint": {
+      "type": "string",
+      "enum": [
+        "DOWNLINK_PATH_CONSTRAINT_NONE",
+        "DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER",
+        "DOWNLINK_PATH_CONSTRAINT_NEVER"
+      ],
+      "default": "DOWNLINK_PATH_CONSTRAINT_NONE",
+      "description": " - DOWNLINK_PATH_CONSTRAINT_NONE: Indicates that the gateway can be selected for downlink without constraints by the Network Server.\n - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER: Indicates that the gateway can be selected for downlink only if no other or better gateway can be selected.\n - DOWNLINK_PATH_CONSTRAINT_NEVER: Indicates that this gateway will never be selected for downlink, even if that results in no available downlink path."
+    },
+    "v3ApplicationUplink": {
+      "type": "object",
+      "properties": {
+        "session_key_id": {
+          "type": "string",
+          "format": "byte",
+          "description": "Join Server issued identifier for the session keys used by this uplink."
+        },
+        "f_port": {
+          "type": "integer",
+          "format": "int64",
+          "description": "LoRaWAN FPort of the uplink message."
+        },
+        "f_cnt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "LoRaWAN FCntUp of the uplink message."
+        },
+        "frm_payload": {
+          "type": "string",
+          "format": "byte",
+          "description": "The frame payload of the uplink message.\nThe payload is still encrypted if the skip_payload_crypto field of the EndDevice\nis true, which is indicated by the presence of the app_s_key field."
+        },
+        "decoded_payload": {
+          "type": "object",
+          "description": "The decoded frame payload of the uplink message.\nThis field is set by the message processor that is configured for the end device (see formatters) or application (see default_formatters)."
+        },
+        "decoded_payload_warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Warnings generated by the message processor while decoding the frm_payload."
+        },
+        "normalized_payload": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "The normalized frame payload of the uplink message.\nThis field is set by the message processor that is configured for the end device (see formatters) or application (see default_formatters).\nIf the message processor is a custom script, there is no uplink normalizer script and the decoded output is valid\nnormalized payload, this field contains the decoded payload."
+        },
+        "normalized_payload_warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Warnings generated by the message processor while normalizing the decoded payload."
+        },
+        "rx_metadata": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/lorawanv3RxMetadata"
+          },
+          "description": "A list of metadata for each antenna of each gateway that received this message."
+        },
+        "settings": {
+          "$ref": "#/definitions/lorawanv3TxSettings",
+          "description": "Transmission settings used by the end device."
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server time when the Network Server received the message."
+        },
+        "app_s_key": {
+          "$ref": "#/definitions/v3KeyEnvelope",
+          "description": "The AppSKey of the current session.\nThis field is only present if the skip_payload_crypto field of the EndDevice\nis true.\nCan be used to decrypt uplink payloads and encrypt downlink payloads."
+        },
+        "last_a_f_cnt_down": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The last AFCntDown of the current session.\nThis field is only present if the skip_payload_crypto field of the EndDevice\nis true.\nCan be used with app_s_key to encrypt downlink payloads."
+        },
+        "confirmed": {
+          "type": "boolean",
+          "description": "Indicates whether the end device used confirmed data uplink."
+        },
+        "consumed_airtime": {
+          "type": "string",
+          "description": "Consumed airtime for the transmission of the uplink message. Calculated by Network Server using the raw payload size and the transmission settings."
+        },
+        "packet_error_rate": {
+          "type": "number",
+          "format": "float",
+          "description": "Packet error rate of the recent uplinks in the current session.\nCalculated by the Network Server. The value is defined in the [0, 1] interval."
+        },
+        "locations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/lorawanv3Location"
+          },
+          "description": "End device location metadata, set by the Application Server while handling the message."
+        },
+        "version_ids": {
+          "$ref": "#/definitions/v3EndDeviceVersionIdentifiers",
+          "description": "End device version identifiers, set by the Application Server while handling the message."
+        },
+        "network_ids": {
+          "$ref": "#/definitions/v3NetworkIdentifiers",
+          "description": "Network identifiers, set by the Network Server that handles the message."
+        },
+        "last_battery_percentage": {
+          "$ref": "#/definitions/v3LastBatteryPercentage",
+          "description": "Last battery percentage of the end device.\nReceived via the DevStatus MAC command at last_dev_status_received_at or earlier.\nSet by the Network Server while handling the message."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Attributes for devices, set by the Application Server while handling the message."
+        }
+      }
+    },
+    "v3LastBatteryPercentage": {
+      "type": "object",
+      "properties": {
+        "f_cnt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Frame counter value of last uplink containing DevStatusAns."
+        },
+        "value": {
+          "type": "number",
+          "format": "float",
+          "description": "The battery percentage of the end device.\nThe value is defined in the [0, 100] interval."
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time when last DevStatus MAC command was received."
+        }
+      }
+    },
+    "v3KeyEnvelope": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "format": "string",
+          "example": "0123456789ABCDEF0123456789ABCDEF",
+          "description": "The unencrypted AES key."
+        },
+        "kek_label": {
+          "type": "string",
+          "description": "The label of the RFC 3394 key-encryption-key (KEK) that was used to encrypt the key."
+        },
+        "encrypted_key": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "v3ApplicationLocation": {
+      "type": "object",
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/definitions/lorawanv3Location"
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v3ApplicationJoinAccept": {
+      "type": "object",
+      "properties": {
+        "session_key_id": {
+          "type": "string",
+          "format": "byte",
+          "description": "Join Server issued identifier for the session keys negotiated in this join."
+        },
+        "app_s_key": {
+          "$ref": "#/definitions/v3KeyEnvelope",
+          "description": "Encrypted Application Session Key (if Join Server sent it to Network Server)."
+        },
+        "invalidated_downlinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v3ApplicationDownlink"
+          },
+          "description": "Downlink messages in the queue that got invalidated because of the session change."
+        },
+        "pending_session": {
+          "type": "boolean",
+          "description": "Indicates whether the security context refers to the pending session, i.e. when this join-accept is an answer to a\nrejoin-request."
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server time when the Network Server received the message."
+        },
+        "locations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/lorawanv3Location"
+          },
+          "description": "End device location metadata, set by the Application Server while handling the message."
+        },
+        "version_ids": {
+          "$ref": "#/definitions/v3EndDeviceVersionIdentifiers",
+          "description": "End device version identifiers, set by the Application Server while handling the message."
+        },
+        "network_ids": {
+          "$ref": "#/definitions/v3NetworkIdentifiers",
+          "description": "Network identifiers, set by the Network Server that handles the message."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Attributes for devices, set by the Application Server while handling the message."
+        }
+      }
+    },
+    "v3ApplicationInvalidatedDownlinks": {
+      "type": "object",
+      "properties": {
+        "downlinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v3ApplicationDownlink"
+          }
+        },
+        "last_f_cnt_down": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "session_key_id": {
+          "type": "string",
+          "format": "byte"
+        },
+        "locations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/lorawanv3Location"
+          },
+          "description": "End device location metadata, set by the Application Server while handling the message."
+        },
+        "version_ids": {
+          "$ref": "#/definitions/v3EndDeviceVersionIdentifiers",
+          "description": "End device version identifiers, set by the Application Server while handling the message."
+        },
+        "network_ids": {
+          "$ref": "#/definitions/v3NetworkIdentifiers",
+          "description": "Network identifiers, set by the Network Server that handles the message."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Attributes for devices, set by the Application Server while handling the message."
+        }
+      }
+    }
+  },
+  "$ref": "#/definitions/v3ApplicationUp"
+}

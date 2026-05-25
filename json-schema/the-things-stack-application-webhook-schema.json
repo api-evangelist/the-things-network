@@ -1,0 +1,218 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/the-things-network/json-schema/the-things-stack-application-webhook-schema.json",
+  "title": "v3ApplicationWebhook",
+  "description": "JSON Schema for v3ApplicationWebhook, extracted from The Things Stack v3.36 api.swagger.json",
+  "definitions": {
+    "v3ApplicationWebhook": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "$ref": "#/definitions/v3ApplicationWebhookIdentifiers"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "base_url": {
+          "type": "string",
+          "description": "Base URL to which the message's path is appended."
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "HTTP headers to use."
+        },
+        "format": {
+          "type": "string",
+          "description": "The format to use for the body.\nSupported values depend on the Application Server configuration."
+        },
+        "template_ids": {
+          "$ref": "#/definitions/v3ApplicationWebhookTemplateIdentifiers",
+          "description": "The ID of the template that was used to create the Webhook."
+        },
+        "template_fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The value of the fields used by the template. Maps field.id to the value."
+        },
+        "downlink_api_key": {
+          "type": "string",
+          "description": "The API key to be used for downlink queue operations.\nThe field is provided for convenience reasons, and can contain API keys with additional rights (albeit this is discouraged)."
+        },
+        "uplink_message": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "uplink_normalized": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "join_accept": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "downlink_ack": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "downlink_nack": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "downlink_sent": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "downlink_failed": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "downlink_queued": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "downlink_queue_invalidated": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "location_solved": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "service_data": {
+          "$ref": "#/definitions/v3ApplicationWebhookMessage"
+        },
+        "health_status": {
+          "$ref": "#/definitions/v3ApplicationWebhookHealth"
+        },
+        "field_mask": {
+          "type": "string"
+        },
+        "paused": {
+          "type": "boolean",
+          "description": "Set to temporarily pause forwarding uplink data to this end point and receiving downlinks from this end point."
+        }
+      }
+    },
+    "v3ApplicationWebhookHealth": {
+      "type": "object",
+      "properties": {
+        "healthy": {
+          "$ref": "#/definitions/ApplicationWebhookHealthWebhookHealthStatusHealthy"
+        },
+        "unhealthy": {
+          "$ref": "#/definitions/ApplicationWebhookHealthWebhookHealthStatusUnhealthy"
+        }
+      }
+    },
+    "ApplicationWebhookHealthWebhookHealthStatusUnhealthy": {
+      "type": "object",
+      "properties": {
+        "failed_attempts": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "last_failed_attempt_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_failed_attempt_details": {
+          "$ref": "#/definitions/v3ErrorDetails"
+        }
+      }
+    },
+    "v3ErrorDetails": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "description": "Namespace of the error (typically the package name in The Things Stack)."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the error."
+        },
+        "message_format": {
+          "type": "string",
+          "description": "The default (fallback) message format that should be used for the error.\nThis is also used if the client does not have a translation for the error."
+        },
+        "attributes": {
+          "type": "object",
+          "description": "Attributes that should be filled into the message format. Any extra attributes\ncan be displayed as error details."
+        },
+        "correlation_id": {
+          "type": "string",
+          "description": "The correlation ID of the error can be used to correlate the error to stack\ntraces the network may (or may not) store about recent errors."
+        },
+        "cause": {
+          "$ref": "#/definitions/v3ErrorDetails",
+          "description": "The error that caused this error."
+        },
+        "code": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The status code of the error."
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          },
+          "description": "The details of the error."
+        }
+      },
+      "description": "Error details that are communicated over gRPC (and HTTP) APIs.\nThe messages (for translation) are stored as \"error:<namespace>:<name>\"."
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "ApplicationWebhookHealthWebhookHealthStatusHealthy": {
+      "type": "object"
+    },
+    "v3ApplicationWebhookIdentifiers": {
+      "type": "object",
+      "properties": {
+        "application_ids": {
+          "$ref": "#/definitions/v3ApplicationIdentifiers"
+        },
+        "webhook_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v3ApplicationIdentifiers": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v3ApplicationWebhookMessage": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path to append to the base URL."
+        }
+      }
+    },
+    "v3ApplicationWebhookTemplateIdentifiers": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$ref": "#/definitions/v3ApplicationWebhook"
+}

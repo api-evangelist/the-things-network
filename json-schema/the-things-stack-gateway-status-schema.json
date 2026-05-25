@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/the-things-network/json-schema/the-things-stack-gateway-status-schema.json",
+  "title": "v3GatewayStatus",
+  "description": "JSON Schema for v3GatewayStatus, extracted from The Things Stack v3.36 api.swagger.json",
+  "definitions": {
+    "v3GatewayStatus": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Current time of the gateway"
+        },
+        "boot_time": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Boot time of the gateway\n- can be left out to save bandwidth; old value will be kept"
+        },
+        "versions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Versions of gateway subsystems\n- each field can be left out to save bandwidth; old value will be kept\n- map keys are written in snake_case\n- for example:\n    firmware: \"2.0.4\"\n    forwarder: \"v2-3.3.1\"\n    fpga: \"48\"\n    dsp: \"27\"\n    hal: \"v2-3.5.0\""
+        },
+        "antenna_locations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/lorawanv3Location"
+          },
+          "title": "Location of each gateway's antenna\n- if left out, server uses registry-set location as fallback"
+        },
+        "ip": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "IP addresses of this gateway.\nRepeated addresses can be used to communicate addresses of multiple interfaces (LAN, Public IP, ...)."
+        },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "format": "float"
+          },
+          "title": "Metrics\n- can be used for forwarding gateway metrics such as temperatures or performance metrics\n- map keys are written in snake_case"
+        },
+        "advanced": {
+          "type": "object",
+          "title": "Advanced metadata fields\n- can be used for advanced information or experimental features that are not yet formally defined in the API\n- field names are written in snake_case"
+        }
+      }
+    },
+    "lorawanv3Location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The North\u2013South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative."
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative."
+        },
+        "altitude": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The altitude (meters), where 0 is the mean sea level."
+        },
+        "accuracy": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The accuracy of the location (meters)."
+        },
+        "source": {
+          "$ref": "#/definitions/v3LocationSource",
+          "description": "Source of the location information."
+        }
+      }
+    },
+    "v3LocationSource": {
+      "type": "string",
+      "enum": [
+        "SOURCE_UNKNOWN",
+        "SOURCE_GPS",
+        "SOURCE_REGISTRY",
+        "SOURCE_IP_GEOLOCATION",
+        "SOURCE_WIFI_RSSI_GEOLOCATION",
+        "SOURCE_BT_RSSI_GEOLOCATION",
+        "SOURCE_LORA_RSSI_GEOLOCATION",
+        "SOURCE_LORA_TDOA_GEOLOCATION",
+        "SOURCE_COMBINED_GEOLOCATION"
+      ],
+      "default": "SOURCE_UNKNOWN",
+      "description": " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
+    }
+  },
+  "$ref": "#/definitions/v3GatewayStatus"
+}

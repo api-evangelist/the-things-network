@@ -1,0 +1,35 @@
+apiVersion: naftiko/v1
+kind: Capability
+metadata:
+  name: tenant-administration
+  provider: the-things-network
+  description: Administer a Things Stack tenant — users, organizations, OAuth clients, invitations, sessions, and API keys — via the Identity Server.
+  tags:
+    - Identity
+    - OAuth
+    - Administration
+spec:
+  inputs:
+    organization_id:
+      type: string
+  steps:
+    - id: create-user
+      operation: IdentityServer.UserRegistry.Create
+      path: /users
+    - id: invite-user
+      operation: IdentityServer.UserInvitationRegistry.Send
+      path: /invitations
+    - id: create-org
+      operation: IdentityServer.OrganizationRegistry.Create
+      path: /users/{user_id}/organizations
+    - id: issue-api-key
+      operation: IdentityServer.UserAccess.CreateAPIKey
+      path: /users/{user_id}/api-keys
+    - id: register-oauth-client
+      operation: IdentityServer.ClientRegistry.Create
+      path: /users/{user_id}/clients
+  outputs:
+    organization_id:
+      type: string
+    api_key_id:
+      type: string

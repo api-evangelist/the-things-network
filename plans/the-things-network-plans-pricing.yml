@@ -1,0 +1,137 @@
+aid: the-things-network
+name: The Things Stack — Plans and Pricing
+description: Plans and pricing for The Things Network community network and The Things Stack Cloud / Enterprise offerings. The Things Network (TTN) is a free community LoRaWAN network operated by The Things Industries and the global community; The Things Stack is the underlying open-source software (Apache-2.0) which is also offered as paid Cloud and Enterprise tiers.
+license: Apache-2.0
+specVersion: 0.1
+url: https://www.thethingsindustries.com/stack/plans/
+plans:
+  - id: open-source-self-hosted
+    name: The Things Stack Open Source (Self-Hosted)
+    type: OpenSource
+    description: Run the full Apache-2.0 The Things Stack yourself via Docker, Kubernetes/Helm, or source build. No license fee. No vendor SLA.
+    entries:
+      - geo: GLOBAL
+        unit: 1
+        label: Self-Hosted Instance
+        price: 0
+        metric: instance
+        timeFrame: month
+        description: Self-hosted deployments are free under the Apache 2.0 license.
+    elements:
+      - name: Full Things Stack feature set
+      - name: Apache 2.0 license
+      - name: gRPC, HTTP REST, MQTT, and webhook APIs
+      - name: LoRaWAN 1.0.x and 1.1, Classes A/B/C, OTAA/ABP
+      - name: Multi-tenancy and OAuth 2.0 Identity Server
+      - name: Packet Broker Agent for roaming
+      - name: Community support only (forum, GitHub issues)
+
+  - id: the-things-network-community
+    name: The Things Network (Community Network)
+    type: Community
+    description: Free, community-operated global LoRaWAN network running on The Things Stack Sandbox. Fair-use only, no SLA, public coverage via community gateways. Backed by The Things Industries.
+    entries:
+      - geo: GLOBAL
+        unit: 1
+        label: Community User
+        price: 0
+        metric: user
+        timeFrame: month
+        description: Free under fair-use policy.
+    elements:
+      - name: Free console access at console.cloud.thethings.network
+      - name: Public community-operated gateway coverage in 153+ countries
+      - name: Fair-use traffic policy (~30s/day uplink airtime per device)
+      - name: No SLA
+      - name: Same Things Stack feature set as commercial Cloud
+
+  - id: discovery
+    name: The Things Stack Cloud — Discovery
+    type: Free
+    description: Free Things Stack Cloud tenant for evaluation, learning, and small deployments. Production-grade infrastructure with an uptime SLA.
+    entries:
+      - geo: GLOBAL
+        unit: 1
+        label: Devices Included
+        limit: 10
+        price: 0
+        metric: device
+        timeFrame: month
+        description: Up to 10 end devices included.
+      - geo: GLOBAL
+        unit: 1
+        label: Gateways Included
+        limit: 10
+        price: 0
+        metric: gateway
+        timeFrame: month
+        description: Up to 10 gateways included.
+    elements:
+      - name: All Plus plan features
+      - name: No time limit
+      - name: Uptime SLA
+      - name: Self-service signup
+
+  - id: standard
+    name: The Things Stack Cloud — Standard
+    type: Paid
+    description: Production Things Stack Cloud tenant for commercial deployments with 1,000 included devices and pay-as-you-go beyond. Pricing is published per-region and tenant — contact sales for current rates.
+    entries:
+      - geo: GLOBAL
+        unit: 1
+        label: Devices Included
+        limit: 1000
+        price: Call
+        metric: device
+        timeFrame: month
+        description: 1,000 end devices included; overage is pay-as-you-go.
+      - geo: GLOBAL
+        unit: 1
+        label: Gateways
+        price: Included
+        metric: gateway
+        timeFrame: month
+        description: Unlimited gateways.
+    elements:
+      - name: Unlimited gateways, applications, and teams
+      - name: 99.9% uptime SLA
+      - name: Pay-as-you-go device overage
+      - name: Standard support
+
+  - id: plus
+    name: The Things Stack Cloud — Plus
+    type: Paid
+    description: Adds the Network Operations Center (NOC) and invoice billing on top of Standard. Pricing on application.
+    entries:
+      - geo: GLOBAL
+        unit: 1
+        label: Plus Tenant
+        price: Call
+        metric: tenant
+        timeFrame: month
+        description: Contact The Things Industries sales.
+    elements:
+      - name: Network Operations Center for in-depth analysis
+      - name: Standard support included
+      - name: Invoice billing
+      - name: All Standard features
+
+  - id: enterprise
+    name: The Things Stack Enterprise (Self-Hosted Licensed)
+    type: Enterprise
+    description: The Things Stack Enterprise distribution self-hosted on the customer's own infrastructure, with commercial support, multi-tenancy, NOC, and feature add-ons. Contact sales — typical for fleets above 50,000 devices.
+    entries:
+      - geo: GLOBAL
+        unit: 1
+        label: Enterprise License
+        price: Call
+        metric: license
+        timeFrame: year
+        description: Custom enterprise pricing.
+    elements:
+      - name: Self-hosted on customer infrastructure
+      - name: Multi-tenancy
+      - name: Network Operations Center
+      - name: Commercial support and SLAs
+      - name: Custom add-ons and integrations
+      - name: Sales-led for >50,000 devices

@@ -1,0 +1,23 @@
+{
+  "webhook": {
+    "ids": {
+      "application_ids": { "application_id": "weather-stations" },
+      "webhook_id": "downstream-cloud"
+    },
+    "base_url": "https://example.com/ttn",
+    "format": "json",
+    "headers": { "X-Tenant": "weather-co" },
+    "uplink_message": { "path": "/uplink" },
+    "uplink_normalized": { "path": "/uplink-normalized" },
+    "join_accept": { "path": "/join" },
+    "downlink_ack": { "path": "/ack" },
+    "downlink_nack": { "path": "/nack" },
+    "downlink_failed": { "path": "/failed" },
+    "downlink_queued": { "path": "/queued" },
+    "location_solved": { "path": "/location" },
+    "service_data": { "path": "/service" }
+  },
+  "field_mask": {
+    "paths": ["base_url", "format", "uplink_message", "join_accept"]
+  }
+}

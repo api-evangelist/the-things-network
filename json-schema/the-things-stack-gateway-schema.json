@@ -1,0 +1,386 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/the-things-network/json-schema/the-things-stack-gateway-schema.json",
+  "title": "v3Gateway",
+  "description": "JSON Schema for v3Gateway, extracted from The Things Stack v3.36 api.swagger.json",
+  "definitions": {
+    "v3Gateway": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "$ref": "#/definitions/lorawanv3GatewayIdentifiers",
+          "description": "The identifiers of the gateway. These are public and can be seen by any authenticated user in the network."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the gateway was created. This information is public and can be seen by any authenticated user in the network."
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the gateway was last updated. This information is public and can be seen by any authenticated user in the network."
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the gateway was deleted. This information is public and can be seen by any authenticated user in the network."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the gateway. This information is public and can be seen by any authenticated user in the network."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description for the gateway. This information is public and can be seen by any authenticated user in the network."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Key-value attributes for this gateway. Typically used for organizing gateways or for storing integration-specific data."
+        },
+        "contact_info": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v3ContactInfo"
+          },
+          "description": "Contact information for this gateway. Typically used to indicate who to contact with technical/security questions about the gateway.\nThis field is deprecated. Use administrative_contact and technical_contact instead."
+        },
+        "administrative_contact": {
+          "$ref": "#/definitions/v3OrganizationOrUserIdentifiers"
+        },
+        "technical_contact": {
+          "$ref": "#/definitions/v3OrganizationOrUserIdentifiers"
+        },
+        "version_ids": {
+          "$ref": "#/definitions/v3GatewayVersionIdentifiers"
+        },
+        "gateway_server_address": {
+          "type": "string",
+          "description": "The address of the Gateway Server to connect to.\nThis information is public and can be seen by any authenticated user in the network if status_public is true.\nThe typical format of the address is \"scheme://host:port\". The scheme is optional. If the port is omitted,\nthe normal port inference (with DNS lookup, otherwise defaults) is used.\nThe connection shall be established with transport layer security (TLS).\nCustom certificate authorities may be configured out-of-band."
+        },
+        "auto_update": {
+          "type": "boolean"
+        },
+        "update_channel": {
+          "type": "string"
+        },
+        "frequency_plan_id": {
+          "type": "string",
+          "description": "Frequency plan ID of the gateway.\nThis information is public and can be seen by any authenticated user in the network.\nDEPRECATED: use frequency_plan_ids.\nThis equals the first element of the frequency_plan_ids field."
+        },
+        "frequency_plan_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Frequency plan IDs of the gateway.\nThis information is public and can be seen by any authenticated user in the network.\nThe first element equals the frequency_plan_id field."
+        },
+        "antennas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v3GatewayAntenna"
+          },
+          "description": "Antennas of the gateway. Location information of the antennas is public and can be seen by any authenticated user in the network if location_public=true."
+        },
+        "status_public": {
+          "type": "boolean",
+          "description": "The status of this gateway may be publicly displayed."
+        },
+        "location_public": {
+          "type": "boolean",
+          "description": "The location of this gateway may be publicly displayed."
+        },
+        "schedule_downlink_late": {
+          "type": "boolean",
+          "description": "Enable server-side buffering of downlink messages. This is recommended for gateways using the Semtech UDP Packet\nForwarder v2.x or older, as it does not feature a just-in-time queue. If enabled, the Gateway Server schedules the\ndownlink message late to the gateway so that it does not overwrite previously scheduled downlink messages that have\nnot been transmitted yet."
+        },
+        "enforce_duty_cycle": {
+          "type": "boolean",
+          "description": "Enforcing gateway duty cycle is recommended for all gateways to respect spectrum regulations. Disable enforcing the\nduty cycle only in controlled research and development environments."
+        },
+        "downlink_path_constraint": {
+          "$ref": "#/definitions/v3DownlinkPathConstraint"
+        },
+        "schedule_anytime_delay": {
+          "type": "string",
+          "description": "Adjust the time that GS schedules class C messages in advance. This is useful for gateways that have a known high latency backhaul, like 3G and satellite."
+        },
+        "update_location_from_status": {
+          "type": "boolean",
+          "description": "Update the location of this gateway from status messages. This only works for gateways connecting with authentication; gateways connected over UDP are not supported."
+        },
+        "lbs_lns_secret": {
+          "$ref": "#/definitions/v3Secret",
+          "description": "The LoRa Basics Station LNS secret.\nThis is either an auth token (such as an API Key) or a TLS private certificate.\nRequires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value."
+        },
+        "claim_authentication_code": {
+          "$ref": "#/definitions/v3GatewayClaimAuthenticationCode",
+          "description": "The authentication code for gateway claiming.\nRequires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.\nThe entire field must be used in RPCs since sub-fields are validated wrt to each other. Direct selection/update of sub-fields only are not allowed.\nUse the top level field mask `claim_authentication_code` even when updating single fields."
+        },
+        "target_cups_uri": {
+          "type": "string",
+          "description": "CUPS URI for LoRa Basics Station CUPS redirection.\nThe CUPS Trust field will be automatically fetched from the cert chain presented by the target server."
+        },
+        "target_cups_key": {
+          "$ref": "#/definitions/v3Secret",
+          "description": "CUPS Key for LoRa Basics Station CUPS redirection.\nIf redirecting to another instance of TTS, use the CUPS API Key for the gateway on the target instance.\nRequires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value."
+        },
+        "require_authenticated_connection": {
+          "type": "boolean",
+          "description": "Require an authenticated gateway connection. This prevents the gateway from using the UDP protocol and requires authentication when using other protocols."
+        },
+        "lrfhss": {
+          "$ref": "#/definitions/GatewayLRFHSS"
+        },
+        "disable_packet_broker_forwarding": {
+          "type": "boolean"
+        }
+      },
+      "description": "Gateway is the message that defines a gateway on the network."
+    },
+    "v3OrganizationOrUserIdentifiers": {
+      "type": "object",
+      "properties": {
+        "organization_ids": {
+          "$ref": "#/definitions/v3OrganizationIdentifiers"
+        },
+        "user_ids": {
+          "$ref": "#/definitions/v3UserIdentifiers"
+        }
+      },
+      "description": "OrganizationOrUserIdentifiers contains either organization or user identifiers."
+    },
+    "v3OrganizationIdentifiers": {
+      "type": "object",
+      "properties": {
+        "organization_id": {
+          "type": "string",
+          "description": "This ID shares namespace with user IDs."
+        }
+      }
+    },
+    "v3UserIdentifiers": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "This ID shares namespace with organization IDs."
+        },
+        "email": {
+          "type": "string",
+          "description": "Secondary identifier, which can only be used in specific requests."
+        }
+      }
+    },
+    "lorawanv3GatewayIdentifiers": {
+      "type": "object",
+      "properties": {
+        "gateway_id": {
+          "type": "string"
+        },
+        "eui": {
+          "type": "string",
+          "format": "string",
+          "example": "70B3D57ED000ABCD",
+          "description": "Secondary identifier, which can only be used in specific requests."
+        }
+      }
+    },
+    "v3GatewayVersionIdentifiers": {
+      "type": "object",
+      "properties": {
+        "brand_id": {
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "hardware_version": {
+          "type": "string"
+        },
+        "firmware_version": {
+          "type": "string"
+        },
+        "runtime_version": {
+          "type": "string"
+        }
+      },
+      "description": "Identifies an end device model with version information."
+    },
+    "v3Secret": {
+      "type": "object",
+      "properties": {
+        "key_id": {
+          "type": "string",
+          "description": "ID of the Key used to encrypt the secret."
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      },
+      "description": "Secret contains a secret value. It also contains the ID of the Encryption key used to encrypt it."
+    },
+    "v3GatewayClaimAuthenticationCode": {
+      "type": "object",
+      "properties": {
+        "secret": {
+          "$ref": "#/definitions/v3Secret"
+        },
+        "valid_from": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "valid_to": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "Authentication code for claiming gateways."
+    },
+    "GatewayLRFHSS": {
+      "type": "object",
+      "properties": {
+        "supported": {
+          "type": "boolean",
+          "description": "The gateway supports the LR-FHSS uplink channels."
+        }
+      },
+      "description": "LR-FHSS gateway capabilities."
+    },
+    "v3ContactInfo": {
+      "type": "object",
+      "properties": {
+        "contact_type": {
+          "$ref": "#/definitions/v3ContactType"
+        },
+        "contact_method": {
+          "$ref": "#/definitions/v3ContactMethod"
+        },
+        "value": {
+          "type": "string"
+        },
+        "public": {
+          "type": "boolean"
+        },
+        "validated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v3ContactMethod": {
+      "type": "string",
+      "enum": [
+        "CONTACT_METHOD_OTHER",
+        "CONTACT_METHOD_EMAIL",
+        "CONTACT_METHOD_PHONE"
+      ],
+      "default": "CONTACT_METHOD_OTHER"
+    },
+    "v3ContactType": {
+      "type": "string",
+      "enum": [
+        "CONTACT_TYPE_OTHER",
+        "CONTACT_TYPE_ABUSE",
+        "CONTACT_TYPE_BILLING",
+        "CONTACT_TYPE_TECHNICAL"
+      ],
+      "default": "CONTACT_TYPE_OTHER"
+    },
+    "v3GatewayAntenna": {
+      "type": "object",
+      "properties": {
+        "gain": {
+          "type": "number",
+          "format": "float",
+          "description": "Antenna gain relative to the gateway, in dBi."
+        },
+        "location": {
+          "$ref": "#/definitions/lorawanv3Location",
+          "description": "location is the antenna's location."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "placement": {
+          "$ref": "#/definitions/v3GatewayAntennaPlacement"
+        }
+      },
+      "description": "GatewayAntenna is the message that defines a gateway antenna."
+    },
+    "lorawanv3Location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The North\u2013South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative."
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative."
+        },
+        "altitude": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The altitude (meters), where 0 is the mean sea level."
+        },
+        "accuracy": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The accuracy of the location (meters)."
+        },
+        "source": {
+          "$ref": "#/definitions/v3LocationSource",
+          "description": "Source of the location information."
+        }
+      }
+    },
+    "v3LocationSource": {
+      "type": "string",
+      "enum": [
+        "SOURCE_UNKNOWN",
+        "SOURCE_GPS",
+        "SOURCE_REGISTRY",
+        "SOURCE_IP_GEOLOCATION",
+        "SOURCE_WIFI_RSSI_GEOLOCATION",
+        "SOURCE_BT_RSSI_GEOLOCATION",
+        "SOURCE_LORA_RSSI_GEOLOCATION",
+        "SOURCE_LORA_TDOA_GEOLOCATION",
+        "SOURCE_COMBINED_GEOLOCATION"
+      ],
+      "default": "SOURCE_UNKNOWN",
+      "description": " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
+    },
+    "v3GatewayAntennaPlacement": {
+      "type": "string",
+      "enum": [
+        "PLACEMENT_UNKNOWN",
+        "INDOOR",
+        "OUTDOOR"
+      ],
+      "default": "PLACEMENT_UNKNOWN"
+    },
+    "v3DownlinkPathConstraint": {
+      "type": "string",
+      "enum": [
+        "DOWNLINK_PATH_CONSTRAINT_NONE",
+        "DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER",
+        "DOWNLINK_PATH_CONSTRAINT_NEVER"
+      ],
+      "default": "DOWNLINK_PATH_CONSTRAINT_NONE",
+      "description": " - DOWNLINK_PATH_CONSTRAINT_NONE: Indicates that the gateway can be selected for downlink without constraints by the Network Server.\n - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER: Indicates that the gateway can be selected for downlink only if no other or better gateway can be selected.\n - DOWNLINK_PATH_CONSTRAINT_NEVER: Indicates that this gateway will never be selected for downlink, even if that results in no available downlink path."
+    }
+  },
+  "$ref": "#/definitions/v3Gateway"
+}

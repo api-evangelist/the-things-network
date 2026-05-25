@@ -1,0 +1,47 @@
+extends:
+  - spectral:oas
+
+functions: []
+
+rules:
+  ttn-tag-pascal-case:
+    description: Tag names follow PascalCase service naming used by the upstream gRPC-Gateway swagger (e.g., ApplicationRegistry, GatewayServer).
+    severity: warn
+    given: $.tags[*].name
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][A-Za-z0-9]+$'
+
+  ttn-path-prefix:
+    description: HTTP paths under the AS, NS, GS, JS, and IS use stable resource-first segments.
+    severity: warn
+    given: $.paths
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/(applications|users|organizations|gateways|clients|invitations|notifications|as|ns|gs|js|is|gcls|gcs|edcs|pba|events|search|email|qr-codes|api/v3)'
+
+  ttn-field-mask-on-set:
+    description: PUT/POST set-style operations should accept a field_mask body parameter for partial updates.
+    severity: hint
+    given: $.paths[*][put,patch].parameters[?(@.in == 'body')].schema.properties
+    then:
+      field: field_mask
+      function: truthy
+
+  ttn-operation-id-required:
+    description: All operations must declare an operationId.
+    severity: error
+    given: $.paths[*][get,put,post,delete].operationId
+    then:
+      function: truthy
+
+  ttn-title-case-summaries:
+    description: Operation summaries should use Title Case.
+    severity: hint
+    given: $.paths[*][get,put,post,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][A-Za-z0-9]+( [A-Z][A-Za-z0-9]+)*$'

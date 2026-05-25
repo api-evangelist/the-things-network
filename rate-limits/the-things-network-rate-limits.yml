@@ -1,0 +1,63 @@
+aid: the-things-network
+name: The Things Stack — Rate Limits and Fair Use
+description: Rate-limit, concurrency, and fair-use policies that apply to The Things Stack APIs and to traffic on The Things Network community network. The Things Stack itself enforces per-endpoint and per-tenant rate limits via the IS/AS/NS/GS rate-limiter configuration. The community network additionally enforces a LoRaWAN airtime fair-use policy.
+license: Apache-2.0
+specVersion: 0.1
+sources:
+  - url: https://www.thethingsindustries.com/docs/reference/rate-limiting/
+    type: Documentation
+  - url: https://www.thethingsnetwork.org/docs/lorawan/duty-cycle/
+    type: Documentation
+  - url: https://www.thethingsnetwork.org/forum/t/fair-use-policy-explained/1300
+    type: Documentation
+limits:
+  - id: api-default-rps
+    scope: api
+    description: Default rate limit for HTTP/gRPC requests against the Identity Server, Application Server, Network Server, Gateway Server, and Join Server. Configurable per Things Stack deployment via ratelimit.profiles.
+    metric: requests
+    unit: per-second
+    value: configurable
+    notes: Self-hosted deployments configure burst and average rates per endpoint class. The Things Stack Cloud applies The Things Industries' production defaults.
+
+  - id: api-burst
+    scope: api
+    description: Per-IP / per-token burst allowance enforced by the Things Stack rate limiter middleware.
+    metric: requests
+    unit: burst
+    value: configurable
+
+  - id: webhook-egress
+    scope: integration
+    description: Application Server webhook delivery is bounded by the per-tenant webhook concurrency configured in the AS.
+    metric: concurrent-deliveries
+    unit: per-tenant
+    value: configurable
+
+  - id: mqtt-subscriptions
+    scope: integration
+    description: Application Server MQTT broker enforces per-connection subscription and publish limits.
+    metric: messages
+    unit: per-connection-per-second
+    value: configurable
+
+  - id: ttn-community-uplink-airtime
+    scope: community-network
+    description: Fair-use policy on The Things Network community network limits each end device to roughly 30 seconds of uplink airtime per 24 hours.
+    metric: airtime
+    unit: seconds-per-day
+    value: 30
+
+  - id: ttn-community-downlink
+    scope: community-network
+    description: Fair-use policy on The Things Network community network limits each end device to ten downlink messages (including ACKs) per 24 hours.
+    metric: messages
+    unit: per-day
+    value: 10
+
+  - id: lorawan-duty-cycle
+    scope: radio
+    description: Regional regulatory LoRaWAN duty-cycle limit on the unlicensed ISM band (e.g. 1% on EU868 sub-bands). Enforced by the Network Server and gateway scheduler.
+    metric: duty-cycle
+    unit: percent
+    value: 1
+    notes: Region-dependent (EU868, US915, AU915, AS923, IN865, KR920, RU864, CN470, CN779, EU433).

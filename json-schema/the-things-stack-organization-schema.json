@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/the-things-network/json-schema/the-things-stack-organization-schema.json",
+  "title": "v3Organization",
+  "description": "JSON Schema for v3Organization, extracted from The Things Stack v3.36 api.swagger.json",
+  "definitions": {
+    "v3Organization": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "$ref": "#/definitions/v3OrganizationIdentifiers",
+          "description": "The identifiers of the organization. These are public and can be seen by any authenticated user in the network."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the organization was created. This information is public and can be seen by any authenticated user in the network."
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the organization was last updated. This information is public and can be seen by any authenticated user in the network."
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the organization was deleted. This information is public and can be seen by any authenticated user in the network."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the organization. This information is public and can be seen by any authenticated user in the network."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description for the organization."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Key-value attributes for this organization. Typically used for organizing organizations or for storing integration-specific data."
+        },
+        "contact_info": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v3ContactInfo"
+          },
+          "description": "Contact information for this organization. Typically used to indicate who to contact with security/billing questions about the organization.\nThis field is deprecated. Use administrative_contact and technical_contact instead."
+        },
+        "administrative_contact": {
+          "$ref": "#/definitions/v3OrganizationOrUserIdentifiers"
+        },
+        "technical_contact": {
+          "$ref": "#/definitions/v3OrganizationOrUserIdentifiers"
+        },
+        "fanout_notifications": {
+          "type": "boolean",
+          "description": "Determines if a notification will be sent to the collaborators. If false it, notifications will be sent only to the\nadministrative or technical contact."
+        }
+      }
+    },
+    "v3OrganizationIdentifiers": {
+      "type": "object",
+      "properties": {
+        "organization_id": {
+          "type": "string",
+          "description": "This ID shares namespace with user IDs."
+        }
+      }
+    },
+    "v3OrganizationOrUserIdentifiers": {
+      "type": "object",
+      "properties": {
+        "organization_ids": {
+          "$ref": "#/definitions/v3OrganizationIdentifiers"
+        },
+        "user_ids": {
+          "$ref": "#/definitions/v3UserIdentifiers"
+        }
+      },
+      "description": "OrganizationOrUserIdentifiers contains either organization or user identifiers."
+    },
+    "v3UserIdentifiers": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "This ID shares namespace with organization IDs."
+        },
+        "email": {
+          "type": "string",
+          "description": "Secondary identifier, which can only be used in specific requests."
+        }
+      }
+    },
+    "v3ContactInfo": {
+      "type": "object",
+      "properties": {
+        "contact_type": {
+          "$ref": "#/definitions/v3ContactType"
+        },
+        "contact_method": {
+          "$ref": "#/definitions/v3ContactMethod"
+        },
+        "value": {
+          "type": "string"
+        },
+        "public": {
+          "type": "boolean"
+        },
+        "validated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v3ContactMethod": {
+      "type": "string",
+      "enum": [
+        "CONTACT_METHOD_OTHER",
+        "CONTACT_METHOD_EMAIL",
+        "CONTACT_METHOD_PHONE"
+      ],
+      "default": "CONTACT_METHOD_OTHER"
+    },
+    "v3ContactType": {
+      "type": "string",
+      "enum": [
+        "CONTACT_TYPE_OTHER",
+        "CONTACT_TYPE_ABUSE",
+        "CONTACT_TYPE_BILLING",
+        "CONTACT_TYPE_TECHNICAL"
+      ],
+      "default": "CONTACT_TYPE_OTHER"
+    }
+  },
+  "$ref": "#/definitions/v3Organization"
+}

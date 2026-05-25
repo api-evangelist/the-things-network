@@ -1,0 +1,241 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/the-things-network/json-schema/the-things-stack-application-pubsub-schema.json",
+  "title": "v3ApplicationPubSub",
+  "description": "JSON Schema for v3ApplicationPubSub, extracted from The Things Stack v3.36 api.swagger.json",
+  "definitions": {
+    "v3ApplicationPubSub": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "$ref": "#/definitions/v3ApplicationPubSubIdentifiers"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "format": {
+          "type": "string",
+          "description": "The format to use for the body.\nSupported values depend on the Application Server configuration."
+        },
+        "nats": {
+          "$ref": "#/definitions/ApplicationPubSubNATSProvider"
+        },
+        "mqtt": {
+          "$ref": "#/definitions/ApplicationPubSubMQTTProvider"
+        },
+        "aws_iot": {
+          "$ref": "#/definitions/ApplicationPubSubAWSIoTProvider"
+        },
+        "base_topic": {
+          "type": "string",
+          "description": "Base topic name to which the messages topic is appended."
+        },
+        "downlink_push": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage",
+          "description": "The topic to which the Application Server subscribes for downlink queue push operations."
+        },
+        "downlink_replace": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage",
+          "description": "The topic to which the Application Server subscribes for downlink queue replace operations."
+        },
+        "uplink_message": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "uplink_normalized": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "join_accept": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "downlink_ack": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "downlink_nack": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "downlink_sent": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "downlink_failed": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "downlink_queued": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "downlink_queue_invalidated": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "location_solved": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        },
+        "service_data": {
+          "$ref": "#/definitions/v3ApplicationPubSubMessage"
+        }
+      }
+    },
+    "v3ApplicationPubSubIdentifiers": {
+      "type": "object",
+      "properties": {
+        "application_ids": {
+          "$ref": "#/definitions/v3ApplicationIdentifiers"
+        },
+        "pub_sub_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v3ApplicationIdentifiers": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "string"
+        }
+      }
+    },
+    "v3ApplicationPubSubMessage": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "The topic on which the Application Server publishes or receives the messages."
+        }
+      }
+    },
+    "ApplicationPubSubNATSProvider": {
+      "type": "object",
+      "properties": {
+        "server_url": {
+          "type": "string",
+          "description": "The server connection URL."
+        }
+      },
+      "description": "The NATS provider settings."
+    },
+    "ApplicationPubSubAWSIoTProvider": {
+      "type": "object",
+      "properties": {
+        "region": {
+          "type": "string",
+          "description": "The AWS region."
+        },
+        "access_key": {
+          "$ref": "#/definitions/AWSIoTProviderAccessKey",
+          "description": "If set, the integration will use an AWS access key."
+        },
+        "assume_role": {
+          "$ref": "#/definitions/AWSIoTProviderAssumeRole",
+          "description": "If set, the integration will assume the given role during operation."
+        },
+        "endpoint_address": {
+          "type": "string",
+          "description": "The endpoint address to connect to. If the endpoint address is left empty,\nthe integration will try to discover it."
+        },
+        "default": {
+          "$ref": "#/definitions/AWSIoTProviderDefaultIntegration",
+          "description": "Enable the default integration. This overrides custom base topic and message topics of the pub/sub integration."
+        }
+      }
+    },
+    "AWSIoTProviderDefaultIntegration": {
+      "type": "object",
+      "properties": {
+        "stack_name": {
+          "type": "string",
+          "description": "The stack name that is associated with the CloudFormation deployment of The Things Stack Enterprise integration."
+        }
+      }
+    },
+    "AWSIoTProviderAccessKey": {
+      "type": "object",
+      "properties": {
+        "access_key_id": {
+          "type": "string"
+        },
+        "secret_access_key": {
+          "type": "string"
+        },
+        "session_token": {
+          "type": "string"
+        }
+      }
+    },
+    "AWSIoTProviderAssumeRole": {
+      "type": "object",
+      "properties": {
+        "arn": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "session_duration": {
+          "type": "string"
+        }
+      }
+    },
+    "ApplicationPubSubMQTTProvider": {
+      "type": "object",
+      "properties": {
+        "server_url": {
+          "type": "string"
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "subscribe_qos": {
+          "$ref": "#/definitions/MQTTProviderQoS"
+        },
+        "publish_qos": {
+          "$ref": "#/definitions/MQTTProviderQoS"
+        },
+        "use_tls": {
+          "type": "boolean"
+        },
+        "tls_ca": {
+          "type": "string",
+          "format": "byte",
+          "description": "The server Root CA certificate. PEM formatted."
+        },
+        "tls_client_cert": {
+          "type": "string",
+          "format": "byte",
+          "description": "The client certificate. PEM formatted."
+        },
+        "tls_client_key": {
+          "type": "string",
+          "format": "byte",
+          "description": "The client private key. PEM formatted."
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "HTTP headers to use on MQTT-over-Websocket connections."
+        }
+      },
+      "description": "The MQTT provider settings."
+    },
+    "MQTTProviderQoS": {
+      "type": "string",
+      "enum": [
+        "AT_MOST_ONCE",
+        "AT_LEAST_ONCE",
+        "EXACTLY_ONCE"
+      ],
+      "default": "AT_MOST_ONCE"
+    }
+  },
+  "$ref": "#/definitions/v3ApplicationPubSub"
+}

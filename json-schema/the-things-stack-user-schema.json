@@ -1,0 +1,436 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/the-things-network/json-schema/the-things-stack-user-schema.json",
+  "title": "v3User",
+  "description": "JSON Schema for v3User, extracted from The Things Stack v3.36 api.swagger.json",
+  "definitions": {
+    "v3User": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "$ref": "#/definitions/v3UserIdentifiers",
+          "description": "The identifiers of the user. These are public and can be seen by any authenticated user in the network."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user was created. This information is public and can be seen by any authenticated user in the network."
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user was last updated. This information is public and can be seen by any authenticated user in the network."
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user was deleted. This information is public and can be seen by any authenticated user in the network."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the user. This information is public and can be seen by any authenticated user in the network."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description for the user. This information is public and can be seen by any authenticated user in the network."
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Key-value attributes for this users. Typically used for storing integration-specific data."
+        },
+        "contact_info": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v3ContactInfo"
+          },
+          "description": "Contact information for this user. Typically used to indicate who to contact with security/billing questions about the user.\nThis field is deprecated."
+        },
+        "primary_email_address": {
+          "type": "string",
+          "description": "Primary email address that can be used for logging in.\nThis address is not public, use contact_info for that."
+        },
+        "primary_email_address_validated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the primary email address was validated. Note that email address validation is not required on all networks."
+        },
+        "password": {
+          "type": "string",
+          "description": "The password field is only considered when creating a user.\nIt is not returned on API calls, and can not be updated by updating the User.\nSee the UpdatePassword method of the UserRegistry service for more information."
+        },
+        "password_updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "require_password_update": {
+          "type": "boolean"
+        },
+        "state": {
+          "$ref": "#/definitions/v3State",
+          "description": "The reviewing state of the user.\nThis information is public and can be seen by any authenticated user in the network.\nThis field can only be modified by admins."
+        },
+        "state_description": {
+          "type": "string",
+          "description": "A description for the state field.\nThis field can only be modified by admins, and should typically only be updated\nwhen also updating `state`."
+        },
+        "admin": {
+          "type": "boolean",
+          "description": "This user is an admin.\nThis information is public and can be seen by any authenticated user in the network.\nThis field can only be modified by other admins."
+        },
+        "temporary_password": {
+          "type": "string",
+          "description": "The temporary password can only be used to update a user's password; never returned on API calls.\nIt is not returned on API calls, and can not be updated by updating the User.\nSee the CreateTemporaryPassword method of the UserRegistry service for more information."
+        },
+        "temporary_password_created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "temporary_password_expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "profile_picture": {
+          "$ref": "#/definitions/v3Picture",
+          "description": "A profile picture for the user.\nThis information is public and can be seen by any authenticated user in the network."
+        },
+        "console_preferences": {
+          "$ref": "#/definitions/v3UserConsolePreferences",
+          "description": "Console preferences contains the user's preferences regarding the behavior of the Console."
+        },
+        "email_notification_preferences": {
+          "$ref": "#/definitions/v3EmailNotificationPreferences"
+        },
+        "universal_rights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v3Right"
+          },
+          "description": "Universal rights are capable of restricting the user's interactions with the API, be it an admin or not."
+        }
+      },
+      "description": "User is the message that defines a user on the network."
+    },
+    "v3EmailNotificationPreferences": {
+      "type": "object",
+      "properties": {
+        "types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v3NotificationType"
+          }
+        }
+      },
+      "description": "EmailNotificationPreferences is the message that defines the types of notifications for which the user wants to receive an email."
+    },
+    "v3NotificationType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "API_KEY_CREATED",
+        "API_KEY_CHANGED",
+        "CLIENT_REQUESTED",
+        "COLLABORATOR_CHANGED",
+        "ENTITY_STATE_CHANGED",
+        "INVITATION",
+        "LOGIN_TOKEN",
+        "PASSWORD_CHANGED",
+        "TEMPORARY_PASSWORD",
+        "USER_REQUESTED",
+        "VALIDATE"
+      ],
+      "default": "UNKNOWN"
+    },
+    "v3UserConsolePreferences": {
+      "type": "object",
+      "properties": {
+        "console_theme": {
+          "$ref": "#/definitions/v3ConsoleTheme"
+        },
+        "dashboard_layouts": {
+          "$ref": "#/definitions/UserConsolePreferencesDashboardLayouts"
+        },
+        "sort_by": {
+          "$ref": "#/definitions/UserConsolePreferencesSortBy"
+        },
+        "tutorials": {
+          "$ref": "#/definitions/UserConsolePreferencesTutorials"
+        }
+      },
+      "description": "UserConsolePreferences is the message that defines the user preferences for the Console."
+    },
+    "UserConsolePreferencesDashboardLayouts": {
+      "type": "object",
+      "properties": {
+        "api_key": {
+          "$ref": "#/definitions/v3DashboardLayout"
+        },
+        "application": {
+          "$ref": "#/definitions/v3DashboardLayout"
+        },
+        "collaborator": {
+          "$ref": "#/definitions/v3DashboardLayout"
+        },
+        "end_device": {
+          "$ref": "#/definitions/v3DashboardLayout"
+        },
+        "gateway": {
+          "$ref": "#/definitions/v3DashboardLayout"
+        },
+        "organization": {
+          "$ref": "#/definitions/v3DashboardLayout"
+        },
+        "overview": {
+          "$ref": "#/definitions/v3DashboardLayout"
+        },
+        "user": {
+          "$ref": "#/definitions/v3DashboardLayout"
+        }
+      }
+    },
+    "v3DashboardLayout": {
+      "type": "string",
+      "enum": [
+        "DASHBOARD_LAYOUT_TABLE",
+        "DASHBOARD_LAYOUT_LIST",
+        "DASHBOARD_LAYOUT_GRID"
+      ],
+      "default": "DASHBOARD_LAYOUT_TABLE",
+      "description": "DashboardLayout is a set of possible layout values to be used in the Console."
+    },
+    "UserConsolePreferencesTutorials": {
+      "type": "object",
+      "properties": {
+        "seen": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v3Tutorial"
+          }
+        }
+      }
+    },
+    "v3Tutorial": {
+      "type": "string",
+      "enum": [
+        "TUTORIAL_UNKNOWN",
+        "TUTORIAL_LIVE_DATA_SPLIT_VIEW"
+      ],
+      "default": "TUTORIAL_UNKNOWN",
+      "description": "Tutorial is a set of possible tutorials in the Console."
+    },
+    "UserConsolePreferencesSortBy": {
+      "type": "object",
+      "properties": {
+        "api_key": {
+          "type": "string"
+        },
+        "application": {
+          "type": "string"
+        },
+        "collaborator": {
+          "type": "string"
+        },
+        "end_device": {
+          "type": "string"
+        },
+        "gateway": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        }
+      },
+      "description": "SortBy defines the field to which the Console will sort the display of entities."
+    },
+    "v3ConsoleTheme": {
+      "type": "string",
+      "enum": [
+        "CONSOLE_THEME_SYSTEM",
+        "CONSOLE_THEME_LIGHT",
+        "CONSOLE_THEME_DARK"
+      ],
+      "default": "CONSOLE_THEME_SYSTEM",
+      "description": "ConsoleTheme is the theme of the Console.\n\n - CONSOLE_THEME_SYSTEM: The user prefers the system mode.\n - CONSOLE_THEME_LIGHT: The user prefers the light mode.\n - CONSOLE_THEME_DARK: The user prefers the dark mode."
+    },
+    "v3Right": {
+      "type": "string",
+      "enum": [
+        "right_invalid",
+        "RIGHT_USER_INFO",
+        "RIGHT_USER_SETTINGS_BASIC",
+        "RIGHT_USER_LIST",
+        "RIGHT_USER_CREATE",
+        "RIGHT_USER_SETTINGS_API_KEYS",
+        "RIGHT_USER_DELETE",
+        "RIGHT_USER_PURGE",
+        "RIGHT_USER_AUTHORIZED_CLIENTS",
+        "RIGHT_USER_APPLICATIONS_LIST",
+        "RIGHT_USER_APPLICATIONS_CREATE",
+        "RIGHT_USER_GATEWAYS_LIST",
+        "RIGHT_USER_GATEWAYS_CREATE",
+        "RIGHT_USER_CLIENTS_LIST",
+        "RIGHT_USER_CLIENTS_CREATE",
+        "RIGHT_USER_ORGANIZATIONS_LIST",
+        "RIGHT_USER_ORGANIZATIONS_CREATE",
+        "RIGHT_USER_NOTIFICATIONS_READ",
+        "RIGHT_USER_ALL",
+        "RIGHT_APPLICATION_INFO",
+        "RIGHT_APPLICATION_SETTINGS_BASIC",
+        "RIGHT_APPLICATION_SETTINGS_API_KEYS",
+        "RIGHT_APPLICATION_SETTINGS_COLLABORATORS",
+        "RIGHT_APPLICATION_SETTINGS_PACKAGES",
+        "RIGHT_APPLICATION_DELETE",
+        "RIGHT_APPLICATION_PURGE",
+        "RIGHT_APPLICATION_DEVICES_READ",
+        "RIGHT_APPLICATION_DEVICES_WRITE",
+        "RIGHT_APPLICATION_DEVICES_READ_KEYS",
+        "RIGHT_APPLICATION_DEVICES_WRITE_KEYS",
+        "RIGHT_APPLICATION_TRAFFIC_READ",
+        "RIGHT_APPLICATION_TRAFFIC_UP_WRITE",
+        "RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE",
+        "RIGHT_APPLICATION_LINK",
+        "RIGHT_APPLICATION_ALL",
+        "RIGHT_CLIENT_ALL",
+        "RIGHT_CLIENT_INFO",
+        "RIGHT_CLIENT_SETTINGS_BASIC",
+        "RIGHT_CLIENT_SETTINGS_COLLABORATORS",
+        "RIGHT_CLIENT_DELETE",
+        "RIGHT_CLIENT_PURGE",
+        "RIGHT_GATEWAY_INFO",
+        "RIGHT_GATEWAY_SETTINGS_BASIC",
+        "RIGHT_GATEWAY_SETTINGS_API_KEYS",
+        "RIGHT_GATEWAY_SETTINGS_COLLABORATORS",
+        "RIGHT_GATEWAY_DELETE",
+        "RIGHT_GATEWAY_PURGE",
+        "RIGHT_GATEWAY_TRAFFIC_READ",
+        "RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE",
+        "RIGHT_GATEWAY_LINK",
+        "RIGHT_GATEWAY_STATUS_READ",
+        "RIGHT_GATEWAY_LOCATION_READ",
+        "RIGHT_GATEWAY_WRITE_SECRETS",
+        "RIGHT_GATEWAY_READ_SECRETS",
+        "RIGHT_GATEWAY_ALL",
+        "RIGHT_ORGANIZATION_INFO",
+        "RIGHT_ORGANIZATION_SETTINGS_BASIC",
+        "RIGHT_ORGANIZATION_SETTINGS_API_KEYS",
+        "RIGHT_ORGANIZATION_SETTINGS_MEMBERS",
+        "RIGHT_ORGANIZATION_DELETE",
+        "RIGHT_ORGANIZATION_PURGE",
+        "RIGHT_ORGANIZATION_APPLICATIONS_LIST",
+        "RIGHT_ORGANIZATION_APPLICATIONS_CREATE",
+        "RIGHT_ORGANIZATION_GATEWAYS_LIST",
+        "RIGHT_ORGANIZATION_GATEWAYS_CREATE",
+        "RIGHT_ORGANIZATION_CLIENTS_LIST",
+        "RIGHT_ORGANIZATION_CLIENTS_CREATE",
+        "RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR",
+        "RIGHT_ORGANIZATION_ALL",
+        "RIGHT_SEND_INVITES",
+        "RIGHT_ALL"
+      ],
+      "default": "right_invalid",
+      "description": "Right is the enum that defines all the different rights to do something in the network.\n\n - RIGHT_USER_INFO: The right to view user information.\n - RIGHT_USER_SETTINGS_BASIC: The right to edit basic user settings.\n - RIGHT_USER_LIST: The right to list users accounts.\n - RIGHT_USER_CREATE: The right to create an user account.\n - RIGHT_USER_SETTINGS_API_KEYS: The right to view and edit user API keys.\n - RIGHT_USER_DELETE: The right to delete user account.\n - RIGHT_USER_PURGE: The right to delete user account.\n - RIGHT_USER_AUTHORIZED_CLIENTS: The right to view and edit authorized OAuth clients of the user.\n - RIGHT_USER_APPLICATIONS_LIST: The right to list applications the user is a collaborator of.\n - RIGHT_USER_APPLICATIONS_CREATE: The right to create an application under the user account.\n - RIGHT_USER_GATEWAYS_LIST: The right to list gateways the user is a collaborator of.\n - RIGHT_USER_GATEWAYS_CREATE: The right to create a gateway under the account of the user.\n - RIGHT_USER_CLIENTS_LIST: The right to list OAuth clients the user is a collaborator of.\n - RIGHT_USER_CLIENTS_CREATE: The right to create an OAuth client under the account of the user.\n - RIGHT_USER_ORGANIZATIONS_LIST: The right to list organizations the user is a member of.\n - RIGHT_USER_ORGANIZATIONS_CREATE: The right to create an organization under the user account.\n - RIGHT_USER_NOTIFICATIONS_READ: The right to read notifications sent to the user.\n - RIGHT_USER_ALL: The pseudo-right for all (current and future) user rights.\n - RIGHT_APPLICATION_INFO: The right to view application information.\n - RIGHT_APPLICATION_SETTINGS_BASIC: The right to edit basic application settings.\n - RIGHT_APPLICATION_SETTINGS_API_KEYS: The right to view and edit application API keys.\n - RIGHT_APPLICATION_SETTINGS_COLLABORATORS: The right to view and edit application collaborators.\n - RIGHT_APPLICATION_SETTINGS_PACKAGES: The right to view and edit application packages and associations.\n - RIGHT_APPLICATION_DELETE: The right to delete application.\n - RIGHT_APPLICATION_PURGE: The right to purge application.\n - RIGHT_APPLICATION_DEVICES_READ: The right to view devices in application.\n - RIGHT_APPLICATION_DEVICES_WRITE: The right to create devices in application.\n - RIGHT_APPLICATION_DEVICES_READ_KEYS: The right to view device keys in application.\nNote that keys may not be stored in a way that supports viewing them.\n - RIGHT_APPLICATION_DEVICES_WRITE_KEYS: The right to edit device keys in application.\n - RIGHT_APPLICATION_TRAFFIC_READ: The right to read application traffic (uplink and downlink).\n - RIGHT_APPLICATION_TRAFFIC_UP_WRITE: The right to write uplink application traffic.\n - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE: The right to write downlink application traffic.\n - RIGHT_APPLICATION_LINK: The right to link as Application to a Network Server for traffic exchange,\ni.e. read uplink and write downlink (API keys only).\nThis right is typically only given to an Application Server.\nThis right implies RIGHT_APPLICATION_INFO, RIGHT_APPLICATION_TRAFFIC_READ,\nand RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE.\n - RIGHT_APPLICATION_ALL: The pseudo-right for all (current and future) application rights.\n - RIGHT_CLIENT_ALL: The pseudo-right for all (current and future) OAuth client rights.\n - RIGHT_CLIENT_INFO: The right to read client information.\n - RIGHT_CLIENT_SETTINGS_BASIC: The right to edit basic client settings.\n - RIGHT_CLIENT_SETTINGS_COLLABORATORS: The right to view and edit client collaborators.\n - RIGHT_CLIENT_DELETE: The right to delete a client.\n - RIGHT_CLIENT_PURGE: The right to purge a client.\n - RIGHT_GATEWAY_INFO: The right to view gateway information.\n - RIGHT_GATEWAY_SETTINGS_BASIC: The right to edit basic gateway settings.\n - RIGHT_GATEWAY_SETTINGS_API_KEYS: The right to view and edit gateway API keys.\n - RIGHT_GATEWAY_SETTINGS_COLLABORATORS: The right to view and edit gateway collaborators.\n - RIGHT_GATEWAY_DELETE: The right to delete gateway.\n - RIGHT_GATEWAY_PURGE: The right to purge gateway.\n - RIGHT_GATEWAY_TRAFFIC_READ: The right to read gateway traffic.\n - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE: The right to write downlink gateway traffic.\n - RIGHT_GATEWAY_LINK: The right to link as Gateway to a Gateway Server for traffic exchange,\ni.e. write uplink and read downlink (API keys only)\nThis right is typically only given to a gateway.\nThis right implies RIGHT_GATEWAY_INFO.\n - RIGHT_GATEWAY_STATUS_READ: The right to view gateway status.\n - RIGHT_GATEWAY_LOCATION_READ: The right to view view gateway location.\n - RIGHT_GATEWAY_WRITE_SECRETS: The right to store secrets associated with this gateway.\n - RIGHT_GATEWAY_READ_SECRETS: The right to retrieve secrets associated with this gateway.\n - RIGHT_GATEWAY_ALL: The pseudo-right for all (current and future) gateway rights.\n - RIGHT_ORGANIZATION_INFO: The right to view organization information.\n - RIGHT_ORGANIZATION_SETTINGS_BASIC: The right to edit basic organization settings.\n - RIGHT_ORGANIZATION_SETTINGS_API_KEYS: The right to view and edit organization API keys.\n - RIGHT_ORGANIZATION_SETTINGS_MEMBERS: The right to view and edit organization members.\n - RIGHT_ORGANIZATION_DELETE: The right to delete organization.\n - RIGHT_ORGANIZATION_PURGE: The right to purge organization.\n - RIGHT_ORGANIZATION_APPLICATIONS_LIST: The right to list the applications the organization is a collaborator of.\n - RIGHT_ORGANIZATION_APPLICATIONS_CREATE: The right to create an application under the organization.\n - RIGHT_ORGANIZATION_GATEWAYS_LIST: The right to list the gateways the organization is a collaborator of.\n - RIGHT_ORGANIZATION_GATEWAYS_CREATE: The right to create a gateway under the organization.\n - RIGHT_ORGANIZATION_CLIENTS_LIST: The right to list the OAuth clients the organization is a collaborator of.\n - RIGHT_ORGANIZATION_CLIENTS_CREATE: The right to create an OAuth client under the organization.\n - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR: The right to add the organization as a collaborator on an existing entity.\n - RIGHT_ORGANIZATION_ALL: The pseudo-right for all (current and future) organization rights.\n - RIGHT_SEND_INVITES: The right to send invites to new users.\nNote that this is not prefixed with \"USER_\"; it is not a right on the user entity.\n - RIGHT_ALL: The pseudo-right for all (current and future) possible rights."
+    },
+    "v3Picture": {
+      "type": "object",
+      "properties": {
+        "embedded": {
+          "$ref": "#/definitions/PictureEmbedded",
+          "description": "Embedded picture.\nOmitted if there are external URLs available (in sizes)."
+        },
+        "sizes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "URLs of the picture for different sizes, if available on a CDN."
+        }
+      }
+    },
+    "PictureEmbedded": {
+      "type": "object",
+      "properties": {
+        "mime_type": {
+          "type": "string",
+          "description": "MIME type of the picture."
+        },
+        "data": {
+          "type": "string",
+          "format": "byte",
+          "description": "Picture data. A data URI can be constructed as follows:\n`data:<mime_type>;base64,<data>`."
+        }
+      }
+    },
+    "v3UserIdentifiers": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "This ID shares namespace with organization IDs."
+        },
+        "email": {
+          "type": "string",
+          "description": "Secondary identifier, which can only be used in specific requests."
+        }
+      }
+    },
+    "v3ContactInfo": {
+      "type": "object",
+      "properties": {
+        "contact_type": {
+          "$ref": "#/definitions/v3ContactType"
+        },
+        "contact_method": {
+          "$ref": "#/definitions/v3ContactMethod"
+        },
+        "value": {
+          "type": "string"
+        },
+        "public": {
+          "type": "boolean"
+        },
+        "validated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v3ContactMethod": {
+      "type": "string",
+      "enum": [
+        "CONTACT_METHOD_OTHER",
+        "CONTACT_METHOD_EMAIL",
+        "CONTACT_METHOD_PHONE"
+      ],
+      "default": "CONTACT_METHOD_OTHER"
+    },
+    "v3ContactType": {
+      "type": "string",
+      "enum": [
+        "CONTACT_TYPE_OTHER",
+        "CONTACT_TYPE_ABUSE",
+        "CONTACT_TYPE_BILLING",
+        "CONTACT_TYPE_TECHNICAL"
+      ],
+      "default": "CONTACT_TYPE_OTHER"
+    },
+    "v3State": {
+      "type": "string",
+      "enum": [
+        "STATE_REQUESTED",
+        "STATE_APPROVED",
+        "STATE_REJECTED",
+        "STATE_FLAGGED",
+        "STATE_SUSPENDED"
+      ],
+      "default": "STATE_REQUESTED",
+      "description": "State enum defines states that an entity can be in.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin."
+    }
+  },
+  "$ref": "#/definitions/v3User"
+}

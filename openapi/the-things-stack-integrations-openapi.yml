@@ -1,0 +1,1002 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Integrations
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the
+    upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'
+security:
+- ApiKeyAuth: []
+tags:
+- name: ApplicationWebhookRegistry
+- name: ApplicationPubSubRegistry
+paths:
+  /as/pubsub-formats:
+    get:
+      operationId: ApplicationPubSubRegistry_GetFormats
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationPubSubFormats'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - ApplicationPubSubRegistry
+  /as/pubsub/{application_ids.application_id}:
+    get:
+      operationId: ApplicationPubSubRegistry_List
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationPubSubs'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      - name: limit
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - ApplicationPubSubRegistry
+  /as/pubsub/{application_ids.application_id}/{pub_sub_id}:
+    delete:
+      operationId: ApplicationPubSubRegistry_Delete
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: pub_sub_id
+        in: path
+        required: true
+        type: string
+      tags:
+      - ApplicationPubSubRegistry
+  /as/pubsub/{ids.application_ids.application_id}/{ids.pub_sub_id}:
+    get:
+      operationId: ApplicationPubSubRegistry_Get
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationPubSub'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: ids.application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: ids.pub_sub_id
+        in: path
+        required: true
+        type: string
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      tags:
+      - ApplicationPubSubRegistry
+  /as/pubsub/{pubsub.ids.application_ids.application_id}:
+    post:
+      operationId: ApplicationPubSubRegistry_Set2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationPubSub'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: pubsub.ids.application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ApplicationPubSubRegistrySetBody'
+      tags:
+      - ApplicationPubSubRegistry
+  /as/pubsub/{pubsub.ids.application_ids.application_id}/{pubsub.ids.pub_sub_id}:
+    put:
+      operationId: ApplicationPubSubRegistry_Set
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationPubSub'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: pubsub.ids.application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: pubsub.ids.pub_sub_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ApplicationPubSubRegistrySetBody'
+      tags:
+      - ApplicationPubSubRegistry
+  /as/webhook-formats:
+    get:
+      operationId: ApplicationWebhookRegistry_GetFormats
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationWebhookFormats'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - ApplicationWebhookRegistry
+  /as/webhook-templates:
+    get:
+      operationId: ApplicationWebhookRegistry_ListTemplates
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationWebhookTemplates'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      tags:
+      - ApplicationWebhookRegistry
+  /as/webhook-templates/{ids.template_id}:
+    get:
+      operationId: ApplicationWebhookRegistry_GetTemplate
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationWebhookTemplate'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: ids.template_id
+        in: path
+        required: true
+        type: string
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      tags:
+      - ApplicationWebhookRegistry
+  /as/webhooks/{application_ids.application_id}:
+    get:
+      operationId: ApplicationWebhookRegistry_List
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationWebhooks'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      - name: limit
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - ApplicationWebhookRegistry
+  /as/webhooks/{application_ids.application_id}/{webhook_id}:
+    delete:
+      operationId: ApplicationWebhookRegistry_Delete
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: webhook_id
+        in: path
+        required: true
+        type: string
+      tags:
+      - ApplicationWebhookRegistry
+  /as/webhooks/{ids.application_ids.application_id}/{ids.webhook_id}:
+    get:
+      operationId: ApplicationWebhookRegistry_Get
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationWebhook'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: ids.application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: ids.webhook_id
+        in: path
+        required: true
+        type: string
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      tags:
+      - ApplicationWebhookRegistry
+  /as/webhooks/{webhook.ids.application_ids.application_id}:
+    post:
+      operationId: ApplicationWebhookRegistry_Set2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationWebhook'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: webhook.ids.application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ApplicationWebhookRegistrySetBody'
+      tags:
+      - ApplicationWebhookRegistry
+  /as/webhooks/{webhook.ids.application_ids.application_id}/{webhook.ids.webhook_id}:
+    put:
+      operationId: ApplicationWebhookRegistry_Set
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ApplicationWebhook'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: webhook.ids.application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: webhook.ids.webhook_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ApplicationWebhookRegistrySetBody'
+      tags:
+      - ApplicationWebhookRegistry
+definitions:
+  AWSIoTProviderAccessKey:
+    type: object
+    properties:
+      access_key_id:
+        type: string
+      secret_access_key:
+        type: string
+      session_token:
+        type: string
+  AWSIoTProviderAssumeRole:
+    type: object
+    properties:
+      arn:
+        type: string
+      external_id:
+        type: string
+      session_duration:
+        type: string
+  AWSIoTProviderDefaultIntegration:
+    type: object
+    properties:
+      stack_name:
+        type: string
+        description: The stack name that is associated with the CloudFormation deployment of The Things Stack Enterprise integration.
+  ApplicationPubSubAWSIoTProvider:
+    type: object
+    properties:
+      region:
+        type: string
+        description: The AWS region.
+      access_key:
+        $ref: '#/definitions/AWSIoTProviderAccessKey'
+        description: If set, the integration will use an AWS access key.
+      assume_role:
+        $ref: '#/definitions/AWSIoTProviderAssumeRole'
+        description: If set, the integration will assume the given role during operation.
+      endpoint_address:
+        type: string
+        description: 'The endpoint address to connect to. If the endpoint address is left empty,
+
+          the integration will try to discover it.'
+      default:
+        $ref: '#/definitions/AWSIoTProviderDefaultIntegration'
+        description: Enable the default integration. This overrides custom base topic and message topics of the pub/sub integration.
+  ApplicationPubSubMQTTProvider:
+    type: object
+    properties:
+      server_url:
+        type: string
+      client_id:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+      subscribe_qos:
+        $ref: '#/definitions/MQTTProviderQoS'
+      publish_qos:
+        $ref: '#/definitions/MQTTProviderQoS'
+      use_tls:
+        type: boolean
+      tls_ca:
+        type: string
+        format: byte
+        description: The server Root CA certificate. PEM formatted.
+      tls_client_cert:
+        type: string
+        format: byte
+        description: The client certificate. PEM formatted.
+      tls_client_key:
+        type: string
+        format: byte
+        description: The client private key. PEM formatted.
+      headers:
+        type: object
+        additionalProperties:
+          type: string
+        description: HTTP headers to use on MQTT-over-Websocket connections.
+    description: The MQTT provider settings.
+  ApplicationPubSubNATSProvider:
+    type: object
+    properties:
+      server_url:
+        type: string
+        description: The server connection URL.
+    description: The NATS provider settings.
+  ApplicationWebhookHealthWebhookHealthStatusHealthy:
+    type: object
+  ApplicationWebhookHealthWebhookHealthStatusUnhealthy:
+    type: object
+    properties:
+      failed_attempts:
+        type: string
+        format: uint64
+      last_failed_attempt_at:
+        type: string
+        format: date-time
+      last_failed_attempt_details:
+        $ref: '#/definitions/v3ErrorDetails'
+  MQTTProviderQoS:
+    type: string
+    enum:
+    - AT_MOST_ONCE
+    - AT_LEAST_ONCE
+    - EXACTLY_ONCE
+    default: AT_MOST_ONCE
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This\
+          \ string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully\
+          \ qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n\
+          (e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\n\
+          expect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one\
+          \ can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme\
+          \ is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary\
+          \ format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have\
+          \ them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n\
+          \  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is\
+          \ not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\
+          \ As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes\
+          \ other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type\
+      \ of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility\
+      \ functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n   \
+      \ Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\n\
+      Example 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class))\
+      \ {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n\
+      \      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n  \
+      \  foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n\
+      \      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n\
+      \     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err\
+      \ != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name'\
+      \ as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL,\
+      \ for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any`\
+      \ value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which\
+      \ contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n\
+      \      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n    \
+      \  \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has\
+      \ a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom\
+      \ JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\"\
+      : \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+  v3ApplicationIdentifiers:
+    type: object
+    properties:
+      application_id:
+        type: string
+  v3ApplicationPubSub:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3ApplicationPubSubIdentifiers'
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      format:
+        type: string
+        description: 'The format to use for the body.
+
+          Supported values depend on the Application Server configuration.'
+      nats:
+        $ref: '#/definitions/ApplicationPubSubNATSProvider'
+      mqtt:
+        $ref: '#/definitions/ApplicationPubSubMQTTProvider'
+      aws_iot:
+        $ref: '#/definitions/ApplicationPubSubAWSIoTProvider'
+      base_topic:
+        type: string
+        description: Base topic name to which the messages topic is appended.
+      downlink_push:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+        description: The topic to which the Application Server subscribes for downlink queue push operations.
+      downlink_replace:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+        description: The topic to which the Application Server subscribes for downlink queue replace operations.
+      uplink_message:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      uplink_normalized:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      join_accept:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      downlink_ack:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      downlink_nack:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      downlink_sent:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      downlink_failed:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      downlink_queued:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      downlink_queue_invalidated:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      location_solved:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+      service_data:
+        $ref: '#/definitions/v3ApplicationPubSubMessage'
+  v3ApplicationPubSubFormats:
+    type: object
+    properties:
+      formats:
+        type: object
+        additionalProperties:
+          type: string
+        description: Format and description.
+  v3ApplicationPubSubIdentifiers:
+    type: object
+    properties:
+      application_ids:
+        $ref: '#/definitions/v3ApplicationIdentifiers'
+      pub_sub_id:
+        type: string
+  v3ApplicationPubSubMessage:
+    type: object
+    properties:
+      topic:
+        type: string
+        description: The topic on which the Application Server publishes or receives the messages.
+  v3ApplicationPubSubRegistrySetBody:
+    type: object
+    properties:
+      pubsub:
+        type: object
+        properties:
+          ids:
+            type: object
+            properties:
+              application_ids:
+                type: object
+              pub_sub_id:
+                type: string
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          format:
+            type: string
+            description: 'The format to use for the body.
+
+              Supported values depend on the Application Server configuration.'
+          nats:
+            $ref: '#/definitions/ApplicationPubSubNATSProvider'
+          mqtt:
+            $ref: '#/definitions/ApplicationPubSubMQTTProvider'
+          aws_iot:
+            $ref: '#/definitions/ApplicationPubSubAWSIoTProvider'
+          base_topic:
+            type: string
+            description: Base topic name to which the messages topic is appended.
+          downlink_push:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+            description: The topic to which the Application Server subscribes for downlink queue push operations.
+          downlink_replace:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+            description: The topic to which the Application Server subscribes for downlink queue replace operations.
+          uplink_message:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          uplink_normalized:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          join_accept:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          downlink_ack:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          downlink_nack:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          downlink_sent:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          downlink_failed:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          downlink_queued:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          downlink_queue_invalidated:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          location_solved:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+          service_data:
+            $ref: '#/definitions/v3ApplicationPubSubMessage'
+      field_mask:
+        type: string
+  v3ApplicationPubSubs:
+    type: object
+    properties:
+      pubsubs:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ApplicationPubSub'
+  v3ApplicationWebhook:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3ApplicationWebhookIdentifiers'
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      base_url:
+        type: string
+        description: Base URL to which the message's path is appended.
+      headers:
+        type: object
+        additionalProperties:
+          type: string
+        description: HTTP headers to use.
+      format:
+        type: string
+        description: 'The format to use for the body.
+
+          Supported values depend on the Application Server configuration.'
+      template_ids:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateIdentifiers'
+        description: The ID of the template that was used to create the Webhook.
+      template_fields:
+        type: object
+        additionalProperties:
+          type: string
+        description: The value of the fields used by the template. Maps field.id to the value.
+      downlink_api_key:
+        type: string
+        description: 'The API key to be used for downlink queue operations.
+
+          The field is provided for convenience reasons, and can contain API keys with additional rights (albeit this is discouraged).'
+      uplink_message:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      uplink_normalized:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      join_accept:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      downlink_ack:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      downlink_nack:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      downlink_sent:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      downlink_failed:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      downlink_queued:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      downlink_queue_invalidated:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      location_solved:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      service_data:
+        $ref: '#/definitions/v3ApplicationWebhookMessage'
+      health_status:
+        $ref: '#/definitions/v3ApplicationWebhookHealth'
+      field_mask:
+        type: string
+      paused:
+        type: boolean
+        description: Set to temporarily pause forwarding uplink data to this end point and receiving downlinks from this end
+          point.
+  v3ApplicationWebhookFormats:
+    type: object
+    properties:
+      formats:
+        type: object
+        additionalProperties:
+          type: string
+        description: Format and description.
+  v3ApplicationWebhookHealth:
+    type: object
+    properties:
+      healthy:
+        $ref: '#/definitions/ApplicationWebhookHealthWebhookHealthStatusHealthy'
+      unhealthy:
+        $ref: '#/definitions/ApplicationWebhookHealthWebhookHealthStatusUnhealthy'
+  v3ApplicationWebhookIdentifiers:
+    type: object
+    properties:
+      application_ids:
+        $ref: '#/definitions/v3ApplicationIdentifiers'
+      webhook_id:
+        type: string
+  v3ApplicationWebhookMessage:
+    type: object
+    properties:
+      path:
+        type: string
+        description: Path to append to the base URL.
+  v3ApplicationWebhookRegistrySetBody:
+    type: object
+    properties:
+      webhook:
+        type: object
+        properties:
+          ids:
+            type: object
+            properties:
+              application_ids:
+                type: object
+              webhook_id:
+                type: string
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          base_url:
+            type: string
+            description: Base URL to which the message's path is appended.
+          headers:
+            type: object
+            additionalProperties:
+              type: string
+            description: HTTP headers to use.
+          format:
+            type: string
+            description: 'The format to use for the body.
+
+              Supported values depend on the Application Server configuration.'
+          template_ids:
+            $ref: '#/definitions/v3ApplicationWebhookTemplateIdentifiers'
+            description: The ID of the template that was used to create the Webhook.
+          template_fields:
+            type: object
+            additionalProperties:
+              type: string
+            description: The value of the fields used by the template. Maps field.id to the value.
+          downlink_api_key:
+            type: string
+            description: 'The API key to be used for downlink queue operations.
+
+              The field is provided for convenience reasons, and can contain API keys with additional rights (albeit this
+              is discouraged).'
+          uplink_message:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          uplink_normalized:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          join_accept:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          downlink_ack:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          downlink_nack:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          downlink_sent:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          downlink_failed:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          downlink_queued:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          downlink_queue_invalidated:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          location_solved:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          service_data:
+            $ref: '#/definitions/v3ApplicationWebhookMessage'
+          health_status:
+            $ref: '#/definitions/v3ApplicationWebhookHealth'
+          field_mask:
+            type: string
+          paused:
+            type: boolean
+            description: Set to temporarily pause forwarding uplink data to this end point and receiving downlinks from this
+              end point.
+      field_mask:
+        type: string
+  v3ApplicationWebhookTemplate:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateIdentifiers'
+      name:
+        type: string
+      description:
+        type: string
+      logo_url:
+        type: string
+      info_url:
+        type: string
+      documentation_url:
+        type: string
+      base_url:
+        type: string
+        description: The base URL of the template. Can contain template fields, in RFC 6570 format.
+      headers:
+        type: object
+        additionalProperties:
+          type: string
+        description: The HTTP headers used by the template. Both the key and the value can contain template fields.
+      format:
+        type: string
+      fields:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ApplicationWebhookTemplateField'
+      create_downlink_api_key:
+        type: boolean
+        description: Control the creation of the downlink queue operations API key.
+      uplink_message:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      uplink_normalized:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      join_accept:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      downlink_ack:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      downlink_nack:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      downlink_sent:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      downlink_failed:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      downlink_queued:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      downlink_queue_invalidated:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      location_solved:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      service_data:
+        $ref: '#/definitions/v3ApplicationWebhookTemplateMessage'
+      field_mask:
+        type: string
+  v3ApplicationWebhookTemplateField:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      secret:
+        type: boolean
+        description: Secret decides if the field should be shown in plain-text or should stay hidden.
+      default_value:
+        type: string
+      optional:
+        type: boolean
+    description: 'ApplicationWebhookTemplateField represents a custom field that needs to be filled by the user in order to
+      use the template.
+
+      A field can be an API key, an username or password, or any custom platform specific field (such as region).
+
+      The fields are meant to be replaced inside the URLs and headers when the webhook is created.'
+  v3ApplicationWebhookTemplateIdentifiers:
+    type: object
+    properties:
+      template_id:
+        type: string
+  v3ApplicationWebhookTemplateMessage:
+    type: object
+    properties:
+      path:
+        type: string
+        description: Path to append to the base URL. Can contain template fields, in RFC 6570 format.
+  v3ApplicationWebhookTemplates:
+    type: object
+    properties:
+      templates:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ApplicationWebhookTemplate'
+  v3ApplicationWebhooks:
+    type: object
+    properties:
+      webhooks:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ApplicationWebhook'
+  v3ErrorDetails:
+    type: object
+    properties:
+      namespace:
+        type: string
+        description: Namespace of the error (typically the package name in The Things Stack).
+      name:
+        type: string
+        description: Name of the error.
+      message_format:
+        type: string
+        description: 'The default (fallback) message format that should be used for the error.
+
+          This is also used if the client does not have a translation for the error.'
+      attributes:
+        type: object
+        description: 'Attributes that should be filled into the message format. Any extra attributes
+
+          can be displayed as error details.'
+      correlation_id:
+        type: string
+        description: 'The correlation ID of the error can be used to correlate the error to stack
+
+          traces the network may (or may not) store about recent errors.'
+      cause:
+        $ref: '#/definitions/v3ErrorDetails'
+        description: The error that caused this error.
+      code:
+        type: integer
+        format: int64
+        description: The status code of the error.
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+        description: The details of the error.
+    description: 'Error details that are communicated over gRPC (and HTTP) APIs.
+
+      The messages (for translation) are stored as "error:<namespace>:<name>".'
