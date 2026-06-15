@@ -1,0 +1,325 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Integrations",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApplicationPubSubRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ApplicationPubSubRegistry_GetFormats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/pubsub-formats"
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationPubSubRegistry_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/pubsub/:application_ids.application_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationPubSubRegistry_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/as/pubsub/:application_ids.application_id/:pub_sub_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pub_sub_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationPubSubRegistry_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/pubsub/:ids.application_ids.application_id/:ids.pub_sub_id",
+            "params": [
+              {
+                "name": "ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ids.pub_sub_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationPubSubRegistry_Set2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as/pubsub/:pubsub.ids.application_ids.application_id",
+            "params": [
+              {
+                "name": "pubsub.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationPubSubRegistry_Set",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/as/pubsub/:pubsub.ids.application_ids.application_id/:pubsub.ids.pub_sub_id",
+            "params": [
+              {
+                "name": "pubsub.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pubsub.ids.pub_sub_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ApplicationWebhookRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ApplicationWebhookRegistry_GetFormats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/webhook-formats"
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationWebhookRegistry_ListTemplates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/webhook-templates",
+            "params": [
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationWebhookRegistry_GetTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/webhook-templates/:ids.template_id",
+            "params": [
+              {
+                "name": "ids.template_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationWebhookRegistry_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/webhooks/:application_ids.application_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationWebhookRegistry_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/as/webhooks/:application_ids.application_id/:webhook_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhook_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationWebhookRegistry_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/webhooks/:ids.application_ids.application_id/:ids.webhook_id",
+            "params": [
+              {
+                "name": "ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ids.webhook_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationWebhookRegistry_Set2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as/webhooks/:webhook.ids.application_ids.application_id",
+            "params": [
+              {
+                "name": "webhook.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ApplicationWebhookRegistry_Set",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/as/webhooks/:webhook.ids.application_ids.application_id/:webhook.ids.webhook_id",
+            "params": [
+              {
+                "name": "webhook.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "webhook.ids.webhook_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

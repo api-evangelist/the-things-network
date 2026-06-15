@@ -1,0 +1,2395 @@
+{
+  "item": [
+    {
+      "id": "be73454c-3f56-4c35-9be4-d19b9bf92048",
+      "name": "ApplicationWebhookRegistry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "517f7d41-58b9-419c-8f1e-647d9eca4501",
+          "name": "Application Webhook Registry Get Formats",
+          "request": {
+            "name": "Application Webhook Registry Get Formats",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "webhook-formats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0356fd5b-9896-4de8-b54e-e9851f62060e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhook-formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"formats\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9be7f188-e3b0-4e88-9d5c-264eef987756",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhook-formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43f7d6cf-393c-4524-8bf3-26c35123b3fb",
+          "name": "Application Webhook Registry List Templates",
+          "request": {
+            "name": "Application Webhook Registry List Templates",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "webhook-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d96cd2f-b0d7-4023-97bd-b7ce87d5547c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhook-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"templates\": [\n    {\n      \"ids\": {\n        \"template_id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"logo_url\": \"string\",\n      \"info_url\": \"string\",\n      \"documentation_url\": \"string\",\n      \"base_url\": \"string\",\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"format\": \"string\",\n      \"fields\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"secret\": true,\n          \"default_value\": \"string\",\n          \"optional\": true\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"secret\": false,\n          \"default_value\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"create_downlink_api_key\": true,\n      \"uplink_message\": {\n        \"path\": \"string\"\n      },\n      \"uplink_normalized\": {\n        \"path\": \"string\"\n      },\n      \"join_accept\": {\n        \"path\": \"string\"\n      },\n      \"downlink_ack\": {\n        \"path\": \"string\"\n      },\n      \"downlink_nack\": {\n        \"path\": \"string\"\n      },\n      \"downlink_sent\": {\n        \"path\": \"string\"\n      },\n      \"downlink_failed\": {\n        \"path\": \"string\"\n      },\n      \"downlink_queued\": {\n        \"path\": \"string\"\n      },\n      \"downlink_queue_invalidated\": {\n        \"path\": \"string\"\n      },\n      \"location_solved\": {\n        \"path\": \"string\"\n      },\n      \"service_data\": {\n        \"path\": \"string\"\n      },\n      \"field_mask\": \"string\"\n    },\n    {\n      \"ids\": {\n        \"template_id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"logo_url\": \"string\",\n      \"info_url\": \"string\",\n      \"documentation_url\": \"string\",\n      \"base_url\": \"string\",\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"format\": \"string\",\n      \"fields\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"secret\": false,\n          \"default_value\": \"string\",\n          \"optional\": true\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"secret\": true,\n          \"default_value\": \"string\",\n          \"optional\": false\n        }\n      ],\n      \"create_downlink_api_key\": false,\n      \"uplink_message\": {\n        \"path\": \"string\"\n      },\n      \"uplink_normalized\": {\n        \"path\": \"string\"\n      },\n      \"join_accept\": {\n        \"path\": \"string\"\n      },\n      \"downlink_ack\": {\n        \"path\": \"string\"\n      },\n      \"downlink_nack\": {\n        \"path\": \"string\"\n      },\n      \"downlink_sent\": {\n        \"path\": \"string\"\n      },\n      \"downlink_failed\": {\n        \"path\": \"string\"\n      },\n      \"downlink_queued\": {\n        \"path\": \"string\"\n      },\n      \"downlink_queue_invalidated\": {\n        \"path\": \"string\"\n      },\n      \"location_solved\": {\n        \"path\": \"string\"\n      },\n      \"service_data\": {\n        \"path\": \"string\"\n      },\n      \"field_mask\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd64406b-6480-46f8-9dec-a50aae8d5d86",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhook-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f23d659-02c8-42b3-868a-2880625de551",
+          "name": "Application Webhook Registry Get Template",
+          "request": {
+            "name": "Application Webhook Registry Get Template",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "webhook-templates",
+                ":ids.template_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids.template_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13cee35b-7d5a-408b-94a2-a482b0a01691",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhook-templates",
+                    ":ids.template_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.template_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"template_id\": \"string\"\n  },\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"logo_url\": \"string\",\n  \"info_url\": \"string\",\n  \"documentation_url\": \"string\",\n  \"base_url\": \"string\",\n  \"headers\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"format\": \"string\",\n  \"fields\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"secret\": false,\n      \"default_value\": \"string\",\n      \"optional\": true\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"secret\": false,\n      \"default_value\": \"string\",\n      \"optional\": false\n    }\n  ],\n  \"create_downlink_api_key\": false,\n  \"uplink_message\": {\n    \"path\": \"string\"\n  },\n  \"uplink_normalized\": {\n    \"path\": \"string\"\n  },\n  \"join_accept\": {\n    \"path\": \"string\"\n  },\n  \"downlink_ack\": {\n    \"path\": \"string\"\n  },\n  \"downlink_nack\": {\n    \"path\": \"string\"\n  },\n  \"downlink_sent\": {\n    \"path\": \"string\"\n  },\n  \"downlink_failed\": {\n    \"path\": \"string\"\n  },\n  \"downlink_queued\": {\n    \"path\": \"string\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"path\": \"string\"\n  },\n  \"location_solved\": {\n    \"path\": \"string\"\n  },\n  \"service_data\": {\n    \"path\": \"string\"\n  },\n  \"field_mask\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2269c4c4-2302-4abc-97a2-f4681d3e91d5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhook-templates",
+                    ":ids.template_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.template_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3d80ae9-966f-4aec-8cc3-e50319785970",
+          "name": "Application Webhook Registry List",
+          "request": {
+            "name": "Application Webhook Registry List",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "webhooks",
+                ":application_ids.application_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d11678f-add4-4486-8aaa-1beb652f9dcd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"webhooks\": [\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"webhook_id\": \"string\"\n      },\n      \"created_at\": \"1999-04-22T12:07:38.320Z\",\n      \"updated_at\": \"1963-03-28T08:40:25.952Z\",\n      \"base_url\": \"string\",\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"format\": \"string\",\n      \"template_ids\": {\n        \"template_id\": \"string\"\n      },\n      \"template_fields\": {\n        \"key_0\": \"string\"\n      },\n      \"downlink_api_key\": \"string\",\n      \"uplink_message\": {\n        \"path\": \"string\"\n      },\n      \"uplink_normalized\": {\n        \"path\": \"string\"\n      },\n      \"join_accept\": {\n        \"path\": \"string\"\n      },\n      \"downlink_ack\": {\n        \"path\": \"string\"\n      },\n      \"downlink_nack\": {\n        \"path\": \"string\"\n      },\n      \"downlink_sent\": {\n        \"path\": \"string\"\n      },\n      \"downlink_failed\": {\n        \"path\": \"string\"\n      },\n      \"downlink_queued\": {\n        \"path\": \"string\"\n      },\n      \"downlink_queue_invalidated\": {\n        \"path\": \"string\"\n      },\n      \"location_solved\": {\n        \"path\": \"string\"\n      },\n      \"service_data\": {\n        \"path\": \"string\"\n      },\n      \"health_status\": {\n        \"healthy\": {},\n        \"unhealthy\": {\n          \"failed_attempts\": \"string\",\n          \"last_failed_attempt_at\": \"2024-10-03T03:16:24.384Z\",\n          \"last_failed_attempt_details\": {\n            \"namespace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message_format\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"correlation_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"details\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"field_mask\": \"string\",\n      \"paused\": false\n    },\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"webhook_id\": \"string\"\n      },\n      \"created_at\": \"1960-03-14T11:32:39.193Z\",\n      \"updated_at\": \"2015-04-25T22:09:46.158Z\",\n      \"base_url\": \"string\",\n      \"headers\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"format\": \"string\",\n      \"template_ids\": {\n        \"template_id\": \"string\"\n      },\n      \"template_fields\": {\n        \"key_0\": \"string\"\n      },\n      \"downlink_api_key\": \"string\",\n      \"uplink_message\": {\n        \"path\": \"string\"\n      },\n      \"uplink_normalized\": {\n        \"path\": \"string\"\n      },\n      \"join_accept\": {\n        \"path\": \"string\"\n      },\n      \"downlink_ack\": {\n        \"path\": \"string\"\n      },\n      \"downlink_nack\": {\n        \"path\": \"string\"\n      },\n      \"downlink_sent\": {\n        \"path\": \"string\"\n      },\n      \"downlink_failed\": {\n        \"path\": \"string\"\n      },\n      \"downlink_queued\": {\n        \"path\": \"string\"\n      },\n      \"downlink_queue_invalidated\": {\n        \"path\": \"string\"\n      },\n      \"location_solved\": {\n        \"path\": \"string\"\n      },\n      \"service_data\": {\n        \"path\": \"string\"\n      },\n      \"health_status\": {\n        \"healthy\": {},\n        \"unhealthy\": {\n          \"failed_attempts\": \"string\",\n          \"last_failed_attempt_at\": \"2018-07-01T16:45:21.943Z\",\n          \"last_failed_attempt_details\": {\n            \"namespace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message_format\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"correlation_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cause\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"details\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"field_mask\": \"string\",\n      \"paused\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d68494ab-289d-4937-8a48-884ba2316572",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19a20cdf-e9e4-4df6-9db9-8e25d7f83fd5",
+          "name": "Application Webhook Registry Delete",
+          "request": {
+            "name": "Application Webhook Registry Delete",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "webhooks",
+                ":application_ids.application_id",
+                ":webhook_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "webhook_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f6b73d4-9291-4de8-b014-c0f08da2ac37",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":application_ids.application_id",
+                    ":webhook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhook_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a4f8997-b856-4105-9736-957ba681334b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":application_ids.application_id",
+                    ":webhook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhook_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f61ed4d8-6be4-431b-9b46-c003a27cd8a3",
+          "name": "Application Webhook Registry Get",
+          "request": {
+            "name": "Application Webhook Registry Get",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "webhooks",
+                ":ids.application_ids.application_id",
+                ":ids.webhook_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids.webhook_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "229ae820-07aa-474d-954e-7fce1d54d6d0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":ids.application_ids.application_id",
+                    ":ids.webhook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.webhook_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"webhook_id\": \"string\"\n  },\n  \"created_at\": \"2008-11-05T01:48:06.276Z\",\n  \"updated_at\": \"1971-07-20T02:41:38.782Z\",\n  \"base_url\": \"string\",\n  \"headers\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"format\": \"string\",\n  \"template_ids\": {\n    \"template_id\": \"string\"\n  },\n  \"template_fields\": {\n    \"key_0\": \"string\"\n  },\n  \"downlink_api_key\": \"string\",\n  \"uplink_message\": {\n    \"path\": \"string\"\n  },\n  \"uplink_normalized\": {\n    \"path\": \"string\"\n  },\n  \"join_accept\": {\n    \"path\": \"string\"\n  },\n  \"downlink_ack\": {\n    \"path\": \"string\"\n  },\n  \"downlink_nack\": {\n    \"path\": \"string\"\n  },\n  \"downlink_sent\": {\n    \"path\": \"string\"\n  },\n  \"downlink_failed\": {\n    \"path\": \"string\"\n  },\n  \"downlink_queued\": {\n    \"path\": \"string\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"path\": \"string\"\n  },\n  \"location_solved\": {\n    \"path\": \"string\"\n  },\n  \"service_data\": {\n    \"path\": \"string\"\n  },\n  \"health_status\": {\n    \"healthy\": {},\n    \"unhealthy\": {\n      \"failed_attempts\": \"string\",\n      \"last_failed_attempt_at\": \"2014-12-13T14:35:51.980Z\",\n      \"last_failed_attempt_details\": {\n        \"namespace\": \"string\",\n        \"name\": \"string\",\n        \"message_format\": \"string\",\n        \"attributes\": {},\n        \"correlation_id\": \"string\",\n        \"cause\": {\n          \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n        },\n        \"code\": 6709,\n        \"details\": [\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"field_mask\": \"string\",\n  \"paused\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5556408d-fcf4-4466-aa1b-4860813b74a7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":ids.application_ids.application_id",
+                    ":ids.webhook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.webhook_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8123770a-a4f1-4885-9edf-e534f94bfc7f",
+          "name": "Application Webhook Registry Set2",
+          "request": {
+            "name": "Application Webhook Registry Set2",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "webhooks",
+                ":webhook.ids.application_ids.application_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "webhook.ids.application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhook\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"webhook_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"base_url\": \"<string>\",\n    \"headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"format\": \"<string>\",\n    \"template_ids\": {\n      \"template_id\": \"<string>\"\n    },\n    \"template_fields\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"downlink_api_key\": \"<string>\",\n    \"uplink_message\": {\n      \"path\": \"<string>\"\n    },\n    \"uplink_normalized\": {\n      \"path\": \"<string>\"\n    },\n    \"join_accept\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_ack\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_nack\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_sent\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_failed\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_queued\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_queue_invalidated\": {\n      \"path\": \"<string>\"\n    },\n    \"location_solved\": {\n      \"path\": \"<string>\"\n    },\n    \"service_data\": {\n      \"path\": \"<string>\"\n    },\n    \"health_status\": {\n      \"healthy\": \"<object>\",\n      \"unhealthy\": {\n        \"failed_attempts\": \"<uint64>\",\n        \"last_failed_attempt_at\": \"<dateTime>\",\n        \"last_failed_attempt_details\": {\n          \"namespace\": \"<string>\",\n          \"name\": \"<string>\",\n          \"message_format\": \"<string>\",\n          \"attributes\": \"<object>\",\n          \"correlation_id\": \"<string>\",\n          \"cause\": {\n            \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n          },\n          \"code\": \"<long>\",\n          \"details\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    },\n    \"field_mask\": \"<string>\",\n    \"paused\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e46dc2d-acc8-4bd6-8030-db0b55677c20",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":webhook.ids.application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhook.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"webhook_id\": \"string\"\n  },\n  \"created_at\": \"1984-12-17T07:13:52.209Z\",\n  \"updated_at\": \"2002-02-02T19:35:49.315Z\",\n  \"base_url\": \"string\",\n  \"headers\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"format\": \"string\",\n  \"template_ids\": {\n    \"template_id\": \"<string>\"\n  },\n  \"template_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"downlink_api_key\": \"string\",\n  \"uplink_message\": {\n    \"path\": \"<string>\"\n  },\n  \"uplink_normalized\": {\n    \"path\": \"<string>\"\n  },\n  \"join_accept\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_ack\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_nack\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_sent\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_failed\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_queued\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"path\": \"<string>\"\n  },\n  \"location_solved\": {\n    \"path\": \"<string>\"\n  },\n  \"service_data\": {\n    \"path\": \"<string>\"\n  },\n  \"health_status\": {\n    \"healthy\": \"<object>\",\n    \"unhealthy\": {\n      \"failed_attempts\": \"<uint64>\",\n      \"last_failed_attempt_at\": \"<dateTime>\",\n      \"last_failed_attempt_details\": {\n        \"namespace\": \"<string>\",\n        \"name\": \"<string>\",\n        \"message_format\": \"<string>\",\n        \"attributes\": \"<object>\",\n        \"correlation_id\": \"<string>\",\n        \"cause\": {\n          \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n        },\n        \"code\": \"<long>\",\n        \"details\": [\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"field_mask\": \"string\",\n  \"paused\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4d9b73e-46cf-4c0a-9d1e-4383563554f3",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":webhook.ids.application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhook.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee9e396f-1e13-43cf-b92f-2e4384fcdcd6",
+          "name": "Application Webhook Registry Set",
+          "request": {
+            "name": "Application Webhook Registry Set",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "webhooks",
+                ":webhook.ids.application_ids.application_id",
+                ":webhook.ids.webhook_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "webhook.ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "webhook.ids.webhook_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhook\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"webhook_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"base_url\": \"<string>\",\n    \"headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"format\": \"<string>\",\n    \"template_ids\": {\n      \"template_id\": \"<string>\"\n    },\n    \"template_fields\": {\n      \"key_0\": \"<string>\"\n    },\n    \"downlink_api_key\": \"<string>\",\n    \"uplink_message\": {\n      \"path\": \"<string>\"\n    },\n    \"uplink_normalized\": {\n      \"path\": \"<string>\"\n    },\n    \"join_accept\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_ack\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_nack\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_sent\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_failed\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_queued\": {\n      \"path\": \"<string>\"\n    },\n    \"downlink_queue_invalidated\": {\n      \"path\": \"<string>\"\n    },\n    \"location_solved\": {\n      \"path\": \"<string>\"\n    },\n    \"service_data\": {\n      \"path\": \"<string>\"\n    },\n    \"health_status\": {\n      \"healthy\": \"<object>\",\n      \"unhealthy\": {\n        \"failed_attempts\": \"<uint64>\",\n        \"last_failed_attempt_at\": \"<dateTime>\",\n        \"last_failed_attempt_details\": {\n          \"namespace\": \"<string>\",\n          \"name\": \"<string>\",\n          \"message_format\": \"<string>\",\n          \"attributes\": \"<object>\",\n          \"correlation_id\": \"<string>\",\n          \"cause\": {\n            \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n          },\n          \"code\": \"<long>\",\n          \"details\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      }\n    },\n    \"field_mask\": \"<string>\",\n    \"paused\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6561ba6-8e25-4ea6-8e83-5fd10a8c1028",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":webhook.ids.application_ids.application_id",
+                    ":webhook.ids.webhook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhook.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhook.ids.webhook_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"webhook_id\": \"string\"\n  },\n  \"created_at\": \"1984-12-17T07:13:52.209Z\",\n  \"updated_at\": \"2002-02-02T19:35:49.315Z\",\n  \"base_url\": \"string\",\n  \"headers\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"format\": \"string\",\n  \"template_ids\": {\n    \"template_id\": \"<string>\"\n  },\n  \"template_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"downlink_api_key\": \"string\",\n  \"uplink_message\": {\n    \"path\": \"<string>\"\n  },\n  \"uplink_normalized\": {\n    \"path\": \"<string>\"\n  },\n  \"join_accept\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_ack\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_nack\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_sent\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_failed\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_queued\": {\n    \"path\": \"<string>\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"path\": \"<string>\"\n  },\n  \"location_solved\": {\n    \"path\": \"<string>\"\n  },\n  \"service_data\": {\n    \"path\": \"<string>\"\n  },\n  \"health_status\": {\n    \"healthy\": \"<object>\",\n    \"unhealthy\": {\n      \"failed_attempts\": \"<uint64>\",\n      \"last_failed_attempt_at\": \"<dateTime>\",\n      \"last_failed_attempt_details\": {\n        \"namespace\": \"<string>\",\n        \"name\": \"<string>\",\n        \"message_format\": \"<string>\",\n        \"attributes\": \"<object>\",\n        \"correlation_id\": \"<string>\",\n        \"cause\": {\n          \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n        },\n        \"code\": \"<long>\",\n        \"details\": [\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  },\n  \"field_mask\": \"string\",\n  \"paused\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5adaa2b0-ac1e-4f0b-87ae-c447ce5aca34",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "webhooks",
+                    ":webhook.ids.application_ids.application_id",
+                    ":webhook.ids.webhook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhook.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhook.ids.webhook_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1bf6659f-6714-4c2d-a7dc-3566133e6de5",
+      "name": "ApplicationPubSubRegistry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1fd79f58-6336-4d37-aa73-b02a2fc3d2e2",
+          "name": "Application Pub Sub Registry Get Formats",
+          "request": {
+            "name": "Application Pub Sub Registry Get Formats",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub-formats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ad0918a-052e-4523-88d0-a14b6fdcaf72",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub-formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"formats\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1faf5a61-01c8-4784-b6e8-a2c2123eedfa",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub-formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3188,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd5dce0c-2e9a-4d21-b1f6-ef4a56b48137",
+          "name": "Application Pub Sub Registry List",
+          "request": {
+            "name": "Application Pub Sub Registry List",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":application_ids.application_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e02cdcb-420a-4b47-91fd-066c3a94c59f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pubsubs\": [\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"pub_sub_id\": \"string\"\n      },\n      \"created_at\": \"1983-08-30T16:31:08.758Z\",\n      \"updated_at\": \"1986-06-11T16:02:17.026Z\",\n      \"format\": \"string\",\n      \"nats\": {\n        \"server_url\": \"string\"\n      },\n      \"mqtt\": {\n        \"server_url\": \"string\",\n        \"client_id\": \"string\",\n        \"username\": \"string\",\n        \"password\": \"string\",\n        \"subscribe_qos\": \"AT_MOST_ONCE\",\n        \"publish_qos\": \"AT_MOST_ONCE\",\n        \"use_tls\": false,\n        \"tls_ca\": \"string\",\n        \"tls_client_cert\": \"string\",\n        \"tls_client_key\": \"string\",\n        \"headers\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"aws_iot\": {\n        \"region\": \"string\",\n        \"access_key\": {\n          \"access_key_id\": \"string\",\n          \"secret_access_key\": \"string\",\n          \"session_token\": \"string\"\n        },\n        \"assume_role\": {\n          \"arn\": \"string\",\n          \"external_id\": \"string\",\n          \"session_duration\": \"string\"\n        },\n        \"endpoint_address\": \"string\",\n        \"default\": {\n          \"stack_name\": \"string\"\n        }\n      },\n      \"base_topic\": \"string\",\n      \"downlink_push\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_replace\": {\n        \"topic\": \"string\"\n      },\n      \"uplink_message\": {\n        \"topic\": \"string\"\n      },\n      \"uplink_normalized\": {\n        \"topic\": \"string\"\n      },\n      \"join_accept\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_ack\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_nack\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_sent\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_failed\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_queued\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_queue_invalidated\": {\n        \"topic\": \"string\"\n      },\n      \"location_solved\": {\n        \"topic\": \"string\"\n      },\n      \"service_data\": {\n        \"topic\": \"string\"\n      }\n    },\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"pub_sub_id\": \"string\"\n      },\n      \"created_at\": \"1985-12-22T09:00:49.538Z\",\n      \"updated_at\": \"1986-08-24T06:41:16.858Z\",\n      \"format\": \"string\",\n      \"nats\": {\n        \"server_url\": \"string\"\n      },\n      \"mqtt\": {\n        \"server_url\": \"string\",\n        \"client_id\": \"string\",\n        \"username\": \"string\",\n        \"password\": \"string\",\n        \"subscribe_qos\": \"AT_MOST_ONCE\",\n        \"publish_qos\": \"AT_MOST_ONCE\",\n        \"use_tls\": false,\n        \"tls_ca\": \"string\",\n        \"tls_client_cert\": \"string\",\n        \"tls_client_key\": \"string\",\n        \"headers\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"aws_iot\": {\n        \"region\": \"string\",\n        \"access_key\": {\n          \"access_key_id\": \"string\",\n          \"secret_access_key\": \"string\",\n          \"session_token\": \"string\"\n        },\n        \"assume_role\": {\n          \"arn\": \"string\",\n          \"external_id\": \"string\",\n          \"session_duration\": \"string\"\n        },\n        \"endpoint_address\": \"string\",\n        \"default\": {\n          \"stack_name\": \"string\"\n        }\n      },\n      \"base_topic\": \"string\",\n      \"downlink_push\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_replace\": {\n        \"topic\": \"string\"\n      },\n      \"uplink_message\": {\n        \"topic\": \"string\"\n      },\n      \"uplink_normalized\": {\n        \"topic\": \"string\"\n      },\n      \"join_accept\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_ack\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_nack\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_sent\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_failed\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_queued\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_queue_invalidated\": {\n        \"topic\": \"string\"\n      },\n      \"location_solved\": {\n        \"topic\": \"string\"\n      },\n      \"service_data\": {\n        \"topic\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0802bd29-e2be-4347-9509-0a7c7b0629d7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9f346ec-fd72-4b5a-b2be-d9443d46dd31",
+          "name": "Application Pub Sub Registry Delete",
+          "request": {
+            "name": "Application Pub Sub Registry Delete",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":application_ids.application_id",
+                ":pub_sub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pub_sub_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d37179d-db06-49e7-ad11-a6634f4ff459",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":application_ids.application_id",
+                    ":pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49e2be76-2574-42da-ac56-b8bd46129f5a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":application_ids.application_id",
+                    ":pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef9a61f7-0b2e-4041-a65e-eddfe3770aff",
+          "name": "Application Pub Sub Registry Get",
+          "request": {
+            "name": "Application Pub Sub Registry Get",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":ids.application_ids.application_id",
+                ":ids.pub_sub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids.pub_sub_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61133cab-f940-4a03-9dad-42391307031e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":ids.application_ids.application_id",
+                    ":ids.pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"pub_sub_id\": \"string\"\n  },\n  \"created_at\": \"1978-04-27T18:58:40.566Z\",\n  \"updated_at\": \"2004-08-08T03:17:15.535Z\",\n  \"format\": \"string\",\n  \"nats\": {\n    \"server_url\": \"string\"\n  },\n  \"mqtt\": {\n    \"server_url\": \"string\",\n    \"client_id\": \"string\",\n    \"username\": \"string\",\n    \"password\": \"string\",\n    \"subscribe_qos\": \"AT_MOST_ONCE\",\n    \"publish_qos\": \"AT_MOST_ONCE\",\n    \"use_tls\": false,\n    \"tls_ca\": \"string\",\n    \"tls_client_cert\": \"string\",\n    \"tls_client_key\": \"string\",\n    \"headers\": {\n      \"key_0\": \"string\"\n    }\n  },\n  \"aws_iot\": {\n    \"region\": \"string\",\n    \"access_key\": {\n      \"access_key_id\": \"string\",\n      \"secret_access_key\": \"string\",\n      \"session_token\": \"string\"\n    },\n    \"assume_role\": {\n      \"arn\": \"string\",\n      \"external_id\": \"string\",\n      \"session_duration\": \"string\"\n    },\n    \"endpoint_address\": \"string\",\n    \"default\": {\n      \"stack_name\": \"string\"\n    }\n  },\n  \"base_topic\": \"string\",\n  \"downlink_push\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_replace\": {\n    \"topic\": \"string\"\n  },\n  \"uplink_message\": {\n    \"topic\": \"string\"\n  },\n  \"uplink_normalized\": {\n    \"topic\": \"string\"\n  },\n  \"join_accept\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_ack\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_nack\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_sent\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_failed\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_queued\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"topic\": \"string\"\n  },\n  \"location_solved\": {\n    \"topic\": \"string\"\n  },\n  \"service_data\": {\n    \"topic\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3812f0b-b624-4ec7-a4c9-b7ded88258c6",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":ids.application_ids.application_id",
+                    ":ids.pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9a19ea0-0f06-45fb-95ec-b99ad71a79b1",
+          "name": "Application Pub Sub Registry Set2",
+          "request": {
+            "name": "Application Pub Sub Registry Set2",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":pubsub.ids.application_ids.application_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pubsub.ids.application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pubsub\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"pub_sub_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"format\": \"<string>\",\n    \"nats\": {\n      \"server_url\": \"<string>\"\n    },\n    \"mqtt\": {\n      \"server_url\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"password\": \"<string>\",\n      \"subscribe_qos\": \"AT_MOST_ONCE\",\n      \"publish_qos\": \"AT_MOST_ONCE\",\n      \"use_tls\": \"<boolean>\",\n      \"tls_ca\": \"<byte>\",\n      \"tls_client_cert\": \"<byte>\",\n      \"tls_client_key\": \"<byte>\",\n      \"headers\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"aws_iot\": {\n      \"region\": \"<string>\",\n      \"access_key\": {\n        \"access_key_id\": \"<string>\",\n        \"secret_access_key\": \"<string>\",\n        \"session_token\": \"<string>\"\n      },\n      \"assume_role\": {\n        \"arn\": \"<string>\",\n        \"external_id\": \"<string>\",\n        \"session_duration\": \"<string>\"\n      },\n      \"endpoint_address\": \"<string>\",\n      \"default\": {\n        \"stack_name\": \"<string>\"\n      }\n    },\n    \"base_topic\": \"<string>\",\n    \"downlink_push\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_replace\": {\n      \"topic\": \"<string>\"\n    },\n    \"uplink_message\": {\n      \"topic\": \"<string>\"\n    },\n    \"uplink_normalized\": {\n      \"topic\": \"<string>\"\n    },\n    \"join_accept\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_ack\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_nack\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_sent\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_failed\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_queued\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_queue_invalidated\": {\n      \"topic\": \"<string>\"\n    },\n    \"location_solved\": {\n      \"topic\": \"<string>\"\n    },\n    \"service_data\": {\n      \"topic\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ce63020-e0f8-42ff-b1d6-7bc9cce6acb4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":pubsub.ids.application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"pub_sub_id\": \"string\"\n  },\n  \"created_at\": \"2010-05-11T05:03:19.732Z\",\n  \"updated_at\": \"1963-04-01T08:38:35.965Z\",\n  \"format\": \"string\",\n  \"nats\": {\n    \"server_url\": \"<string>\"\n  },\n  \"mqtt\": {\n    \"server_url\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"subscribe_qos\": \"AT_MOST_ONCE\",\n    \"publish_qos\": \"AT_MOST_ONCE\",\n    \"use_tls\": \"<boolean>\",\n    \"tls_ca\": \"<byte>\",\n    \"tls_client_cert\": \"<byte>\",\n    \"tls_client_key\": \"<byte>\",\n    \"headers\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"aws_iot\": {\n    \"region\": \"<string>\",\n    \"access_key\": {\n      \"access_key_id\": \"<string>\",\n      \"secret_access_key\": \"<string>\",\n      \"session_token\": \"<string>\"\n    },\n    \"assume_role\": {\n      \"arn\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"session_duration\": \"<string>\"\n    },\n    \"endpoint_address\": \"<string>\",\n    \"default\": {\n      \"stack_name\": \"<string>\"\n    }\n  },\n  \"base_topic\": \"string\",\n  \"downlink_push\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_replace\": {\n    \"topic\": \"<string>\"\n  },\n  \"uplink_message\": {\n    \"topic\": \"<string>\"\n  },\n  \"uplink_normalized\": {\n    \"topic\": \"<string>\"\n  },\n  \"join_accept\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_ack\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_nack\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_sent\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_failed\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_queued\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"topic\": \"<string>\"\n  },\n  \"location_solved\": {\n    \"topic\": \"<string>\"\n  },\n  \"service_data\": {\n    \"topic\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cb0d631-7ce3-484a-8166-2c44dd266792",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":pubsub.ids.application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c22f08c8-ca94-4fcb-b6d3-b3cf6d44517a",
+          "name": "Application Pub Sub Registry Set",
+          "request": {
+            "name": "Application Pub Sub Registry Set",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":pubsub.ids.application_ids.application_id",
+                ":pubsub.ids.pub_sub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pubsub.ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pubsub.ids.pub_sub_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pubsub\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"pub_sub_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"format\": \"<string>\",\n    \"nats\": {\n      \"server_url\": \"<string>\"\n    },\n    \"mqtt\": {\n      \"server_url\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"password\": \"<string>\",\n      \"subscribe_qos\": \"AT_MOST_ONCE\",\n      \"publish_qos\": \"AT_MOST_ONCE\",\n      \"use_tls\": \"<boolean>\",\n      \"tls_ca\": \"<byte>\",\n      \"tls_client_cert\": \"<byte>\",\n      \"tls_client_key\": \"<byte>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"aws_iot\": {\n      \"region\": \"<string>\",\n      \"access_key\": {\n        \"access_key_id\": \"<string>\",\n        \"secret_access_key\": \"<string>\",\n        \"session_token\": \"<string>\"\n      },\n      \"assume_role\": {\n        \"arn\": \"<string>\",\n        \"external_id\": \"<string>\",\n        \"session_duration\": \"<string>\"\n      },\n      \"endpoint_address\": \"<string>\",\n      \"default\": {\n        \"stack_name\": \"<string>\"\n      }\n    },\n    \"base_topic\": \"<string>\",\n    \"downlink_push\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_replace\": {\n      \"topic\": \"<string>\"\n    },\n    \"uplink_message\": {\n      \"topic\": \"<string>\"\n    },\n    \"uplink_normalized\": {\n      \"topic\": \"<string>\"\n    },\n    \"join_accept\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_ack\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_nack\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_sent\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_failed\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_queued\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_queue_invalidated\": {\n      \"topic\": \"<string>\"\n    },\n    \"location_solved\": {\n      \"topic\": \"<string>\"\n    },\n    \"service_data\": {\n      \"topic\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b7d4a3f-60ea-47f9-a6fe-388e0c711eac",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":pubsub.ids.application_ids.application_id",
+                    ":pubsub.ids.pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"pub_sub_id\": \"string\"\n  },\n  \"created_at\": \"2010-05-11T05:03:19.732Z\",\n  \"updated_at\": \"1963-04-01T08:38:35.965Z\",\n  \"format\": \"string\",\n  \"nats\": {\n    \"server_url\": \"<string>\"\n  },\n  \"mqtt\": {\n    \"server_url\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"subscribe_qos\": \"AT_MOST_ONCE\",\n    \"publish_qos\": \"AT_MOST_ONCE\",\n    \"use_tls\": \"<boolean>\",\n    \"tls_ca\": \"<byte>\",\n    \"tls_client_cert\": \"<byte>\",\n    \"tls_client_key\": \"<byte>\",\n    \"headers\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"aws_iot\": {\n    \"region\": \"<string>\",\n    \"access_key\": {\n      \"access_key_id\": \"<string>\",\n      \"secret_access_key\": \"<string>\",\n      \"session_token\": \"<string>\"\n    },\n    \"assume_role\": {\n      \"arn\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"session_duration\": \"<string>\"\n    },\n    \"endpoint_address\": \"<string>\",\n    \"default\": {\n      \"stack_name\": \"<string>\"\n    }\n  },\n  \"base_topic\": \"string\",\n  \"downlink_push\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_replace\": {\n    \"topic\": \"<string>\"\n  },\n  \"uplink_message\": {\n    \"topic\": \"<string>\"\n  },\n  \"uplink_normalized\": {\n    \"topic\": \"<string>\"\n  },\n  \"join_accept\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_ack\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_nack\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_sent\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_failed\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_queued\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"topic\": \"<string>\"\n  },\n  \"location_solved\": {\n    \"topic\": \"<string>\"\n  },\n  \"service_data\": {\n    \"topic\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e5a5366-84db-41bd-9199-4f78c25ce9c3",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":pubsub.ids.application_ids.application_id",
+                    ":pubsub.ids.pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6767,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "76274738-ecfd-43ac-83ec-f89aa0adbfe5",
+    "name": "The Things Stack — Integrations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

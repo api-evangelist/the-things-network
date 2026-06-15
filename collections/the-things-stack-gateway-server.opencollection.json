@@ -1,0 +1,1900 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Gateway Server",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GatewayRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted gateways."
+              }
+            ]
+          },
+          "docs": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gateways/filter"
+          },
+          "docs": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Update the gateway, changing the fields specified by the field mask to the provided values.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gateways/:gateway.ids.gateway_id",
+            "params": [
+              {
+                "name": "gateway.ids.gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update the gateway, changing the fields specified by the field mask to the provided values."
+        },
+        {
+          "info": {
+            "name": "Get the gateway with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              }
+            ]
+          },
+          "docs": "Get the gateway with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Delete the gateway. This may not release the gateway ID for reuse, but it does release the EUI.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gateways/:gateway_id",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Delete the gateway. This may not release the gateway ID for reuse, but it does release the EUI."
+        },
+        {
+          "info": {
+            "name": "Purge the gateway. This will release both gateway ID and EUI for reuse.\nThe gateway owner is responsible for clearing data from any (external) integrations\nthat may store and expose data by gateway ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gateways/:gateway_id/purge",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Purge the gateway. This will release both gateway ID and EUI for reuse.\nThe gateway owner is responsible for clearing data from any (external) integrations\nthat may store and expose data by gateway ID."
+        },
+        {
+          "info": {
+            "name": "Restore a recently deleted gateway. This does not restore the EUI,\nas that was released when deleting the gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gateways/:gateway_id/restore",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Deployment configuration may specify if, and for how long after deletion,\nentities can be restored."
+        },
+        {
+          "info": {
+            "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/gateways",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted gateways."
+              }
+            ]
+          },
+          "docs": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Create a new gateway. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/gateways",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              }
+            ]
+          },
+          "docs": "Create a new gateway. This also sets the given organization or user as\nfirst collaborator with all possible rights."
+        },
+        {
+          "info": {
+            "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:collaborator.user_ids.user_id/gateways",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted gateways."
+              }
+            ]
+          },
+          "docs": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Create a new gateway. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/:collaborator.user_ids.user_id/gateways",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              }
+            ]
+          },
+          "docs": "Create a new gateway. This also sets the given organization or user as\nfirst collaborator with all possible rights."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GatewayBatchRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete a batch of gateways.\nThis operation is atomic; either all gateways are deleted or none.\nThe caller must have delete rights on all requested gateways.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gateways/batch"
+          },
+          "docs": "Delete a batch of gateways.\nThis operation is atomic; either all gateways are deleted or none.\nThe caller must have delete rights on all requested gateways."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GatewayBatchAccess",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assert that the caller has the requested rights on all the requested gateways.\nThe check is successful if there are no errors.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways/rights/batch",
+            "params": [
+              {
+                "name": "required.rights",
+                "value": "",
+                "type": "query",
+                "description": " - RIGHT_USER_INFO: The right to view user information.\n - RIGHT_USER_SETTINGS_BASIC: The right to edit basic user settings.\n - RIGHT_USER_LIST: The right to list users accounts.\n - RIGHT_USER_CREATE: The right to create an user account.\n - RIGHT_USER_SETTINGS_API_KEYS: The right to view and edit user API keys.\n - RIGHT_USER_DELETE: The right to delete user account.\n - RIGHT_USER_PURGE: The right to delete user account.\n - RIGHT_USER_AUTHORIZED_CLIENTS: The right to view and edit authorized OAuth clients of the user.\n - RIGHT_USER_APPLICATIONS_LIST: The right to list applications the user is a collaborator of.\n - RIGHT_USER_APPLICATIONS_CREATE: The right to create an application under the user account.\n - RIGHT_USER_GATEWAYS_LIST: The right to list gateways the user is a collaborator of.\n - RIGHT_USER_GATEWAYS_CREATE: The right to create a gateway under the account of the user.\n - RIGHT_USER_CLIENTS_LIST: The right to list OAuth clients the user is a collaborator of.\n - RIGHT_USER_CLIENTS_CREATE: The right to create an OAuth client under the account of the user.\n - RIGHT_USER_ORGANIZATIONS_LIST: The right to list organizations the user is a member of.\n - RIGHT_USER_ORGANIZATIONS_CREATE: The right to create an organization under the user account.\n - RIGHT_USER_NOTIFICATIONS_READ: The right to read notifications sent to the user.\n - RIGHT_USER_ALL: The pseudo-right for all (current and future) user rights.\n - RIGHT_APPLICATION_INFO: The right to view application information.\n - RIGHT_APPLICATION_SETTINGS_BASIC: The right to edit basic application settings.\n - RIGHT_APPLICATION_SETTINGS_API_KEYS: The right to view and edit application API keys.\n - RIGHT_APPLICATION_SETTINGS_COLLABORATORS: The right to view and edit application collaborators.\n - RIGHT_APPLICATION_SETTINGS_PACKAGES: The right to view and edit application packages and associations.\n - RIGHT_APPLICATION_DELETE: The right to delete application.\n - RIGHT_APPLICATION_PURGE: The right to purge application.\n - RIGHT_APPLICATION_DEVICES_READ: The right to view devices in application.\n - RIGHT_APPLICATION_DEVICES_WRITE: The right to create devices in application.\n - RIGHT_APPLICATION_DEVICES_READ_KEYS: The right to view device keys in application.\nNote that keys may not be stored in a way that supports viewing them.\n - RIGHT_APPLICATION_DEVICES_WRITE_KEYS: The right to edit device keys in application.\n - RIGHT_APPLICATION_TRAFFIC_READ: The right to read application traffic (uplink and downlink).\n - RIGHT_APPLICATION_TRAFFIC_UP_WRITE: The right to write uplink application traffic.\n - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE: The right to write downlink application traffic.\n - RIGHT_APPLICATION_LINK: The right to link as Application to a Network Server for traffic exchange,\ni.e. read uplink and write downlink (API keys only).\nThis right is typically only given to an Application Server.\nThis right implies RIGHT_APPLICATION_INFO, RIGHT_APPLICATION_TRAFFIC_READ,\nand RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE.\n - RIGHT_APPLICATION_ALL: The pseudo-right for all (current and future) application rights.\n - RIGHT_CLIENT_ALL: The pseudo-right for all (current and future) OAuth client rights.\n - RIGHT_CLIENT_INFO: The right to read client information.\n - RIGHT_CLIENT_SETTINGS_BASIC: The right to edit basic client settings.\n - RIGHT_CLIENT_SETTINGS_COLLABORATORS: The right to view and edit client collaborators.\n - RIGHT_CLIENT_DELETE: The right to delete a client.\n - RIGHT_CLIENT_PURGE: The right to purge a client.\n - RIGHT_GATEWAY_INFO: The right to view gateway information.\n - RIGHT_GATEWAY_SETTINGS_BASIC: The right to edit basic gateway settings.\n - RIGHT_GATEWAY_SETTINGS_API_KEYS: The right to view and edit gateway API keys.\n - RIGHT_GATEWAY_SETTINGS_COLLABORATORS: The right to view and edit gateway collaborators.\n - RIGHT_GATEWAY_DELETE: The right to delete gateway.\n - RIGHT_GATEWAY_PURGE: The right to purge gateway.\n - RIGHT_GATEWAY_TRAFFIC_READ: The right to read gateway traffic.\n - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE: The right to write downlink gateway traffic.\n - RIGHT_GATEWAY_LINK: The right to link as Gateway to a Gateway Server for traffic exchange,\ni.e. write uplink and read downlink (API keys only)\nThis right is typically only given to a gateway.\nThis right implies RIGHT_GATEWAY_INFO.\n - RIGHT_GATEWAY_STATUS_READ: The right to view gateway status.\n - RIGHT_GATEWAY_LOCATION_READ: The right to view view gateway location.\n - RIGHT_GATEWAY_WRITE_SECRETS: The right to store secrets associated with this gateway.\n - RIGHT_GATEWAY_READ_SECRETS: The right to retrieve secrets associated with this gateway.\n - RIGHT_GATEWAY_ALL: The pseudo-right for all (current and future) gateway rights.\n - RIGHT_ORGANIZATION_INFO: The right to view organization information.\n - RIGHT_ORGANIZATION_SETTINGS_BASIC: The right to edit basic organization settings.\n - RIGHT_ORGANIZATION_SETTINGS_API_KEYS: The right to view and edit organization API keys.\n - RIGHT_ORGANIZATION_SETTINGS_MEMBERS: The right to view and edit organization members.\n - RIGHT_ORGANIZATION_DELETE: The right to delete organization.\n - RIGHT_ORGANIZATION_PURGE: The right to purge organization.\n - RIGHT_ORGANIZATION_APPLICATIONS_LIST: The right to list the applications the organization is a collaborator of.\n - RIGHT_ORGANIZATION_APPLICATIONS_CREATE: The right to create an application under the organization.\n - RIGHT_ORGANIZATION_GATEWAYS_LIST: The right to list the gateways the organization is a collaborator of.\n - RIGHT_ORGANIZATION_GATEWAYS_CREATE: The right to create a gateway under the organization.\n - RIGHT_ORGANIZATION_CLIENTS_LIST: The right to list the OAuth clients the organization is a collaborator of.\n - RIGHT_ORGANIZATION_CLIENTS_CREATE: The right to create an OAuth client under the organization.\n - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR: The right to add the organization as a collaborator on an existing entity.\n - RIGHT_ORGANIZATION_ALL: The pseudo-right for all (current and future) organization rights.\n - RIGHT_SEND_INVITES: The right to send invites to new users.\nNote that this is not prefixed with \"USER_\"; it is not a right on the user entity.\n - RIGHT_ALL: The pseudo-right for all (current and future) possible rights."
+              }
+            ]
+          },
+          "docs": "Assert that the caller has the requested rights on all the requested gateways.\nThe check is successful if there are no errors."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GatewayAccess",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the API keys for this gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/api-keys",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path.\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List the API keys for this gateway."
+        },
+        {
+          "info": {
+            "name": "Create an API key scoped to this gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/api-keys",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create an API key scoped to this gateway."
+        },
+        {
+          "info": {
+            "name": "Update the rights of an API key of the gateway.\nThis method can also be used to delete the API key, by giving it no rights.\nThe caller is required to have all assigned or/and removed rights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/api-keys/:api_key.id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api_key.id",
+                "value": "",
+                "type": "path",
+                "description": "Immutable and unique public identifier for the API key.\nGenerated by the Access Server."
+              }
+            ]
+          },
+          "docs": "Update the rights of an API key of the gateway.\nThis method can also be used to delete the API key, by giving it no rights.\nThe caller is required to have all assigned or/and removed rights."
+        },
+        {
+          "info": {
+            "name": "Get a single API key of this gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/api-keys/:key_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique public identifier for the API key."
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get a single API key of this gateway."
+        },
+        {
+          "info": {
+            "name": "Delete a single API key of this gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/api-keys/:key_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Delete a single API key of this gateway."
+        },
+        {
+          "info": {
+            "name": "Get the rights of a collaborator (member) of the gateway.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborator/organization/:collaborator.organization_ids.organization_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get the rights of a collaborator (member) of the gateway.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded."
+        },
+        {
+          "info": {
+            "name": "Get the rights of a collaborator (member) of the gateway.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborator/user/:collaborator.user_ids.user_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get the rights of a collaborator (member) of the gateway.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded."
+        },
+        {
+          "info": {
+            "name": "List the collaborators on this gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborators",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              }
+            ]
+          },
+          "docs": "List the collaborators on this gateway."
+        },
+        {
+          "info": {
+            "name": "Set the rights of a collaborator (member) on the gateway.\nThis method can also be used to delete the collaborator, by giving them no rights.\nThe caller is required to have all assigned or/and removed rights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborators",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set the rights of a collaborator (member) on the gateway.\nThis method can also be used to delete the collaborator, by giving them no rights.\nThe caller is required to have all assigned or/and removed rights."
+        },
+        {
+          "info": {
+            "name": "DeleteCollaborator removes a collaborator from a gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborators/organization/:collaborator_ids.organization_ids.organization_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator_ids.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "collaborator_ids.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator_ids.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "DeleteCollaborator removes a collaborator from a gateway."
+        },
+        {
+          "info": {
+            "name": "DeleteCollaborator removes a collaborator from a gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborators/user/:collaborator_ids.user_ids.user_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator_ids.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "collaborator_ids.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator_ids.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "DeleteCollaborator removes a collaborator from a gateway."
+        },
+        {
+          "info": {
+            "name": "List the rights the caller has on this gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gateways/:gateway_id/rights",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "List the rights the caller has on this gateway."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GatewayClaimingServer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Claims a gateway by claim authentication code or QR code and transfers the gateway to the target user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcls/claim"
+          },
+          "docs": "Claims a gateway by claim authentication code or QR code and transfers the gateway to the target user."
+        },
+        {
+          "info": {
+            "name": "Return whether claiming is available for a given gateway EUI.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcls/claim/info"
+          },
+          "docs": "Return whether claiming is available for a given gateway EUI."
+        },
+        {
+          "info": {
+            "name": "Unclaims the gateway.\nEUI provided in the request are ignored and the end device is looked up by the gateway ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gcls/claim/:gateway_id",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Unclaims the gateway.\nEUI provided in the request are ignored and the end device is looked up by the gateway ID."
+        },
+        {
+          "info": {
+            "name": "AuthorizeGateway allows a gateway to be claimed.\nDEPRECATED: Authorizing gateways for claiming is no longer supported and will be removed in a future version of The\nThings Stack.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcls/gateways/:gateway_ids.gateway_id/authorize",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "AuthorizeGateway allows a gateway to be claimed.\nDEPRECATED: Authorizing gateways for claiming is no longer supported and will be removed in a future version of The\nThings Stack."
+        },
+        {
+          "info": {
+            "name": "UnauthorizeGateway prevents a gateway from being claimed.\nDEPRECATED: Unauthorizing (locking) gateways for claiming is no longer supported and will be removed in a future\nversion of The Things Stack.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gcls/gateways/:gateway_id/authorize",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "UnauthorizeGateway prevents a gateway from being claimed.\nDEPRECATED: Unauthorizing (locking) gateways for claiming is no longer supported and will be removed in a future\nversion of The Things Stack."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GatewayConfigurationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GatewayConfigurationService_GetGatewayConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:filename",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GatewayConfigurationService_GetGatewayConfiguration2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:type/:filename",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ManagedGatewayConfigurationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ManagedGatewayConfigurationService_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gcs/gateways/managed/:gateway.ids.gateway_id",
+            "params": [
+              {
+                "name": "gateway.ids.gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayConfigurationService_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/managed/:gateway_ids.gateway_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayConfigurationService_StreamEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/events",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayConfigurationService_ScanWiFiAccessPoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/wifi/scan",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ManagedGatewayEthernetProfileConfigurationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile.profile_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "profile.profile_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_List2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_Create2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_Update2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile.profile_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "profile.profile_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_Get2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayEthernetProfileConfigurationService_Delete2",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ManagedGatewayWiFiProfileConfigurationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/organizations/:collaborator.organization_ids.organization_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/organizations/:collaborator.organization_ids.organization_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/organizations/:collaborator.organization_ids.organization_id/:profile.profile_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "profile.profile_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/organizations/:collaborator.organization_ids.organization_id/:profile_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/organizations/:collaborator.organization_ids.organization_id/:profile_id",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_List2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/users/:collaborator.user_ids.user_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_Create2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/users/:collaborator.user_ids.user_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_Update2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/users/:collaborator.user_ids.user_id/:profile.profile_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "profile.profile_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_Get2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/users/:collaborator.user_ids.user_id/:profile_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayWiFiProfileConfigurationService_Delete2",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gcs/gateways/profiles/wifi/users/:collaborator.user_ids.user_id/:profile_id",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Gs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get statistics about gateway connections to the Gateway Server of a batch of gateways.\n- Statistics are not persisted between reconnects.\n- Gateways that are not connected or are part of a different cluster are ignored.\n- The client should ensure that the requested gateways are in the requested cluster.\n- The client should have the right to get the gateway connection stats on all requested gateways.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gs/gateways/connection/stats"
+          },
+          "docs": "Get statistics about gateway connections to the Gateway Server of a batch of gateways.\n- Statistics are not persisted between reconnects.\n- Gateways that are not connected or are part of a different cluster are ignored.\n- The client should ensure that the requested gateways are in the requested cluster.\n- The client should have the right to get the gateway connection stats on all requested gateways."
+        },
+        {
+          "info": {
+            "name": "Get statistics about the current gateway connection to the Gateway Server.\nThis is not persisted between reconnects.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gs/gateways/:gateway_id/connection/stats",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get statistics about the current gateway connection to the Gateway Server.\nThis is not persisted between reconnects."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GtwGs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get connection information to connect an MQTT gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gs/gateways/:gateway_id/mqtt-connection-info",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get connection information to connect an MQTT gateway."
+        },
+        {
+          "info": {
+            "name": "Get legacy connection information to connect a The Things Network Stack V2 MQTT gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gs/gateways/:gateway_id/mqttv2-connection-info",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get legacy connection information to connect a The Things Network Stack V2 MQTT gateway."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GatewayQRCodeGenerator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Parse QR Codes of known formats and return the information contained within.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/qr-codes/gateways/parse"
+          },
+          "docs": "Parse QR Codes of known formats and return the information contained within."
+        },
+        {
+          "info": {
+            "name": "Parse QR Codes of known formats and return the information contained within.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/qr-codes/gateways/:format_id/parse",
+            "params": [
+              {
+                "name": "format_id",
+                "value": "",
+                "type": "path",
+                "description": "QR code format identifier.\nIf this field is not specified, the server will default to ttigpro1."
+              }
+            ]
+          },
+          "docs": "Parse QR Codes of known formats and return the information contained within."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

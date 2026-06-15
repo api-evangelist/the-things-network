@@ -1,0 +1,480 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Packet Broker Agent",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pba",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the routing policies that Forwarders configured with Packet Broker Agent as Home Network.\nListing routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/forwarders/policies",
+            "params": [
+              {
+                "name": "home_network_id.net_id",
+                "value": "",
+                "type": "query",
+                "description": "LoRa Alliance NetID."
+              },
+              {
+                "name": "home_network_id.tenant_id",
+                "value": "",
+                "type": "query",
+                "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List the routing policies that Forwarders configured with Packet Broker Agent as Home Network.\nListing routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "List the listed home networks for which routing policies can be configured.\nListing home networks requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/home-networks",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "tenant_id_contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter by tenant ID."
+              },
+              {
+                "name": "name_contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter by name."
+              }
+            ]
+          },
+          "docs": "List the listed home networks for which routing policies can be configured.\nListing home networks requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Get the default gateway visibility.\nGetting gateway visibilities requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/home-networks/gateway-visibilities/default"
+          },
+          "docs": "Get the default gateway visibility.\nGetting gateway visibilities requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Set the default gateway visibility.\nSetting gateway visibilities requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/pba/home-networks/gateway-visibilities/default"
+          },
+          "docs": "Set the default gateway visibility.\nSetting gateway visibilities requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Set the default gateway visibility.\nSetting gateway visibilities requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/pba/home-networks/gateway-visibilities/default"
+          },
+          "docs": "Set the default gateway visibility.\nSetting gateway visibilities requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Deletes the default gateway visibility.\nDeleting gateway visibilities requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/pba/home-networks/gateway-visibilities/default"
+          },
+          "docs": "Deletes the default gateway visibility.\nDeleting gateway visibilities requires administrative access."
+        },
+        {
+          "info": {
+            "name": "List the routing policies that Packet Broker Agent as Forwarder configured with Home Networks.\nListing routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/home-networks/policies",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List the routing policies that Packet Broker Agent as Forwarder configured with Home Networks.\nListing routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Get the default routing policy.\nGetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/home-networks/policies/default"
+          },
+          "docs": "Get the default routing policy.\nGetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Set the default routing policy.\nSetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/pba/home-networks/policies/default"
+          },
+          "docs": "Set the default routing policy.\nSetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Set the default routing policy.\nSetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/pba/home-networks/policies/default"
+          },
+          "docs": "Set the default routing policy.\nSetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Deletes the default routing policy.\nDeleting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/pba/home-networks/policies/default"
+          },
+          "docs": "Deletes the default routing policy.\nDeleting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/pba/home-networks/policies/:home_network_id.net_id",
+            "params": [
+              {
+                "name": "home_network_id.net_id",
+                "value": "",
+                "type": "path",
+                "description": "LoRa Alliance NetID."
+              }
+            ]
+          },
+          "docs": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/pba/home-networks/policies/:home_network_id.net_id",
+            "params": [
+              {
+                "name": "home_network_id.net_id",
+                "value": "",
+                "type": "path",
+                "description": "LoRa Alliance NetID."
+              }
+            ]
+          },
+          "docs": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/pba/home-networks/policies/:home_network_id.net_id/:home_network_id.tenant_id",
+            "params": [
+              {
+                "name": "home_network_id.net_id",
+                "value": "",
+                "type": "path",
+                "description": "LoRa Alliance NetID."
+              },
+              {
+                "name": "home_network_id.tenant_id",
+                "value": "",
+                "type": "path",
+                "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+              }
+            ]
+          },
+          "docs": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/pba/home-networks/policies/:home_network_id.net_id/:home_network_id.tenant_id",
+            "params": [
+              {
+                "name": "home_network_id.net_id",
+                "value": "",
+                "type": "path",
+                "description": "LoRa Alliance NetID."
+              },
+              {
+                "name": "home_network_id.tenant_id",
+                "value": "",
+                "type": "path",
+                "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+              }
+            ]
+          },
+          "docs": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Get the routing policy for the given Home Network.\nGetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/home-networks/policies/:net_id",
+            "params": [
+              {
+                "name": "net_id",
+                "value": "",
+                "type": "path",
+                "description": "LoRa Alliance NetID."
+              },
+              {
+                "name": "tenant_id",
+                "value": "",
+                "type": "query",
+                "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+              }
+            ]
+          },
+          "docs": "Get the routing policy for the given Home Network.\nGetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Delete the routing policy for the given Home Network.\nDeleting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/pba/home-networks/policies/:net_id",
+            "params": [
+              {
+                "name": "net_id",
+                "value": "",
+                "type": "path",
+                "description": "LoRa Alliance NetID."
+              },
+              {
+                "name": "tenant_id",
+                "value": "",
+                "type": "query",
+                "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+              }
+            ]
+          },
+          "docs": "Delete the routing policy for the given Home Network.\nDeleting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Get the routing policy for the given Home Network.\nGetting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/home-networks/policies/:net_id/:tenant_id",
+            "params": [
+              {
+                "name": "net_id",
+                "value": "",
+                "type": "path",
+                "description": "LoRa Alliance NetID."
+              },
+              {
+                "name": "tenant_id",
+                "value": "",
+                "type": "path",
+                "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+              }
+            ]
+          },
+          "docs": "Get the routing policy for the given Home Network.\nGetting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Delete the routing policy for the given Home Network.\nDeleting routing policies requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/pba/home-networks/policies/:net_id/:tenant_id",
+            "params": [
+              {
+                "name": "net_id",
+                "value": "",
+                "type": "path",
+                "description": "LoRa Alliance NetID."
+              },
+              {
+                "name": "tenant_id",
+                "value": "",
+                "type": "path",
+                "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+              }
+            ]
+          },
+          "docs": "Delete the routing policy for the given Home Network.\nDeleting routing policies requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Get information about the Packet Broker registration.\nViewing Packet Packet information requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/info"
+          },
+          "docs": "Get information about the Packet Broker registration.\nViewing Packet Packet information requires administrative access."
+        },
+        {
+          "info": {
+            "name": "List all listed networks.\nListing networks requires administrative access.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/pba/networks",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "with_routing_policy",
+                "value": "",
+                "type": "query",
+                "description": "If true, list only the Forwarders and Home Networks with whom a routing policy has been defined in either direction."
+              },
+              {
+                "name": "tenant_id_contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter by tenant ID."
+              },
+              {
+                "name": "name_contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter by name."
+              }
+            ]
+          },
+          "docs": "List all listed networks.\nListing networks requires administrative access."
+        },
+        {
+          "info": {
+            "name": "Register with Packet Broker. If no registration exists, it will be created. Any existing registration will be updated.\nRegistration settings not in the request message are taken from Packet Broker Agent configuration and caller context.\nPacket Broker registration requires administrative access.\nPacket Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/pba/registration"
+          },
+          "docs": "Register with Packet Broker. If no registration exists, it will be created. Any existing registration will be updated.\nRegistration settings not in the request message are taken from Packet Broker Agent configuration and caller context.\nPacket Broker registration requires administrative access.\nPacket Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this"
+        },
+        {
+          "info": {
+            "name": "Register with Packet Broker. If no registration exists, it will be created. Any existing registration will be updated.\nRegistration settings not in the request message are taken from Packet Broker Agent configuration and caller context.\nPacket Broker registration requires administrative access.\nPacket Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/pba/registration"
+          },
+          "docs": "Register with Packet Broker. If no registration exists, it will be created. Any existing registration will be updated.\nRegistration settings not in the request message are taken from Packet Broker Agent configuration and caller context.\nPacket Broker registration requires administrative access.\nPacket Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this"
+        },
+        {
+          "info": {
+            "name": "Deregister from Packet Broker.\nPacket Broker deregistration requires administrative access.\nPacket Broker deregistration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/pba/registration"
+          },
+          "docs": "Deregister from Packet Broker.\nPacket Broker deregistration requires administrative access.\nPacket Broker deregistration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

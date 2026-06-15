@@ -1,0 +1,763 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Network Server",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NsEndDeviceBatchRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete a list of devices within the same application.\nThis operation is atomic; either all devices are deleted or none.\nDevices not found are skipped and no error is returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ns/applications/:application_ids.application_id/devices/batch",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete a list of devices within the same application.\nThis operation is atomic; either all devices are deleted or none.\nDevices not found are skipped and no error is returned."
+        },
+        {
+          "info": {
+            "name": "Set the MAC settings profile for a batch of end devices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ns/applications/:application_ids.application_id/devices/mac_settings_profile/batch",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set the MAC settings profile for a batch of end devices."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NsEndDeviceRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete deletes the device that matches the given identifiers.\nIf there are multiple matches, an error will be returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ns/applications/:application_ids.application_id/devices/:device_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              }
+            ]
+          },
+          "docs": "Delete deletes the device that matches the given identifiers.\nIf there are multiple matches, an error will be returned."
+        },
+        {
+          "info": {
+            "name": "Set creates or updates the device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ns/applications/:end_device.ids.application_ids.application_id/devices",
+            "params": [
+              {
+                "name": "end_device.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set creates or updates the device."
+        },
+        {
+          "info": {
+            "name": "Set creates or updates the device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ns/applications/:end_device.ids.application_ids.application_id/devices/:end_device.ids.device_id",
+            "params": [
+              {
+                "name": "end_device.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device.ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set creates or updates the device."
+        },
+        {
+          "info": {
+            "name": "Get returns the device that matches the given identifiers.\nIf there are multiple matches, an error will be returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the end device fields that should be returned.\nSee the API reference for which fields can be returned by the different services."
+              }
+            ]
+          },
+          "docs": "Get returns the device that matches the given identifiers.\nIf there are multiple matches, an error will be returned."
+        },
+        {
+          "info": {
+            "name": "ResetFactoryDefaults resets device state to factory defaults.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "ResetFactoryDefaults resets device state to factory defaults."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NsMACSettingsProfileRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List lists the MAC settings profiles.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:application_ids.application_id/mac_settings_profiles",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List lists the MAC settings profiles."
+        },
+        {
+          "info": {
+            "name": "Create creates a new MAC settings profile.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ns/applications/:mac_settings_profile.ids.application_ids.application_id/mac_settings_profiles",
+            "params": [
+              {
+                "name": "mac_settings_profile.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create creates a new MAC settings profile."
+        },
+        {
+          "info": {
+            "name": "Get returns the MAC settings profile that matches the given identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+            "params": [
+              {
+                "name": "mac_settings_profile_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mac_settings_profile_ids.profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the fields that should be returned."
+              }
+            ]
+          },
+          "docs": "Get returns the MAC settings profile that matches the given identifiers."
+        },
+        {
+          "info": {
+            "name": "Update updates the MAC settings profile that matches the given identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+            "params": [
+              {
+                "name": "mac_settings_profile_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mac_settings_profile_ids.profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID."
+              }
+            ]
+          },
+          "docs": "Update updates the MAC settings profile that matches the given identifiers."
+        },
+        {
+          "info": {
+            "name": "Delete deletes the MAC settings profile that matches the given identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+            "params": [
+              {
+                "name": "mac_settings_profile_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mac_settings_profile_ids.profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID."
+              }
+            ]
+          },
+          "docs": "Delete deletes the MAC settings profile that matches the given identifiers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NsRelayConfigurationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a relay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a relay."
+        },
+        {
+          "info": {
+            "name": "Get a relay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask of the fields to return."
+              }
+            ]
+          },
+          "docs": "Get a relay."
+        },
+        {
+          "info": {
+            "name": "Update a relay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a relay."
+        },
+        {
+          "info": {
+            "name": "Delete a relay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              }
+            ]
+          },
+          "docs": "Delete a relay."
+        },
+        {
+          "info": {
+            "name": "List uplink forwarding rules.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask of the fields to return."
+              }
+            ]
+          },
+          "docs": "List uplink forwarding rules."
+        },
+        {
+          "info": {
+            "name": "Create an uplink forwarding rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create an uplink forwarding rule."
+        },
+        {
+          "info": {
+            "name": "Get an uplink forwarding rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "path",
+                "description": "Index of the uplink forwarding rule."
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask of the fields to return."
+              }
+            ]
+          },
+          "docs": "Get an uplink forwarding rule."
+        },
+        {
+          "info": {
+            "name": "Update an uplink forwarding rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "path",
+                "description": "Index of the uplink forwarding rule."
+              }
+            ]
+          },
+          "docs": "Update an uplink forwarding rule."
+        },
+        {
+          "info": {
+            "name": "Delete an uplink forwarding rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "path",
+                "description": "Index of the uplink forwarding rule."
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              }
+            ]
+          },
+          "docs": "Delete an uplink forwarding rule."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetDefaultMACSettings retrieves the default MAC settings for a frequency plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/default_mac_settings/:frequency_plan_id/:lorawan_phy_version",
+            "params": [
+              {
+                "name": "frequency_plan_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lorawan_phy_version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GetDefaultMACSettings retrieves the default MAC settings for a frequency plan."
+        },
+        {
+          "info": {
+            "name": "GenerateDevAddr requests a device address assignment from the Network Server.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/dev_addr"
+          },
+          "docs": "GenerateDevAddr requests a device address assignment from the Network Server."
+        },
+        {
+          "info": {
+            "name": "Ns_GetDeviceAddressPrefixes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/dev_addr_prefixes"
+          }
+        },
+        {
+          "info": {
+            "name": "Ns_GetNetID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/net_id"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

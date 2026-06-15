@@ -1,7 +1,14 @@
 aid: the-things-network
 url: https://raw.githubusercontent.com/api-evangelist/the-things-network/refs/heads/main/apis.yml
 name: The Things Network / The Things Stack
-description: The Things Network (TTN) is a free, community-operated global LoRaWAN network with over 280,000 members and 21,000 gateways across 153 countries. It runs on The Things Stack, the open-source (Apache-2.0) LoRaWAN Network Server developed and maintained by The Things Industries. The Things Stack v3 implements the full LoRaWAN Network Reference Model — Identity Server, Application Server, Network Server, Gateway Server, Join Server, Device Repository, Packet Broker Agent — and exposes a unified HTTP REST and gRPC API plus MQTT, webhooks, and Pub/Sub integrations. The same software powers self-hosted deployments, the free The Things Network community network, The Things Stack Cloud (Discovery, Standard, Plus tiers), and The Things Stack Enterprise.
+description: >-
+  The Things Network (TTN) is a free, community-operated global LoRaWAN network with over 280,000 members and 21,000
+  gateways across 153 countries. It runs on The Things Stack, the open-source (Apache-2.0) LoRaWAN Network Server
+  developed and maintained by The Things Industries. The Things Stack v3 implements the full LoRaWAN Network Reference
+  Model — Identity Server, Application Server, Network Server, Gateway Server, Join Server, Device Repository, Packet
+  Broker Agent — and exposes a unified HTTP REST and gRPC API plus MQTT, webhooks, and Pub/Sub integrations. The same
+  software powers self-hosted deployments, the free The Things Network community network, The Things Stack Cloud
+  (Discovery, Standard, Plus tiers), and The Things Stack Enterprise.
 tags:
   - LoRaWAN
   - IoT
@@ -38,10 +45,10 @@ apis:
         type: JSONSchema
       - url: json-schema/the-things-stack-api-key-schema.json
         type: JSONSchema
-      - url: capabilities/tenant-administration.yaml
-        type: NaftikoCapability
-    description: User, organization, OAuth client, API key, session, invitation, bookmark, notification, contact-info, and entity-search APIs. The Identity Server is the single source of truth for identity, access, and entity membership across the Things Stack.
-
+    description: >-
+      User, organization, OAuth client, API key, session, invitation, bookmark, notification, contact-info, and
+      entity-search APIs. The Identity Server is the single source of truth for identity, access, and entity membership
+      across the Things Stack.
   - aid: the-things-network:the-things-stack-application-server
     name: The Things Stack Application Server
     tags:
@@ -61,10 +68,10 @@ apis:
         type: JSONSchema
       - url: examples/the-things-stack-uplink-message-example.json
         type: Example
-      - url: capabilities/uplink-to-cloud.yaml
-        type: NaftikoCapability
-    description: Application registry, application access rights, AppAs uplink/downlink/queue APIs, AsEndDeviceRegistry, payload-formatter management, ApplicationUpStorage (storage integration), and ApplicationPackages (LoRa Cloud DAS/GNSS/Modem, multicast, etc.). Owns the application-level data path.
-
+    description: >-
+      Application registry, application access rights, AppAs uplink/downlink/queue APIs, AsEndDeviceRegistry,
+      payload-formatter management, ApplicationUpStorage (storage integration), and ApplicationPackages (LoRa Cloud
+      DAS/GNSS/Modem, multicast, etc.). Owns the application-level data path.
   - aid: the-things-network:the-things-stack-network-server
     name: The Things Stack Network Server
     tags:
@@ -79,10 +86,10 @@ apis:
         type: Documentation
       - url: openapi/the-things-stack-network-server-openapi.yml
         type: OpenAPI
-      - url: capabilities/end-device-lifecycle.yaml
-        type: NaftikoCapability
-    description: NS-side end-device MAC state, ADR, MAC settings profiles, and the v1.1 LoRaWAN Relay configuration service (CtrlUplinkList, UpdateUplinkList, RelayForwardDownlinkReq). Handles deduplication, frame counter tracking, and gateway scheduling.
-
+    description: >-
+      NS-side end-device MAC state, ADR, MAC settings profiles, and the v1.1 LoRaWAN Relay configuration service
+      (CtrlUplinkList, UpdateUplinkList, RelayForwardDownlinkReq). Handles deduplication, frame counter tracking, and
+      gateway scheduling.
   - aid: the-things-network:the-things-stack-gateway-server
     name: The Things Stack Gateway Server
     tags:
@@ -104,10 +111,10 @@ apis:
         type: JSONSchema
       - url: examples/the-things-stack-gateway-create-example.json
         type: Example
-      - url: capabilities/gateway-onboarding.yaml
-        type: NaftikoCapability
-    description: Gateway registry, access, batch registry/access, Managed Gateway configuration (WiFi / Ethernet profiles), gateway claiming, gateway QR codes, Gs connection stats, and GtwGs/NsGs internal interfaces. Supports Semtech UDP packet forwarder, Basic Station (LBS), and MQTT v2/v3.
-
+    description: >-
+      Gateway registry, access, batch registry/access, Managed Gateway configuration (WiFi / Ethernet profiles), gateway
+      claiming, gateway QR codes, Gs connection stats, and GtwGs/NsGs internal interfaces. Supports Semtech UDP packet
+      forwarder, Basic Station (LBS), and MQTT v2/v3.
   - aid: the-things-network:the-things-stack-join-server
     name: The Things Stack Join Server
     tags:
@@ -122,10 +129,10 @@ apis:
         type: Documentation
       - url: openapi/the-things-stack-join-server-openapi.yml
         type: OpenAPI
-      - url: capabilities/end-device-lifecycle.yaml
-        type: NaftikoCapability
-    description: OTAA join handling, root-key registry, JsEndDeviceRegistry, AsJs/AppJs/NsJs internal interfaces, NetworkCryptoService and ApplicationCryptoService for external HSM-backed crypto, and ApplicationActivationSettings.
-
+    description: >-
+      OTAA join handling, root-key registry, JsEndDeviceRegistry, AsJs/AppJs/NsJs internal interfaces,
+      NetworkCryptoService and ApplicationCryptoService for external HSM-backed crypto, and
+      ApplicationActivationSettings.
   - aid: the-things-network:the-things-stack-end-device-registry
     name: The Things Stack End Device Registry
     tags:
@@ -144,10 +151,10 @@ apis:
         type: JSONSchema
       - url: examples/the-things-stack-end-device-create-example.json
         type: Example
-      - url: capabilities/end-device-lifecycle.yaml
-        type: NaftikoCapability
-    description: EndDeviceRegistry, EndDeviceBatchRegistry, EndDeviceTemplateConverter, EndDeviceQRCodeGenerator, EndDeviceClaimingServer/BatchClaimingServer, and the DeviceRepository (LoRaWAN Device Repository search across vendors, models, firmware versions, profiles, and payload codecs).
-
+    description: >-
+      EndDeviceRegistry, EndDeviceBatchRegistry, EndDeviceTemplateConverter, EndDeviceQRCodeGenerator,
+      EndDeviceClaimingServer/BatchClaimingServer, and the DeviceRepository (LoRaWAN Device Repository search across
+      vendors, models, firmware versions, profiles, and payload codecs).
   - aid: the-things-network:the-things-stack-integrations
     name: The Things Stack Integrations
     tags:
@@ -169,10 +176,10 @@ apis:
         type: JSONSchema
       - url: examples/the-things-stack-webhook-create-example.json
         type: Example
-      - url: capabilities/uplink-to-cloud.yaml
-        type: NaftikoCapability
-    description: Application Webhook and Application Pub/Sub registry APIs. Webhooks deliver uplink, join, ack/nack, queued, failed, location-solved, and service-data messages to HTTP(S) endpoints. Pub/Sub binds applications to NATS or MQTT brokers and AWS IoT / Azure IoT bridges.
-
+    description: >-
+      Application Webhook and Application Pub/Sub registry APIs. Webhooks deliver uplink, join, ack/nack, queued,
+      failed, location-solved, and service-data messages to HTTP(S) endpoints. Pub/Sub binds applications to NATS or
+      MQTT brokers and AWS IoT / Azure IoT bridges.
   - aid: the-things-network:the-things-stack-packet-broker-agent
     name: The Things Stack Packet Broker Agent
     tags:
@@ -186,10 +193,10 @@ apis:
         type: Documentation
       - url: openapi/the-things-stack-packet-broker-agent-openapi.yml
         type: OpenAPI
-      - url: capabilities/packet-broker-roaming.yaml
-        type: NaftikoCapability
-    description: Packet Broker Agent (Pba) — info, register/deregister network, list networks/tenants/policies, set forwarder and home-network routing policies, manage gateway visibility. Enables LoRaWAN passive and peering roaming between networks running on the Packet Broker.
-
+    description: >-
+      Packet Broker Agent (Pba) — info, register/deregister network, list networks/tenants/policies, set forwarder and
+      home-network routing policies, manage gateway visibility. Enables LoRaWAN passive and peering roaming between
+      networks running on the Packet Broker.
   - aid: the-things-network:the-things-stack-events
     name: The Things Stack Events
     tags:
@@ -203,8 +210,10 @@ apis:
         type: Documentation
       - url: openapi/the-things-stack-events-openapi.yml
         type: OpenAPI
-    description: Real-time event stream across the Identity Server, Application Server, Network Server, Gateway Server, and Join Server. Subscribe to events on applications, gateways, devices, users, organizations, and OAuth clients via gRPC streaming or HTTP server-sent events. Includes the NotificationService for in-app notifications.
-
+    description: >-
+      Real-time event stream across the Identity Server, Application Server, Network Server, Gateway Server, and Join
+      Server. Subscribe to events on applications, gateways, devices, users, organizations, and OAuth clients via gRPC
+      streaming or HTTP server-sent events. Includes the NotificationService for in-app notifications.
 common:
   - url: https://www.thethingsnetwork.org
     name: The Things Network
