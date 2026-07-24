@@ -1,0 +1,1662 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Application Server AppAs EntityRegistrySearch API
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKeyAuth: []
+tags:
+- name: EntityRegistrySearch
+paths:
+  /applications/{application_ids.application_id}/collaborators/search:
+    get:
+      summary: Search for accounts that match the conditions specified in the request.
+      operationId: EntityRegistrySearch_SearchAccounts2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3SearchAccountsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: query
+        in: query
+        required: false
+        type: string
+      - name: only_users
+        in: query
+        required: false
+        type: boolean
+      - name: client_ids.client_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.gateway_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: complement_collaborators
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /clients/{client_ids.client_id}/collaborators/search:
+    get:
+      summary: Search for accounts that match the conditions specified in the request.
+      operationId: EntityRegistrySearch_SearchAccounts3
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3SearchAccountsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: client_ids.client_id
+        in: path
+        required: true
+        type: string
+      - name: query
+        in: query
+        required: false
+        type: string
+      - name: only_users
+        in: query
+        required: false
+        type: boolean
+      - name: application_ids.application_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.gateway_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: complement_collaborators
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /gateways/{gateway_ids.gateway_id}/collaborators/search:
+    get:
+      summary: Search for accounts that match the conditions specified in the request.
+      operationId: EntityRegistrySearch_SearchAccounts4
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3SearchAccountsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: query
+        in: query
+        required: false
+        type: string
+      - name: only_users
+        in: query
+        required: false
+        type: boolean
+      - name: application_ids.application_id
+        in: query
+        required: false
+        type: string
+      - name: client_ids.client_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: complement_collaborators
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /organizations/{organization_ids.organization_id}/collaborators/search:
+    get:
+      summary: Search for accounts that match the conditions specified in the request.
+      operationId: EntityRegistrySearch_SearchAccounts5
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3SearchAccountsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: query
+        in: query
+        required: false
+        type: string
+      - name: only_users
+        in: query
+        required: false
+        type: boolean
+      - name: application_ids.application_id
+        in: query
+        required: false
+        type: string
+      - name: client_ids.client_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.gateway_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: complement_collaborators
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /search/accounts:
+    get:
+      summary: Search for accounts that match the conditions specified in the request.
+      operationId: EntityRegistrySearch_SearchAccounts
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3SearchAccountsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: query
+        in: query
+        required: false
+        type: string
+      - name: only_users
+        in: query
+        required: false
+        type: boolean
+      - name: application_ids.application_id
+        in: query
+        required: false
+        type: string
+      - name: client_ids.client_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.gateway_id
+        in: query
+        required: false
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: complement_collaborators
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /search/applications:
+    get:
+      summary: 'Search for applications that match the conditions specified in the request.
+
+        Non-admin users will only match applications that they have rights on.'
+      operationId: EntityRegistrySearch_SearchApplications
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Applications'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: query
+        description: Find applications where the ID, name or description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: id_contains
+        description: Find applications where the ID contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: name_contains
+        description: Find applications where the name contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: description_contains
+        description: Find applications where the description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: attributes_contain[string]
+        description: This is a request variable of the map type. The query format is "map_name[key]=value", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age["bob"]=18
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted applications.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /search/clients:
+    get:
+      summary: 'Search for OAuth clients that match the conditions specified in the request.
+
+        Non-admin users will only match OAuth clients that they have rights on.'
+      operationId: EntityRegistrySearch_SearchClients
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Clients'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: query
+        description: Find OAuth clients where the ID, name or description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: id_contains
+        description: Find OAuth clients where the ID contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: name_contains
+        description: Find OAuth clients where the name contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: description_contains
+        description: Find OAuth clients where the description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: attributes_contain[string]
+        description: This is a request variable of the map type. The query format is "map_name[key]=value", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age["bob"]=18
+        in: query
+        required: false
+        type: string
+      - name: state
+        description: "Find OAuth clients where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin."
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+          enum:
+          - STATE_REQUESTED
+          - STATE_APPROVED
+          - STATE_REJECTED
+          - STATE_FLAGGED
+          - STATE_SUSPENDED
+        collectionFormat: multi
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted OAuth clients.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /search/gateways:
+    get:
+      summary: 'Search for gateways that match the conditions specified in the request.
+
+        Non-admin users will only match gateways that they have rights on.'
+      operationId: EntityRegistrySearch_SearchGateways
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: query
+        description: Find gateways where the ID, name, description or EUI contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: id_contains
+        description: Find gateways where the ID contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: name_contains
+        description: Find gateways where the name contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: description_contains
+        description: Find gateways where the description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: attributes_contain[string]
+        description: This is a request variable of the map type. The query format is "map_name[key]=value", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age["bob"]=18
+        in: query
+        required: false
+        type: string
+      - name: eui_contains
+        description: Find gateways where the (hexadecimal) EUI contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted gateways.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /search/organizations:
+    get:
+      summary: 'Search for organizations that match the conditions specified in the request.
+
+        Non-admin users will only match organizations that they have rights on.'
+      operationId: EntityRegistrySearch_SearchOrganizations
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Organizations'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: query
+        description: Find organizations where the ID, name or description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: id_contains
+        description: Find organizations where the ID contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: name_contains
+        description: Find organizations where the name contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: description_contains
+        description: Find organizations where the description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: attributes_contain[string]
+        description: This is a request variable of the map type. The query format is "map_name[key]=value", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age["bob"]=18
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted organizations.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+  /search/users:
+    get:
+      summary: 'Search for users that match the conditions specified in the request.
+
+        This is only available to admin users.'
+      operationId: EntityRegistrySearch_SearchUsers
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Users'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: query
+        description: Find users where the ID, name or description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: id_contains
+        description: Find users where the ID contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: name_contains
+        description: Find users where the name contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: description_contains
+        description: Find users where the description contains this substring.
+        in: query
+        required: false
+        type: string
+      - name: attributes_contain[string]
+        description: This is a request variable of the map type. The query format is "map_name[key]=value", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age["bob"]=18
+        in: query
+        required: false
+        type: string
+      - name: state
+        description: "Find users where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin."
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+          enum:
+          - STATE_REQUESTED
+          - STATE_APPROVED
+          - STATE_REJECTED
+          - STATE_FLAGGED
+          - STATE_SUSPENDED
+        collectionFormat: multi
+      - name: field_mask
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted users.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - EntityRegistrySearch
+definitions:
+  UserConsolePreferencesSortBy:
+    type: object
+    properties:
+      api_key:
+        type: string
+      application:
+        type: string
+      collaborator:
+        type: string
+      end_device:
+        type: string
+      gateway:
+        type: string
+      organization:
+        type: string
+      user:
+        type: string
+    description: SortBy defines the field to which the Console will sort the display of entities.
+  v3ConsoleTheme:
+    type: string
+    enum:
+    - CONSOLE_THEME_SYSTEM
+    - CONSOLE_THEME_LIGHT
+    - CONSOLE_THEME_DARK
+    default: CONSOLE_THEME_SYSTEM
+    description: "ConsoleTheme is the theme of the Console.\n\n - CONSOLE_THEME_SYSTEM: The user prefers the system mode.\n - CONSOLE_THEME_LIGHT: The user prefers the light mode.\n - CONSOLE_THEME_DARK: The user prefers the dark mode."
+  v3ContactMethod:
+    type: string
+    enum:
+    - CONTACT_METHOD_OTHER
+    - CONTACT_METHOD_EMAIL
+    - CONTACT_METHOD_PHONE
+    default: CONTACT_METHOD_OTHER
+  v3LocationSource:
+    type: string
+    enum:
+    - SOURCE_UNKNOWN
+    - SOURCE_GPS
+    - SOURCE_REGISTRY
+    - SOURCE_IP_GEOLOCATION
+    - SOURCE_WIFI_RSSI_GEOLOCATION
+    - SOURCE_BT_RSSI_GEOLOCATION
+    - SOURCE_LORA_RSSI_GEOLOCATION
+    - SOURCE_LORA_TDOA_GEOLOCATION
+    - SOURCE_COMBINED_GEOLOCATION
+    default: SOURCE_UNKNOWN
+    description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
+  v3User:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3UserIdentifiers'
+        description: The identifiers of the user. These are public and can be seen by any authenticated user in the network.
+      created_at:
+        type: string
+        format: date-time
+        description: When the user was created. This information is public and can be seen by any authenticated user in the network.
+      updated_at:
+        type: string
+        format: date-time
+        description: When the user was last updated. This information is public and can be seen by any authenticated user in the network.
+      deleted_at:
+        type: string
+        format: date-time
+        description: When the user was deleted. This information is public and can be seen by any authenticated user in the network.
+      name:
+        type: string
+        description: The name of the user. This information is public and can be seen by any authenticated user in the network.
+      description:
+        type: string
+        description: A description for the user. This information is public and can be seen by any authenticated user in the network.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+        description: Key-value attributes for this users. Typically used for storing integration-specific data.
+      contact_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ContactInfo'
+        description: 'Contact information for this user. Typically used to indicate who to contact with security/billing questions about the user.
+
+          This field is deprecated.'
+      primary_email_address:
+        type: string
+        description: 'Primary email address that can be used for logging in.
+
+          This address is not public, use contact_info for that.'
+      primary_email_address_validated_at:
+        type: string
+        format: date-time
+        description: When the primary email address was validated. Note that email address validation is not required on all networks.
+      password:
+        type: string
+        description: 'The password field is only considered when creating a user.
+
+          It is not returned on API calls, and can not be updated by updating the User.
+
+          See the UpdatePassword method of the UserRegistry service for more information.'
+      password_updated_at:
+        type: string
+        format: date-time
+      require_password_update:
+        type: boolean
+      state:
+        $ref: '#/definitions/v3State'
+        description: 'The reviewing state of the user.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          This field can only be modified by admins.'
+      state_description:
+        type: string
+        description: 'A description for the state field.
+
+          This field can only be modified by admins, and should typically only be updated
+
+          when also updating `state`.'
+      admin:
+        type: boolean
+        description: 'This user is an admin.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          This field can only be modified by other admins.'
+      temporary_password:
+        type: string
+        description: 'The temporary password can only be used to update a user''s password; never returned on API calls.
+
+          It is not returned on API calls, and can not be updated by updating the User.
+
+          See the CreateTemporaryPassword method of the UserRegistry service for more information.'
+      temporary_password_created_at:
+        type: string
+        format: date-time
+      temporary_password_expires_at:
+        type: string
+        format: date-time
+      profile_picture:
+        $ref: '#/definitions/v3Picture'
+        description: 'A profile picture for the user.
+
+          This information is public and can be seen by any authenticated user in the network.'
+      console_preferences:
+        $ref: '#/definitions/v3UserConsolePreferences'
+        description: Console preferences contains the user's preferences regarding the behavior of the Console.
+      email_notification_preferences:
+        $ref: '#/definitions/v3EmailNotificationPreferences'
+      universal_rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+        description: Universal rights are capable of restricting the user's interactions with the API, be it an admin or not.
+    description: User is the message that defines a user on the network.
+  PictureEmbedded:
+    type: object
+    properties:
+      mime_type:
+        type: string
+        description: MIME type of the picture.
+      data:
+        type: string
+        format: byte
+        description: 'Picture data. A data URI can be constructed as follows:
+
+          `data:<mime_type>;base64,<data>`.'
+  v3ContactType:
+    type: string
+    enum:
+    - CONTACT_TYPE_OTHER
+    - CONTACT_TYPE_ABUSE
+    - CONTACT_TYPE_BILLING
+    - CONTACT_TYPE_TECHNICAL
+    default: CONTACT_TYPE_OTHER
+  lorawanv3GatewayIdentifiers:
+    type: object
+    properties:
+      gateway_id:
+        type: string
+      eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: Secondary identifier, which can only be used in specific requests.
+  v3Client:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3ClientIdentifiers'
+        description: The identifiers of the OAuth client. These are public and can be seen by any authenticated user in the network.
+      created_at:
+        type: string
+        format: date-time
+        description: When the OAuth client was created. This information is public and can be seen by any authenticated user in the network.
+      updated_at:
+        type: string
+        format: date-time
+        description: When the OAuth client was last updated. This information is public and can be seen by any authenticated user in the network.
+      deleted_at:
+        type: string
+        format: date-time
+        description: When the OAuth client was deleted. This information is public and can be seen by any authenticated user in the network.
+      name:
+        type: string
+        description: The name of the OAuth client. This information is public and can be seen by any authenticated user in the network.
+      description:
+        type: string
+        description: A description for the OAuth client. This information is public and can be seen by any authenticated user in the network.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+        description: Key-value attributes for this client. Typically used for organizing clients or for storing integration-specific data.
+      contact_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ContactInfo'
+        description: 'Contact information for this client. Typically used to indicate who to contact with technical/security questions about the application.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          This field is deprecated. Use administrative_contact and technical_contact instead.'
+      administrative_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      technical_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      secret:
+        type: string
+        description: The client secret is only visible to collaborators of the client.
+      redirect_uris:
+        type: array
+        items:
+          type: string
+        description: 'The allowed redirect URIs against which authorization requests are checked.
+
+          If the authorization request does not pass a redirect URI, the first one
+
+          from this list is taken.
+
+          This information is public and can be seen by any authenticated user in the network.'
+      logout_redirect_uris:
+        type: array
+        items:
+          type: string
+        description: 'The allowed logout redirect URIs against which client initiated logout
+
+          requests are checked. If the authorization request does not pass a redirect
+
+          URI, the first one from this list is taken.
+
+          This information is public and can be seen by any authenticated user in the network.'
+      state:
+        $ref: '#/definitions/v3State'
+        description: 'The reviewing state of the client.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          This field can only be modified by admins.
+
+          If state_description is not updated when updating state, state_description is cleared.'
+      state_description:
+        type: string
+        description: 'A description for the state field.
+
+          This field can only be modified by admins, and should typically only be updated
+
+          when also updating `state`.'
+      skip_authorization:
+        type: boolean
+        description: 'If set, the authorization page will be skipped.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          This field can only be modified by admins.'
+      endorsed:
+        type: boolean
+        description: 'If set, the authorization page will show endorsement.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          This field can only be modified by admins.'
+      grants:
+        type: array
+        items:
+          $ref: '#/definitions/v3GrantType'
+        description: 'OAuth flows that can be used for the client to get a token.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          After a client is created, this field can only be modified by admins.'
+      rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+        description: 'Rights denotes what rights the client will have access to.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          Users that previously authorized this client will have to re-authorize the
+
+          client after rights are added to this list.'
+    description: An OAuth client on the network.
+  v3GatewayAntenna:
+    type: object
+    properties:
+      gain:
+        type: number
+        format: float
+        description: Antenna gain relative to the gateway, in dBi.
+      location:
+        $ref: '#/definitions/lorawanv3Location'
+        description: location is the antenna's location.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+      placement:
+        $ref: '#/definitions/v3GatewayAntennaPlacement'
+    description: GatewayAntenna is the message that defines a gateway antenna.
+  v3SearchAccountsResponse:
+    type: object
+    properties:
+      account_ids:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+  v3EmailNotificationPreferences:
+    type: object
+    properties:
+      types:
+        type: array
+        items:
+          $ref: '#/definitions/v3NotificationType'
+    description: EmailNotificationPreferences is the message that defines the types of notifications for which the user wants to receive an email.
+  v3GatewayClaimAuthenticationCode:
+    type: object
+    properties:
+      secret:
+        $ref: '#/definitions/v3Secret'
+      valid_from:
+        type: string
+        format: date-time
+      valid_to:
+        type: string
+        format: date-time
+    description: Authentication code for claiming gateways.
+  v3Application:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3ApplicationIdentifiers'
+        description: The identifiers of the application. These are public and can be seen by any authenticated user in the network.
+      created_at:
+        type: string
+        format: date-time
+        description: When the application was created. This information is public and can be seen by any authenticated user in the network.
+      updated_at:
+        type: string
+        format: date-time
+        description: When the application was last updated. This information is public and can be seen by any authenticated user in the network.
+      deleted_at:
+        type: string
+        format: date-time
+        description: When the application was deleted. This information is public and can be seen by any authenticated user in the network.
+      name:
+        type: string
+        description: The name of the application.
+      description:
+        type: string
+        description: A description for the application.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+        description: Key-value attributes for this application. Typically used for organizing applications or for storing integration-specific data.
+      contact_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ContactInfo'
+        description: 'Contact information for this application. Typically used to indicate who to contact with technical/security questions about the application.
+
+          This field is deprecated. Use administrative_contact and technical_contact instead.'
+      administrative_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      technical_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      network_server_address:
+        type: string
+        description: 'The address of the Network Server where this application is supposed to be registered.
+
+          If set, this fields indicates where end devices for this application should be registered.
+
+
+          Stored in Entity Registry.
+
+          The typical format of the address is "host:port". If the port is omitted,
+
+          the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+          The connection shall be established with transport layer security (TLS).
+
+          Custom certificate authorities may be configured out-of-band.'
+      application_server_address:
+        type: string
+        description: 'The address of the Application Server where this application is supposed to be registered.
+
+          If set, this fields indicates where end devices for this application should be registered.
+
+
+          Stored in Entity Registry.
+
+          The typical format of the address is "host:port". If the port is omitted,
+
+          the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+          The connection shall be established with transport layer security (TLS).
+
+          Custom certificate authorities may be configured out-of-band.'
+      join_server_address:
+        type: string
+        description: 'The address of the Join Server where this application is supposed to be registered.
+
+          If set, this fields indicates where end devices for this application should be registered.
+
+
+          Stored in Entity Registry.
+
+          The typical format of the address is "host:port". If the port is omitted,
+
+          the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+          The connection shall be established with transport layer security (TLS).
+
+          Custom certificate authorities may be configured out-of-band.'
+      dev_eui_counter:
+        type: integer
+        format: int64
+    description: Application is the message that defines an Application in the network.
+  lorawanv3Location:
+    type: object
+    properties:
+      latitude:
+        type: number
+        format: double
+        description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
+      longitude:
+        type: number
+        format: double
+        description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
+      altitude:
+        type: integer
+        format: int32
+        description: The altitude (meters), where 0 is the mean sea level.
+      accuracy:
+        type: integer
+        format: int32
+        description: The accuracy of the location (meters).
+      source:
+        $ref: '#/definitions/v3LocationSource'
+        description: Source of the location information.
+  GatewayLRFHSS:
+    type: object
+    properties:
+      supported:
+        type: boolean
+        description: The gateway supports the LR-FHSS uplink channels.
+    description: LR-FHSS gateway capabilities.
+  UserConsolePreferencesDashboardLayouts:
+    type: object
+    properties:
+      api_key:
+        $ref: '#/definitions/v3DashboardLayout'
+      application:
+        $ref: '#/definitions/v3DashboardLayout'
+      collaborator:
+        $ref: '#/definitions/v3DashboardLayout'
+      end_device:
+        $ref: '#/definitions/v3DashboardLayout'
+      gateway:
+        $ref: '#/definitions/v3DashboardLayout'
+      organization:
+        $ref: '#/definitions/v3DashboardLayout'
+      overview:
+        $ref: '#/definitions/v3DashboardLayout'
+      user:
+        $ref: '#/definitions/v3DashboardLayout'
+  UserConsolePreferencesTutorials:
+    type: object
+    properties:
+      seen:
+        type: array
+        items:
+          $ref: '#/definitions/v3Tutorial'
+  v3OrganizationOrUserIdentifiers:
+    type: object
+    properties:
+      organization_ids:
+        $ref: '#/definitions/v3OrganizationIdentifiers'
+      user_ids:
+        $ref: '#/definitions/v3UserIdentifiers'
+    description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+  v3UserConsolePreferences:
+    type: object
+    properties:
+      console_theme:
+        $ref: '#/definitions/v3ConsoleTheme'
+      dashboard_layouts:
+        $ref: '#/definitions/UserConsolePreferencesDashboardLayouts'
+      sort_by:
+        $ref: '#/definitions/UserConsolePreferencesSortBy'
+      tutorials:
+        $ref: '#/definitions/UserConsolePreferencesTutorials'
+    description: UserConsolePreferences is the message that defines the user preferences for the Console.
+  v3Users:
+    type: object
+    properties:
+      users:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3User'
+  v3Right:
+    type: string
+    enum:
+    - right_invalid
+    - RIGHT_USER_INFO
+    - RIGHT_USER_SETTINGS_BASIC
+    - RIGHT_USER_LIST
+    - RIGHT_USER_CREATE
+    - RIGHT_USER_SETTINGS_API_KEYS
+    - RIGHT_USER_DELETE
+    - RIGHT_USER_PURGE
+    - RIGHT_USER_AUTHORIZED_CLIENTS
+    - RIGHT_USER_APPLICATIONS_LIST
+    - RIGHT_USER_APPLICATIONS_CREATE
+    - RIGHT_USER_GATEWAYS_LIST
+    - RIGHT_USER_GATEWAYS_CREATE
+    - RIGHT_USER_CLIENTS_LIST
+    - RIGHT_USER_CLIENTS_CREATE
+    - RIGHT_USER_ORGANIZATIONS_LIST
+    - RIGHT_USER_ORGANIZATIONS_CREATE
+    - RIGHT_USER_NOTIFICATIONS_READ
+    - RIGHT_USER_ALL
+    - RIGHT_APPLICATION_INFO
+    - RIGHT_APPLICATION_SETTINGS_BASIC
+    - RIGHT_APPLICATION_SETTINGS_API_KEYS
+    - RIGHT_APPLICATION_SETTINGS_COLLABORATORS
+    - RIGHT_APPLICATION_SETTINGS_PACKAGES
+    - RIGHT_APPLICATION_DELETE
+    - RIGHT_APPLICATION_PURGE
+    - RIGHT_APPLICATION_DEVICES_READ
+    - RIGHT_APPLICATION_DEVICES_WRITE
+    - RIGHT_APPLICATION_DEVICES_READ_KEYS
+    - RIGHT_APPLICATION_DEVICES_WRITE_KEYS
+    - RIGHT_APPLICATION_TRAFFIC_READ
+    - RIGHT_APPLICATION_TRAFFIC_UP_WRITE
+    - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE
+    - RIGHT_APPLICATION_LINK
+    - RIGHT_APPLICATION_ALL
+    - RIGHT_CLIENT_ALL
+    - RIGHT_CLIENT_INFO
+    - RIGHT_CLIENT_SETTINGS_BASIC
+    - RIGHT_CLIENT_SETTINGS_COLLABORATORS
+    - RIGHT_CLIENT_DELETE
+    - RIGHT_CLIENT_PURGE
+    - RIGHT_GATEWAY_INFO
+    - RIGHT_GATEWAY_SETTINGS_BASIC
+    - RIGHT_GATEWAY_SETTINGS_API_KEYS
+    - RIGHT_GATEWAY_SETTINGS_COLLABORATORS
+    - RIGHT_GATEWAY_DELETE
+    - RIGHT_GATEWAY_PURGE
+    - RIGHT_GATEWAY_TRAFFIC_READ
+    - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE
+    - RIGHT_GATEWAY_LINK
+    - RIGHT_GATEWAY_STATUS_READ
+    - RIGHT_GATEWAY_LOCATION_READ
+    - RIGHT_GATEWAY_WRITE_SECRETS
+    - RIGHT_GATEWAY_READ_SECRETS
+    - RIGHT_GATEWAY_ALL
+    - RIGHT_ORGANIZATION_INFO
+    - RIGHT_ORGANIZATION_SETTINGS_BASIC
+    - RIGHT_ORGANIZATION_SETTINGS_API_KEYS
+    - RIGHT_ORGANIZATION_SETTINGS_MEMBERS
+    - RIGHT_ORGANIZATION_DELETE
+    - RIGHT_ORGANIZATION_PURGE
+    - RIGHT_ORGANIZATION_APPLICATIONS_LIST
+    - RIGHT_ORGANIZATION_APPLICATIONS_CREATE
+    - RIGHT_ORGANIZATION_GATEWAYS_LIST
+    - RIGHT_ORGANIZATION_GATEWAYS_CREATE
+    - RIGHT_ORGANIZATION_CLIENTS_LIST
+    - RIGHT_ORGANIZATION_CLIENTS_CREATE
+    - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR
+    - RIGHT_ORGANIZATION_ALL
+    - RIGHT_SEND_INVITES
+    - RIGHT_ALL
+    default: right_invalid
+    description: "Right is the enum that defines all the different rights to do something in the network.\n\n - RIGHT_USER_INFO: The right to view user information.\n - RIGHT_USER_SETTINGS_BASIC: The right to edit basic user settings.\n - RIGHT_USER_LIST: The right to list users accounts.\n - RIGHT_USER_CREATE: The right to create an user account.\n - RIGHT_USER_SETTINGS_API_KEYS: The right to view and edit user API keys.\n - RIGHT_USER_DELETE: The right to delete user account.\n - RIGHT_USER_PURGE: The right to delete user account.\n - RIGHT_USER_AUTHORIZED_CLIENTS: The right to view and edit authorized OAuth clients of the user.\n - RIGHT_USER_APPLICATIONS_LIST: The right to list applications the user is a collaborator of.\n - RIGHT_USER_APPLICATIONS_CREATE: The right to create an application under the user account.\n - RIGHT_USER_GATEWAYS_LIST: The right to list gateways the user is a collaborator of.\n - RIGHT_USER_GATEWAYS_CREATE: The right to create a gateway under the account of the user.\n - RIGHT_USER_CLIENTS_LIST: The right to list OAuth clients the user is a collaborator of.\n - RIGHT_USER_CLIENTS_CREATE: The right to create an OAuth client under the account of the user.\n - RIGHT_USER_ORGANIZATIONS_LIST: The right to list organizations the user is a member of.\n - RIGHT_USER_ORGANIZATIONS_CREATE: The right to create an organization under the user account.\n - RIGHT_USER_NOTIFICATIONS_READ: The right to read notifications sent to the user.\n - RIGHT_USER_ALL: The pseudo-right for all (current and future) user rights.\n - RIGHT_APPLICATION_INFO: The right to view application information.\n - RIGHT_APPLICATION_SETTINGS_BASIC: The right to edit basic application settings.\n - RIGHT_APPLICATION_SETTINGS_API_KEYS: The right to view and edit application API keys.\n - RIGHT_APPLICATION_SETTINGS_COLLABORATORS: The right to view and edit application collaborators.\n - RIGHT_APPLICATION_SETTINGS_PACKAGES: The right to view and edit application packages and associations.\n - RIGHT_APPLICATION_DELETE: The right to delete application.\n - RIGHT_APPLICATION_PURGE: The right to purge application.\n - RIGHT_APPLICATION_DEVICES_READ: The right to view devices in application.\n - RIGHT_APPLICATION_DEVICES_WRITE: The right to create devices in application.\n - RIGHT_APPLICATION_DEVICES_READ_KEYS: The right to view device keys in application.\nNote that keys may not be stored in a way that supports viewing them.\n - RIGHT_APPLICATION_DEVICES_WRITE_KEYS: The right to edit device keys in application.\n - RIGHT_APPLICATION_TRAFFIC_READ: The right to read application traffic (uplink and downlink).\n - RIGHT_APPLICATION_TRAFFIC_UP_WRITE: The right to write uplink application traffic.\n - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE: The right to write downlink application traffic.\n - RIGHT_APPLICATION_LINK: The right to link as Application to a Network Server for traffic exchange,\ni.e. read uplink and write downlink (API keys only).\nThis right is typically only given to an Application Server.\nThis right implies RIGHT_APPLICATION_INFO, RIGHT_APPLICATION_TRAFFIC_READ,\nand RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE.\n - RIGHT_APPLICATION_ALL: The pseudo-right for all (current and future) application rights.\n - RIGHT_CLIENT_ALL: The pseudo-right for all (current and future) OAuth client rights.\n - RIGHT_CLIENT_INFO: The right to read client information.\n - RIGHT_CLIENT_SETTINGS_BASIC: The right to edit basic client settings.\n - RIGHT_CLIENT_SETTINGS_COLLABORATORS: The right to view and edit client collaborators.\n - RIGHT_CLIENT_DELETE: The right to delete a client.\n - RIGHT_CLIENT_PURGE: The right to purge a client.\n - RIGHT_GATEWAY_INFO: The right to view gateway information.\n - RIGHT_GATEWAY_SETTINGS_BASIC: The right to edit basic gateway settings.\n - RIGHT_GATEWAY_SETTINGS_API_KEYS: The right to view and edit gateway API keys.\n - RIGHT_GATEWAY_SETTINGS_COLLABORATORS: The right to view and edit gateway collaborators.\n - RIGHT_GATEWAY_DELETE: The right to delete gateway.\n - RIGHT_GATEWAY_PURGE: The right to purge gateway.\n - RIGHT_GATEWAY_TRAFFIC_READ: The right to read gateway traffic.\n - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE: The right to write downlink gateway traffic.\n - RIGHT_GATEWAY_LINK: The right to link as Gateway to a Gateway Server for traffic exchange,\ni.e. write uplink and read downlink (API keys only)\nThis right is typically only given to a gateway.\nThis right implies RIGHT_GATEWAY_INFO.\n - RIGHT_GATEWAY_STATUS_READ: The right to view gateway status.\n - RIGHT_GATEWAY_LOCATION_READ: The right to view view gateway location.\n - RIGHT_GATEWAY_WRITE_SECRETS: The right to store secrets associated with this gateway.\n - RIGHT_GATEWAY_READ_SECRETS: The right to retrieve secrets associated with this gateway.\n - RIGHT_GATEWAY_ALL: The pseudo-right for all (current and future) gateway rights.\n - RIGHT_ORGANIZATION_INFO: The right to view organization information.\n - RIGHT_ORGANIZATION_SETTINGS_BASIC: The right to edit basic organization settings.\n - RIGHT_ORGANIZATION_SETTINGS_API_KEYS: The right to view and edit organization API keys.\n - RIGHT_ORGANIZATION_SETTINGS_MEMBERS: The right to view and edit organization members.\n - RIGHT_ORGANIZATION_DELETE: The right to delete organization.\n - RIGHT_ORGANIZATION_PURGE: The right to purge organization.\n - RIGHT_ORGANIZATION_APPLICATIONS_LIST: The right to list the applications the organization is a collaborator of.\n - RIGHT_ORGANIZATION_APPLICATIONS_CREATE: The right to create an application under the organization.\n - RIGHT_ORGANIZATION_GATEWAYS_LIST: The right to list the gateways the organization is a collaborator of.\n - RIGHT_ORGANIZATION_GATEWAYS_CREATE: The right to create a gateway under the organization.\n - RIGHT_ORGANIZATION_CLIENTS_LIST: The right to list the OAuth clients the organization is a collaborator of.\n - RIGHT_ORGANIZATION_CLIENTS_CREATE: The right to create an OAuth client under the organization.\n - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR: The right to add the organization as a collaborator on an existing entity.\n - RIGHT_ORGANIZATION_ALL: The pseudo-right for all (current and future) organization rights.\n - RIGHT_SEND_INVITES: The right to send invites to new users.\nNote that this is not prefixed with \"USER_\"; it is not a right on the user entity.\n - RIGHT_ALL: The pseudo-right for all (current and future) possible rights."
+  v3ApplicationIdentifiers:
+    type: object
+    properties:
+      application_id:
+        type: string
+  v3Secret:
+    type: object
+    properties:
+      key_id:
+        type: string
+        description: ID of the Key used to encrypt the secret.
+      value:
+        type: string
+        format: byte
+    description: Secret contains a secret value. It also contains the ID of the Encryption key used to encrypt it.
+  v3Organizations:
+    type: object
+    properties:
+      organizations:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3Organization'
+  v3Applications:
+    type: object
+    properties:
+      applications:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3Application'
+  v3DownlinkPathConstraint:
+    type: string
+    enum:
+    - DOWNLINK_PATH_CONSTRAINT_NONE
+    - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER
+    - DOWNLINK_PATH_CONSTRAINT_NEVER
+    default: DOWNLINK_PATH_CONSTRAINT_NONE
+    description: " - DOWNLINK_PATH_CONSTRAINT_NONE: Indicates that the gateway can be selected for downlink without constraints by the Network Server.\n - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER: Indicates that the gateway can be selected for downlink only if no other or better gateway can be selected.\n - DOWNLINK_PATH_CONSTRAINT_NEVER: Indicates that this gateway will never be selected for downlink, even if that results in no available downlink path."
+  v3GrantType:
+    type: string
+    enum:
+    - GRANT_AUTHORIZATION_CODE
+    - GRANT_PASSWORD
+    - GRANT_REFRESH_TOKEN
+    default: GRANT_AUTHORIZATION_CODE
+    description: "The OAuth2 flows an OAuth client can use to get an access token.\n\n - GRANT_AUTHORIZATION_CODE: Grant type used to exchange an authorization code for an access token.\n - GRANT_PASSWORD: Grant type used to exchange a user ID and password for an access token.\n - GRANT_REFRESH_TOKEN: Grant type used to exchange a refresh token for an access token."
+  v3ClientIdentifiers:
+    type: object
+    properties:
+      client_id:
+        type: string
+  v3NotificationType:
+    type: string
+    enum:
+    - UNKNOWN
+    - API_KEY_CREATED
+    - API_KEY_CHANGED
+    - CLIENT_REQUESTED
+    - COLLABORATOR_CHANGED
+    - ENTITY_STATE_CHANGED
+    - INVITATION
+    - LOGIN_TOKEN
+    - PASSWORD_CHANGED
+    - TEMPORARY_PASSWORD
+    - USER_REQUESTED
+    - VALIDATE
+    default: UNKNOWN
+  v3Tutorial:
+    type: string
+    enum:
+    - TUTORIAL_UNKNOWN
+    - TUTORIAL_LIVE_DATA_SPLIT_VIEW
+    default: TUTORIAL_UNKNOWN
+    description: Tutorial is a set of possible tutorials in the Console.
+  v3OrganizationIdentifiers:
+    type: object
+    properties:
+      organization_id:
+        type: string
+        description: This ID shares namespace with user IDs.
+  v3Organization:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3OrganizationIdentifiers'
+        description: The identifiers of the organization. These are public and can be seen by any authenticated user in the network.
+      created_at:
+        type: string
+        format: date-time
+        description: When the organization was created. This information is public and can be seen by any authenticated user in the network.
+      updated_at:
+        type: string
+        format: date-time
+        description: When the organization was last updated. This information is public and can be seen by any authenticated user in the network.
+      deleted_at:
+        type: string
+        format: date-time
+        description: When the organization was deleted. This information is public and can be seen by any authenticated user in the network.
+      name:
+        type: string
+        description: The name of the organization. This information is public and can be seen by any authenticated user in the network.
+      description:
+        type: string
+        description: A description for the organization.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+        description: Key-value attributes for this organization. Typically used for organizing organizations or for storing integration-specific data.
+      contact_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ContactInfo'
+        description: 'Contact information for this organization. Typically used to indicate who to contact with security/billing questions about the organization.
+
+          This field is deprecated. Use administrative_contact and technical_contact instead.'
+      administrative_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      technical_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      fanout_notifications:
+        type: boolean
+        description: 'Determines if a notification will be sent to the collaborators. If false it, notifications will be sent only to the
+
+          administrative or technical contact.'
+  v3Gateway:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/lorawanv3GatewayIdentifiers'
+        description: The identifiers of the gateway. These are public and can be seen by any authenticated user in the network.
+      created_at:
+        type: string
+        format: date-time
+        description: When the gateway was created. This information is public and can be seen by any authenticated user in the network.
+      updated_at:
+        type: string
+        format: date-time
+        description: When the gateway was last updated. This information is public and can be seen by any authenticated user in the network.
+      deleted_at:
+        type: string
+        format: date-time
+        description: When the gateway was deleted. This information is public and can be seen by any authenticated user in the network.
+      name:
+        type: string
+        description: The name of the gateway. This information is public and can be seen by any authenticated user in the network.
+      description:
+        type: string
+        description: A description for the gateway. This information is public and can be seen by any authenticated user in the network.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+        description: Key-value attributes for this gateway. Typically used for organizing gateways or for storing integration-specific data.
+      contact_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ContactInfo'
+        description: 'Contact information for this gateway. Typically used to indicate who to contact with technical/security questions about the gateway.
+
+          This field is deprecated. Use administrative_contact and technical_contact instead.'
+      administrative_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      technical_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      version_ids:
+        $ref: '#/definitions/v3GatewayVersionIdentifiers'
+      gateway_server_address:
+        type: string
+        description: 'The address of the Gateway Server to connect to.
+
+          This information is public and can be seen by any authenticated user in the network if status_public is true.
+
+          The typical format of the address is "scheme://host:port". The scheme is optional. If the port is omitted,
+
+          the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+          The connection shall be established with transport layer security (TLS).
+
+          Custom certificate authorities may be configured out-of-band.'
+      auto_update:
+        type: boolean
+      update_channel:
+        type: string
+      frequency_plan_id:
+        type: string
+        description: 'Frequency plan ID of the gateway.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          DEPRECATED: use frequency_plan_ids.
+
+          This equals the first element of the frequency_plan_ids field.'
+      frequency_plan_ids:
+        type: array
+        items:
+          type: string
+        description: 'Frequency plan IDs of the gateway.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          The first element equals the frequency_plan_id field.'
+      antennas:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3GatewayAntenna'
+        description: Antennas of the gateway. Location information of the antennas is public and can be seen by any authenticated user in the network if location_public=true.
+      status_public:
+        type: boolean
+        description: The status of this gateway may be publicly displayed.
+      location_public:
+        type: boolean
+        description: The location of this gateway may be publicly displayed.
+      schedule_downlink_late:
+        type: boolean
+        description: 'Enable server-side buffering of downlink messages. This is recommended for gateways using the Semtech UDP Packet
+
+          Forwarder v2.x or older, as it does not feature a just-in-time queue. If enabled, the Gateway Server schedules the
+
+          downlink message late to the gateway so that it does not overwrite previously scheduled downlink messages that have
+
+          not been transmitted yet.'
+      enforce_duty_cycle:
+        type: boolean
+        description: 'Enforcing gateway duty cycle is recommended for all gateways to respect spectrum regulations. Disable enforcing the
+
+          duty cycle only in controlled research and development environments.'
+      downlink_path_constraint:
+        $ref: '#/definitions/v3DownlinkPathConstraint'
+      schedule_anytime_delay:
+        type: string
+        description: Adjust the time that GS schedules class C messages in advance. This is useful for gateways that have a known high latency backhaul, like 3G and satellite.
+      update_location_from_status:
+        type: boolean
+        description: Update the location of this gateway from status messages. This only works for gateways connecting with authentication; gateways connected over UDP are not supported.
+      lbs_lns_secret:
+        $ref: '#/definitions/v3Secret'
+        description: 'The LoRa Basics Station LNS secret.
+
+          This is either an auth token (such as an API Key) or a TLS private certificate.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+      claim_authentication_code:
+        $ref: '#/definitions/v3GatewayClaimAuthenticationCode'
+        description: 'The authentication code for gateway claiming.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.
+
+          The entire field must be used in RPCs since sub-fields are validated wrt to each other. Direct selection/update of sub-fields only are not allowed.
+
+          Use the top level field mask `claim_authentication_code` even when updating single fields.'
+      target_cups_uri:
+        type: string
+        description: 'CUPS URI for LoRa Basics Station CUPS redirection.
+
+          The CUPS Trust field will be automatically fetched from the cert chain presented by the target server.'
+      target_cups_key:
+        $ref: '#/definitions/v3Secret'
+        description: 'CUPS Key for LoRa Basics Station CUPS redirection.
+
+          If redirecting to another instance of TTS, use the CUPS API Key for the gateway on the target instance.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+      require_authenticated_connection:
+        type: boolean
+        description: Require an authenticated gateway connection. This prevents the gateway from using the UDP protocol and requires authentication when using other protocols.
+      lrfhss:
+        $ref: '#/definitions/GatewayLRFHSS'
+      disable_packet_broker_forwarding:
+        type: boolean
+    description: Gateway is the message that defines a gateway on the network.
+  v3DashboardLayout:
+    type: string
+    enum:
+    - DASHBOARD_LAYOUT_TABLE
+    - DASHBOARD_LAYOUT_LIST
+    - DASHBOARD_LAYOUT_GRID
+    default: DASHBOARD_LAYOUT_TABLE
+    description: DashboardLayout is a set of possible layout values to be used in the Console.
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  v3Clients:
+    type: object
+    properties:
+      clients:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3Client'
+  v3GatewayAntennaPlacement:
+    type: string
+    enum:
+    - PLACEMENT_UNKNOWN
+    - INDOOR
+    - OUTDOOR
+    default: PLACEMENT_UNKNOWN
+  v3Gateways:
+    type: object
+    properties:
+      gateways:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3Gateway'
+  v3UserIdentifiers:
+    type: object
+    properties:
+      user_id:
+        type: string
+        description: This ID shares namespace with organization IDs.
+      email:
+        type: string
+        description: Secondary identifier, which can only be used in specific requests.
+  v3State:
+    type: string
+    enum:
+    - STATE_REQUESTED
+    - STATE_APPROVED
+    - STATE_REJECTED
+    - STATE_FLAGGED
+    - STATE_SUSPENDED
+    default: STATE_REQUESTED
+    description: "State enum defines states that an entity can be in.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin."
+  v3ContactInfo:
+    type: object
+    properties:
+      contact_type:
+        $ref: '#/definitions/v3ContactType'
+      contact_method:
+        $ref: '#/definitions/v3ContactMethod'
+      value:
+        type: string
+      public:
+        type: boolean
+      validated_at:
+        type: string
+        format: date-time
+  v3Picture:
+    type: object
+    properties:
+      embedded:
+        $ref: '#/definitions/PictureEmbedded'
+        description: 'Embedded picture.
+
+          Omitted if there are external URLs available (in sizes).'
+      sizes:
+        type: object
+        additionalProperties:
+          type: string
+        description: URLs of the picture for different sizes, if available on a CDN.
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+  v3GatewayVersionIdentifiers:
+    type: object
+    properties:
+      brand_id:
+        type: string
+      model_id:
+        type: string
+      hardware_version:
+        type: string
+      firmware_version:
+        type: string
+      runtime_version:
+        type: string
+    description: Identifies an end device model with version information.
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'

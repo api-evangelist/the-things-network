@@ -1,0 +1,584 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Application Server AppAs Configuration API
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKeyAuth: []
+tags:
+- name: Configuration
+paths:
+  /configuration/bands:
+    get:
+      operationId: Configuration_ListBands
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ListBandsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: band_id
+        description: 'Optional Band ID to filter the results.
+
+          If unused, all supported Bands are returned.'
+        in: query
+        required: false
+        type: string
+      - name: phy_version
+        description: 'Optional PHY version to filter the results.
+
+          If unused, all supported versions are returned.'
+        in: query
+        required: false
+        type: string
+        enum:
+        - PHY_UNKNOWN
+        - PHY_V1_0
+        - TS001_V1_0
+        - PHY_V1_0_1
+        - TS001_V1_0_1
+        - PHY_V1_0_2_REV_A
+        - RP001_V1_0_2
+        - PHY_V1_0_2_REV_B
+        - RP001_V1_0_2_REV_B
+        - PHY_V1_1_REV_A
+        - RP001_V1_1_REV_A
+        - PHY_V1_1_REV_B
+        - RP001_V1_1_REV_B
+        - PHY_V1_0_3_REV_A
+        - RP001_V1_0_3_REV_A
+        - RP002_V1_0_0
+        - RP002_V1_0_1
+        - RP002_V1_0_2
+        - RP002_V1_0_3
+        - RP002_V1_0_4
+        default: PHY_UNKNOWN
+      tags:
+      - Configuration
+  /configuration/bands/{band_id}:
+    get:
+      operationId: Configuration_ListBands2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ListBandsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: band_id
+        description: 'Optional Band ID to filter the results.
+
+          If unused, all supported Bands are returned.'
+        in: path
+        required: true
+        type: string
+      - name: phy_version
+        description: 'Optional PHY version to filter the results.
+
+          If unused, all supported versions are returned.'
+        in: query
+        required: false
+        type: string
+        enum:
+        - PHY_UNKNOWN
+        - PHY_V1_0
+        - TS001_V1_0
+        - PHY_V1_0_1
+        - TS001_V1_0_1
+        - PHY_V1_0_2_REV_A
+        - RP001_V1_0_2
+        - PHY_V1_0_2_REV_B
+        - RP001_V1_0_2_REV_B
+        - PHY_V1_1_REV_A
+        - RP001_V1_1_REV_A
+        - PHY_V1_1_REV_B
+        - RP001_V1_1_REV_B
+        - PHY_V1_0_3_REV_A
+        - RP001_V1_0_3_REV_A
+        - RP002_V1_0_0
+        - RP002_V1_0_1
+        - RP002_V1_0_2
+        - RP002_V1_0_3
+        - RP002_V1_0_4
+        default: PHY_UNKNOWN
+      tags:
+      - Configuration
+  /configuration/bands/{band_id}/{phy_version}:
+    get:
+      operationId: Configuration_ListBands3
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ListBandsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: band_id
+        description: 'Optional Band ID to filter the results.
+
+          If unused, all supported Bands are returned.'
+        in: path
+        required: true
+        type: string
+      - name: phy_version
+        description: 'Optional PHY version to filter the results.
+
+          If unused, all supported versions are returned.'
+        in: path
+        required: true
+        type: string
+        enum:
+        - PHY_UNKNOWN
+        - PHY_V1_0
+        - TS001_V1_0
+        - PHY_V1_0_1
+        - TS001_V1_0_1
+        - PHY_V1_0_2_REV_A
+        - RP001_V1_0_2
+        - PHY_V1_0_2_REV_B
+        - RP001_V1_0_2_REV_B
+        - PHY_V1_1_REV_A
+        - RP001_V1_1_REV_A
+        - PHY_V1_1_REV_B
+        - RP001_V1_1_REV_B
+        - PHY_V1_0_3_REV_A
+        - RP001_V1_0_3_REV_A
+        - RP002_V1_0_0
+        - RP002_V1_0_1
+        - RP002_V1_0_2
+        - RP002_V1_0_3
+        - RP002_V1_0_4
+      tags:
+      - Configuration
+  /configuration/frequency-plans:
+    get:
+      operationId: Configuration_ListFrequencyPlans
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ListFrequencyPlansResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: base_frequency
+        description: Optional base frequency in MHz for hardware support (433, 470, 868 or 915)
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: band_id
+        description: Optional Band ID to filter the results.
+        in: query
+        required: false
+        type: string
+      - name: gateways_only
+        description: Optional field to include only gateway related results.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - Configuration
+  /configuration/phy-versions:
+    get:
+      summary: Returns a list of supported LoRaWAN PHY Versions for the given Band ID.
+      operationId: Configuration_GetPhyVersions
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GetPhyVersionsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: band_id
+        description: 'Optional Band ID to filter the results.
+
+          If unused, all supported Bands and their versions are returned.'
+        in: query
+        required: false
+        type: string
+      tags:
+      - Configuration
+definitions:
+  v3LoRaDataRate:
+    type: object
+    properties:
+      bandwidth:
+        type: integer
+        format: int64
+        description: Bandwidth (Hz).
+      spreading_factor:
+        type: integer
+        format: int64
+      coding_rate:
+        type: string
+  ListBandsResponseVersionedBandDescription:
+    type: object
+    properties:
+      band:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/v3BandDescription'
+  v3ADRAckLimitExponent:
+    type: string
+    enum:
+    - ADR_ACK_LIMIT_1
+    - ADR_ACK_LIMIT_2
+    - ADR_ACK_LIMIT_4
+    - ADR_ACK_LIMIT_8
+    - ADR_ACK_LIMIT_16
+    - ADR_ACK_LIMIT_32
+    - ADR_ACK_LIMIT_64
+    - ADR_ACK_LIMIT_128
+    - ADR_ACK_LIMIT_256
+    - ADR_ACK_LIMIT_512
+    - ADR_ACK_LIMIT_1024
+    - ADR_ACK_LIMIT_2048
+    - ADR_ACK_LIMIT_4096
+    - ADR_ACK_LIMIT_8192
+    - ADR_ACK_LIMIT_16384
+    - ADR_ACK_LIMIT_32768
+    default: ADR_ACK_LIMIT_1
+  BandDescriptionSubBandParameters:
+    type: object
+    properties:
+      min_frequency:
+        type: string
+        format: uint64
+      max_frequency:
+        type: string
+        format: uint64
+      duty_cycle:
+        type: number
+        format: float
+      max_eirp:
+        type: number
+        format: float
+  BandDescriptionDwellTime:
+    type: object
+    properties:
+      uplinks:
+        type: boolean
+      downlinks:
+        type: boolean
+  v3DataRateIndex:
+    type: string
+    enum:
+    - DATA_RATE_0
+    - DATA_RATE_1
+    - DATA_RATE_2
+    - DATA_RATE_3
+    - DATA_RATE_4
+    - DATA_RATE_5
+    - DATA_RATE_6
+    - DATA_RATE_7
+    - DATA_RATE_8
+    - DATA_RATE_9
+    - DATA_RATE_10
+    - DATA_RATE_11
+    - DATA_RATE_12
+    - DATA_RATE_13
+    - DATA_RATE_14
+    - DATA_RATE_15
+    default: DATA_RATE_0
+  BandDescriptionBandDataRate:
+    type: object
+    properties:
+      rate:
+        $ref: '#/definitions/v3DataRate'
+  v3CFListType:
+    type: string
+    enum:
+    - FREQUENCIES
+    - CHANNEL_MASKS
+    default: FREQUENCIES
+  BandDescriptionRx2Parameters:
+    type: object
+    properties:
+      data_rate_index:
+        $ref: '#/definitions/v3DataRateIndex'
+      frequency:
+        type: string
+        format: uint64
+  v3BandDescriptionChannel:
+    type: object
+    properties:
+      frequency:
+        type: string
+        format: uint64
+      min_data_rate:
+        $ref: '#/definitions/v3DataRateIndex'
+      max_data_rate:
+        $ref: '#/definitions/v3DataRateIndex'
+  v3FrequencyPlanDescription:
+    type: object
+    properties:
+      id:
+        type: string
+      base_id:
+        type: string
+        description: The ID of the frequency that the current frequency plan is based on.
+      name:
+        type: string
+      base_frequency:
+        type: integer
+        format: int64
+        title: Base frequency in MHz for hardware support (433, 470, 868 or 915)
+      band_id:
+        type: string
+  v3ListBandsResponse:
+    type: object
+    properties:
+      descriptions:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/ListBandsResponseVersionedBandDescription'
+  v3DataRate:
+    type: object
+    properties:
+      lora:
+        $ref: '#/definitions/v3LoRaDataRate'
+      fsk:
+        $ref: '#/definitions/v3FSKDataRate'
+      lrfhss:
+        $ref: '#/definitions/v3LRFHSSDataRate'
+  v3FSKDataRate:
+    type: object
+    properties:
+      bit_rate:
+        type: integer
+        format: int64
+        description: Bit rate (bps).
+  v3PHYVersion:
+    type: string
+    enum:
+    - PHY_UNKNOWN
+    - PHY_V1_0
+    - TS001_V1_0
+    - PHY_V1_0_1
+    - TS001_V1_0_1
+    - PHY_V1_0_2_REV_A
+    - RP001_V1_0_2
+    - PHY_V1_0_2_REV_B
+    - RP001_V1_0_2_REV_B
+    - PHY_V1_1_REV_A
+    - RP001_V1_1_REV_A
+    - PHY_V1_1_REV_B
+    - RP001_V1_1_REV_B
+    - PHY_V1_0_3_REV_A
+    - RP001_V1_0_3_REV_A
+    - RP002_V1_0_0
+    - RP002_V1_0_1
+    - RP002_V1_0_2
+    - RP002_V1_0_3
+    - RP002_V1_0_4
+    default: PHY_UNKNOWN
+  BandDescriptionRelayParametersRelayWORChannel:
+    type: object
+    properties:
+      frequency:
+        type: string
+        format: uint64
+      ack_frequency:
+        type: string
+        format: uint64
+      data_rate_index:
+        $ref: '#/definitions/v3DataRateIndex'
+  v3LRFHSSDataRate:
+    type: object
+    properties:
+      modulation_type:
+        type: integer
+        format: int64
+      operating_channel_width:
+        type: integer
+        format: int64
+        description: Operating Channel Width (Hz).
+      coding_rate:
+        type: string
+  GetPhyVersionsResponseVersionInfo:
+    type: object
+    properties:
+      band_id:
+        type: string
+      phy_versions:
+        type: array
+        items:
+          $ref: '#/definitions/v3PHYVersion'
+  BandDescriptionBeacon:
+    type: object
+    properties:
+      data_rate_index:
+        $ref: '#/definitions/v3DataRateIndex'
+      coding_rate:
+        type: string
+      frequencies:
+        type: array
+        items:
+          type: string
+          format: uint64
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  v3GetPhyVersionsResponse:
+    type: object
+    properties:
+      version_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/GetPhyVersionsResponseVersionInfo'
+  v3BandDescription:
+    type: object
+    properties:
+      id:
+        type: string
+      beacon:
+        $ref: '#/definitions/BandDescriptionBeacon'
+      ping_slot_frequencies:
+        type: array
+        items:
+          type: string
+          format: uint64
+      max_uplink_channels:
+        type: integer
+        format: int64
+      uplink_channels:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3BandDescriptionChannel'
+      max_downlink_channels:
+        type: integer
+        format: int64
+      downlink_channels:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3BandDescriptionChannel'
+      sub_bands:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/BandDescriptionSubBandParameters'
+      data_rates:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/BandDescriptionBandDataRate'
+      freq_multiplier:
+        type: string
+        format: uint64
+      implements_cf_list:
+        type: boolean
+      cf_list_type:
+        $ref: '#/definitions/v3CFListType'
+      receive_delay_1:
+        type: string
+      receive_delay_2:
+        type: string
+      join_accept_delay_1:
+        type: string
+      join_accept_delay_2:
+        type: string
+      max_fcnt_gap:
+        type: string
+        format: uint64
+      supports_dynamic_adr:
+        type: boolean
+      adr_ack_limit:
+        $ref: '#/definitions/v3ADRAckLimitExponent'
+      min_retransmit_timeout:
+        type: string
+      max_retransmit_timeout:
+        type: string
+      tx_offset:
+        type: array
+        items:
+          type: number
+          format: float
+      max_adr_data_rate_index:
+        $ref: '#/definitions/v3DataRateIndex'
+      relay_forward_delay:
+        type: string
+      relay_receive_delay:
+        type: string
+      tx_param_setup_req_support:
+        type: boolean
+      default_max_eirp:
+        type: number
+        format: float
+      default_rx2_parameters:
+        $ref: '#/definitions/BandDescriptionRx2Parameters'
+      boot_dwell_time:
+        $ref: '#/definitions/BandDescriptionDwellTime'
+      relay:
+        $ref: '#/definitions/v3BandDescriptionRelayParameters'
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+  v3BandDescriptionRelayParameters:
+    type: object
+    properties:
+      wor_channels:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/BandDescriptionRelayParametersRelayWORChannel'
+  v3ListFrequencyPlansResponse:
+    type: object
+    properties:
+      frequency_plans:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3FrequencyPlanDescription'
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'

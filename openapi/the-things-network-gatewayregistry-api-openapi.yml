@@ -1,0 +1,1034 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Application Server AppAs GatewayRegistry API
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKeyAuth: []
+tags:
+- name: GatewayRegistry
+paths:
+  /gateways:
+    get:
+      summary: 'List gateways where the given user or organization is a direct collaborator.
+
+        If no user or organization is given, this returns the gateways the caller
+
+        has access to.
+
+        Similar to Get, this selects the fields given by the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_List
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted gateways.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - GatewayRegistry
+  /gateways/filter:
+    post:
+      summary: 'List gateways where the given user or organization is a direct collaborator.
+
+        If no user or organization is given, this returns the gateways the caller
+
+        has access to.
+
+        Similar to Get, this selects the fields given by the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_List4
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ListGatewaysRequest'
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway.ids.gateway_id}:
+    put:
+      summary: Update the gateway, changing the fields specified by the field mask to the provided values.
+      operationId: GatewayRegistry_Update
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway.ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayRegistryUpdateBody'
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_ids.gateway_id}:
+    get:
+      summary: 'Get the gateway with the given identifiers, selecting the fields specified
+
+        in the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_Get
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_id}:
+    delete:
+      summary: Delete the gateway. This may not release the gateway ID for reuse, but it does release the EUI.
+      operationId: GatewayRegistry_Delete
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_id}/purge:
+    delete:
+      summary: 'Purge the gateway. This will release both gateway ID and EUI for reuse.
+
+        The gateway owner is responsible for clearing data from any (external) integrations
+
+        that may store and expose data by gateway ID.'
+      operationId: GatewayRegistry_Purge
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_id}/restore:
+    post:
+      summary: 'Restore a recently deleted gateway. This does not restore the EUI,
+
+        as that was released when deleting the gateway.'
+      description: 'Deployment configuration may specify if, and for how long after deletion,
+
+        entities can be restored.'
+      operationId: GatewayRegistry_Restore
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayRegistry
+  /organizations/{collaborator.organization_ids.organization_id}/gateways:
+    get:
+      summary: 'List gateways where the given user or organization is a direct collaborator.
+
+        If no user or organization is given, this returns the gateways the caller
+
+        has access to.
+
+        Similar to Get, this selects the fields given by the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_List3
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted gateways.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - GatewayRegistry
+    post:
+      summary: 'Create a new gateway. This also sets the given organization or user as
+
+        first collaborator with all possible rights.'
+      operationId: GatewayRegistry_Create2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayRegistryCreateBody'
+      tags:
+      - GatewayRegistry
+  /users/{collaborator.user_ids.user_id}/gateways:
+    get:
+      summary: 'List gateways where the given user or organization is a direct collaborator.
+
+        If no user or organization is given, this returns the gateways the caller
+
+        has access to.
+
+        Similar to Get, this selects the fields given by the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_List2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted gateways.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - GatewayRegistry
+    post:
+      summary: 'Create a new gateway. This also sets the given organization or user as
+
+        first collaborator with all possible rights.'
+      operationId: GatewayRegistry_Create
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayRegistryCreateBody'
+      tags:
+      - GatewayRegistry
+definitions:
+  v3GatewayRegistryCreateBody:
+    type: object
+    properties:
+      gateway:
+        $ref: '#/definitions/v3Gateway'
+      collaborator:
+        type: object
+        properties:
+          organization_ids:
+            type: object
+          user_ids:
+            $ref: '#/definitions/v3UserIdentifiers'
+        description: Collaborator to grant all rights on the newly created gateway.
+        title: Collaborator to grant all rights on the newly created gateway.
+  v3ContactMethod:
+    type: string
+    enum:
+    - CONTACT_METHOD_OTHER
+    - CONTACT_METHOD_EMAIL
+    - CONTACT_METHOD_PHONE
+    default: CONTACT_METHOD_OTHER
+  v3LocationSource:
+    type: string
+    enum:
+    - SOURCE_UNKNOWN
+    - SOURCE_GPS
+    - SOURCE_REGISTRY
+    - SOURCE_IP_GEOLOCATION
+    - SOURCE_WIFI_RSSI_GEOLOCATION
+    - SOURCE_BT_RSSI_GEOLOCATION
+    - SOURCE_LORA_RSSI_GEOLOCATION
+    - SOURCE_LORA_TDOA_GEOLOCATION
+    - SOURCE_COMBINED_GEOLOCATION
+    default: SOURCE_UNKNOWN
+    description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
+  v3ContactType:
+    type: string
+    enum:
+    - CONTACT_TYPE_OTHER
+    - CONTACT_TYPE_ABUSE
+    - CONTACT_TYPE_BILLING
+    - CONTACT_TYPE_TECHNICAL
+    default: CONTACT_TYPE_OTHER
+  lorawanv3GatewayIdentifiers:
+    type: object
+    properties:
+      gateway_id:
+        type: string
+      eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: Secondary identifier, which can only be used in specific requests.
+  v3GatewayAntenna:
+    type: object
+    properties:
+      gain:
+        type: number
+        format: float
+        description: Antenna gain relative to the gateway, in dBi.
+      location:
+        $ref: '#/definitions/lorawanv3Location'
+        description: location is the antenna's location.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+      placement:
+        $ref: '#/definitions/v3GatewayAntennaPlacement'
+    description: GatewayAntenna is the message that defines a gateway antenna.
+  v3ListGatewaysRequest:
+    type: object
+    properties:
+      collaborator:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+        description: 'By default we list all gateways the caller has rights on.
+
+          Set the user or the organization (not both) to instead list the gateways
+
+          where the user or organization is collaborator on.'
+      field_mask:
+        type: string
+        description: The names of the gateway fields that should be returned.
+      order:
+        type: string
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+      limit:
+        type: integer
+        format: int64
+        description: Limit the number of results per page.
+      page:
+        type: integer
+        format: int64
+        description: Page number for pagination. 0 is interpreted as 1.
+      deleted:
+        type: boolean
+        description: Only return recently deleted gateways.
+      filters:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ListGatewaysRequestFilter'
+  v3GatewayClaimAuthenticationCode:
+    type: object
+    properties:
+      secret:
+        $ref: '#/definitions/v3Secret'
+      valid_from:
+        type: string
+        format: date-time
+      valid_to:
+        type: string
+        format: date-time
+    description: Authentication code for claiming gateways.
+  lorawanv3Location:
+    type: object
+    properties:
+      latitude:
+        type: number
+        format: double
+        description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
+      longitude:
+        type: number
+        format: double
+        description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
+      altitude:
+        type: integer
+        format: int32
+        description: The altitude (meters), where 0 is the mean sea level.
+      accuracy:
+        type: integer
+        format: int32
+        description: The accuracy of the location (meters).
+      source:
+        $ref: '#/definitions/v3LocationSource'
+        description: Source of the location information.
+  GatewayLRFHSS:
+    type: object
+    properties:
+      supported:
+        type: boolean
+        description: The gateway supports the LR-FHSS uplink channels.
+    description: LR-FHSS gateway capabilities.
+  v3OrganizationOrUserIdentifiers:
+    type: object
+    properties:
+      organization_ids:
+        $ref: '#/definitions/v3OrganizationIdentifiers'
+      user_ids:
+        $ref: '#/definitions/v3UserIdentifiers'
+    description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+  v3ListGatewaysRequestFilter:
+    type: object
+    properties:
+      updated_since:
+        type: string
+        format: date-time
+    description: Filter gateways by fields.
+  v3Secret:
+    type: object
+    properties:
+      key_id:
+        type: string
+        description: ID of the Key used to encrypt the secret.
+      value:
+        type: string
+        format: byte
+    description: Secret contains a secret value. It also contains the ID of the Encryption key used to encrypt it.
+  v3DownlinkPathConstraint:
+    type: string
+    enum:
+    - DOWNLINK_PATH_CONSTRAINT_NONE
+    - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER
+    - DOWNLINK_PATH_CONSTRAINT_NEVER
+    default: DOWNLINK_PATH_CONSTRAINT_NONE
+    description: " - DOWNLINK_PATH_CONSTRAINT_NONE: Indicates that the gateway can be selected for downlink without constraints by the Network Server.\n - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER: Indicates that the gateway can be selected for downlink only if no other or better gateway can be selected.\n - DOWNLINK_PATH_CONSTRAINT_NEVER: Indicates that this gateway will never be selected for downlink, even if that results in no available downlink path."
+  v3GatewayRegistryUpdateBody:
+    type: object
+    properties:
+      gateway:
+        type: object
+        properties:
+          ids:
+            type: object
+            properties:
+              eui:
+                type: string
+                format: string
+                example: 70B3D57ED000ABCD
+                description: Secondary identifier, which can only be used in specific requests.
+            description: The identifiers of the gateway. These are public and can be seen by any authenticated user in the network.
+            title: The identifiers of the gateway. These are public and can be seen by any authenticated user in the network.
+          created_at:
+            type: string
+            format: date-time
+            description: When the gateway was created. This information is public and can be seen by any authenticated user in the network.
+          updated_at:
+            type: string
+            format: date-time
+            description: When the gateway was last updated. This information is public and can be seen by any authenticated user in the network.
+          deleted_at:
+            type: string
+            format: date-time
+            description: When the gateway was deleted. This information is public and can be seen by any authenticated user in the network.
+          name:
+            type: string
+            description: The name of the gateway. This information is public and can be seen by any authenticated user in the network.
+          description:
+            type: string
+            description: A description for the gateway. This information is public and can be seen by any authenticated user in the network.
+          attributes:
+            type: object
+            additionalProperties:
+              type: string
+            description: Key-value attributes for this gateway. Typically used for organizing gateways or for storing integration-specific data.
+          contact_info:
+            type: array
+            items:
+              type: object
+              $ref: '#/definitions/v3ContactInfo'
+            description: 'Contact information for this gateway. Typically used to indicate who to contact with technical/security questions about the gateway.
+
+              This field is deprecated. Use administrative_contact and technical_contact instead.'
+          administrative_contact:
+            $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+          technical_contact:
+            $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+          version_ids:
+            $ref: '#/definitions/v3GatewayVersionIdentifiers'
+          gateway_server_address:
+            type: string
+            description: 'The address of the Gateway Server to connect to.
+
+              This information is public and can be seen by any authenticated user in the network if status_public is true.
+
+              The typical format of the address is "scheme://host:port". The scheme is optional. If the port is omitted,
+
+              the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+              The connection shall be established with transport layer security (TLS).
+
+              Custom certificate authorities may be configured out-of-band.'
+          auto_update:
+            type: boolean
+          update_channel:
+            type: string
+          frequency_plan_id:
+            type: string
+            description: 'Frequency plan ID of the gateway.
+
+              This information is public and can be seen by any authenticated user in the network.
+
+              DEPRECATED: use frequency_plan_ids.
+
+              This equals the first element of the frequency_plan_ids field.'
+          frequency_plan_ids:
+            type: array
+            items:
+              type: string
+            description: 'Frequency plan IDs of the gateway.
+
+              This information is public and can be seen by any authenticated user in the network.
+
+              The first element equals the frequency_plan_id field.'
+          antennas:
+            type: array
+            items:
+              type: object
+              $ref: '#/definitions/v3GatewayAntenna'
+            description: Antennas of the gateway. Location information of the antennas is public and can be seen by any authenticated user in the network if location_public=true.
+          status_public:
+            type: boolean
+            description: The status of this gateway may be publicly displayed.
+          location_public:
+            type: boolean
+            description: The location of this gateway may be publicly displayed.
+          schedule_downlink_late:
+            type: boolean
+            description: 'Enable server-side buffering of downlink messages. This is recommended for gateways using the Semtech UDP Packet
+
+              Forwarder v2.x or older, as it does not feature a just-in-time queue. If enabled, the Gateway Server schedules the
+
+              downlink message late to the gateway so that it does not overwrite previously scheduled downlink messages that have
+
+              not been transmitted yet.'
+          enforce_duty_cycle:
+            type: boolean
+            description: 'Enforcing gateway duty cycle is recommended for all gateways to respect spectrum regulations. Disable enforcing the
+
+              duty cycle only in controlled research and development environments.'
+          downlink_path_constraint:
+            $ref: '#/definitions/v3DownlinkPathConstraint'
+          schedule_anytime_delay:
+            type: string
+            description: Adjust the time that GS schedules class C messages in advance. This is useful for gateways that have a known high latency backhaul, like 3G and satellite.
+          update_location_from_status:
+            type: boolean
+            description: Update the location of this gateway from status messages. This only works for gateways connecting with authentication; gateways connected over UDP are not supported.
+          lbs_lns_secret:
+            $ref: '#/definitions/v3Secret'
+            description: 'The LoRa Basics Station LNS secret.
+
+              This is either an auth token (such as an API Key) or a TLS private certificate.
+
+              Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+          claim_authentication_code:
+            $ref: '#/definitions/v3GatewayClaimAuthenticationCode'
+            description: 'The authentication code for gateway claiming.
+
+              Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.
+
+              The entire field must be used in RPCs since sub-fields are validated wrt to each other. Direct selection/update of sub-fields only are not allowed.
+
+              Use the top level field mask `claim_authentication_code` even when updating single fields.'
+          target_cups_uri:
+            type: string
+            description: 'CUPS URI for LoRa Basics Station CUPS redirection.
+
+              The CUPS Trust field will be automatically fetched from the cert chain presented by the target server.'
+          target_cups_key:
+            $ref: '#/definitions/v3Secret'
+            description: 'CUPS Key for LoRa Basics Station CUPS redirection.
+
+              If redirecting to another instance of TTS, use the CUPS API Key for the gateway on the target instance.
+
+              Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+          require_authenticated_connection:
+            type: boolean
+            description: Require an authenticated gateway connection. This prevents the gateway from using the UDP protocol and requires authentication when using other protocols.
+          lrfhss:
+            $ref: '#/definitions/GatewayLRFHSS'
+          disable_packet_broker_forwarding:
+            type: boolean
+        description: Gateway is the message that defines a gateway on the network.
+      field_mask:
+        type: string
+        description: The names of the gateway fields that should be updated.
+  v3OrganizationIdentifiers:
+    type: object
+    properties:
+      organization_id:
+        type: string
+        description: This ID shares namespace with user IDs.
+  v3Gateway:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/lorawanv3GatewayIdentifiers'
+        description: The identifiers of the gateway. These are public and can be seen by any authenticated user in the network.
+      created_at:
+        type: string
+        format: date-time
+        description: When the gateway was created. This information is public and can be seen by any authenticated user in the network.
+      updated_at:
+        type: string
+        format: date-time
+        description: When the gateway was last updated. This information is public and can be seen by any authenticated user in the network.
+      deleted_at:
+        type: string
+        format: date-time
+        description: When the gateway was deleted. This information is public and can be seen by any authenticated user in the network.
+      name:
+        type: string
+        description: The name of the gateway. This information is public and can be seen by any authenticated user in the network.
+      description:
+        type: string
+        description: A description for the gateway. This information is public and can be seen by any authenticated user in the network.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+        description: Key-value attributes for this gateway. Typically used for organizing gateways or for storing integration-specific data.
+      contact_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ContactInfo'
+        description: 'Contact information for this gateway. Typically used to indicate who to contact with technical/security questions about the gateway.
+
+          This field is deprecated. Use administrative_contact and technical_contact instead.'
+      administrative_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      technical_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      version_ids:
+        $ref: '#/definitions/v3GatewayVersionIdentifiers'
+      gateway_server_address:
+        type: string
+        description: 'The address of the Gateway Server to connect to.
+
+          This information is public and can be seen by any authenticated user in the network if status_public is true.
+
+          The typical format of the address is "scheme://host:port". The scheme is optional. If the port is omitted,
+
+          the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+          The connection shall be established with transport layer security (TLS).
+
+          Custom certificate authorities may be configured out-of-band.'
+      auto_update:
+        type: boolean
+      update_channel:
+        type: string
+      frequency_plan_id:
+        type: string
+        description: 'Frequency plan ID of the gateway.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          DEPRECATED: use frequency_plan_ids.
+
+          This equals the first element of the frequency_plan_ids field.'
+      frequency_plan_ids:
+        type: array
+        items:
+          type: string
+        description: 'Frequency plan IDs of the gateway.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          The first element equals the frequency_plan_id field.'
+      antennas:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3GatewayAntenna'
+        description: Antennas of the gateway. Location information of the antennas is public and can be seen by any authenticated user in the network if location_public=true.
+      status_public:
+        type: boolean
+        description: The status of this gateway may be publicly displayed.
+      location_public:
+        type: boolean
+        description: The location of this gateway may be publicly displayed.
+      schedule_downlink_late:
+        type: boolean
+        description: 'Enable server-side buffering of downlink messages. This is recommended for gateways using the Semtech UDP Packet
+
+          Forwarder v2.x or older, as it does not feature a just-in-time queue. If enabled, the Gateway Server schedules the
+
+          downlink message late to the gateway so that it does not overwrite previously scheduled downlink messages that have
+
+          not been transmitted yet.'
+      enforce_duty_cycle:
+        type: boolean
+        description: 'Enforcing gateway duty cycle is recommended for all gateways to respect spectrum regulations. Disable enforcing the
+
+          duty cycle only in controlled research and development environments.'
+      downlink_path_constraint:
+        $ref: '#/definitions/v3DownlinkPathConstraint'
+      schedule_anytime_delay:
+        type: string
+        description: Adjust the time that GS schedules class C messages in advance. This is useful for gateways that have a known high latency backhaul, like 3G and satellite.
+      update_location_from_status:
+        type: boolean
+        description: Update the location of this gateway from status messages. This only works for gateways connecting with authentication; gateways connected over UDP are not supported.
+      lbs_lns_secret:
+        $ref: '#/definitions/v3Secret'
+        description: 'The LoRa Basics Station LNS secret.
+
+          This is either an auth token (such as an API Key) or a TLS private certificate.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+      claim_authentication_code:
+        $ref: '#/definitions/v3GatewayClaimAuthenticationCode'
+        description: 'The authentication code for gateway claiming.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.
+
+          The entire field must be used in RPCs since sub-fields are validated wrt to each other. Direct selection/update of sub-fields only are not allowed.
+
+          Use the top level field mask `claim_authentication_code` even when updating single fields.'
+      target_cups_uri:
+        type: string
+        description: 'CUPS URI for LoRa Basics Station CUPS redirection.
+
+          The CUPS Trust field will be automatically fetched from the cert chain presented by the target server.'
+      target_cups_key:
+        $ref: '#/definitions/v3Secret'
+        description: 'CUPS Key for LoRa Basics Station CUPS redirection.
+
+          If redirecting to another instance of TTS, use the CUPS API Key for the gateway on the target instance.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+      require_authenticated_connection:
+        type: boolean
+        description: Require an authenticated gateway connection. This prevents the gateway from using the UDP protocol and requires authentication when using other protocols.
+      lrfhss:
+        $ref: '#/definitions/GatewayLRFHSS'
+      disable_packet_broker_forwarding:
+        type: boolean
+    description: Gateway is the message that defines a gateway on the network.
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  v3GatewayAntennaPlacement:
+    type: string
+    enum:
+    - PLACEMENT_UNKNOWN
+    - INDOOR
+    - OUTDOOR
+    default: PLACEMENT_UNKNOWN
+  v3Gateways:
+    type: object
+    properties:
+      gateways:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3Gateway'
+  v3UserIdentifiers:
+    type: object
+    properties:
+      user_id:
+        type: string
+        description: This ID shares namespace with organization IDs.
+      email:
+        type: string
+        description: Secondary identifier, which can only be used in specific requests.
+  v3ContactInfo:
+    type: object
+    properties:
+      contact_type:
+        $ref: '#/definitions/v3ContactType'
+      contact_method:
+        $ref: '#/definitions/v3ContactMethod'
+      value:
+        type: string
+      public:
+        type: boolean
+      validated_at:
+        type: string
+        format: date-time
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+  v3GatewayVersionIdentifiers:
+    type: object
+    properties:
+      brand_id:
+        type: string
+      model_id:
+        type: string
+      hardware_version:
+        type: string
+      firmware_version:
+        type: string
+      runtime_version:
+        type: string
+    description: Identifies an end device model with version information.
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'

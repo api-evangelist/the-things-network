@@ -1,0 +1,360 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Application Server AppAs OAuthAuthorizationRegistry API
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKeyAuth: []
+tags:
+- name: OAuthAuthorizationRegistry
+paths:
+  /users/{user_ids.user_id}/authorizations:
+    get:
+      summary: List OAuth clients that are authorized by the user.
+      operationId: OAuthAuthorizationRegistry_List
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3OAuthClientAuthorizations'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - OAuthAuthorizationRegistry
+  /users/{user_ids.user_id}/authorizations/{client_ids.client_id}:
+    delete:
+      summary: Delete (de-authorize) an OAuth client for the user.
+      operationId: OAuthAuthorizationRegistry_Delete
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: client_ids.client_id
+        in: path
+        required: true
+        type: string
+      - name: user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - OAuthAuthorizationRegistry
+  /users/{user_ids.user_id}/authorizations/{client_ids.client_id}/tokens:
+    get:
+      summary: List OAuth access tokens issued to the OAuth client on behalf of the user.
+      operationId: OAuthAuthorizationRegistry_ListTokens
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3OAuthAccessTokens'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: client_ids.client_id
+        in: path
+        required: true
+        type: string
+      - name: user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - OAuthAuthorizationRegistry
+  /users/{user_ids.user_id}/authorizations/{client_ids.client_id}/tokens/{id}:
+    delete:
+      summary: Delete (invalidate) an OAuth access token.
+      operationId: OAuthAuthorizationRegistry_DeleteToken
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: client_ids.client_id
+        in: path
+        required: true
+        type: string
+      - name: id
+        in: path
+        required: true
+        type: string
+      - name: user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - OAuthAuthorizationRegistry
+definitions:
+  v3OAuthClientAuthorizations:
+    type: object
+    properties:
+      authorizations:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3OAuthClientAuthorization'
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  v3Right:
+    type: string
+    enum:
+    - right_invalid
+    - RIGHT_USER_INFO
+    - RIGHT_USER_SETTINGS_BASIC
+    - RIGHT_USER_LIST
+    - RIGHT_USER_CREATE
+    - RIGHT_USER_SETTINGS_API_KEYS
+    - RIGHT_USER_DELETE
+    - RIGHT_USER_PURGE
+    - RIGHT_USER_AUTHORIZED_CLIENTS
+    - RIGHT_USER_APPLICATIONS_LIST
+    - RIGHT_USER_APPLICATIONS_CREATE
+    - RIGHT_USER_GATEWAYS_LIST
+    - RIGHT_USER_GATEWAYS_CREATE
+    - RIGHT_USER_CLIENTS_LIST
+    - RIGHT_USER_CLIENTS_CREATE
+    - RIGHT_USER_ORGANIZATIONS_LIST
+    - RIGHT_USER_ORGANIZATIONS_CREATE
+    - RIGHT_USER_NOTIFICATIONS_READ
+    - RIGHT_USER_ALL
+    - RIGHT_APPLICATION_INFO
+    - RIGHT_APPLICATION_SETTINGS_BASIC
+    - RIGHT_APPLICATION_SETTINGS_API_KEYS
+    - RIGHT_APPLICATION_SETTINGS_COLLABORATORS
+    - RIGHT_APPLICATION_SETTINGS_PACKAGES
+    - RIGHT_APPLICATION_DELETE
+    - RIGHT_APPLICATION_PURGE
+    - RIGHT_APPLICATION_DEVICES_READ
+    - RIGHT_APPLICATION_DEVICES_WRITE
+    - RIGHT_APPLICATION_DEVICES_READ_KEYS
+    - RIGHT_APPLICATION_DEVICES_WRITE_KEYS
+    - RIGHT_APPLICATION_TRAFFIC_READ
+    - RIGHT_APPLICATION_TRAFFIC_UP_WRITE
+    - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE
+    - RIGHT_APPLICATION_LINK
+    - RIGHT_APPLICATION_ALL
+    - RIGHT_CLIENT_ALL
+    - RIGHT_CLIENT_INFO
+    - RIGHT_CLIENT_SETTINGS_BASIC
+    - RIGHT_CLIENT_SETTINGS_COLLABORATORS
+    - RIGHT_CLIENT_DELETE
+    - RIGHT_CLIENT_PURGE
+    - RIGHT_GATEWAY_INFO
+    - RIGHT_GATEWAY_SETTINGS_BASIC
+    - RIGHT_GATEWAY_SETTINGS_API_KEYS
+    - RIGHT_GATEWAY_SETTINGS_COLLABORATORS
+    - RIGHT_GATEWAY_DELETE
+    - RIGHT_GATEWAY_PURGE
+    - RIGHT_GATEWAY_TRAFFIC_READ
+    - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE
+    - RIGHT_GATEWAY_LINK
+    - RIGHT_GATEWAY_STATUS_READ
+    - RIGHT_GATEWAY_LOCATION_READ
+    - RIGHT_GATEWAY_WRITE_SECRETS
+    - RIGHT_GATEWAY_READ_SECRETS
+    - RIGHT_GATEWAY_ALL
+    - RIGHT_ORGANIZATION_INFO
+    - RIGHT_ORGANIZATION_SETTINGS_BASIC
+    - RIGHT_ORGANIZATION_SETTINGS_API_KEYS
+    - RIGHT_ORGANIZATION_SETTINGS_MEMBERS
+    - RIGHT_ORGANIZATION_DELETE
+    - RIGHT_ORGANIZATION_PURGE
+    - RIGHT_ORGANIZATION_APPLICATIONS_LIST
+    - RIGHT_ORGANIZATION_APPLICATIONS_CREATE
+    - RIGHT_ORGANIZATION_GATEWAYS_LIST
+    - RIGHT_ORGANIZATION_GATEWAYS_CREATE
+    - RIGHT_ORGANIZATION_CLIENTS_LIST
+    - RIGHT_ORGANIZATION_CLIENTS_CREATE
+    - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR
+    - RIGHT_ORGANIZATION_ALL
+    - RIGHT_SEND_INVITES
+    - RIGHT_ALL
+    default: right_invalid
+    description: "Right is the enum that defines all the different rights to do something in the network.\n\n - RIGHT_USER_INFO: The right to view user information.\n - RIGHT_USER_SETTINGS_BASIC: The right to edit basic user settings.\n - RIGHT_USER_LIST: The right to list users accounts.\n - RIGHT_USER_CREATE: The right to create an user account.\n - RIGHT_USER_SETTINGS_API_KEYS: The right to view and edit user API keys.\n - RIGHT_USER_DELETE: The right to delete user account.\n - RIGHT_USER_PURGE: The right to delete user account.\n - RIGHT_USER_AUTHORIZED_CLIENTS: The right to view and edit authorized OAuth clients of the user.\n - RIGHT_USER_APPLICATIONS_LIST: The right to list applications the user is a collaborator of.\n - RIGHT_USER_APPLICATIONS_CREATE: The right to create an application under the user account.\n - RIGHT_USER_GATEWAYS_LIST: The right to list gateways the user is a collaborator of.\n - RIGHT_USER_GATEWAYS_CREATE: The right to create a gateway under the account of the user.\n - RIGHT_USER_CLIENTS_LIST: The right to list OAuth clients the user is a collaborator of.\n - RIGHT_USER_CLIENTS_CREATE: The right to create an OAuth client under the account of the user.\n - RIGHT_USER_ORGANIZATIONS_LIST: The right to list organizations the user is a member of.\n - RIGHT_USER_ORGANIZATIONS_CREATE: The right to create an organization under the user account.\n - RIGHT_USER_NOTIFICATIONS_READ: The right to read notifications sent to the user.\n - RIGHT_USER_ALL: The pseudo-right for all (current and future) user rights.\n - RIGHT_APPLICATION_INFO: The right to view application information.\n - RIGHT_APPLICATION_SETTINGS_BASIC: The right to edit basic application settings.\n - RIGHT_APPLICATION_SETTINGS_API_KEYS: The right to view and edit application API keys.\n - RIGHT_APPLICATION_SETTINGS_COLLABORATORS: The right to view and edit application collaborators.\n - RIGHT_APPLICATION_SETTINGS_PACKAGES: The right to view and edit application packages and associations.\n - RIGHT_APPLICATION_DELETE: The right to delete application.\n - RIGHT_APPLICATION_PURGE: The right to purge application.\n - RIGHT_APPLICATION_DEVICES_READ: The right to view devices in application.\n - RIGHT_APPLICATION_DEVICES_WRITE: The right to create devices in application.\n - RIGHT_APPLICATION_DEVICES_READ_KEYS: The right to view device keys in application.\nNote that keys may not be stored in a way that supports viewing them.\n - RIGHT_APPLICATION_DEVICES_WRITE_KEYS: The right to edit device keys in application.\n - RIGHT_APPLICATION_TRAFFIC_READ: The right to read application traffic (uplink and downlink).\n - RIGHT_APPLICATION_TRAFFIC_UP_WRITE: The right to write uplink application traffic.\n - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE: The right to write downlink application traffic.\n - RIGHT_APPLICATION_LINK: The right to link as Application to a Network Server for traffic exchange,\ni.e. read uplink and write downlink (API keys only).\nThis right is typically only given to an Application Server.\nThis right implies RIGHT_APPLICATION_INFO, RIGHT_APPLICATION_TRAFFIC_READ,\nand RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE.\n - RIGHT_APPLICATION_ALL: The pseudo-right for all (current and future) application rights.\n - RIGHT_CLIENT_ALL: The pseudo-right for all (current and future) OAuth client rights.\n - RIGHT_CLIENT_INFO: The right to read client information.\n - RIGHT_CLIENT_SETTINGS_BASIC: The right to edit basic client settings.\n - RIGHT_CLIENT_SETTINGS_COLLABORATORS: The right to view and edit client collaborators.\n - RIGHT_CLIENT_DELETE: The right to delete a client.\n - RIGHT_CLIENT_PURGE: The right to purge a client.\n - RIGHT_GATEWAY_INFO: The right to view gateway information.\n - RIGHT_GATEWAY_SETTINGS_BASIC: The right to edit basic gateway settings.\n - RIGHT_GATEWAY_SETTINGS_API_KEYS: The right to view and edit gateway API keys.\n - RIGHT_GATEWAY_SETTINGS_COLLABORATORS: The right to view and edit gateway collaborators.\n - RIGHT_GATEWAY_DELETE: The right to delete gateway.\n - RIGHT_GATEWAY_PURGE: The right to purge gateway.\n - RIGHT_GATEWAY_TRAFFIC_READ: The right to read gateway traffic.\n - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE: The right to write downlink gateway traffic.\n - RIGHT_GATEWAY_LINK: The right to link as Gateway to a Gateway Server for traffic exchange,\ni.e. write uplink and read downlink (API keys only)\nThis right is typically only given to a gateway.\nThis right implies RIGHT_GATEWAY_INFO.\n - RIGHT_GATEWAY_STATUS_READ: The right to view gateway status.\n - RIGHT_GATEWAY_LOCATION_READ: The right to view view gateway location.\n - RIGHT_GATEWAY_WRITE_SECRETS: The right to store secrets associated with this gateway.\n - RIGHT_GATEWAY_READ_SECRETS: The right to retrieve secrets associated with this gateway.\n - RIGHT_GATEWAY_ALL: The pseudo-right for all (current and future) gateway rights.\n - RIGHT_ORGANIZATION_INFO: The right to view organization information.\n - RIGHT_ORGANIZATION_SETTINGS_BASIC: The right to edit basic organization settings.\n - RIGHT_ORGANIZATION_SETTINGS_API_KEYS: The right to view and edit organization API keys.\n - RIGHT_ORGANIZATION_SETTINGS_MEMBERS: The right to view and edit organization members.\n - RIGHT_ORGANIZATION_DELETE: The right to delete organization.\n - RIGHT_ORGANIZATION_PURGE: The right to purge organization.\n - RIGHT_ORGANIZATION_APPLICATIONS_LIST: The right to list the applications the organization is a collaborator of.\n - RIGHT_ORGANIZATION_APPLICATIONS_CREATE: The right to create an application under the organization.\n - RIGHT_ORGANIZATION_GATEWAYS_LIST: The right to list the gateways the organization is a collaborator of.\n - RIGHT_ORGANIZATION_GATEWAYS_CREATE: The right to create a gateway under the organization.\n - RIGHT_ORGANIZATION_CLIENTS_LIST: The right to list the OAuth clients the organization is a collaborator of.\n - RIGHT_ORGANIZATION_CLIENTS_CREATE: The right to create an OAuth client under the organization.\n - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR: The right to add the organization as a collaborator on an existing entity.\n - RIGHT_ORGANIZATION_ALL: The pseudo-right for all (current and future) organization rights.\n - RIGHT_SEND_INVITES: The right to send invites to new users.\nNote that this is not prefixed with \"USER_\"; it is not a right on the user entity.\n - RIGHT_ALL: The pseudo-right for all (current and future) possible rights."
+  v3UserIdentifiers:
+    type: object
+    properties:
+      user_id:
+        type: string
+        description: This ID shares namespace with organization IDs.
+      email:
+        type: string
+        description: Secondary identifier, which can only be used in specific requests.
+  v3OAuthClientAuthorization:
+    type: object
+    properties:
+      user_ids:
+        $ref: '#/definitions/v3UserIdentifiers'
+      client_ids:
+        $ref: '#/definitions/v3ClientIdentifiers'
+      rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+  v3OAuthAccessTokens:
+    type: object
+    properties:
+      tokens:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3OAuthAccessToken'
+  v3OAuthAccessToken:
+    type: object
+    properties:
+      user_ids:
+        $ref: '#/definitions/v3UserIdentifiers'
+      user_session_id:
+        type: string
+      client_ids:
+        $ref: '#/definitions/v3ClientIdentifiers'
+      id:
+        type: string
+      access_token:
+        type: string
+      refresh_token:
+        type: string
+      rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+      created_at:
+        type: string
+        format: date-time
+      expires_at:
+        type: string
+        format: date-time
+  v3ClientIdentifiers:
+    type: object
+    properties:
+      client_id:
+        type: string
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'

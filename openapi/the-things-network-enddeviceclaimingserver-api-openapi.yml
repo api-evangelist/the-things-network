@@ -1,0 +1,357 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Application Server AppAs EndDeviceClaimingServer API
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKeyAuth: []
+tags:
+- name: EndDeviceClaimingServer
+paths:
+  /edcs/applications/{application_ids.application_id}/authorize:
+    post:
+      summary: 'Authorize the End Device Claiming Server to claim devices registered in the given application. The application
+
+        identifiers are the source application, where the devices are registered before they are claimed.
+
+        The API key is used to access the application, find the device, verify the claim request and delete the end device
+
+        from the source application.
+
+        DEPRECATED: Device claiming that transfers devices between applications is no longer supported and will be removed
+
+        in a future version of The Things Stack.'
+      operationId: EndDeviceClaimingServer_AuthorizeApplication
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/EndDeviceClaimingServerAuthorizeApplicationBody'
+      tags:
+      - EndDeviceClaimingServer
+  /edcs/applications/{application_id}/authorize:
+    delete:
+      summary: 'Unauthorize the End Device Claiming Server to claim devices in the given application.
+
+        This reverts the authorization given with rpc AuthorizeApplication.
+
+        DEPRECATED: Device claiming that transfers devices between applications is no longer supported and will be removed
+
+        in a future version of The Things Stack.'
+      operationId: EndDeviceClaimingServer_UnauthorizeApplication
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_id
+        in: path
+        required: true
+        type: string
+      tags:
+      - EndDeviceClaimingServer
+  /edcs/claim:
+    post:
+      summary: Claims the end device on a Join Server by claim authentication code or QR code.
+      operationId: EndDeviceClaimingServer_Claim
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3EndDeviceIdentifiers'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ClaimEndDeviceRequest'
+      tags:
+      - EndDeviceClaimingServer
+  /edcs/claim/info:
+    post:
+      summary: Return whether claiming is available for a given JoinEUI.
+      operationId: EndDeviceClaimingServer_GetInfoByJoinEUI
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GetInfoByJoinEUIResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GetInfoByJoinEUIRequest'
+      tags:
+      - EndDeviceClaimingServer
+  /edcs/claim/{application_ids.application_id}/devices/{device_id}:
+    get:
+      summary: 'Gets the claim status of an end device.
+
+        EUIs provided in the request are ignored and the end device is looked up by the given identifiers.'
+      operationId: EndDeviceClaimingServer_GetClaimStatus
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GetClaimStatusResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: device_id
+        in: path
+        required: true
+        type: string
+      - name: dev_eui
+        description: The LoRaWAN DevEUI.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: join_eui
+        description: The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: dev_addr
+        description: The LoRaWAN DevAddr.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - EndDeviceClaimingServer
+    delete:
+      summary: 'Unclaims the end device on a Join Server.
+
+        EUIs provided in the request are ignored and the end device is looked up by the given identifiers.'
+      operationId: EndDeviceClaimingServer_Unclaim
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: application_ids.application_id
+        in: path
+        required: true
+        type: string
+      - name: device_id
+        in: path
+        required: true
+        type: string
+      - name: dev_eui
+        description: The LoRaWAN DevEUI.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: join_eui
+        description: The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: dev_addr
+        description: The LoRaWAN DevAddr.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - EndDeviceClaimingServer
+definitions:
+  GetClaimStatusResponseVendorSpecific:
+    type: object
+    properties:
+      organization_unique_identifier:
+        type: integer
+        format: int64
+      data:
+        type: object
+        description: Vendor Specific data in JSON format.
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  v3ClaimEndDeviceRequest:
+    type: object
+    properties:
+      authenticated_identifiers:
+        $ref: '#/definitions/v3ClaimEndDeviceRequestAuthenticatedIdentifiers'
+        description: Authenticated identifiers.
+      qr_code:
+        type: string
+        format: byte
+        description: Raw QR code contents.
+      target_application_ids:
+        $ref: '#/definitions/v3ApplicationIdentifiers'
+        description: Application identifiers of the target end device.
+      target_device_id:
+        type: string
+        description: End device ID of the target end device. If empty, use the source device ID.
+  EndDeviceClaimingServerAuthorizeApplicationBody:
+    type: object
+    properties:
+      application_ids:
+        type: object
+      api_key:
+        type: string
+    description: 'DEPRECATED: Device claiming that transfers devices between applications is no longer supported and will be removed
+
+      in a future version of The Things Stack.'
+  v3ApplicationIdentifiers:
+    type: object
+    properties:
+      application_id:
+        type: string
+  v3EndDeviceIdentifiers:
+    type: object
+    properties:
+      device_id:
+        type: string
+      application_ids:
+        $ref: '#/definitions/v3ApplicationIdentifiers'
+      dev_eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: The LoRaWAN DevEUI.
+      join_eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).
+      dev_addr:
+        type: string
+        format: string
+        example: 2600ABCD
+        description: The LoRaWAN DevAddr.
+  v3GetInfoByJoinEUIRequest:
+    type: object
+    properties:
+      join_eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+  v3GetClaimStatusResponse:
+    type: object
+    properties:
+      end_device_ids:
+        $ref: '#/definitions/v3EndDeviceIdentifiers'
+      home_net_id:
+        type: string
+        format: string
+        example: '000013'
+      home_ns_id:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+      vendor_specific:
+        $ref: '#/definitions/GetClaimStatusResponseVendorSpecific'
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+  v3GetInfoByJoinEUIResponse:
+    type: object
+    properties:
+      join_eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+      supports_claiming:
+        type: boolean
+        description: If set, this Join EUI is available for claiming on one of the configured Join Servers.
+  v3ClaimEndDeviceRequestAuthenticatedIdentifiers:
+    type: object
+    properties:
+      join_eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: JoinEUI (or AppEUI) of the device to claim.
+      dev_eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: DevEUI of the device to claim.
+      authentication_code:
+        type: string
+        description: 'Authentication code to prove ownership.
+
+          In the LoRa Alliance TR005 specification, this equals the OwnerToken.'
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'

@@ -1,0 +1,309 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Application Server AppAs Gs API
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- ApiKeyAuth: []
+tags:
+- name: Gs
+paths:
+  /gs/gateways/connection/stats:
+    post:
+      summary: 'Get statistics about gateway connections to the Gateway Server of a batch of gateways.
+
+        - Statistics are not persisted between reconnects.
+
+        - Gateways that are not connected or are part of a different cluster are ignored.
+
+        - The client should ensure that the requested gateways are in the requested cluster.
+
+        - The client should have the right to get the gateway connection stats on all requested gateways.'
+      operationId: Gs_BatchGetGatewayConnectionStats
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3BatchGetGatewayConnectionStatsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3BatchGetGatewayConnectionStatsRequest'
+      tags:
+      - Gs
+  /gs/gateways/{gateway_id}/connection/stats:
+    get:
+      summary: 'Get statistics about the current gateway connection to the Gateway Server.
+
+        This is not persisted between reconnects.'
+      operationId: Gs_GetGatewayConnectionStats
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GatewayConnectionStats'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - Gs
+definitions:
+  v3GatewayRemoteAddress:
+    type: object
+    properties:
+      ip:
+        type: string
+        description: IPv4 or IPv6 address.
+    description: Remote Address of the Gateway, as seen by the Gateway Server.
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  GatewayConnectionStatsRoundTripTimes:
+    type: object
+    properties:
+      min:
+        type: string
+      max:
+        type: string
+      median:
+        type: string
+      count:
+        type: integer
+        format: int64
+  v3LocationSource:
+    type: string
+    enum:
+    - SOURCE_UNKNOWN
+    - SOURCE_GPS
+    - SOURCE_REGISTRY
+    - SOURCE_IP_GEOLOCATION
+    - SOURCE_WIFI_RSSI_GEOLOCATION
+    - SOURCE_BT_RSSI_GEOLOCATION
+    - SOURCE_LORA_RSSI_GEOLOCATION
+    - SOURCE_LORA_TDOA_GEOLOCATION
+    - SOURCE_COMBINED_GEOLOCATION
+    default: SOURCE_UNKNOWN
+    description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
+  v3GatewayStatus:
+    type: object
+    properties:
+      time:
+        type: string
+        format: date-time
+        title: Current time of the gateway
+      boot_time:
+        type: string
+        format: date-time
+        title: 'Boot time of the gateway
+
+          - can be left out to save bandwidth; old value will be kept'
+      versions:
+        type: object
+        additionalProperties:
+          type: string
+        title: "Versions of gateway subsystems\n- each field can be left out to save bandwidth; old value will be kept\n- map keys are written in snake_case\n- for example:\n    firmware: \"2.0.4\"\n    forwarder: \"v2-3.3.1\"\n    fpga: \"48\"\n    dsp: \"27\"\n    hal: \"v2-3.5.0\""
+      antenna_locations:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/lorawanv3Location'
+        title: 'Location of each gateway''s antenna
+
+          - if left out, server uses registry-set location as fallback'
+      ip:
+        type: array
+        items:
+          type: string
+        description: 'IP addresses of this gateway.
+
+          Repeated addresses can be used to communicate addresses of multiple interfaces (LAN, Public IP, ...).'
+      metrics:
+        type: object
+        additionalProperties:
+          type: number
+          format: float
+        title: 'Metrics
+
+          - can be used for forwarding gateway metrics such as temperatures or performance metrics
+
+          - map keys are written in snake_case'
+      advanced:
+        type: object
+        title: 'Advanced metadata fields
+
+          - can be used for advanced information or experimental features that are not yet formally defined in the API
+
+          - field names are written in snake_case'
+  v3GatewayConnectionStats:
+    type: object
+    properties:
+      connected_at:
+        type: string
+        format: date-time
+      disconnected_at:
+        type: string
+        format: date-time
+      protocol:
+        type: string
+        title: Protocol used to connect (for example, udp, mqtt, grpc)
+      last_status_received_at:
+        type: string
+        format: date-time
+      last_status:
+        $ref: '#/definitions/v3GatewayStatus'
+      last_uplink_received_at:
+        type: string
+        format: date-time
+      uplink_count:
+        type: string
+        format: uint64
+      last_downlink_received_at:
+        type: string
+        format: date-time
+      downlink_count:
+        type: string
+        format: uint64
+      last_tx_acknowledgment_received_at:
+        type: string
+        format: date-time
+      tx_acknowledgment_count:
+        type: string
+        format: uint64
+      round_trip_times:
+        $ref: '#/definitions/GatewayConnectionStatsRoundTripTimes'
+      sub_bands:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/GatewayConnectionStatsSubBand'
+        description: Statistics for each sub band.
+      gateway_remote_address:
+        $ref: '#/definitions/v3GatewayRemoteAddress'
+        description: Gateway Remote Address.
+    description: Connection stats as monitored by the Gateway Server.
+  v3BatchGetGatewayConnectionStatsRequest:
+    type: object
+    properties:
+      gateway_ids:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/lorawanv3GatewayIdentifiers'
+      field_mask:
+        type: string
+        description: 'The names of the gateway stats fields that should be returned.
+
+          This mask will be applied on each entry returned.'
+  lorawanv3GatewayIdentifiers:
+    type: object
+    properties:
+      gateway_id:
+        type: string
+      eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: Secondary identifier, which can only be used in specific requests.
+  v3BatchGetGatewayConnectionStatsResponse:
+    type: object
+    properties:
+      entries:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/v3GatewayConnectionStats'
+        description: The map key is the gateway identifier.
+  lorawanv3Location:
+    type: object
+    properties:
+      latitude:
+        type: number
+        format: double
+        description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
+      longitude:
+        type: number
+        format: double
+        description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
+      altitude:
+        type: integer
+        format: int32
+        description: The altitude (meters), where 0 is the mean sea level.
+      accuracy:
+        type: integer
+        format: int32
+        description: The accuracy of the location (meters).
+      source:
+        $ref: '#/definitions/v3LocationSource'
+        description: Source of the location information.
+  GatewayConnectionStatsSubBand:
+    type: object
+    properties:
+      min_frequency:
+        type: string
+        format: uint64
+      max_frequency:
+        type: string
+        format: uint64
+      downlink_utilization_limit:
+        type: number
+        format: float
+        description: Duty-cycle limit of the sub-band as a fraction of time.
+      downlink_utilization:
+        type: number
+        format: float
+        description: Utilization rate of the available duty-cycle. This value should not exceed downlink_utilization_limit.
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'
