@@ -1,0 +1,1641 @@
+{
+  "info": {
+    "_postman_id": "a69631be-a323-4e4f-af94-11191abb6e87",
+    "name": "The Things Stack \u2014 Application Server AppAs UserRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:13:05.000Z",
+    "updatedAt": "2026-07-28T03:13:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a69631be-a323-4e4f-af94-11191abb6e87"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "{user.ids.user_id}",
+          "item": [
+            {
+              "name": "Update the user, changing the fields specified by the field mask to the provided values.\nThis method can not be used to change the password, see the UpdatePassword method for that.",
+              "id": "7f0b68dd-75e8-4fc2-8e7a-2b99aabb9f54",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"ids\": {\n      \"email\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"sintc7b\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"primary_email_address\": \"<string>\",\n    \"primary_email_address_validated_at\": \"<dateTime>\",\n    \"password\": \"<string>\",\n    \"password_updated_at\": \"<dateTime>\",\n    \"require_password_update\": \"<boolean>\",\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"temporary_password\": \"<string>\",\n    \"temporary_password_created_at\": \"<dateTime>\",\n    \"temporary_password_expires_at\": \"<dateTime>\",\n    \"profile_picture\": {\n      \"embedded\": {\n        \"mime_type\": \"<string>\",\n        \"data\": \"<string>\"\n      },\n      \"sizes\": {\n        \"consequat_3\": \"<string>\",\n        \"officia__\": \"<string>\",\n        \"Lorem_c0\": \"<string>\",\n        \"irure_843\": \"<string>\"\n      }\n    },\n    \"console_preferences\": {\n      \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n      \"dashboard_layouts\": {\n        \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n      },\n      \"sort_by\": {\n        \"api_key\": \"<string>\",\n        \"application\": \"<string>\",\n        \"collaborator\": \"<string>\",\n        \"end_device\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"organization\": \"<string>\",\n        \"user\": \"<string>\"\n      },\n      \"tutorials\": {\n        \"seen\": [\n          \"TUTORIAL_UNKNOWN\",\n          \"TUTORIAL_UNKNOWN\"\n        ]\n      }\n    },\n    \"email_notification_preferences\": {\n      \"types\": [\n        \"UNKNOWN\",\n        \"UNKNOWN\"\n      ]\n    },\n    \"universal_rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user.ids.user_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user.ids.user_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "22790f85-597d-4e8f-a5ce-cadd6d4f8748",
+                      "key": "user"
+                    },
+                    {
+                      "id": "58e902fa-ef1d-42a6-aa5f-b149942f5780",
+                      "key": "user.ids.user_id",
+                      "value": "<string>",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "eb7999c1-fef0-4338-b117-cb67cfeb6b7c",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user\": {\n    \"ids\": {\n      \"email\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"sintc7b\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"primary_email_address\": \"<string>\",\n    \"primary_email_address_validated_at\": \"<dateTime>\",\n    \"password\": \"<string>\",\n    \"password_updated_at\": \"<dateTime>\",\n    \"require_password_update\": \"<boolean>\",\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"temporary_password\": \"<string>\",\n    \"temporary_password_created_at\": \"<dateTime>\",\n    \"temporary_password_expires_at\": \"<dateTime>\",\n    \"profile_picture\": {\n      \"embedded\": {\n        \"mime_type\": \"<string>\",\n        \"data\": \"<string>\"\n      },\n      \"sizes\": {\n        \"consequat_3\": \"<string>\",\n        \"officia__\": \"<string>\",\n        \"Lorem_c0\": \"<string>\",\n        \"irure_843\": \"<string>\"\n      }\n    },\n    \"console_preferences\": {\n      \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n      \"dashboard_layouts\": {\n        \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n      },\n      \"sort_by\": {\n        \"api_key\": \"<string>\",\n        \"application\": \"<string>\",\n        \"collaborator\": \"<string>\",\n        \"end_device\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"organization\": \"<string>\",\n        \"user\": \"<string>\"\n      },\n      \"tutorials\": {\n        \"seen\": [\n          \"TUTORIAL_UNKNOWN\",\n          \"TUTORIAL_UNKNOWN\"\n        ]\n      }\n    },\n    \"email_notification_preferences\": {\n      \"types\": [\n        \"UNKNOWN\",\n        \"UNKNOWN\"\n      ]\n    },\n    \"universal_rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"field_mask\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user.ids.user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user.ids.user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user.ids.user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"ids\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"consectetur08a\": \"<string>\",\n    \"ida28\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"primary_email_address\": \"<string>\",\n  \"primary_email_address_validated_at\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"password_updated_at\": \"<dateTime>\",\n  \"require_password_update\": \"<boolean>\",\n  \"state\": \"STATE_REQUESTED\",\n  \"state_description\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"temporary_password\": \"<string>\",\n  \"temporary_password_created_at\": \"<dateTime>\",\n  \"temporary_password_expires_at\": \"<dateTime>\",\n  \"profile_picture\": {\n    \"embedded\": {\n      \"mime_type\": \"<string>\",\n      \"data\": \"<string>\"\n    },\n    \"sizes\": {\n      \"eu_8b\": \"<string>\",\n      \"non_2b0\": \"<string>\"\n    }\n  },\n  \"console_preferences\": {\n    \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n    \"dashboard_layouts\": {\n      \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n    },\n    \"sort_by\": {\n      \"api_key\": \"<string>\",\n      \"application\": \"<string>\",\n      \"collaborator\": \"<string>\",\n      \"end_device\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"organization\": \"<string>\",\n      \"user\": \"<string>\"\n    },\n    \"tutorials\": {\n      \"seen\": [\n        \"TUTORIAL_UNKNOWN\",\n        \"TUTORIAL_UNKNOWN\"\n      ]\n    }\n  },\n  \"email_notification_preferences\": {\n    \"types\": [\n      \"UNKNOWN\",\n      \"UNKNOWN\"\n    ]\n  },\n  \"universal_rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-eb7999c1-fef0-4338-b117-cb67cfeb6b7c"
+                },
+                {
+                  "id": "921fd2d3-5b1d-4883-a4bc-1f00cceab03c",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user\": {\n    \"ids\": {\n      \"email\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"sintc7b\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"primary_email_address\": \"<string>\",\n    \"primary_email_address_validated_at\": \"<dateTime>\",\n    \"password\": \"<string>\",\n    \"password_updated_at\": \"<dateTime>\",\n    \"require_password_update\": \"<boolean>\",\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"temporary_password\": \"<string>\",\n    \"temporary_password_created_at\": \"<dateTime>\",\n    \"temporary_password_expires_at\": \"<dateTime>\",\n    \"profile_picture\": {\n      \"embedded\": {\n        \"mime_type\": \"<string>\",\n        \"data\": \"<string>\"\n      },\n      \"sizes\": {\n        \"consequat_3\": \"<string>\",\n        \"officia__\": \"<string>\",\n        \"Lorem_c0\": \"<string>\",\n        \"irure_843\": \"<string>\"\n      }\n    },\n    \"console_preferences\": {\n      \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n      \"dashboard_layouts\": {\n        \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n      },\n      \"sort_by\": {\n        \"api_key\": \"<string>\",\n        \"application\": \"<string>\",\n        \"collaborator\": \"<string>\",\n        \"end_device\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"organization\": \"<string>\",\n        \"user\": \"<string>\"\n      },\n      \"tutorials\": {\n        \"seen\": [\n          \"TUTORIAL_UNKNOWN\",\n          \"TUTORIAL_UNKNOWN\"\n        ]\n      }\n    },\n    \"email_notification_preferences\": {\n      \"types\": [\n        \"UNKNOWN\",\n        \"UNKNOWN\"\n      ]\n    },\n    \"universal_rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"field_mask\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user.ids.user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user.ids.user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user.ids.user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-921fd2d3-5b1d-4883-a4bc-1f00cceab03c"
+                }
+              ],
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-7f0b68dd-75e8-4fc2-8e7a-2b99aabb9f54"
+            }
+          ],
+          "id": "d850b226-7814-44c5-a6d1-0fddfd64c2a8",
+          "createdAt": "2026-07-28T03:13:05.000Z",
+          "updatedAt": "2026-07-28T03:13:05.000Z",
+          "uid": "35240-d850b226-7814-44c5-a6d1-0fddfd64c2a8"
+        },
+        {
+          "name": "{user_ids.user_id}",
+          "item": [
+            {
+              "name": "password",
+              "item": [
+                {
+                  "name": "Update the password of the user.",
+                  "id": "2a0b1a41-e362-4bd6-bc96-3b165b8bb284",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"new\": \"<string>\",\n  \"old\": \"<string>\",\n  \"revoke_all_access\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_ids.user_id/password",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_ids.user_id",
+                        "password"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fd580101-670a-4057-804e-994d39ceb84f",
+                          "key": "user_ids"
+                        },
+                        {
+                          "id": "eabe4c9a-04f3-4c06-bfc1-7607b2770a29",
+                          "key": "user_ids.user_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with organization IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "87f856be-adff-49f9-9fc2-3fcd9dba1077",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"new\": \"<string>\",\n  \"old\": \"<string>\",\n  \"revoke_all_access\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/password",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "password"
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T03:13:05.000Z",
+                      "updatedAt": "2026-07-28T03:13:05.000Z",
+                      "uid": "35240-87f856be-adff-49f9-9fc2-3fcd9dba1077"
+                    },
+                    {
+                      "id": "54c42d90-5a70-46a6-a96a-c5588d7ac2bb",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"new\": \"<string>\",\n  \"old\": \"<string>\",\n  \"revoke_all_access\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/password",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "password"
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:13:05.000Z",
+                      "updatedAt": "2026-07-28T03:13:05.000Z",
+                      "uid": "35240-54c42d90-5a70-46a6-a96a-c5588d7ac2bb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-2a0b1a41-e362-4bd6-bc96-3b165b8bb284"
+                }
+              ],
+              "id": "17fdada8-fe64-4279-a9e2-b4ab6bd7badb",
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-17fdada8-fe64-4279-a9e2-b4ab6bd7badb"
+            },
+            {
+              "name": "temporary_password",
+              "item": [
+                {
+                  "name": "Create a temporary password that can be used for updating a forgotten password.\nThe generated password is sent to the user's email address.",
+                  "id": "8e2d09bc-a9bf-4186-b376-128aca40e8fc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_ids.user_id/temporary_password?user_ids.email=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_ids.user_id",
+                        "temporary_password"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "user_ids.email",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "277d0551-8c75-4de3-b98c-2c18894c3d8e",
+                          "key": "user_ids"
+                        },
+                        {
+                          "id": "1e3fdd0d-b9db-4142-b555-42211cfff69d",
+                          "key": "user_ids.user_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with organization IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f45ee3eb-99dd-44b8-b25b-9781e6caf827",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/temporary_password?user_ids.email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "temporary_password"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "user_ids.email",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T03:13:05.000Z",
+                      "updatedAt": "2026-07-28T03:13:05.000Z",
+                      "uid": "35240-f45ee3eb-99dd-44b8-b25b-9781e6caf827"
+                    },
+                    {
+                      "id": "dbfea108-1d48-40b1-a01a-8ba4a116b990",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/temporary_password?user_ids.email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "temporary_password"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "user_ids.email",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:13:05.000Z",
+                      "updatedAt": "2026-07-28T03:13:05.000Z",
+                      "uid": "35240-dbfea108-1d48-40b1-a01a-8ba4a116b990"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-8e2d09bc-a9bf-4186-b376-128aca40e8fc"
+                }
+              ],
+              "id": "68dbbe3d-a0e1-406e-810e-e5a4562569a3",
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-68dbbe3d-a0e1-406e-810e-e5a4562569a3"
+            },
+            {
+              "name": "Get the user with the given identifiers, selecting the fields given by the\nfield mask. The method may return more or less fields, depending on the rights\nof the caller.",
+              "id": "f907ddbb-e26d-4aef-a00b-4f45d2928f77",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user_ids.user_id?user_ids.email=<string>&field_mask=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user_ids.user_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Secondary identifier, which can only be used in specific requests.",
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The names of the user fields that should be returned.",
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "8a349fb5-afab-43ee-b8fe-0cd5ba6baded",
+                      "key": "user_ids"
+                    },
+                    {
+                      "id": "d2e8ea95-868d-45b8-9846-0d332c59a69a",
+                      "key": "user_ids.user_id",
+                      "value": "<string>",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0217c050-a458-4a2e-af85-4896a614042a",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_ids.user_id?user_ids.email=<string>&field_mask=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_ids.user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "user_ids.email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The names of the user fields that should be returned.",
+                          "key": "field_mask",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_ids.user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"ids\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"consectetur08a\": \"<string>\",\n    \"ida28\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"primary_email_address\": \"<string>\",\n  \"primary_email_address_validated_at\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"password_updated_at\": \"<dateTime>\",\n  \"require_password_update\": \"<boolean>\",\n  \"state\": \"STATE_REQUESTED\",\n  \"state_description\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"temporary_password\": \"<string>\",\n  \"temporary_password_created_at\": \"<dateTime>\",\n  \"temporary_password_expires_at\": \"<dateTime>\",\n  \"profile_picture\": {\n    \"embedded\": {\n      \"mime_type\": \"<string>\",\n      \"data\": \"<string>\"\n    },\n    \"sizes\": {\n      \"eu_8b\": \"<string>\",\n      \"non_2b0\": \"<string>\"\n    }\n  },\n  \"console_preferences\": {\n    \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n    \"dashboard_layouts\": {\n      \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n    },\n    \"sort_by\": {\n      \"api_key\": \"<string>\",\n      \"application\": \"<string>\",\n      \"collaborator\": \"<string>\",\n      \"end_device\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"organization\": \"<string>\",\n      \"user\": \"<string>\"\n    },\n    \"tutorials\": {\n      \"seen\": [\n        \"TUTORIAL_UNKNOWN\",\n        \"TUTORIAL_UNKNOWN\"\n      ]\n    }\n  },\n  \"email_notification_preferences\": {\n    \"types\": [\n      \"UNKNOWN\",\n      \"UNKNOWN\"\n    ]\n  },\n  \"universal_rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-0217c050-a458-4a2e-af85-4896a614042a"
+                },
+                {
+                  "id": "dab45936-754e-4705-afdf-ae94b48c4998",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_ids.user_id?user_ids.email=<string>&field_mask=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_ids.user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "user_ids.email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The names of the user fields that should be returned.",
+                          "key": "field_mask",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_ids.user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-dab45936-754e-4705-afdf-ae94b48c4998"
+                }
+              ],
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-f907ddbb-e26d-4aef-a00b-4f45d2928f77"
+            }
+          ],
+          "id": "c5e9cf16-15e5-4afc-9f4f-40961961e53d",
+          "createdAt": "2026-07-28T03:13:05.000Z",
+          "updatedAt": "2026-07-28T03:13:05.000Z",
+          "uid": "35240-c5e9cf16-15e5-4afc-9f4f-40961961e53d"
+        },
+        {
+          "name": "{user_id}",
+          "item": [
+            {
+              "name": "purge",
+              "item": [
+                {
+                  "name": "Purge the user. This will release the user ID for reuse.\nThe user is responsible for clearing data from any (external) integrations\nthat may store and expose data by user or organization ID.",
+                  "id": "ce349b46-0eb7-4321-98b2-3bf1f3f50a51",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id/purge?email=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id",
+                        "purge"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "email",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "15b1387c-3383-4407-baba-c3743290e697",
+                          "key": "user_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with organization IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "dfbd46dd-b1e8-47b0-ac21-16f6b37fdc33",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/purge?email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "purge"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "email",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T03:13:05.000Z",
+                      "updatedAt": "2026-07-28T03:13:05.000Z",
+                      "uid": "35240-dfbd46dd-b1e8-47b0-ac21-16f6b37fdc33"
+                    },
+                    {
+                      "id": "358cf696-6114-4cba-a282-bd7df121c32a",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/purge?email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "purge"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "email",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:13:05.000Z",
+                      "updatedAt": "2026-07-28T03:13:05.000Z",
+                      "uid": "35240-358cf696-6114-4cba-a282-bd7df121c32a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-ce349b46-0eb7-4321-98b2-3bf1f3f50a51"
+                }
+              ],
+              "id": "6c45629b-d11e-43f7-8ecf-0ed1e3740976",
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-6c45629b-d11e-43f7-8ecf-0ed1e3740976"
+            },
+            {
+              "name": "restore",
+              "item": [
+                {
+                  "name": "Restore a recently deleted user.",
+                  "id": "c463727b-295b-4feb-bc9a-c75447a91769",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id/restore?email=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id",
+                        "restore"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "email",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "d1ee7945-d60f-4dd2-ae95-464a63b70d32",
+                          "key": "user_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with organization IDs."
+                        }
+                      ]
+                    },
+                    "description": "Deployment configuration may specify if, and for how long after deletion,\nentities can be restored."
+                  },
+                  "response": [
+                    {
+                      "id": "26868229-c6d9-448e-8572-373d5f1c81dd",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/restore?email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "restore"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "email",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T03:13:05.000Z",
+                      "updatedAt": "2026-07-28T03:13:05.000Z",
+                      "uid": "35240-26868229-c6d9-448e-8572-373d5f1c81dd"
+                    },
+                    {
+                      "id": "cc44516a-bcc8-4e77-ad22-b7e0e458a04c",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/restore?email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "restore"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "email",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:13:05.000Z",
+                      "updatedAt": "2026-07-28T03:13:05.000Z",
+                      "uid": "35240-cc44516a-bcc8-4e77-ad22-b7e0e458a04c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-c463727b-295b-4feb-bc9a-c75447a91769"
+                }
+              ],
+              "id": "cbdfbaac-f7d5-4c9b-8bce-71cb486fcd4b",
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-cbdfbaac-f7d5-4c9b-8bce-71cb486fcd4b"
+            },
+            {
+              "name": "Delete the user. This may not release the user ID for reuse.",
+              "id": "dad5d35e-9302-42fd-8eac-3ab5a38009db",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user_id?email=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Secondary identifier, which can only be used in specific requests.",
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "b860fef8-a969-4677-b345-e5069e54b6e5",
+                      "key": "user_id",
+                      "value": "<string>",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "27bf4a28-7083-4fae-8b3a-c55625b28869",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?email=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "email",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-27bf4a28-7083-4fae-8b3a-c55625b28869"
+                },
+                {
+                  "id": "a8a0f504-3968-4c99-bc33-77b39dd6159f",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?email=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "email",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:13:05.000Z",
+                  "updatedAt": "2026-07-28T03:13:05.000Z",
+                  "uid": "35240-a8a0f504-3968-4c99-bc33-77b39dd6159f"
+                }
+              ],
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-dad5d35e-9302-42fd-8eac-3ab5a38009db"
+            }
+          ],
+          "id": "4bcafb82-95e8-4ef9-9ace-ce9e28988754",
+          "createdAt": "2026-07-28T03:13:05.000Z",
+          "updatedAt": "2026-07-28T03:13:05.000Z",
+          "uid": "35240-4bcafb82-95e8-4ef9-9ace-ce9e28988754"
+        },
+        {
+          "name": "List users of the network. This method is typically restricted to admins only.",
+          "id": "cdb28cec-cdd6-4009-b04d-6e94e0cc62e8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users?field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "description": "The names of the user fields that should be returned.",
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Limit the number of results per page.",
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "description": "Page number for pagination. 0 is interpreted as 1.",
+                  "key": "page",
+                  "value": "<long>"
+                },
+                {
+                  "description": "Only return recently deleted users.",
+                  "key": "deleted",
+                  "value": "<boolean>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4cd3fecf-fca8-484d-8620-85d9f3e95f43",
+              "name": "A successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users?field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "The names of the user fields that should be returned.",
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted users.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"users\": [\n    {\n      \"ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"quis6_\": \"<string>\",\n        \"fugiat_a_\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"primary_email_address\": \"<string>\",\n      \"primary_email_address_validated_at\": \"<dateTime>\",\n      \"password\": \"<string>\",\n      \"password_updated_at\": \"<dateTime>\",\n      \"require_password_update\": \"<boolean>\",\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"admin\": \"<boolean>\",\n      \"temporary_password\": \"<string>\",\n      \"temporary_password_created_at\": \"<dateTime>\",\n      \"temporary_password_expires_at\": \"<dateTime>\",\n      \"profile_picture\": {\n        \"embedded\": {\n          \"mime_type\": \"<string>\",\n          \"data\": \"<string>\"\n        },\n        \"sizes\": {\n          \"eu_a_d\": \"<string>\"\n        }\n      },\n      \"console_preferences\": {\n        \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n        \"dashboard_layouts\": {\n          \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n        },\n        \"sort_by\": {\n          \"api_key\": \"<string>\",\n          \"application\": \"<string>\",\n          \"collaborator\": \"<string>\",\n          \"end_device\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"organization\": \"<string>\",\n          \"user\": \"<string>\"\n        },\n        \"tutorials\": {\n          \"seen\": [\n            \"TUTORIAL_UNKNOWN\",\n            \"TUTORIAL_UNKNOWN\"\n          ]\n        }\n      },\n      \"email_notification_preferences\": {\n        \"types\": [\n          \"UNKNOWN\",\n          \"UNKNOWN\"\n        ]\n      },\n      \"universal_rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"et_f\": \"<string>\",\n        \"Loremf\": \"<string>\",\n        \"tempor3b5\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"primary_email_address\": \"<string>\",\n      \"primary_email_address_validated_at\": \"<dateTime>\",\n      \"password\": \"<string>\",\n      \"password_updated_at\": \"<dateTime>\",\n      \"require_password_update\": \"<boolean>\",\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"admin\": \"<boolean>\",\n      \"temporary_password\": \"<string>\",\n      \"temporary_password_created_at\": \"<dateTime>\",\n      \"temporary_password_expires_at\": \"<dateTime>\",\n      \"profile_picture\": {\n        \"embedded\": {\n          \"mime_type\": \"<string>\",\n          \"data\": \"<string>\"\n        },\n        \"sizes\": {\n          \"sintb\": \"<string>\",\n          \"minim_947\": \"<string>\"\n        }\n      },\n      \"console_preferences\": {\n        \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n        \"dashboard_layouts\": {\n          \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n        },\n        \"sort_by\": {\n          \"api_key\": \"<string>\",\n          \"application\": \"<string>\",\n          \"collaborator\": \"<string>\",\n          \"end_device\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"organization\": \"<string>\",\n          \"user\": \"<string>\"\n        },\n        \"tutorials\": {\n          \"seen\": [\n            \"TUTORIAL_UNKNOWN\",\n            \"TUTORIAL_UNKNOWN\"\n          ]\n        }\n      },\n      \"email_notification_preferences\": {\n        \"types\": [\n          \"UNKNOWN\",\n          \"UNKNOWN\"\n        ]\n      },\n      \"universal_rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-4cd3fecf-fca8-484d-8620-85d9f3e95f43"
+            },
+            {
+              "id": "3b6f5e27-1164-4e37-a486-a2ca6cd32e79",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users?field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "The names of the user fields that should be returned.",
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted users.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-3b6f5e27-1164-4e37-a486-a2ca6cd32e79"
+            }
+          ],
+          "createdAt": "2026-07-28T03:13:05.000Z",
+          "updatedAt": "2026-07-28T03:13:05.000Z",
+          "uid": "35240-cdb28cec-cdd6-4009-b04d-6e94e0cc62e8"
+        },
+        {
+          "name": "Register a new user. This method may be restricted by network settings.",
+          "id": "959d5a6b-ff46-4356-ab2a-280c03b73d5b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": {\n    \"ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"esse71\": \"<string>\",\n      \"quis0f\": \"<string>\",\n      \"in_1\": \"<string>\",\n      \"aliqua7b9\": \"<string>\",\n      \"velit0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"primary_email_address\": \"<string>\",\n    \"primary_email_address_validated_at\": \"<dateTime>\",\n    \"password\": \"<string>\",\n    \"password_updated_at\": \"<dateTime>\",\n    \"require_password_update\": \"<boolean>\",\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"temporary_password\": \"<string>\",\n    \"temporary_password_created_at\": \"<dateTime>\",\n    \"temporary_password_expires_at\": \"<dateTime>\",\n    \"profile_picture\": {\n      \"embedded\": {\n        \"mime_type\": \"<string>\",\n        \"data\": \"<string>\"\n      },\n      \"sizes\": {\n        \"labore1f8\": \"<string>\",\n        \"laboris_80e\": \"<string>\",\n        \"do_f\": \"<string>\"\n      }\n    },\n    \"console_preferences\": {\n      \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n      \"dashboard_layouts\": {\n        \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n      },\n      \"sort_by\": {\n        \"api_key\": \"<string>\",\n        \"application\": \"<string>\",\n        \"collaborator\": \"<string>\",\n        \"end_device\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"organization\": \"<string>\",\n        \"user\": \"<string>\"\n      },\n      \"tutorials\": {\n        \"seen\": [\n          \"TUTORIAL_UNKNOWN\",\n          \"TUTORIAL_UNKNOWN\"\n        ]\n      }\n    },\n    \"email_notification_preferences\": {\n      \"types\": [\n        \"UNKNOWN\",\n        \"UNKNOWN\"\n      ]\n    },\n    \"universal_rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"invitation_token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "70f95387-16bc-40ff-938a-7c7a2e1b92ac",
+              "name": "A successful response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"esse71\": \"<string>\",\n      \"quis0f\": \"<string>\",\n      \"in_1\": \"<string>\",\n      \"aliqua7b9\": \"<string>\",\n      \"velit0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"primary_email_address\": \"<string>\",\n    \"primary_email_address_validated_at\": \"<dateTime>\",\n    \"password\": \"<string>\",\n    \"password_updated_at\": \"<dateTime>\",\n    \"require_password_update\": \"<boolean>\",\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"temporary_password\": \"<string>\",\n    \"temporary_password_created_at\": \"<dateTime>\",\n    \"temporary_password_expires_at\": \"<dateTime>\",\n    \"profile_picture\": {\n      \"embedded\": {\n        \"mime_type\": \"<string>\",\n        \"data\": \"<string>\"\n      },\n      \"sizes\": {\n        \"labore1f8\": \"<string>\",\n        \"laboris_80e\": \"<string>\",\n        \"do_f\": \"<string>\"\n      }\n    },\n    \"console_preferences\": {\n      \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n      \"dashboard_layouts\": {\n        \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n      },\n      \"sort_by\": {\n        \"api_key\": \"<string>\",\n        \"application\": \"<string>\",\n        \"collaborator\": \"<string>\",\n        \"end_device\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"organization\": \"<string>\",\n        \"user\": \"<string>\"\n      },\n      \"tutorials\": {\n        \"seen\": [\n          \"TUTORIAL_UNKNOWN\",\n          \"TUTORIAL_UNKNOWN\"\n        ]\n      }\n    },\n    \"email_notification_preferences\": {\n      \"types\": [\n        \"UNKNOWN\",\n        \"UNKNOWN\"\n      ]\n    },\n    \"universal_rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"invitation_token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"ids\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"consectetur08a\": \"<string>\",\n    \"ida28\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"primary_email_address\": \"<string>\",\n  \"primary_email_address_validated_at\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"password_updated_at\": \"<dateTime>\",\n  \"require_password_update\": \"<boolean>\",\n  \"state\": \"STATE_REQUESTED\",\n  \"state_description\": \"<string>\",\n  \"admin\": \"<boolean>\",\n  \"temporary_password\": \"<string>\",\n  \"temporary_password_created_at\": \"<dateTime>\",\n  \"temporary_password_expires_at\": \"<dateTime>\",\n  \"profile_picture\": {\n    \"embedded\": {\n      \"mime_type\": \"<string>\",\n      \"data\": \"<string>\"\n    },\n    \"sizes\": {\n      \"eu_8b\": \"<string>\",\n      \"non_2b0\": \"<string>\"\n    }\n  },\n  \"console_preferences\": {\n    \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n    \"dashboard_layouts\": {\n      \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n      \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n    },\n    \"sort_by\": {\n      \"api_key\": \"<string>\",\n      \"application\": \"<string>\",\n      \"collaborator\": \"<string>\",\n      \"end_device\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"organization\": \"<string>\",\n      \"user\": \"<string>\"\n    },\n    \"tutorials\": {\n      \"seen\": [\n        \"TUTORIAL_UNKNOWN\",\n        \"TUTORIAL_UNKNOWN\"\n      ]\n    }\n  },\n  \"email_notification_preferences\": {\n    \"types\": [\n      \"UNKNOWN\",\n      \"UNKNOWN\"\n    ]\n  },\n  \"universal_rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-70f95387-16bc-40ff-938a-7c7a2e1b92ac"
+            },
+            {
+              "id": "aea4ebda-5ae2-48e1-a539-3b2cfcb285d8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"esse71\": \"<string>\",\n      \"quis0f\": \"<string>\",\n      \"in_1\": \"<string>\",\n      \"aliqua7b9\": \"<string>\",\n      \"velit0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"primary_email_address\": \"<string>\",\n    \"primary_email_address_validated_at\": \"<dateTime>\",\n    \"password\": \"<string>\",\n    \"password_updated_at\": \"<dateTime>\",\n    \"require_password_update\": \"<boolean>\",\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"temporary_password\": \"<string>\",\n    \"temporary_password_created_at\": \"<dateTime>\",\n    \"temporary_password_expires_at\": \"<dateTime>\",\n    \"profile_picture\": {\n      \"embedded\": {\n        \"mime_type\": \"<string>\",\n        \"data\": \"<string>\"\n      },\n      \"sizes\": {\n        \"labore1f8\": \"<string>\",\n        \"laboris_80e\": \"<string>\",\n        \"do_f\": \"<string>\"\n      }\n    },\n    \"console_preferences\": {\n      \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n      \"dashboard_layouts\": {\n        \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n        \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n      },\n      \"sort_by\": {\n        \"api_key\": \"<string>\",\n        \"application\": \"<string>\",\n        \"collaborator\": \"<string>\",\n        \"end_device\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"organization\": \"<string>\",\n        \"user\": \"<string>\"\n      },\n      \"tutorials\": {\n        \"seen\": [\n          \"TUTORIAL_UNKNOWN\",\n          \"TUTORIAL_UNKNOWN\"\n        ]\n      }\n    },\n    \"email_notification_preferences\": {\n      \"types\": [\n        \"UNKNOWN\",\n        \"UNKNOWN\"\n      ]\n    },\n    \"universal_rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"invitation_token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"Excepteurb\": {},\n      \"amet_3f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"aliquip7a7\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:13:05.000Z",
+              "updatedAt": "2026-07-28T03:13:05.000Z",
+              "uid": "35240-aea4ebda-5ae2-48e1-a539-3b2cfcb285d8"
+            }
+          ],
+          "createdAt": "2026-07-28T03:13:05.000Z",
+          "updatedAt": "2026-07-28T03:13:05.000Z",
+          "uid": "35240-959d5a6b-ff46-4356-ab2a-280c03b73d5b"
+        }
+      ],
+      "id": "5d13e1f0-c9d5-4fd2-aac8-ee425e4267d5",
+      "createdAt": "2026-07-28T03:13:05.000Z",
+      "updatedAt": "2026-07-28T03:13:05.000Z",
+      "uid": "35240-5d13e1f0-c9d5-4fd2-aac8-ee425e4267d5"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

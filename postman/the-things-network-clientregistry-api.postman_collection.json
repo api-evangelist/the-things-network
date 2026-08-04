@@ -1,0 +1,2015 @@
+{
+  "info": {
+    "_postman_id": "7bbb7d44-63db-4dfc-83aa-dd3037b1cc5d",
+    "name": "The Things Stack \u2014 Application Server AppAs ClientRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:43.000Z",
+    "updatedAt": "2026-07-28T03:10:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7bbb7d44-63db-4dfc-83aa-dd3037b1cc5d"
+  },
+  "item": [
+    {
+      "name": "clients",
+      "item": [
+        {
+          "name": "{client.ids.client_id}",
+          "item": [
+            {
+              "name": "Update the OAuth client, changing the fields specified by the field mask to the provided values.",
+              "id": "6d28a0bc-8eab-4fb4-a2be-7bd7f4a29246",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client\": {\n    \"ids\": {},\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"doloreb9\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/clients/:client.ids.client_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients",
+                    ":client.ids.client_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ee212b43-071b-4cb3-8388-5a5509a23627",
+                      "key": "client"
+                    },
+                    {
+                      "id": "d405a215-f7a4-41fa-8128-427ea346a5a5",
+                      "key": "client.ids.client_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "81dd9aa4-c402-4f97-8142-68d5002874f8",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client\": {\n    \"ids\": {},\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"doloreb9\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"field_mask\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client.ids.client_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client.ids.client_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "client.ids.client_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"ids\": {\n    \"client_id\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"Duis_48\": \"<string>\",\n    \"in_5\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"secret\": \"<string>\",\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"STATE_REQUESTED\",\n  \"state_description\": \"<string>\",\n  \"skip_authorization\": \"<boolean>\",\n  \"endorsed\": \"<boolean>\",\n  \"grants\": [\n    \"GRANT_AUTHORIZATION_CODE\",\n    \"GRANT_AUTHORIZATION_CODE\"\n  ],\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-81dd9aa4-c402-4f97-8142-68d5002874f8"
+                },
+                {
+                  "id": "7b042b60-6a9b-4857-8cd9-ecd1ed2fb6c4",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client\": {\n    \"ids\": {},\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"doloreb9\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"field_mask\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client.ids.client_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client.ids.client_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "client.ids.client_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-7b042b60-6a9b-4857-8cd9-ecd1ed2fb6c4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-6d28a0bc-8eab-4fb4-a2be-7bd7f4a29246"
+            }
+          ],
+          "id": "52629a08-8dc5-4b8e-ab79-a8304c27480a",
+          "createdAt": "2026-07-28T03:10:44.000Z",
+          "updatedAt": "2026-07-28T03:10:44.000Z",
+          "uid": "35240-52629a08-8dc5-4b8e-ab79-a8304c27480a"
+        },
+        {
+          "name": "{client_ids.client_id}",
+          "item": [
+            {
+              "name": "Get the OAuth client with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+              "id": "336b4be3-f690-40f6-af93-5882f88e0eb1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clients/:client_ids.client_id?field_mask=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients",
+                    ":client_ids.client_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "The names of the client fields that should be returned.",
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "e0a96839-6b69-42a0-8e83-1db89f4de57d",
+                      "key": "client_ids"
+                    },
+                    {
+                      "id": "be123965-b474-46e3-b6e6-6585a7efcf25",
+                      "key": "client_ids.client_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "84140979-6afc-4ca6-97cb-2c1e5ce813fa",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_ids.client_id?field_mask=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_ids.client_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "The names of the client fields that should be returned.",
+                          "key": "field_mask",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "client_ids.client_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"ids\": {\n    \"client_id\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"Duis_48\": \"<string>\",\n    \"in_5\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"secret\": \"<string>\",\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"STATE_REQUESTED\",\n  \"state_description\": \"<string>\",\n  \"skip_authorization\": \"<boolean>\",\n  \"endorsed\": \"<boolean>\",\n  \"grants\": [\n    \"GRANT_AUTHORIZATION_CODE\",\n    \"GRANT_AUTHORIZATION_CODE\"\n  ],\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-84140979-6afc-4ca6-97cb-2c1e5ce813fa"
+                },
+                {
+                  "id": "51436e0c-b375-43fa-8b48-dcf15039fba1",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_ids.client_id?field_mask=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_ids.client_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "The names of the client fields that should be returned.",
+                          "key": "field_mask",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "client_ids.client_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-51436e0c-b375-43fa-8b48-dcf15039fba1"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-336b4be3-f690-40f6-af93-5882f88e0eb1"
+            }
+          ],
+          "id": "c408c298-20ce-4e40-ae73-db850b3dac61",
+          "createdAt": "2026-07-28T03:10:44.000Z",
+          "updatedAt": "2026-07-28T03:10:44.000Z",
+          "uid": "35240-c408c298-20ce-4e40-ae73-db850b3dac61"
+        },
+        {
+          "name": "{client_id}",
+          "item": [
+            {
+              "name": "purge",
+              "item": [
+                {
+                  "name": "Purge the client. This will release the client ID for reuse.",
+                  "id": "5366d8f7-e672-4628-a049-c7898f61281f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_id/purge",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_id",
+                        "purge"
+                      ],
+                      "variable": [
+                        {
+                          "id": "07286334-5e2e-4771-b562-b3c1c76ca8e5",
+                          "key": "client_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "68141567-0c9a-4f95-9da9-f0692804cf72",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_id/purge",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_id",
+                            "purge"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-68141567-0c9a-4f95-9da9-f0692804cf72"
+                    },
+                    {
+                      "id": "a1c2969f-2fcf-47e9-b49c-7dbee5c18641",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_id/purge",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_id",
+                            "purge"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-a1c2969f-2fcf-47e9-b49c-7dbee5c18641"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-5366d8f7-e672-4628-a049-c7898f61281f"
+                }
+              ],
+              "id": "9006cf12-ccd5-4873-b062-da62dad267b3",
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-9006cf12-ccd5-4873-b062-da62dad267b3"
+            },
+            {
+              "name": "restore",
+              "item": [
+                {
+                  "name": "Restore a recently deleted client.",
+                  "id": "3b2c8d97-15e0-4414-967c-6f98dbfdfc3c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_id/restore",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_id",
+                        "restore"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b79fc8fc-640f-4610-ac0c-4d893fc4abc2",
+                          "key": "client_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Deployment configuration may specify if, and for how long after deletion,\nentities can be restored."
+                  },
+                  "response": [
+                    {
+                      "id": "39ee4ced-e584-4afc-b902-ef89736d425f",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_id/restore",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_id",
+                            "restore"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-39ee4ced-e584-4afc-b902-ef89736d425f"
+                    },
+                    {
+                      "id": "0c75eefc-2e79-497e-942a-118f1c76b0b3",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_id/restore",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_id",
+                            "restore"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-0c75eefc-2e79-497e-942a-118f1c76b0b3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-3b2c8d97-15e0-4414-967c-6f98dbfdfc3c"
+                }
+              ],
+              "id": "a59e613a-3fc2-41fb-bde1-28ff80a11e9e",
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-a59e613a-3fc2-41fb-bde1-28ff80a11e9e"
+            },
+            {
+              "name": "Delete the OAuth client. This may not release the client ID for reuse.",
+              "id": "b55b7eb5-ca4c-460b-9368-e9a0d8a5dffa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clients/:client_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients",
+                    ":client_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3247c19c-bf95-4e79-b590-045abfdceb5d",
+                      "key": "client_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f2e89487-c31e-4fd2-91b4-cbde0e2c4b64",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "client_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-f2e89487-c31e-4fd2-91b4-cbde0e2c4b64"
+                },
+                {
+                  "id": "ecffddb4-90d6-4625-920e-dfadd391df4e",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "client_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-ecffddb4-90d6-4625-920e-dfadd391df4e"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-b55b7eb5-ca4c-460b-9368-e9a0d8a5dffa"
+            }
+          ],
+          "id": "b342d4d0-68ab-4bc4-89c1-c1c8b8ef9598",
+          "createdAt": "2026-07-28T03:10:44.000Z",
+          "updatedAt": "2026-07-28T03:10:44.000Z",
+          "uid": "35240-b342d4d0-68ab-4bc4-89c1-c1c8b8ef9598"
+        },
+        {
+          "name": "List OAuth clients where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the OAuth clients the caller\nhas access to.\nSimilar to Get, this selects the fields specified in the field mask.\nMore or le",
+          "id": "aafb8661-6783-4594-926c-b0ab3a28b2f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/clients?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients"
+              ],
+              "query": [
+                {
+                  "description": "This ID shares namespace with user IDs.",
+                  "key": "collaborator.organization_ids.organization_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "This ID shares namespace with organization IDs.",
+                  "key": "collaborator.user_ids.user_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Secondary identifier, which can only be used in specific requests.",
+                  "key": "collaborator.user_ids.email",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The names of the client fields that should be returned.",
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Limit the number of results per page.",
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "description": "Page number for pagination. 0 is interpreted as 1.",
+                  "key": "page",
+                  "value": "<long>"
+                },
+                {
+                  "description": "Only return recently deleted clients.",
+                  "key": "deleted",
+                  "value": "<boolean>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cc17405b-dda9-46f3-8c12-142a214fd569",
+              "name": "A successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clients?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients"
+                  ],
+                  "query": [
+                    {
+                      "description": "This ID shares namespace with user IDs.",
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This ID shares namespace with organization IDs.",
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Secondary identifier, which can only be used in specific requests.",
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The names of the client fields that should be returned.",
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted clients.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"clients\": [\n    {\n      \"ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"anim_92\": \"<string>\",\n        \"deserunta\": \"<string>\",\n        \"culpa_1\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"secret\": \"<string>\",\n      \"redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logout_redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"skip_authorization\": \"<boolean>\",\n      \"endorsed\": \"<boolean>\",\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"ut_af_\": \"<string>\",\n        \"adipisicing4e6\": \"<string>\",\n        \"veniam9e\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"secret\": \"<string>\",\n      \"redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logout_redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"skip_authorization\": \"<boolean>\",\n      \"endorsed\": \"<boolean>\",\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-cc17405b-dda9-46f3-8c12-142a214fd569"
+            },
+            {
+              "id": "eba8e168-e31c-4002-b763-dc67d66c009b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clients?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clients"
+                  ],
+                  "query": [
+                    {
+                      "description": "This ID shares namespace with user IDs.",
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This ID shares namespace with organization IDs.",
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Secondary identifier, which can only be used in specific requests.",
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The names of the client fields that should be returned.",
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted clients.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-eba8e168-e31c-4002-b763-dc67d66c009b"
+            }
+          ],
+          "createdAt": "2026-07-28T03:10:44.000Z",
+          "updatedAt": "2026-07-28T03:10:44.000Z",
+          "uid": "35240-aafb8661-6783-4594-926c-b0ab3a28b2f0"
+        }
+      ],
+      "id": "006828b4-c73c-449f-ad9a-3fde97bb3a02",
+      "createdAt": "2026-07-28T03:10:44.000Z",
+      "updatedAt": "2026-07-28T03:10:44.000Z",
+      "uid": "35240-006828b4-c73c-449f-ad9a-3fde97bb3a02"
+    },
+    {
+      "name": "organizations",
+      "item": [
+        {
+          "name": "{collaborator.organization_ids.organization_id}",
+          "item": [
+            {
+              "name": "clients",
+              "item": [
+                {
+                  "name": "List OAuth clients where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the OAuth clients the caller\nhas access to.\nSimilar to Get, this selects the fields specified in the field mask.\nMore or le",
+                  "id": "cdbf89a7-4995-4024-a87d-c6a3426c7687",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/clients?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":collaborator.organization_ids.organization_id",
+                        "clients"
+                      ],
+                      "query": [
+                        {
+                          "description": "This ID shares namespace with organization IDs.",
+                          "key": "collaborator.user_ids.user_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "collaborator.user_ids.email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The names of the client fields that should be returned.",
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted clients.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7a2be4fd-0411-4600-afd0-b3f11444e7d4",
+                          "key": "collaborator"
+                        },
+                        {
+                          "id": "3321c7b1-2ded-4845-bfd2-670e45a86596",
+                          "key": "collaborator.organization_ids.organization_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with user IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8b3ce081-79d8-4dc6-8e7b-d3fda8c4df24",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/clients?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":collaborator.organization_ids.organization_id",
+                            "clients"
+                          ],
+                          "query": [
+                            {
+                              "description": "This ID shares namespace with organization IDs.",
+                              "key": "collaborator.user_ids.user_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "collaborator.user_ids.email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The names of the client fields that should be returned.",
+                              "key": "field_mask",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Only return recently deleted clients.",
+                              "key": "deleted",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "collaborator.organization_ids.organization_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"clients\": [\n    {\n      \"ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"anim_92\": \"<string>\",\n        \"deserunta\": \"<string>\",\n        \"culpa_1\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"secret\": \"<string>\",\n      \"redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logout_redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"skip_authorization\": \"<boolean>\",\n      \"endorsed\": \"<boolean>\",\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"ut_af_\": \"<string>\",\n        \"adipisicing4e6\": \"<string>\",\n        \"veniam9e\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"secret\": \"<string>\",\n      \"redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logout_redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"skip_authorization\": \"<boolean>\",\n      \"endorsed\": \"<boolean>\",\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-8b3ce081-79d8-4dc6-8e7b-d3fda8c4df24"
+                    },
+                    {
+                      "id": "a5b91de0-c449-4277-9123-736f0367358d",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/clients?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":collaborator.organization_ids.organization_id",
+                            "clients"
+                          ],
+                          "query": [
+                            {
+                              "description": "This ID shares namespace with organization IDs.",
+                              "key": "collaborator.user_ids.user_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "collaborator.user_ids.email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The names of the client fields that should be returned.",
+                              "key": "field_mask",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Only return recently deleted clients.",
+                              "key": "deleted",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "collaborator.organization_ids.organization_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-a5b91de0-c449-4277-9123-736f0367358d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-cdbf89a7-4995-4024-a87d-c6a3426c7687"
+                },
+                {
+                  "name": "Create a new OAuth client. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+                  "id": "949d246a-5dc9-460e-8269-811c7ec3a88a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client\": {\n    \"ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"amet0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"collaborator\": {\n    \"organization_ids\": {},\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/clients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":collaborator.organization_ids.organization_id",
+                        "clients"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e65315a7-a64d-4115-bf67-211458bd2761",
+                          "key": "collaborator"
+                        },
+                        {
+                          "id": "b604be08-addb-4c38-8ac2-3b74118d02ec",
+                          "key": "collaborator.organization_ids.organization_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with user IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2bdb8278-0ce0-49bf-8f8b-5717b1591ae5",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client\": {\n    \"ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"amet0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"collaborator\": {\n    \"organization_ids\": {},\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/clients",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":collaborator.organization_ids.organization_id",
+                            "clients"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collaborator.organization_ids.organization_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ids\": {\n    \"client_id\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"Duis_48\": \"<string>\",\n    \"in_5\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"secret\": \"<string>\",\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"STATE_REQUESTED\",\n  \"state_description\": \"<string>\",\n  \"skip_authorization\": \"<boolean>\",\n  \"endorsed\": \"<boolean>\",\n  \"grants\": [\n    \"GRANT_AUTHORIZATION_CODE\",\n    \"GRANT_AUTHORIZATION_CODE\"\n  ],\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-2bdb8278-0ce0-49bf-8f8b-5717b1591ae5"
+                    },
+                    {
+                      "id": "6cc3c861-2b0d-4900-bcd6-228bd20131e6",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client\": {\n    \"ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"amet0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"collaborator\": {\n    \"organization_ids\": {},\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/clients",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":collaborator.organization_ids.organization_id",
+                            "clients"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collaborator.organization_ids.organization_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-6cc3c861-2b0d-4900-bcd6-228bd20131e6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-949d246a-5dc9-460e-8269-811c7ec3a88a"
+                }
+              ],
+              "id": "3ecf2821-c3f4-4258-8843-b5cbd34c07b2",
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-3ecf2821-c3f4-4258-8843-b5cbd34c07b2"
+            }
+          ],
+          "id": "e1bc5fa5-522f-465b-b610-b891ddb2c9c2",
+          "createdAt": "2026-07-28T03:10:44.000Z",
+          "updatedAt": "2026-07-28T03:10:44.000Z",
+          "uid": "35240-e1bc5fa5-522f-465b-b610-b891ddb2c9c2"
+        }
+      ],
+      "id": "4e437841-3023-4ee7-8658-c2ad0dfae6e0",
+      "createdAt": "2026-07-28T03:10:44.000Z",
+      "updatedAt": "2026-07-28T03:10:44.000Z",
+      "uid": "35240-4e437841-3023-4ee7-8658-c2ad0dfae6e0"
+    },
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "{collaborator.user_ids.user_id}",
+          "item": [
+            {
+              "name": "clients",
+              "item": [
+                {
+                  "name": "List OAuth clients where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the OAuth clients the caller\nhas access to.\nSimilar to Get, this selects the fields specified in the field mask.\nMore or le",
+                  "id": "aa8155f8-d9c0-435a-b533-84ded2b92641",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:collaborator.user_ids.user_id/clients?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":collaborator.user_ids.user_id",
+                        "clients"
+                      ],
+                      "query": [
+                        {
+                          "description": "This ID shares namespace with user IDs.",
+                          "key": "collaborator.organization_ids.organization_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "collaborator.user_ids.email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The names of the client fields that should be returned.",
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted clients.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "8b1e0935-ceeb-4c32-9978-a7a31714d825",
+                          "key": "collaborator"
+                        },
+                        {
+                          "id": "ffcd905d-92b0-443f-9ab6-712ae3e1e88b",
+                          "key": "collaborator.user_ids.user_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with organization IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "eb61635b-2d92-4b4a-8d91-1fc83103f9eb",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:collaborator.user_ids.user_id/clients?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":collaborator.user_ids.user_id",
+                            "clients"
+                          ],
+                          "query": [
+                            {
+                              "description": "This ID shares namespace with user IDs.",
+                              "key": "collaborator.organization_ids.organization_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "collaborator.user_ids.email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The names of the client fields that should be returned.",
+                              "key": "field_mask",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Only return recently deleted clients.",
+                              "key": "deleted",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "collaborator.user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"clients\": [\n    {\n      \"ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"anim_92\": \"<string>\",\n        \"deserunta\": \"<string>\",\n        \"culpa_1\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"secret\": \"<string>\",\n      \"redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logout_redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"skip_authorization\": \"<boolean>\",\n      \"endorsed\": \"<boolean>\",\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"ut_af_\": \"<string>\",\n        \"adipisicing4e6\": \"<string>\",\n        \"veniam9e\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"secret\": \"<string>\",\n      \"redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logout_redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"skip_authorization\": \"<boolean>\",\n      \"endorsed\": \"<boolean>\",\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-eb61635b-2d92-4b4a-8d91-1fc83103f9eb"
+                    },
+                    {
+                      "id": "3d5dc726-dde1-4411-bfdf-a9553afcbca5",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:collaborator.user_ids.user_id/clients?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":collaborator.user_ids.user_id",
+                            "clients"
+                          ],
+                          "query": [
+                            {
+                              "description": "This ID shares namespace with user IDs.",
+                              "key": "collaborator.organization_ids.organization_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "collaborator.user_ids.email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The names of the client fields that should be returned.",
+                              "key": "field_mask",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Only return recently deleted clients.",
+                              "key": "deleted",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "collaborator.user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-3d5dc726-dde1-4411-bfdf-a9553afcbca5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-aa8155f8-d9c0-435a-b533-84ded2b92641"
+                },
+                {
+                  "name": "Create a new OAuth client. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+                  "id": "4cea197c-c186-489d-9c39-fbc806418fd3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client\": {\n    \"ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"amet0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"collaborator\": {\n    \"organization_ids\": {},\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:collaborator.user_ids.user_id/clients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":collaborator.user_ids.user_id",
+                        "clients"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f95dad85-2c22-4646-a76f-6712c0b58016",
+                          "key": "collaborator"
+                        },
+                        {
+                          "id": "6093363c-d2b6-43b0-adf0-36e883e87fac",
+                          "key": "collaborator.user_ids.user_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with organization IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "df6dbf67-4e2a-42ae-a72b-fee77ba647f9",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client\": {\n    \"ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"amet0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"collaborator\": {\n    \"organization_ids\": {},\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:collaborator.user_ids.user_id/clients",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":collaborator.user_ids.user_id",
+                            "clients"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collaborator.user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ids\": {\n    \"client_id\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"Duis_48\": \"<string>\",\n    \"in_5\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"secret\": \"<string>\",\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"state\": \"STATE_REQUESTED\",\n  \"state_description\": \"<string>\",\n  \"skip_authorization\": \"<boolean>\",\n  \"endorsed\": \"<boolean>\",\n  \"grants\": [\n    \"GRANT_AUTHORIZATION_CODE\",\n    \"GRANT_AUTHORIZATION_CODE\"\n  ],\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-df6dbf67-4e2a-42ae-a72b-fee77ba647f9"
+                    },
+                    {
+                      "id": "c148461f-e79c-4496-878a-eef6d94a4fcb",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client\": {\n    \"ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"amet0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"secret\": \"<string>\",\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"state\": \"STATE_REQUESTED\",\n    \"state_description\": \"<string>\",\n    \"skip_authorization\": \"<boolean>\",\n    \"endorsed\": \"<boolean>\",\n    \"grants\": [\n      \"GRANT_AUTHORIZATION_CODE\",\n      \"GRANT_AUTHORIZATION_CODE\"\n    ],\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"collaborator\": {\n    \"organization_ids\": {},\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:collaborator.user_ids.user_id/clients",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":collaborator.user_ids.user_id",
+                            "clients"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collaborator.user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"occaecat_3c\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:44.000Z",
+                      "updatedAt": "2026-07-28T03:10:44.000Z",
+                      "uid": "35240-c148461f-e79c-4496-878a-eef6d94a4fcb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:44.000Z",
+                  "updatedAt": "2026-07-28T03:10:44.000Z",
+                  "uid": "35240-4cea197c-c186-489d-9c39-fbc806418fd3"
+                }
+              ],
+              "id": "723fe527-06b8-4db2-a1c5-3bd6ec00c76c",
+              "createdAt": "2026-07-28T03:10:44.000Z",
+              "updatedAt": "2026-07-28T03:10:44.000Z",
+              "uid": "35240-723fe527-06b8-4db2-a1c5-3bd6ec00c76c"
+            }
+          ],
+          "id": "d057015c-9fc8-4120-a3ba-61cbbde0fa53",
+          "createdAt": "2026-07-28T03:10:44.000Z",
+          "updatedAt": "2026-07-28T03:10:44.000Z",
+          "uid": "35240-d057015c-9fc8-4120-a3ba-61cbbde0fa53"
+        }
+      ],
+      "id": "12e36538-e7d6-43fb-afdd-3df87aba1a26",
+      "createdAt": "2026-07-28T03:10:44.000Z",
+      "updatedAt": "2026-07-28T03:10:44.000Z",
+      "uid": "35240-12e36538-e7d6-43fb-afdd-3df87aba1a26"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

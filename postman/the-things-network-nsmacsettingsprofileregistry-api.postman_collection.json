@@ -1,0 +1,1062 @@
+{
+  "info": {
+    "_postman_id": "1ebd752b-57c3-4f11-b00a-b4e0139ab502",
+    "name": "The Things Stack \u2014 Application Server AppAs NsMACSettingsProfileRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:53.000Z",
+    "updatedAt": "2026-07-28T03:12:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1ebd752b-57c3-4f11-b00a-b4e0139ab502"
+  },
+  "item": [
+    {
+      "name": "ns",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "{application_ids.application_id}",
+              "item": [
+                {
+                  "name": "mac_settings_profiles",
+                  "item": [
+                    {
+                      "name": "List lists the MAC settings profiles.",
+                      "id": "aa316922-11ce-47e3-a7d1-5aa8651f5b60",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/ns/applications/:application_ids.application_id/mac_settings_profiles?field_mask=<string>&order=<string>&limit=<long>&page=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ns",
+                            "applications",
+                            ":application_ids.application_id",
+                            "mac_settings_profiles"
+                          ],
+                          "query": [
+                            {
+                              "description": "The names of the fields that should be returned.",
+                              "key": "field_mask",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "8c1ead2f-edf3-46eb-bf98-4a0bbdfab3c3",
+                              "key": "application_ids"
+                            },
+                            {
+                              "id": "ab83d4c2-e434-44e7-bb3f-f65ee6391480",
+                              "key": "application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5f3cfc27-d0a5-42a5-b8a8-9440ef485309",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:application_ids.application_id/mac_settings_profiles?field_mask=<string>&order=<string>&limit=<long>&page=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":application_ids.application_id",
+                                "mac_settings_profiles"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The names of the fields that should be returned.",
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                                  "key": "order",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the number of results per page.",
+                                  "key": "limit",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Page number for pagination. 0 is interpreted as 1.",
+                                  "key": "page",
+                                  "value": "<long>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"mac_settings_profiles\": [\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"profile_id\": \"<string>\"\n      },\n      \"mac_settings\": {\n        \"class_b_timeout\": \"<string>\",\n        \"ping_slot_periodicity\": {\n          \"value\": \"PING_EVERY_1S\"\n        },\n        \"ping_slot_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"ping_slot_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"beacon_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"class_c_timeout\": \"<string>\",\n        \"rx1_delay\": {\n          \"value\": \"RX_DELAY_0\"\n        },\n        \"rx1_data_rate_offset\": {\n          \"value\": \"DATA_RATE_OFFSET_0\"\n        },\n        \"rx2_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"rx2_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"factory_preset_frequencies\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"max_duty_cycle\": {\n          \"value\": \"DUTY_CYCLE_1\"\n        },\n        \"supports_32_bit_f_cnt\": {\n          \"value\": \"<boolean>\"\n        },\n        \"use_adr\": {\n          \"value\": \"<boolean>\"\n        },\n        \"adr_margin\": \"<float>\",\n        \"resets_f_cnt\": {\n          \"value\": \"<boolean>\"\n        },\n        \"status_time_periodicity\": \"<string>\",\n        \"status_count_periodicity\": \"<long>\",\n        \"desired_rx1_delay\": {\n          \"value\": \"RX_DELAY_0\"\n        },\n        \"desired_rx1_data_rate_offset\": {\n          \"value\": \"DATA_RATE_OFFSET_0\"\n        },\n        \"desired_rx2_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"desired_rx2_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"desired_max_duty_cycle\": {\n          \"value\": \"DUTY_CYCLE_1\"\n        },\n        \"desired_adr_ack_limit_exponent\": {\n          \"value\": \"ADR_ACK_LIMIT_1\"\n        },\n        \"desired_adr_ack_delay_exponent\": {\n          \"value\": \"ADR_ACK_DELAY_1\"\n        },\n        \"desired_ping_slot_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"desired_ping_slot_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"desired_beacon_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"desired_max_eirp\": {\n          \"value\": \"DEVICE_EIRP_8\"\n        },\n        \"class_b_c_downlink_interval\": \"<string>\",\n        \"uplink_dwell_time\": {\n          \"value\": \"<boolean>\"\n        },\n        \"downlink_dwell_time\": {\n          \"value\": \"<boolean>\"\n        },\n        \"adr\": {\n          \"static\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"tx_power_index\": \"<long>\",\n            \"nb_trans\": \"<long>\"\n          },\n          \"dynamic\": {\n            \"margin\": \"<float>\",\n            \"min_data_rate_index\": {\n              \"value\": \"DATA_RATE_0\"\n            },\n            \"max_data_rate_index\": {\n              \"value\": \"DATA_RATE_0\"\n            },\n            \"min_tx_power_index\": \"<long>\",\n            \"max_tx_power_index\": \"<long>\",\n            \"min_nb_trans\": \"<long>\",\n            \"max_nb_trans\": \"<long>\",\n            \"channel_steering\": {\n              \"lora_narrow\": {},\n              \"disabled\": {}\n            },\n            \"overrides\": {\n              \"data_rate_0\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_1\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_2\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_3\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_4\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_5\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_6\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_7\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_8\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_9\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_10\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_11\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_12\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_13\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_14\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_15\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              }\n            }\n          },\n          \"disabled\": {}\n        },\n        \"schedule_downlinks\": {\n          \"value\": \"<boolean>\"\n        },\n        \"relay\": {\n          \"serving\": {\n            \"second_channel\": {\n              \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n              \"data_rate_index\": \"DATA_RATE_0\",\n              \"frequency\": \"<string>\"\n            },\n            \"default_channel_index\": \"<long>\",\n            \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n            \"uplink_forwarding_rules\": [\n              {\n                \"limits\": {\n                  \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                  \"reload_rate\": \"<long>\"\n                },\n                \"last_w_f_cnt\": \"<long>\",\n                \"device_id\": \"<string>\",\n                \"session_key_id\": \"<string>\"\n              },\n              {\n                \"limits\": {\n                  \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                  \"reload_rate\": \"<long>\"\n                },\n                \"last_w_f_cnt\": \"<long>\",\n                \"device_id\": \"<string>\",\n                \"session_key_id\": \"<string>\"\n              }\n            ],\n            \"limits\": {\n              \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n              \"join_requests\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"notifications\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"uplink_messages\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"overall\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              }\n            }\n          },\n          \"served\": {\n            \"always\": {},\n            \"dynamic\": {\n              \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n            },\n            \"end_device_controlled\": {},\n            \"backoff\": \"<long>\",\n            \"second_channel\": {\n              \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n              \"data_rate_index\": \"DATA_RATE_0\",\n              \"frequency\": \"<string>\"\n            },\n            \"serving_device_id\": \"<string>\"\n          }\n        },\n        \"desired_relay\": {\n          \"serving\": {\n            \"second_channel\": {\n              \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n              \"data_rate_index\": \"DATA_RATE_0\",\n              \"frequency\": \"<string>\"\n            },\n            \"default_channel_index\": \"<long>\",\n            \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n            \"uplink_forwarding_rules\": [\n              {\n                \"limits\": {\n                  \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                  \"reload_rate\": \"<long>\"\n                },\n                \"last_w_f_cnt\": \"<long>\",\n                \"device_id\": \"<string>\",\n                \"session_key_id\": \"<string>\"\n              },\n              {\n                \"limits\": {\n                  \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                  \"reload_rate\": \"<long>\"\n                },\n                \"last_w_f_cnt\": \"<long>\",\n                \"device_id\": \"<string>\",\n                \"session_key_id\": \"<string>\"\n              }\n            ],\n            \"limits\": {\n              \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n              \"join_requests\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"notifications\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"uplink_messages\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"overall\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              }\n            }\n          },\n          \"served\": {\n            \"always\": {},\n            \"dynamic\": {\n              \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n            },\n            \"end_device_controlled\": {},\n            \"backoff\": \"<long>\",\n            \"second_channel\": {\n              \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n              \"data_rate_index\": \"DATA_RATE_0\",\n              \"frequency\": \"<string>\"\n            },\n            \"serving_device_id\": \"<string>\"\n          }\n        }\n      },\n      \"end_devices_count\": \"<long>\"\n    },\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"profile_id\": \"<string>\"\n      },\n      \"mac_settings\": {\n        \"class_b_timeout\": \"<string>\",\n        \"ping_slot_periodicity\": {\n          \"value\": \"PING_EVERY_1S\"\n        },\n        \"ping_slot_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"ping_slot_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"beacon_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"class_c_timeout\": \"<string>\",\n        \"rx1_delay\": {\n          \"value\": \"RX_DELAY_0\"\n        },\n        \"rx1_data_rate_offset\": {\n          \"value\": \"DATA_RATE_OFFSET_0\"\n        },\n        \"rx2_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"rx2_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"factory_preset_frequencies\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"max_duty_cycle\": {\n          \"value\": \"DUTY_CYCLE_1\"\n        },\n        \"supports_32_bit_f_cnt\": {\n          \"value\": \"<boolean>\"\n        },\n        \"use_adr\": {\n          \"value\": \"<boolean>\"\n        },\n        \"adr_margin\": \"<float>\",\n        \"resets_f_cnt\": {\n          \"value\": \"<boolean>\"\n        },\n        \"status_time_periodicity\": \"<string>\",\n        \"status_count_periodicity\": \"<long>\",\n        \"desired_rx1_delay\": {\n          \"value\": \"RX_DELAY_0\"\n        },\n        \"desired_rx1_data_rate_offset\": {\n          \"value\": \"DATA_RATE_OFFSET_0\"\n        },\n        \"desired_rx2_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"desired_rx2_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"desired_max_duty_cycle\": {\n          \"value\": \"DUTY_CYCLE_1\"\n        },\n        \"desired_adr_ack_limit_exponent\": {\n          \"value\": \"ADR_ACK_LIMIT_1\"\n        },\n        \"desired_adr_ack_delay_exponent\": {\n          \"value\": \"ADR_ACK_DELAY_1\"\n        },\n        \"desired_ping_slot_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"desired_ping_slot_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"desired_beacon_frequency\": {\n          \"value\": \"<string>\"\n        },\n        \"desired_max_eirp\": {\n          \"value\": \"DEVICE_EIRP_8\"\n        },\n        \"class_b_c_downlink_interval\": \"<string>\",\n        \"uplink_dwell_time\": {\n          \"value\": \"<boolean>\"\n        },\n        \"downlink_dwell_time\": {\n          \"value\": \"<boolean>\"\n        },\n        \"adr\": {\n          \"static\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"tx_power_index\": \"<long>\",\n            \"nb_trans\": \"<long>\"\n          },\n          \"dynamic\": {\n            \"margin\": \"<float>\",\n            \"min_data_rate_index\": {\n              \"value\": \"DATA_RATE_0\"\n            },\n            \"max_data_rate_index\": {\n              \"value\": \"DATA_RATE_0\"\n            },\n            \"min_tx_power_index\": \"<long>\",\n            \"max_tx_power_index\": \"<long>\",\n            \"min_nb_trans\": \"<long>\",\n            \"max_nb_trans\": \"<long>\",\n            \"channel_steering\": {\n              \"lora_narrow\": {},\n              \"disabled\": {}\n            },\n            \"overrides\": {\n              \"data_rate_0\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_1\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_2\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_3\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_4\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_5\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_6\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_7\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_8\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_9\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_10\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_11\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_12\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_13\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_14\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              },\n              \"data_rate_15\": {\n                \"min_nb_trans\": \"<long>\",\n                \"max_nb_trans\": \"<long>\"\n              }\n            }\n          },\n          \"disabled\": {}\n        },\n        \"schedule_downlinks\": {\n          \"value\": \"<boolean>\"\n        },\n        \"relay\": {\n          \"serving\": {\n            \"second_channel\": {\n              \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n              \"data_rate_index\": \"DATA_RATE_0\",\n              \"frequency\": \"<string>\"\n            },\n            \"default_channel_index\": \"<long>\",\n            \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n            \"uplink_forwarding_rules\": [\n              {\n                \"limits\": {\n                  \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                  \"reload_rate\": \"<long>\"\n                },\n                \"last_w_f_cnt\": \"<long>\",\n                \"device_id\": \"<string>\",\n                \"session_key_id\": \"<string>\"\n              },\n              {\n                \"limits\": {\n                  \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                  \"reload_rate\": \"<long>\"\n                },\n                \"last_w_f_cnt\": \"<long>\",\n                \"device_id\": \"<string>\",\n                \"session_key_id\": \"<string>\"\n              }\n            ],\n            \"limits\": {\n              \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n              \"join_requests\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"notifications\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"uplink_messages\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"overall\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              }\n            }\n          },\n          \"served\": {\n            \"always\": {},\n            \"dynamic\": {\n              \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n            },\n            \"end_device_controlled\": {},\n            \"backoff\": \"<long>\",\n            \"second_channel\": {\n              \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n              \"data_rate_index\": \"DATA_RATE_0\",\n              \"frequency\": \"<string>\"\n            },\n            \"serving_device_id\": \"<string>\"\n          }\n        },\n        \"desired_relay\": {\n          \"serving\": {\n            \"second_channel\": {\n              \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n              \"data_rate_index\": \"DATA_RATE_0\",\n              \"frequency\": \"<string>\"\n            },\n            \"default_channel_index\": \"<long>\",\n            \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n            \"uplink_forwarding_rules\": [\n              {\n                \"limits\": {\n                  \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                  \"reload_rate\": \"<long>\"\n                },\n                \"last_w_f_cnt\": \"<long>\",\n                \"device_id\": \"<string>\",\n                \"session_key_id\": \"<string>\"\n              },\n              {\n                \"limits\": {\n                  \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                  \"reload_rate\": \"<long>\"\n                },\n                \"last_w_f_cnt\": \"<long>\",\n                \"device_id\": \"<string>\",\n                \"session_key_id\": \"<string>\"\n              }\n            ],\n            \"limits\": {\n              \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n              \"join_requests\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"notifications\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"uplink_messages\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"overall\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              }\n            }\n          },\n          \"served\": {\n            \"always\": {},\n            \"dynamic\": {\n              \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n            },\n            \"end_device_controlled\": {},\n            \"backoff\": \"<long>\",\n            \"second_channel\": {\n              \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n              \"data_rate_index\": \"DATA_RATE_0\",\n              \"frequency\": \"<string>\"\n            },\n            \"serving_device_id\": \"<string>\"\n          }\n        }\n      },\n      \"end_devices_count\": \"<long>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:53.000Z",
+                          "updatedAt": "2026-07-28T03:12:53.000Z",
+                          "uid": "35240-5f3cfc27-d0a5-42a5-b8a8-9440ef485309"
+                        },
+                        {
+                          "id": "1150f9f5-00a8-4f3d-9147-f1a5c7378be4",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:application_ids.application_id/mac_settings_profiles?field_mask=<string>&order=<string>&limit=<long>&page=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":application_ids.application_id",
+                                "mac_settings_profiles"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The names of the fields that should be returned.",
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                                  "key": "order",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the number of results per page.",
+                                  "key": "limit",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Page number for pagination. 0 is interpreted as 1.",
+                                  "key": "page",
+                                  "value": "<long>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"incididuntf04\": {},\n      \"elit238\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_8d\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:53.000Z",
+                          "updatedAt": "2026-07-28T03:12:53.000Z",
+                          "uid": "35240-1150f9f5-00a8-4f3d-9147-f1a5c7378be4"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:53.000Z",
+                      "updatedAt": "2026-07-28T03:12:53.000Z",
+                      "uid": "35240-aa316922-11ce-47e3-a7d1-5aa8651f5b60"
+                    }
+                  ],
+                  "id": "3506557f-9496-48d4-9819-5f4899b9011c",
+                  "createdAt": "2026-07-28T03:12:53.000Z",
+                  "updatedAt": "2026-07-28T03:12:53.000Z",
+                  "uid": "35240-3506557f-9496-48d4-9819-5f4899b9011c"
+                }
+              ],
+              "id": "23726daf-df93-42a0-9455-62982822e2ee",
+              "createdAt": "2026-07-28T03:12:53.000Z",
+              "updatedAt": "2026-07-28T03:12:53.000Z",
+              "uid": "35240-23726daf-df93-42a0-9455-62982822e2ee"
+            },
+            {
+              "name": "{mac_settings_profile.ids.application_ids.application_id}",
+              "item": [
+                {
+                  "name": "mac_settings_profiles",
+                  "item": [
+                    {
+                      "name": "Create creates a new MAC settings profile.",
+                      "id": "abfdfda1-85d2-41cc-8944-34855fa838a8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {},\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile.ids.application_ids.application_id/mac_settings_profiles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ns",
+                            "applications",
+                            ":mac_settings_profile.ids.application_ids.application_id",
+                            "mac_settings_profiles"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5f5a777d-e451-4cef-9d8e-6d8816c56d8d",
+                              "key": "mac_settings_profile"
+                            },
+                            {
+                              "id": "7edf42eb-2f09-4971-acbd-f200817d8e86",
+                              "key": "mac_settings_profile.ids.application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "54eee935-8d75-43d1-9218-99a78864140f",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {},\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile.ids.application_ids.application_id/mac_settings_profiles",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":mac_settings_profile.ids.application_ids.application_id",
+                                "mac_settings_profiles"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "mac_settings_profile.ids.application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:12:53.000Z",
+                          "updatedAt": "2026-07-28T03:12:53.000Z",
+                          "uid": "35240-54eee935-8d75-43d1-9218-99a78864140f"
+                        },
+                        {
+                          "id": "6da6a6c9-2ba6-4d8b-a783-676e77d2f959",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {},\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile.ids.application_ids.application_id/mac_settings_profiles",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":mac_settings_profile.ids.application_ids.application_id",
+                                "mac_settings_profiles"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "mac_settings_profile.ids.application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"incididuntf04\": {},\n      \"elit238\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_8d\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:53.000Z",
+                          "updatedAt": "2026-07-28T03:12:53.000Z",
+                          "uid": "35240-6da6a6c9-2ba6-4d8b-a783-676e77d2f959"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:53.000Z",
+                      "updatedAt": "2026-07-28T03:12:53.000Z",
+                      "uid": "35240-abfdfda1-85d2-41cc-8944-34855fa838a8"
+                    }
+                  ],
+                  "id": "db89c7c0-df36-4304-a2fb-c3bcd0b0f48d",
+                  "createdAt": "2026-07-28T03:12:53.000Z",
+                  "updatedAt": "2026-07-28T03:12:53.000Z",
+                  "uid": "35240-db89c7c0-df36-4304-a2fb-c3bcd0b0f48d"
+                }
+              ],
+              "id": "a1d5f069-25f5-4c0d-b74d-27972d6a9279",
+              "createdAt": "2026-07-28T03:12:53.000Z",
+              "updatedAt": "2026-07-28T03:12:53.000Z",
+              "uid": "35240-a1d5f069-25f5-4c0d-b74d-27972d6a9279"
+            },
+            {
+              "name": "{mac_settings_profile_ids.application_ids.application_id}",
+              "item": [
+                {
+                  "name": "mac_settings_profiles",
+                  "item": [
+                    {
+                      "name": "{mac_settings_profile_ids.profile_id}",
+                      "item": [
+                        {
+                          "name": "Get returns the MAC settings profile that matches the given identifiers.",
+                          "id": "2fbf99d3-ed52-4a5d-99fe-0435d27f6428",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id?field_mask=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":mac_settings_profile_ids.application_ids.application_id",
+                                "mac_settings_profiles",
+                                ":mac_settings_profile_ids.profile_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The names of the fields that should be returned.",
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "68d378a4-7dc9-412f-a633-7421e30a40c6",
+                                  "key": "mac_settings_profile_ids"
+                                },
+                                {
+                                  "id": "4117f3ac-c1cc-4231-b009-5aa7c040e047",
+                                  "key": "mac_settings_profile_ids.application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a596de62-3942-4e0e-ac89-b338e07a121f",
+                                  "key": "mac_settings_profile_ids.profile_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Profile ID."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "6f82da62-1a27-4ac3-b009-55cc8340fd09",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id?field_mask=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":mac_settings_profile_ids.application_ids.application_id",
+                                    "mac_settings_profiles",
+                                    ":mac_settings_profile_ids.profile_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The names of the fields that should be returned.",
+                                      "key": "field_mask",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "mac_settings_profile_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "mac_settings_profile_ids.profile_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+                              "createdAt": "2026-07-28T03:12:53.000Z",
+                              "updatedAt": "2026-07-28T03:12:53.000Z",
+                              "uid": "35240-6f82da62-1a27-4ac3-b009-55cc8340fd09"
+                            },
+                            {
+                              "id": "23660eea-ad56-4df6-b02b-31026cb8a895",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id?field_mask=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":mac_settings_profile_ids.application_ids.application_id",
+                                    "mac_settings_profiles",
+                                    ":mac_settings_profile_ids.profile_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The names of the fields that should be returned.",
+                                      "key": "field_mask",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "mac_settings_profile_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "mac_settings_profile_ids.profile_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"incididuntf04\": {},\n      \"elit238\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_8d\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:53.000Z",
+                              "updatedAt": "2026-07-28T03:12:53.000Z",
+                              "uid": "35240-23660eea-ad56-4df6-b02b-31026cb8a895"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:53.000Z",
+                          "updatedAt": "2026-07-28T03:12:53.000Z",
+                          "uid": "35240-2fbf99d3-ed52-4a5d-99fe-0435d27f6428"
+                        },
+                        {
+                          "name": "Delete deletes the MAC settings profile that matches the given identifiers.",
+                          "id": "52d7c288-e9a0-447e-9062-05b049007a4e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":mac_settings_profile_ids.application_ids.application_id",
+                                "mac_settings_profiles",
+                                ":mac_settings_profile_ids.profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3a45bd9d-4e6f-406a-9e12-f2d509648980",
+                                  "key": "mac_settings_profile_ids"
+                                },
+                                {
+                                  "id": "035be86b-dd10-42ab-b311-9d132466d0e3",
+                                  "key": "mac_settings_profile_ids.application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a1ccb4a0-8ce8-46fc-afc2-1cc6c4a8e6c5",
+                                  "key": "mac_settings_profile_ids.profile_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Profile ID."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "bb717356-a8d9-4782-a111-78687ade6fc8",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":mac_settings_profile_ids.application_ids.application_id",
+                                    "mac_settings_profiles",
+                                    ":mac_settings_profile_ids.profile_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "mac_settings_profile_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "mac_settings_profile_ids.profile_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T03:12:53.000Z",
+                              "updatedAt": "2026-07-28T03:12:53.000Z",
+                              "uid": "35240-bb717356-a8d9-4782-a111-78687ade6fc8"
+                            },
+                            {
+                              "id": "0e97b341-5138-4456-9542-d639a84cba3e",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":mac_settings_profile_ids.application_ids.application_id",
+                                    "mac_settings_profiles",
+                                    ":mac_settings_profile_ids.profile_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "mac_settings_profile_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "mac_settings_profile_ids.profile_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"incididuntf04\": {},\n      \"elit238\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_8d\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:53.000Z",
+                              "updatedAt": "2026-07-28T03:12:53.000Z",
+                              "uid": "35240-0e97b341-5138-4456-9542-d639a84cba3e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:53.000Z",
+                          "updatedAt": "2026-07-28T03:12:53.000Z",
+                          "uid": "35240-52d7c288-e9a0-447e-9062-05b049007a4e"
+                        },
+                        {
+                          "name": "Update updates the MAC settings profile that matches the given identifiers.",
+                          "id": "1bccec22-c238-4548-8889-bf5a07b98d41",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"mac_settings_profile_ids\": {\n    \"application_ids\": {}\n  },\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":mac_settings_profile_ids.application_ids.application_id",
+                                "mac_settings_profiles",
+                                ":mac_settings_profile_ids.profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "89181605-cbe2-44da-82e5-2a31853d9828",
+                                  "key": "mac_settings_profile_ids"
+                                },
+                                {
+                                  "id": "4ec174e7-e4ba-4cb3-9501-a294abdfe2ad",
+                                  "key": "mac_settings_profile_ids.application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "214cee73-f129-40d8-acee-1171fe52a602",
+                                  "key": "mac_settings_profile_ids.profile_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Profile ID."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "8c34ccb6-c9ae-408b-a0d8-628e19c6ee01",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"mac_settings_profile_ids\": {\n    \"application_ids\": {}\n  },\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":mac_settings_profile_ids.application_ids.application_id",
+                                    "mac_settings_profiles",
+                                    ":mac_settings_profile_ids.profile_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "mac_settings_profile_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "mac_settings_profile_ids.profile_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+                              "createdAt": "2026-07-28T03:12:53.000Z",
+                              "updatedAt": "2026-07-28T03:12:53.000Z",
+                              "uid": "35240-8c34ccb6-c9ae-408b-a0d8-628e19c6ee01"
+                            },
+                            {
+                              "id": "dc0de372-cf1d-440e-81bd-4904003a61e3",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"mac_settings_profile_ids\": {\n    \"application_ids\": {}\n  },\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<string>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"DATA_RATE_0\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {},\n            \"disabled\": {}\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_1\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_2\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_3\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_4\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_5\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_6\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_7\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_8\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_9\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_10\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_11\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_12\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_13\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_14\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            },\n            \"data_rate_15\": {\n              \"min_nb_trans\": \"<long>\",\n              \"max_nb_trans\": \"<long>\"\n            }\n          }\n        },\n        \"disabled\": {}\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            },\n            {\n              \"limits\": {\n                \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n                \"reload_rate\": \"<long>\"\n              },\n              \"last_w_f_cnt\": \"<long>\",\n              \"device_id\": \"<string>\",\n              \"session_key_id\": \"<string>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n            \"join_requests\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"notifications\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"uplink_messages\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            },\n            \"overall\": {\n              \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n              \"reload_rate\": \"<long>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": {},\n          \"dynamic\": {\n            \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n          },\n          \"end_device_controlled\": {},\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":mac_settings_profile_ids.application_ids.application_id",
+                                    "mac_settings_profiles",
+                                    ":mac_settings_profile_ids.profile_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "mac_settings_profile_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "mac_settings_profile_ids.profile_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"incididuntf04\": {},\n      \"elit238\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"est_8d\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:53.000Z",
+                              "updatedAt": "2026-07-28T03:12:53.000Z",
+                              "uid": "35240-dc0de372-cf1d-440e-81bd-4904003a61e3"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:53.000Z",
+                          "updatedAt": "2026-07-28T03:12:53.000Z",
+                          "uid": "35240-1bccec22-c238-4548-8889-bf5a07b98d41"
+                        }
+                      ],
+                      "id": "b7f3aced-333e-498d-97d3-9e568e961ac3",
+                      "createdAt": "2026-07-28T03:12:53.000Z",
+                      "updatedAt": "2026-07-28T03:12:53.000Z",
+                      "uid": "35240-b7f3aced-333e-498d-97d3-9e568e961ac3"
+                    }
+                  ],
+                  "id": "b002f15c-d88f-4455-b9d2-b7a96cd46023",
+                  "createdAt": "2026-07-28T03:12:53.000Z",
+                  "updatedAt": "2026-07-28T03:12:53.000Z",
+                  "uid": "35240-b002f15c-d88f-4455-b9d2-b7a96cd46023"
+                }
+              ],
+              "id": "ffdf8ea0-e088-42ab-b175-4a08d6e4683c",
+              "createdAt": "2026-07-28T03:12:53.000Z",
+              "updatedAt": "2026-07-28T03:12:53.000Z",
+              "uid": "35240-ffdf8ea0-e088-42ab-b175-4a08d6e4683c"
+            }
+          ],
+          "id": "d3d58425-ccd1-47ee-b6a3-1dde1dbce665",
+          "createdAt": "2026-07-28T03:12:53.000Z",
+          "updatedAt": "2026-07-28T03:12:53.000Z",
+          "uid": "35240-d3d58425-ccd1-47ee-b6a3-1dde1dbce665"
+        }
+      ],
+      "id": "71f39a4e-2454-4fa0-86ec-83348950d887",
+      "createdAt": "2026-07-28T03:12:53.000Z",
+      "updatedAt": "2026-07-28T03:12:53.000Z",
+      "uid": "35240-71f39a4e-2454-4fa0-86ec-83348950d887"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

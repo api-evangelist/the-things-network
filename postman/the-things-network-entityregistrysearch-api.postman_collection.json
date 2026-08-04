@@ -1,0 +1,2838 @@
+{
+  "info": {
+    "_postman_id": "92a31fe2-3058-4a91-8abf-d8ee810a1895",
+    "name": "The Things Stack \u2014 Application Server AppAs EntityRegistrySearch API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:11:24.000Z",
+    "updatedAt": "2026-07-28T03:11:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-92a31fe2-3058-4a91-8abf-d8ee810a1895"
+  },
+  "item": [
+    {
+      "name": "applications",
+      "item": [
+        {
+          "name": "{application_ids.application_id}",
+          "item": [
+            {
+              "name": "collaborators",
+              "item": [
+                {
+                  "name": "search",
+                  "item": [
+                    {
+                      "name": "Search for accounts that match the conditions specified in the request.",
+                      "id": "d457a6d9-e039-450b-aa26-e8888bb50b50",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application_ids.application_id/collaborators/search?query=<string>&only_users=<boolean>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application_ids.application_id",
+                            "collaborators",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "only_users",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "client_ids.client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "gateway_ids.gateway_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "gateway_ids.eui",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This ID shares namespace with user IDs.",
+                              "key": "organization_ids.organization_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "complement_collaborators",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "5e14bec5-c3db-4cbf-9bfb-1e81734b95d4",
+                              "key": "application_ids"
+                            },
+                            {
+                              "id": "671ed379-854c-4103-9a08-8540d401d31e",
+                              "key": "application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "462bef12-57bc-4815-9bc3-51b2bc9b563b",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application_ids.application_id/collaborators/search?query=<string>&only_users=<boolean>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application_ids.application_id",
+                                "collaborators",
+                                "search"
+                              ],
+                              "query": [
+                                {
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "only_users",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "gateway_ids.gateway_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "This ID shares namespace with user IDs.",
+                                  "key": "organization_ids.organization_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "complement_collaborators",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:11:25.000Z",
+                          "updatedAt": "2026-07-28T03:11:25.000Z",
+                          "uid": "35240-462bef12-57bc-4815-9bc3-51b2bc9b563b"
+                        },
+                        {
+                          "id": "30b55f60-b4df-46a5-9641-dbf1bca9a64a",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application_ids.application_id/collaborators/search?query=<string>&only_users=<boolean>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application_ids.application_id",
+                                "collaborators",
+                                "search"
+                              ],
+                              "query": [
+                                {
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "only_users",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "gateway_ids.gateway_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "This ID shares namespace with user IDs.",
+                                  "key": "organization_ids.organization_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "complement_collaborators",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:11:25.000Z",
+                          "updatedAt": "2026-07-28T03:11:25.000Z",
+                          "uid": "35240-30b55f60-b4df-46a5-9641-dbf1bca9a64a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:11:25.000Z",
+                      "updatedAt": "2026-07-28T03:11:25.000Z",
+                      "uid": "35240-d457a6d9-e039-450b-aa26-e8888bb50b50"
+                    }
+                  ],
+                  "id": "e40d4109-6c5c-488f-bc32-122c8003b8f4",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-e40d4109-6c5c-488f-bc32-122c8003b8f4"
+                }
+              ],
+              "id": "c8b9e7e5-6371-4c0d-9a01-14e84c186d92",
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-c8b9e7e5-6371-4c0d-9a01-14e84c186d92"
+            }
+          ],
+          "id": "c3769403-a825-4961-b64c-a24520a261ea",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-c3769403-a825-4961-b64c-a24520a261ea"
+        }
+      ],
+      "id": "f63fd574-f2ae-41d4-bcea-e48f6d47dd56",
+      "createdAt": "2026-07-28T03:11:25.000Z",
+      "updatedAt": "2026-07-28T03:11:25.000Z",
+      "uid": "35240-f63fd574-f2ae-41d4-bcea-e48f6d47dd56"
+    },
+    {
+      "name": "clients",
+      "item": [
+        {
+          "name": "{client_ids.client_id}",
+          "item": [
+            {
+              "name": "collaborators",
+              "item": [
+                {
+                  "name": "search",
+                  "item": [
+                    {
+                      "name": "Search for accounts that match the conditions specified in the request.",
+                      "id": "ae4f488e-792f-43c5-86b1-9110ce21dfac",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_ids.client_id",
+                            "collaborators",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "only_users",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "application_ids.application_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "gateway_ids.gateway_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "gateway_ids.eui",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This ID shares namespace with user IDs.",
+                              "key": "organization_ids.organization_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "complement_collaborators",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "ded1e8a2-5988-41df-ad3c-d9c0d93440d8",
+                              "key": "client_ids"
+                            },
+                            {
+                              "id": "572f6102-8533-4ab1-bcd6-874a1c0548f3",
+                              "key": "client_ids.client_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "851b38c6-4d17-4b78-83aa-c2cffb051236",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "clients",
+                                ":client_ids.client_id",
+                                "collaborators",
+                                "search"
+                              ],
+                              "query": [
+                                {
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "only_users",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "gateway_ids.gateway_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "This ID shares namespace with user IDs.",
+                                  "key": "organization_ids.organization_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "complement_collaborators",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "client_ids.client_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:11:25.000Z",
+                          "updatedAt": "2026-07-28T03:11:25.000Z",
+                          "uid": "35240-851b38c6-4d17-4b78-83aa-c2cffb051236"
+                        },
+                        {
+                          "id": "b2218b20-8051-436f-86bc-af20505cdcfb",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "clients",
+                                ":client_ids.client_id",
+                                "collaborators",
+                                "search"
+                              ],
+                              "query": [
+                                {
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "only_users",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "gateway_ids.gateway_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "This ID shares namespace with user IDs.",
+                                  "key": "organization_ids.organization_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "complement_collaborators",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "client_ids.client_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:11:25.000Z",
+                          "updatedAt": "2026-07-28T03:11:25.000Z",
+                          "uid": "35240-b2218b20-8051-436f-86bc-af20505cdcfb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:11:25.000Z",
+                      "updatedAt": "2026-07-28T03:11:25.000Z",
+                      "uid": "35240-ae4f488e-792f-43c5-86b1-9110ce21dfac"
+                    }
+                  ],
+                  "id": "fe7e9568-cfd3-407b-a152-9cec7dcaf7f7",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-fe7e9568-cfd3-407b-a152-9cec7dcaf7f7"
+                }
+              ],
+              "id": "5b948cff-6673-4d42-be4f-6ae04db53f06",
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-5b948cff-6673-4d42-be4f-6ae04db53f06"
+            }
+          ],
+          "id": "4489c52d-ed5c-4909-8254-cc8f700cb29e",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-4489c52d-ed5c-4909-8254-cc8f700cb29e"
+        }
+      ],
+      "id": "155a5bae-30d9-4714-af39-c1ce4e90d03d",
+      "createdAt": "2026-07-28T03:11:25.000Z",
+      "updatedAt": "2026-07-28T03:11:25.000Z",
+      "uid": "35240-155a5bae-30d9-4714-af39-c1ce4e90d03d"
+    },
+    {
+      "name": "gateways",
+      "item": [
+        {
+          "name": "{gateway_ids.gateway_id}",
+          "item": [
+            {
+              "name": "collaborators",
+              "item": [
+                {
+                  "name": "search",
+                  "item": [
+                    {
+                      "name": "Search for accounts that match the conditions specified in the request.",
+                      "id": "892592ee-033b-4fd2-ad56-a41af61e0698",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gateways",
+                            ":gateway_ids.gateway_id",
+                            "collaborators",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "only_users",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "application_ids.application_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "client_ids.client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "gateway_ids.eui",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This ID shares namespace with user IDs.",
+                              "key": "organization_ids.organization_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "complement_collaborators",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "6d52be66-7a31-42a4-ad19-64e1c81a7122",
+                              "key": "gateway_ids"
+                            },
+                            {
+                              "id": "91f9a7ad-c8e4-4643-9d16-000c7159e786",
+                              "key": "gateway_ids.gateway_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2a32b169-acde-4d03-a3e4-67f0fb1150d9",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gateways",
+                                ":gateway_ids.gateway_id",
+                                "collaborators",
+                                "search"
+                              ],
+                              "query": [
+                                {
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "only_users",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "This ID shares namespace with user IDs.",
+                                  "key": "organization_ids.organization_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "complement_collaborators",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_ids.gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:11:25.000Z",
+                          "updatedAt": "2026-07-28T03:11:25.000Z",
+                          "uid": "35240-2a32b169-acde-4d03-a3e4-67f0fb1150d9"
+                        },
+                        {
+                          "id": "882ac0f3-76a2-455e-8f5f-df8664e7a3c1",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gateways/:gateway_ids.gateway_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gateways",
+                                ":gateway_ids.gateway_id",
+                                "collaborators",
+                                "search"
+                              ],
+                              "query": [
+                                {
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "only_users",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "This ID shares namespace with user IDs.",
+                                  "key": "organization_ids.organization_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "complement_collaborators",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_ids.gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:11:25.000Z",
+                          "updatedAt": "2026-07-28T03:11:25.000Z",
+                          "uid": "35240-882ac0f3-76a2-455e-8f5f-df8664e7a3c1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:11:25.000Z",
+                      "updatedAt": "2026-07-28T03:11:25.000Z",
+                      "uid": "35240-892592ee-033b-4fd2-ad56-a41af61e0698"
+                    }
+                  ],
+                  "id": "5cf23d42-0db8-418e-9c13-a4481ee9ff6b",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-5cf23d42-0db8-418e-9c13-a4481ee9ff6b"
+                }
+              ],
+              "id": "978b7657-8429-4e48-ab49-eafcdec5becd",
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-978b7657-8429-4e48-ab49-eafcdec5becd"
+            }
+          ],
+          "id": "22684e5e-2e2d-4877-984c-ca0623d50df2",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-22684e5e-2e2d-4877-984c-ca0623d50df2"
+        }
+      ],
+      "id": "011a9cec-d280-4248-abce-23d3684606e3",
+      "createdAt": "2026-07-28T03:11:25.000Z",
+      "updatedAt": "2026-07-28T03:11:25.000Z",
+      "uid": "35240-011a9cec-d280-4248-abce-23d3684606e3"
+    },
+    {
+      "name": "organizations",
+      "item": [
+        {
+          "name": "{organization_ids.organization_id}",
+          "item": [
+            {
+              "name": "collaborators",
+              "item": [
+                {
+                  "name": "search",
+                  "item": [
+                    {
+                      "name": "Search for accounts that match the conditions specified in the request.",
+                      "id": "8f57147e-fe49-4caa-afbc-65427555a727",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:organization_ids.organization_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&complement_collaborators=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":organization_ids.organization_id",
+                            "collaborators",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "only_users",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "application_ids.application_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "client_ids.client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "gateway_ids.gateway_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "gateway_ids.eui",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "complement_collaborators",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "067509e5-aea7-4c2e-9133-c5e913a85ed2",
+                              "key": "organization_ids"
+                            },
+                            {
+                              "id": "b2e13a0a-da25-4064-9ab8-a2e79b45a2d7",
+                              "key": "organization_ids.organization_id",
+                              "value": "<string>",
+                              "description": "(Required) This ID shares namespace with user IDs."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9a15bb24-3a3b-4b4c-8893-f474916587cc",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:organization_ids.organization_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&complement_collaborators=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":organization_ids.organization_id",
+                                "collaborators",
+                                "search"
+                              ],
+                              "query": [
+                                {
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "only_users",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "gateway_ids.gateway_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "complement_collaborators",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "organization_ids.organization_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:11:25.000Z",
+                          "updatedAt": "2026-07-28T03:11:25.000Z",
+                          "uid": "35240-9a15bb24-3a3b-4b4c-8893-f474916587cc"
+                        },
+                        {
+                          "id": "e5d6b30a-d567-45e5-9ebe-7947ec6200f4",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:organization_ids.organization_id/collaborators/search?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&complement_collaborators=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":organization_ids.organization_id",
+                                "collaborators",
+                                "search"
+                              ],
+                              "query": [
+                                {
+                                  "key": "query",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "only_users",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "gateway_ids.gateway_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "complement_collaborators",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "organization_ids.organization_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:11:25.000Z",
+                          "updatedAt": "2026-07-28T03:11:25.000Z",
+                          "uid": "35240-e5d6b30a-d567-45e5-9ebe-7947ec6200f4"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:11:25.000Z",
+                      "updatedAt": "2026-07-28T03:11:25.000Z",
+                      "uid": "35240-8f57147e-fe49-4caa-afbc-65427555a727"
+                    }
+                  ],
+                  "id": "95b5aa48-e535-4cde-903a-187b62d34311",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-95b5aa48-e535-4cde-903a-187b62d34311"
+                }
+              ],
+              "id": "966cdba1-1aa5-4e34-b83c-be3ae9c2fa40",
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-966cdba1-1aa5-4e34-b83c-be3ae9c2fa40"
+            }
+          ],
+          "id": "539400db-22e0-4a9a-8e0f-2774b803a2de",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-539400db-22e0-4a9a-8e0f-2774b803a2de"
+        }
+      ],
+      "id": "77056513-94e6-4128-91ec-b7bac67f6c11",
+      "createdAt": "2026-07-28T03:11:25.000Z",
+      "updatedAt": "2026-07-28T03:11:25.000Z",
+      "uid": "35240-77056513-94e6-4128-91ec-b7bac67f6c11"
+    },
+    {
+      "name": "search",
+      "item": [
+        {
+          "name": "accounts",
+          "item": [
+            {
+              "name": "Search for accounts that match the conditions specified in the request.",
+              "id": "7fa616f4-d2bc-4d48-894c-3f3fd966a6cf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search/accounts?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search",
+                    "accounts"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Secondary identifier, which can only be used in specific requests.",
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This ID shares namespace with user IDs.",
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "55d826d3-ab12-4be7-aa0a-1a6b1faa69e3",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/accounts?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "only_users",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "application_ids.application_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "client_ids.client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "gateway_ids.gateway_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "gateway_ids.eui",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This ID shares namespace with user IDs.",
+                          "key": "organization_ids.organization_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "complement_collaborators",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-55d826d3-ab12-4be7-aa0a-1a6b1faa69e3"
+                },
+                {
+                  "id": "1184a820-a893-47fc-81fd-37d52697b8e2",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/accounts?query=<string>&only_users=<boolean>&application_ids.application_id=<string>&client_ids.client_id=<string>&gateway_ids.gateway_id=<string>&gateway_ids.eui=<string>&organization_ids.organization_id=<string>&complement_collaborators=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "only_users",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "application_ids.application_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "client_ids.client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "gateway_ids.gateway_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "gateway_ids.eui",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This ID shares namespace with user IDs.",
+                          "key": "organization_ids.organization_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "complement_collaborators",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-1184a820-a893-47fc-81fd-37d52697b8e2"
+                }
+              ],
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-7fa616f4-d2bc-4d48-894c-3f3fd966a6cf"
+            }
+          ],
+          "id": "8d43cf60-28f4-46e9-bb94-d0bc13c06a0a",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-8d43cf60-28f4-46e9-bb94-d0bc13c06a0a"
+        },
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "Search for applications that match the conditions specified in the request.\nNon-admin users will only match applications that they have rights on.",
+              "id": "f1fa00e0-dd1b-40d1-b7fb-e364341eff84",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search/applications?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search",
+                    "applications"
+                  ],
+                  "query": [
+                    {
+                      "description": "Find applications where the ID, name or description contains this substring.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find applications where the ID contains this substring.",
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find applications where the name contains this substring.",
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find applications where the description contains this substring.",
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted applications.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9aa5c3c9-8300-440f-ac85-9aa2cf2b8ef3",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/applications?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find applications where the ID, name or description contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find applications where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find applications where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find applications where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted applications.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"applications\": [\n    {\n      \"ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"Lorem_59\": \"<string>\",\n        \"ea_9f\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"network_server_address\": \"<string>\",\n      \"application_server_address\": \"<string>\",\n      \"join_server_address\": \"<string>\",\n      \"dev_eui_counter\": \"<long>\"\n    },\n    {\n      \"ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"eua0_\": \"<string>\",\n        \"ea_b\": \"<string>\",\n        \"nisi0\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"network_server_address\": \"<string>\",\n      \"application_server_address\": \"<string>\",\n      \"join_server_address\": \"<string>\",\n      \"dev_eui_counter\": \"<long>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-9aa5c3c9-8300-440f-ac85-9aa2cf2b8ef3"
+                },
+                {
+                  "id": "4185883b-dc8d-4156-9143-0ff222017cf3",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/applications?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "applications"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find applications where the ID, name or description contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find applications where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find applications where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find applications where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted applications.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-4185883b-dc8d-4156-9143-0ff222017cf3"
+                }
+              ],
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-f1fa00e0-dd1b-40d1-b7fb-e364341eff84"
+            }
+          ],
+          "id": "2d384731-a025-4246-9bd5-3cdfaf074652",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-2d384731-a025-4246-9bd5-3cdfaf074652"
+        },
+        {
+          "name": "clients",
+          "item": [
+            {
+              "name": "Search for OAuth clients that match the conditions specified in the request.\nNon-admin users will only match OAuth clients that they have rights on.",
+              "id": "12993195-7363-49f6-8dea-a4b66298d617",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search/clients?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&state=STATE_SUSPENDED&state=STATE_REJECTED&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search",
+                    "clients"
+                  ],
+                  "query": [
+                    {
+                      "description": "Find OAuth clients where the ID, name or description contains this substring.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find OAuth clients where the ID contains this substring.",
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find OAuth clients where the name contains this substring.",
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find OAuth clients where the description contains this substring.",
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find OAuth clients where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin.",
+                      "key": "state",
+                      "value": "STATE_SUSPENDED"
+                    },
+                    {
+                      "description": "Find OAuth clients where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin.",
+                      "key": "state",
+                      "value": "STATE_REJECTED"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted OAuth clients.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ce3ba730-9ba2-4984-ac5d-0fa44c1e7f59",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/clients?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&state=STATE_REJECTED&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "clients"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find OAuth clients where the ID, name or description contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find OAuth clients where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find OAuth clients where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find OAuth clients where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find OAuth clients where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin.",
+                          "key": "state",
+                          "value": "STATE_REJECTED"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted OAuth clients.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"clients\": [\n    {\n      \"ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"Ut_63\": \"<string>\",\n        \"magna08b\": \"<string>\",\n        \"quid02\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"secret\": \"<string>\",\n      \"redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logout_redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"skip_authorization\": \"<boolean>\",\n      \"endorsed\": \"<boolean>\",\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"ead3\": \"<string>\",\n        \"sunt_c\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"secret\": \"<string>\",\n      \"redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logout_redirect_uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"skip_authorization\": \"<boolean>\",\n      \"endorsed\": \"<boolean>\",\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-ce3ba730-9ba2-4984-ac5d-0fa44c1e7f59"
+                },
+                {
+                  "id": "ee10a15d-a1d4-4b46-8de6-5af5c94b7793",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/clients?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&state=STATE_REJECTED&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "clients"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find OAuth clients where the ID, name or description contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find OAuth clients where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find OAuth clients where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find OAuth clients where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find OAuth clients where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin.",
+                          "key": "state",
+                          "value": "STATE_REJECTED"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted OAuth clients.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-ee10a15d-a1d4-4b46-8de6-5af5c94b7793"
+                }
+              ],
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-12993195-7363-49f6-8dea-a4b66298d617"
+            }
+          ],
+          "id": "cd71a2fa-3abf-48bb-8a63-b69c453c7ab3",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-cd71a2fa-3abf-48bb-8a63-b69c453c7ab3"
+        },
+        {
+          "name": "gateways",
+          "item": [
+            {
+              "name": "Search for gateways that match the conditions specified in the request.\nNon-admin users will only match gateways that they have rights on.",
+              "id": "2f471292-de42-4796-b10d-d908f4f8c437",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search/gateways?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&eui_contains=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search",
+                    "gateways"
+                  ],
+                  "query": [
+                    {
+                      "description": "Find gateways where the ID, name, description or EUI contains this substring.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find gateways where the ID contains this substring.",
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find gateways where the name contains this substring.",
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find gateways where the description contains this substring.",
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find gateways where the (hexadecimal) EUI contains this substring.",
+                      "key": "eui_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted gateways.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "37c2a829-dc84-45ed-8848-5ff43dc02074",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/gateways?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&eui_contains=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "gateways"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find gateways where the ID, name, description or EUI contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find gateways where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find gateways where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find gateways where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find gateways where the (hexadecimal) EUI contains this substring.",
+                          "key": "eui_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted gateways.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"gateways\": [\n    {\n      \"ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"sint2\": \"<string>\",\n        \"ullamco_2aa\": \"<string>\",\n        \"laborum_0\": \"<string>\",\n        \"Lorem_4\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"runtime_version\": \"<string>\"\n      },\n      \"gateway_server_address\": \"<string>\",\n      \"auto_update\": \"<boolean>\",\n      \"update_channel\": \"<string>\",\n      \"frequency_plan_id\": \"<string>\",\n      \"frequency_plan_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"attributes\": {\n            \"fugiat_2\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"attributes\": {\n            \"cillum_57d\": \"<string>\",\n            \"magna_1\": \"<string>\",\n            \"officia9d\": \"<string>\",\n            \"tempor_66\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": \"<boolean>\",\n      \"location_public\": \"<boolean>\",\n      \"schedule_downlink_late\": \"<boolean>\",\n      \"enforce_duty_cycle\": \"<boolean>\",\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"<string>\",\n      \"update_location_from_status\": \"<boolean>\",\n      \"lbs_lns_secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        \"valid_from\": \"<dateTime>\",\n        \"valid_to\": \"<dateTime>\"\n      },\n      \"target_cups_uri\": \"<string>\",\n      \"target_cups_key\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"require_authenticated_connection\": \"<boolean>\",\n      \"lrfhss\": {\n        \"supported\": \"<boolean>\"\n      },\n      \"disable_packet_broker_forwarding\": \"<boolean>\"\n    },\n    {\n      \"ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"do_46\": \"<string>\",\n        \"mollit_a\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"runtime_version\": \"<string>\"\n      },\n      \"gateway_server_address\": \"<string>\",\n      \"auto_update\": \"<boolean>\",\n      \"update_channel\": \"<string>\",\n      \"frequency_plan_id\": \"<string>\",\n      \"frequency_plan_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"attributes\": {\n            \"labore_650\": \"<string>\",\n            \"Duis_0\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"attributes\": {\n            \"proident_2\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": \"<boolean>\",\n      \"location_public\": \"<boolean>\",\n      \"schedule_downlink_late\": \"<boolean>\",\n      \"enforce_duty_cycle\": \"<boolean>\",\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"<string>\",\n      \"update_location_from_status\": \"<boolean>\",\n      \"lbs_lns_secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        \"valid_from\": \"<dateTime>\",\n        \"valid_to\": \"<dateTime>\"\n      },\n      \"target_cups_uri\": \"<string>\",\n      \"target_cups_key\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"require_authenticated_connection\": \"<boolean>\",\n      \"lrfhss\": {\n        \"supported\": \"<boolean>\"\n      },\n      \"disable_packet_broker_forwarding\": \"<boolean>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-37c2a829-dc84-45ed-8848-5ff43dc02074"
+                },
+                {
+                  "id": "21be97b8-931b-44de-8212-c148c27bcec0",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/gateways?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&eui_contains=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "gateways"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find gateways where the ID, name, description or EUI contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find gateways where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find gateways where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find gateways where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find gateways where the (hexadecimal) EUI contains this substring.",
+                          "key": "eui_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted gateways.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-21be97b8-931b-44de-8212-c148c27bcec0"
+                }
+              ],
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-2f471292-de42-4796-b10d-d908f4f8c437"
+            }
+          ],
+          "id": "8d62a894-6988-445e-ab8b-609fc5f53692",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-8d62a894-6988-445e-ab8b-609fc5f53692"
+        },
+        {
+          "name": "organizations",
+          "item": [
+            {
+              "name": "Search for organizations that match the conditions specified in the request.\nNon-admin users will only match organizations that they have rights on.",
+              "id": "5a5708c1-ec6f-4811-837d-bebc8a6fce80",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search/organizations?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search",
+                    "organizations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Find organizations where the ID, name or description contains this substring.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find organizations where the ID contains this substring.",
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find organizations where the name contains this substring.",
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find organizations where the description contains this substring.",
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted organizations.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d9e5091e-cbf7-4885-99ed-864edc13d961",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/organizations?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "organizations"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find organizations where the ID, name or description contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find organizations where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find organizations where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find organizations where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted organizations.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"organizations\": [\n    {\n      \"ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"in_1\": \"<string>\",\n        \"exa8b\": \"<string>\",\n        \"do_728\": \"<string>\",\n        \"dolore_c\": \"<string>\",\n        \"aliquipfcd\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"fanout_notifications\": \"<boolean>\"\n    },\n    {\n      \"ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"ad_5\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"fanout_notifications\": \"<boolean>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-d9e5091e-cbf7-4885-99ed-864edc13d961"
+                },
+                {
+                  "id": "c9a304be-f7d2-410d-8b4b-b12eea409b55",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/organizations?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "organizations"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find organizations where the ID, name or description contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find organizations where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find organizations where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find organizations where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted organizations.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-c9a304be-f7d2-410d-8b4b-b12eea409b55"
+                }
+              ],
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-5a5708c1-ec6f-4811-837d-bebc8a6fce80"
+            }
+          ],
+          "id": "a1890f49-9b41-4e2a-865a-98c58cbba9e9",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-a1890f49-9b41-4e2a-865a-98c58cbba9e9"
+        },
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "Search for users that match the conditions specified in the request.\nThis is only available to admin users.",
+              "id": "fb9de019-fd8d-4c3f-ac9d-7107087f8542",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search/users?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&state=STATE_SUSPENDED&state=STATE_REJECTED&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Find users where the ID, name or description contains this substring.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find users where the ID contains this substring.",
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find users where the name contains this substring.",
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find users where the description contains this substring.",
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Find users where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin.",
+                      "key": "state",
+                      "value": "STATE_SUSPENDED"
+                    },
+                    {
+                      "description": "Find users where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin.",
+                      "key": "state",
+                      "value": "STATE_REJECTED"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Only return recently deleted users.",
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d3c5ba58-12db-4a58-9afb-4ae8764a3b8d",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/users?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&state=STATE_REJECTED&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find users where the ID, name or description contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find users where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find users where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find users where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find users where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin.",
+                          "key": "state",
+                          "value": "STATE_REJECTED"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted users.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"users\": [\n    {\n      \"ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"dolore3\": \"<string>\",\n        \"Ut_2\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"primary_email_address\": \"<string>\",\n      \"primary_email_address_validated_at\": \"<dateTime>\",\n      \"password\": \"<string>\",\n      \"password_updated_at\": \"<dateTime>\",\n      \"require_password_update\": \"<boolean>\",\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"admin\": \"<boolean>\",\n      \"temporary_password\": \"<string>\",\n      \"temporary_password_created_at\": \"<dateTime>\",\n      \"temporary_password_expires_at\": \"<dateTime>\",\n      \"profile_picture\": {\n        \"embedded\": {\n          \"mime_type\": \"<string>\",\n          \"data\": \"<string>\"\n        },\n        \"sizes\": {\n          \"ex_4\": \"<string>\"\n        }\n      },\n      \"console_preferences\": {\n        \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n        \"dashboard_layouts\": {\n          \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n        },\n        \"sort_by\": {\n          \"api_key\": \"<string>\",\n          \"application\": \"<string>\",\n          \"collaborator\": \"<string>\",\n          \"end_device\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"organization\": \"<string>\",\n          \"user\": \"<string>\"\n        },\n        \"tutorials\": {\n          \"seen\": [\n            \"TUTORIAL_UNKNOWN\",\n            \"TUTORIAL_UNKNOWN\"\n          ]\n        }\n      },\n      \"email_notification_preferences\": {\n        \"types\": [\n          \"UNKNOWN\",\n          \"UNKNOWN\"\n        ]\n      },\n      \"universal_rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"nisi8\": \"<string>\",\n        \"velit_72\": \"<string>\",\n        \"minimc05\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"primary_email_address\": \"<string>\",\n      \"primary_email_address_validated_at\": \"<dateTime>\",\n      \"password\": \"<string>\",\n      \"password_updated_at\": \"<dateTime>\",\n      \"require_password_update\": \"<boolean>\",\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"<string>\",\n      \"admin\": \"<boolean>\",\n      \"temporary_password\": \"<string>\",\n      \"temporary_password_created_at\": \"<dateTime>\",\n      \"temporary_password_expires_at\": \"<dateTime>\",\n      \"profile_picture\": {\n        \"embedded\": {\n          \"mime_type\": \"<string>\",\n          \"data\": \"<string>\"\n        },\n        \"sizes\": {\n          \"incididunt_21d\": \"<string>\",\n          \"mollit_0d\": \"<string>\",\n          \"eiusmod__0\": \"<string>\",\n          \"dolor1\": \"<string>\"\n        }\n      },\n      \"console_preferences\": {\n        \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n        \"dashboard_layouts\": {\n          \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n        },\n        \"sort_by\": {\n          \"api_key\": \"<string>\",\n          \"application\": \"<string>\",\n          \"collaborator\": \"<string>\",\n          \"end_device\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"organization\": \"<string>\",\n          \"user\": \"<string>\"\n        },\n        \"tutorials\": {\n          \"seen\": [\n            \"TUTORIAL_UNKNOWN\",\n            \"TUTORIAL_UNKNOWN\"\n          ]\n        }\n      },\n      \"email_notification_preferences\": {\n        \"types\": [\n          \"UNKNOWN\",\n          \"UNKNOWN\"\n        ]\n      },\n      \"universal_rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-d3c5ba58-12db-4a58-9afb-4ae8764a3b8d"
+                },
+                {
+                  "id": "18b0bc9c-d68e-4991-b08c-27bcd568fba4",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/users?query=<string>&id_contains=<string>&name_contains=<string>&description_contains=<string>&attributes_contain[string]=<string>&state=STATE_REJECTED&field_mask=<string>&order=<string>&limit=<long>&page=<long>&deleted=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Find users where the ID, name or description contains this substring.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find users where the ID contains this substring.",
+                          "key": "id_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find users where the name contains this substring.",
+                          "key": "name_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find users where the description contains this substring.",
+                          "key": "description_contains",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18",
+                          "key": "attributes_contain[string]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Find users where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin.",
+                          "key": "state",
+                          "value": "STATE_REJECTED"
+                        },
+                        {
+                          "key": "field_mask",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Only return recently deleted users.",
+                          "key": "deleted",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolorf\": {},\n      \"fugiatb_\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"Duis9fd\": {},\n      \"proidente\": {},\n      \"aliquip_0a\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:11:25.000Z",
+                  "updatedAt": "2026-07-28T03:11:25.000Z",
+                  "uid": "35240-18b0bc9c-d68e-4991-b08c-27bcd568fba4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:11:25.000Z",
+              "updatedAt": "2026-07-28T03:11:25.000Z",
+              "uid": "35240-fb9de019-fd8d-4c3f-ac9d-7107087f8542"
+            }
+          ],
+          "id": "45c751a8-a882-4909-8bc4-c636ae0c850d",
+          "createdAt": "2026-07-28T03:11:25.000Z",
+          "updatedAt": "2026-07-28T03:11:25.000Z",
+          "uid": "35240-45c751a8-a882-4909-8bc4-c636ae0c850d"
+        }
+      ],
+      "id": "5086ab9e-c6d3-476b-ad7d-ef6b95603788",
+      "createdAt": "2026-07-28T03:11:25.000Z",
+      "updatedAt": "2026-07-28T03:11:25.000Z",
+      "uid": "35240-5086ab9e-c6d3-476b-ad7d-ef6b95603788"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

@@ -1,0 +1,1448 @@
+{
+  "info": {
+    "_postman_id": "dc15450f-07fd-48fb-be2e-0c2a051e35d6",
+    "name": "The Things Stack \u2014 Application Server AppAs ApplicationUpStorage API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:26.000Z",
+    "updatedAt": "2026-07-28T03:10:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dc15450f-07fd-48fb-be2e-0c2a051e35d6"
+  },
+  "item": [
+    {
+      "name": "as",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "{application_ids.application_id}",
+              "item": [
+                {
+                  "name": "packages",
+                  "item": [
+                    {
+                      "name": "storage",
+                      "item": [
+                        {
+                          "name": "{type}",
+                          "item": [
+                            {
+                              "name": "count",
+                              "item": [
+                                {
+                                  "name": "Returns how many application messages have been stored in the database for an application or end device.",
+                                  "id": "ce690a65-d233-477b-8664-6647719298ed",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/packages/storage/:type/count?end_device_ids.device_id=<string>&end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&after=<dateTime>&before=<dateTime>&f_port=<long>&last=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "as",
+                                        "applications",
+                                        ":application_ids.application_id",
+                                        "packages",
+                                        "storage",
+                                        ":type",
+                                        "count"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "end_device_ids.device_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevEUI.",
+                                          "key": "end_device_ids.dev_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                          "key": "end_device_ids.join_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevAddr.",
+                                          "key": "end_device_ids.dev_addr",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                          "key": "after",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                          "key": "before",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Count uplinks on a specific FPort only.",
+                                          "key": "f_port",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                          "key": "last",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "9f546b0d-96e7-45a8-b533-fae3e1971a6f",
+                                          "key": "application_ids"
+                                        },
+                                        {
+                                          "id": "865be46a-d187-4876-9071-f0dba722d914",
+                                          "key": "type",
+                                          "value": "<string>",
+                                          "description": "(Required) Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+                                        },
+                                        {
+                                          "id": "bb4ecc3b-92a1-4d19-a8c7-7420ad563ec8",
+                                          "key": "application_ids.application_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "f9eb59f9-48bd-4d69-a0c6-1ef592976549",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/packages/storage/:type/count?end_device_ids.device_id=<string>&end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&after=<dateTime>&before=<dateTime>&f_port=<long>&last=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "as",
+                                            "applications",
+                                            ":application_ids.application_id",
+                                            "packages",
+                                            "storage",
+                                            ":type",
+                                            "count"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "end_device_ids.device_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevEUI.",
+                                              "key": "end_device_ids.dev_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                              "key": "end_device_ids.join_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevAddr.",
+                                              "key": "end_device_ids.dev_addr",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                              "key": "after",
+                                              "value": "<dateTime>"
+                                            },
+                                            {
+                                              "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                              "key": "before",
+                                              "value": "<dateTime>"
+                                            },
+                                            {
+                                              "description": "Count uplinks on a specific FPort only.",
+                                              "key": "f_port",
+                                              "value": "<long>"
+                                            },
+                                            {
+                                              "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                              "key": "last",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "application_ids.application_id"
+                                            },
+                                            {
+                                              "key": "type"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"count\": {\n    \"Ute17\": \"<long>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T03:10:26.000Z",
+                                      "updatedAt": "2026-07-28T03:10:26.000Z",
+                                      "uid": "35240-f9eb59f9-48bd-4d69-a0c6-1ef592976549"
+                                    },
+                                    {
+                                      "id": "e532d593-a5b3-45b6-85ee-e3508536e0f3",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/packages/storage/:type/count?end_device_ids.device_id=<string>&end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&after=<dateTime>&before=<dateTime>&f_port=<long>&last=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "as",
+                                            "applications",
+                                            ":application_ids.application_id",
+                                            "packages",
+                                            "storage",
+                                            ":type",
+                                            "count"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "end_device_ids.device_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevEUI.",
+                                              "key": "end_device_ids.dev_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                              "key": "end_device_ids.join_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevAddr.",
+                                              "key": "end_device_ids.dev_addr",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                              "key": "after",
+                                              "value": "<dateTime>"
+                                            },
+                                            {
+                                              "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                              "key": "before",
+                                              "value": "<dateTime>"
+                                            },
+                                            {
+                                              "description": "Count uplinks on a specific FPort only.",
+                                              "key": "f_port",
+                                              "value": "<long>"
+                                            },
+                                            {
+                                              "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                              "key": "last",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "application_ids.application_id"
+                                            },
+                                            {
+                                              "key": "type"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"eiusmode9\": {},\n      \"pariatur_98\": {},\n      \"occaecat7\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:10:26.000Z",
+                                      "updatedAt": "2026-07-28T03:10:26.000Z",
+                                      "uid": "35240-e532d593-a5b3-45b6-85ee-e3508536e0f3"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:10:26.000Z",
+                                  "updatedAt": "2026-07-28T03:10:26.000Z",
+                                  "uid": "35240-ce690a65-d233-477b-8664-6647719298ed"
+                                }
+                              ],
+                              "id": "57a65633-8ac1-4afe-8661-7b7f9dec220c",
+                              "createdAt": "2026-07-28T03:10:26.000Z",
+                              "updatedAt": "2026-07-28T03:10:26.000Z",
+                              "uid": "35240-57a65633-8ac1-4afe-8661-7b7f9dec220c"
+                            },
+                            {
+                              "name": "Returns a stream of application messages that have been stored in the database.",
+                              "id": "e1e50b37-b529-422e-8791-dd7af87d86c3",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/packages/storage/:type?end_device_ids.device_id=<string>&end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&limit=<long>&after=<dateTime>&before=<dateTime>&f_port=<long>&order=<string>&field_mask=<string>&last=<string>&continuation_token=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "as",
+                                    "applications",
+                                    ":application_ids.application_id",
+                                    "packages",
+                                    "storage",
+                                    ":type"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "end_device_ids.device_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "end_device_ids.dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "end_device_ids.join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "end_device_ids.dev_addr",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit number of results.",
+                                      "key": "limit",
+                                      "value": "<long>"
+                                    },
+                                    {
+                                      "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                      "key": "after",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                      "key": "before",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Query uplinks on a specific FPort only.",
+                                      "key": "f_port",
+                                      "value": "<long>"
+                                    },
+                                    {
+                                      "description": "Order results.",
+                                      "key": "order",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message.",
+                                      "key": "field_mask",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                      "key": "last",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored.",
+                                      "key": "continuation_token",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3c6800fd-6876-4e39-a8ac-699fe3505377",
+                                      "key": "application_ids"
+                                    },
+                                    {
+                                      "id": "8278d3d4-49b9-4a67-9997-0b728d5f3f51",
+                                      "key": "type",
+                                      "value": "<string>",
+                                      "description": "(Required) Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+                                    },
+                                    {
+                                      "id": "c2d8567e-2b58-4a59-9c71-9b5790fa05b5",
+                                      "key": "application_ids.application_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "569a1b54-fb65-4106-b6b0-a72d4b6c62a4",
+                                  "name": "A successful response.(streaming responses)",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/packages/storage/:type?end_device_ids.device_id=<string>&end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&limit=<long>&after=<dateTime>&before=<dateTime>&f_port=<long>&order=<string>&field_mask=<string>&last=<string>&continuation_token=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "as",
+                                        "applications",
+                                        ":application_ids.application_id",
+                                        "packages",
+                                        "storage",
+                                        ":type"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "end_device_ids.device_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevEUI.",
+                                          "key": "end_device_ids.dev_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                          "key": "end_device_ids.join_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevAddr.",
+                                          "key": "end_device_ids.dev_addr",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Limit number of results.",
+                                          "key": "limit",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                          "key": "after",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                          "key": "before",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Query uplinks on a specific FPort only.",
+                                          "key": "f_port",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Order results.",
+                                          "key": "order",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                          "key": "last",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored.",
+                                          "key": "continuation_token",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "application_ids.application_id"
+                                        },
+                                        {
+                                          "key": "type"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"result\": {\n    \"end_device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"<string>\",\n      \"join_eui\": \"<string>\",\n      \"dev_addr\": \"<string>\"\n    },\n    \"correlation_ids\": [\n      \"<string>\"\n    ],\n    \"received_at\": \"<dateTime>\",\n    \"uplink_message\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"normalized_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"rx_metadata\": [\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": \"<string>\",\n            \"eui\": \"<string>\"\n          },\n          \"packet_broker\": {\n            \"message_id\": \"<string>\",\n            \"forwarder_net_id\": \"<string>\",\n            \"forwarder_tenant_id\": \"<string>\",\n            \"forwarder_cluster_id\": \"<string>\",\n            \"forwarder_gateway_eui\": \"<string>\",\n            \"forwarder_gateway_id\": \"<string>\",\n            \"home_network_net_id\": \"<string>\",\n            \"home_network_tenant_id\": \"<string>\",\n            \"home_network_cluster_id\": \"<string>\",\n            \"hops\": [\n              {\n                \"received_at\": \"<dateTime>\",\n                \"sender_name\": \"<string>\",\n                \"sender_address\": \"<string>\",\n                \"receiver_name\": \"<string>\",\n                \"receiver_agent\": \"<string>\"\n              }\n            ]\n          },\n          \"relay\": {\n            \"device_id\": \"<string>\",\n            \"wor_channel\": \"RELAY_WOR_CHANNEL_DEFAULT\"\n          },\n          \"antenna_index\": \"<long>\",\n          \"time\": \"<dateTime>\",\n          \"timestamp\": \"<long>\",\n          \"fine_timestamp\": \"<string>\",\n          \"encrypted_fine_timestamp\": \"<string>\",\n          \"encrypted_fine_timestamp_key_id\": \"<string>\",\n          \"rssi\": \"<float>\",\n          \"signal_rssi\": \"<float>\",\n          \"channel_rssi\": \"<float>\",\n          \"rssi_standard_deviation\": \"<float>\",\n          \"snr\": \"<float>\",\n          \"frequency_offset\": \"<int64>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"<string>\",\n          \"channel_index\": \"<long>\",\n          \"hopping_width\": \"<long>\",\n          \"frequency_drift\": \"<integer>\",\n          \"gps_time\": \"<dateTime>\",\n          \"received_at\": \"<dateTime>\",\n          \"advanced\": {}\n        }\n      ],\n      \"settings\": {\n        \"data_rate\": {\n          \"lora\": {\n            \"bandwidth\": \"<long>\",\n            \"spreading_factor\": \"<long>\",\n            \"coding_rate\": \"<string>\"\n          },\n          \"fsk\": {\n            \"bit_rate\": \"<long>\"\n          },\n          \"lrfhss\": {\n            \"modulation_type\": \"<long>\",\n            \"operating_channel_width\": \"<long>\",\n            \"coding_rate\": \"<string>\"\n          }\n        },\n        \"frequency\": \"<string>\",\n        \"enable_crc\": \"<boolean>\",\n        \"timestamp\": \"<long>\",\n        \"time\": \"<dateTime>\",\n        \"downlink\": {\n          \"antenna_index\": \"<long>\",\n          \"tx_power\": \"<float>\",\n          \"invert_polarization\": \"<boolean>\"\n        },\n        \"concentrator_timestamp\": \"<int64>\"\n      },\n      \"received_at\": \"<dateTime>\",\n      \"app_s_key\": {\n        \"key\": \"<string>\",\n        \"kek_label\": \"<string>\",\n        \"encrypted_key\": \"<string>\"\n      },\n      \"last_a_f_cnt_down\": \"<long>\",\n      \"confirmed\": \"<boolean>\",\n      \"consumed_airtime\": \"<string>\",\n      \"packet_error_rate\": \"<float>\",\n      \"locations\": {\n        \"commodo_3\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"exercitation391\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"Excepteur_663\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"cillum_4\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"last_battery_percentage\": {\n        \"f_cnt\": \"<long>\",\n        \"value\": \"<float>\",\n        \"received_at\": \"<dateTime>\"\n      },\n      \"attributes\": {\n        \"cillum_4\": \"<string>\",\n        \"sitdd\": \"<string>\",\n        \"in_ed\": \"<string>\"\n      }\n    },\n    \"uplink_normalized\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"normalized_payload\": {},\n      \"normalized_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"rx_metadata\": [\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": \"<string>\",\n            \"eui\": \"<string>\"\n          },\n          \"packet_broker\": {\n            \"message_id\": \"<string>\",\n            \"forwarder_net_id\": \"<string>\",\n            \"forwarder_tenant_id\": \"<string>\",\n            \"forwarder_cluster_id\": \"<string>\",\n            \"forwarder_gateway_eui\": \"<string>\",\n            \"forwarder_gateway_id\": \"<string>\",\n            \"home_network_net_id\": \"<string>\",\n            \"home_network_tenant_id\": \"<string>\",\n            \"home_network_cluster_id\": \"<string>\",\n            \"hops\": [\n              {\n                \"received_at\": \"<dateTime>\",\n                \"sender_name\": \"<string>\",\n                \"sender_address\": \"<string>\",\n                \"receiver_name\": \"<string>\",\n                \"receiver_agent\": \"<string>\"\n              }\n            ]\n          },\n          \"relay\": {\n            \"device_id\": \"<string>\",\n            \"wor_channel\": \"RELAY_WOR_CHANNEL_DEFAULT\"\n          },\n          \"antenna_index\": \"<long>\",\n          \"time\": \"<dateTime>\",\n          \"timestamp\": \"<long>\",\n          \"fine_timestamp\": \"<string>\",\n          \"encrypted_fine_timestamp\": \"<string>\",\n          \"encrypted_fine_timestamp_key_id\": \"<string>\",\n          \"rssi\": \"<float>\",\n          \"signal_rssi\": \"<float>\",\n          \"channel_rssi\": \"<float>\",\n          \"rssi_standard_deviation\": \"<float>\",\n          \"snr\": \"<float>\",\n          \"frequency_offset\": \"<int64>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"<string>\",\n          \"channel_index\": \"<long>\",\n          \"hopping_width\": \"<long>\",\n          \"frequency_drift\": \"<integer>\",\n          \"gps_time\": \"<dateTime>\",\n          \"received_at\": \"<dateTime>\",\n          \"advanced\": {}\n        }\n      ],\n      \"settings\": {\n        \"data_rate\": {\n          \"lora\": {\n            \"bandwidth\": \"<long>\",\n            \"spreading_factor\": \"<long>\",\n            \"coding_rate\": \"<string>\"\n          },\n          \"fsk\": {\n            \"bit_rate\": \"<long>\"\n          },\n          \"lrfhss\": {\n            \"modulation_type\": \"<long>\",\n            \"operating_channel_width\": \"<long>\",\n            \"coding_rate\": \"<string>\"\n          }\n        },\n        \"frequency\": \"<string>\",\n        \"enable_crc\": \"<boolean>\",\n        \"timestamp\": \"<long>\",\n        \"time\": \"<dateTime>\",\n        \"downlink\": {\n          \"antenna_index\": \"<long>\",\n          \"tx_power\": \"<float>\",\n          \"invert_polarization\": \"<boolean>\"\n        },\n        \"concentrator_timestamp\": \"<int64>\"\n      },\n      \"received_at\": \"<dateTime>\",\n      \"confirmed\": \"<boolean>\",\n      \"consumed_airtime\": \"<string>\",\n      \"locations\": {\n        \"proident_6e\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"sed_879\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"doloreb5\": \"<string>\",\n        \"enim_bd\": \"<string>\",\n        \"eu_1\": \"<string>\"\n      }\n    },\n    \"join_accept\": {\n      \"session_key_id\": \"<string>\",\n      \"app_s_key\": {\n        \"key\": \"<string>\",\n        \"kek_label\": \"<string>\",\n        \"encrypted_key\": \"<string>\"\n      },\n      \"invalidated_downlinks\": [\n        {\n          \"session_key_id\": \"<string>\",\n          \"f_port\": \"<long>\",\n          \"f_cnt\": \"<long>\",\n          \"frm_payload\": \"<string>\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"<string>\"\n          ],\n          \"confirmed\": \"<boolean>\",\n          \"class_b_c\": {\n            \"gateways\": [\n              {\n                \"gateway_ids\": {\n                  \"gateway_id\": \"<string>\",\n                  \"eui\": \"<string>\"\n                },\n                \"antenna_index\": \"<long>\",\n                \"group_index\": \"<long>\"\n              }\n            ],\n            \"absolute_time\": \"<dateTime>\"\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"<string>\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": \"<long>\",\n            \"max_attempts\": \"<long>\"\n          },\n          \"locations\": {\n            \"Duis_6a\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            },\n            \"velit_e2\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            },\n            \"eiusmodf7\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            },\n            \"aliqua2\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": \"<string>\",\n            \"model_id\": \"<string>\",\n            \"hardware_version\": \"<string>\",\n            \"firmware_version\": \"<string>\",\n            \"band_id\": \"<string>\"\n          },\n          \"network_ids\": {\n            \"net_id\": \"<string>\",\n            \"ns_id\": \"<string>\",\n            \"tenant_id\": \"<string>\",\n            \"cluster_id\": \"<string>\",\n            \"cluster_address\": \"<string>\",\n            \"tenant_address\": \"<string>\"\n          },\n          \"attributes\": {\n            \"ipsum_d5e\": \"<string>\"\n          }\n        }\n      ],\n      \"pending_session\": \"<boolean>\",\n      \"received_at\": \"<dateTime>\",\n      \"locations\": {\n        \"nonf8\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"est_7\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"consectetur_8e\": \"<string>\",\n        \"reprehenderit426\": \"<string>\"\n      }\n    },\n    \"downlink_ack\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"confirmed\": \"<boolean>\",\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"gateway_id\": \"<string>\",\n              \"eui\": \"<string>\"\n            },\n            \"antenna_index\": \"<long>\",\n            \"group_index\": \"<long>\"\n          }\n        ],\n        \"absolute_time\": \"<dateTime>\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"<string>\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": \"<long>\",\n        \"max_attempts\": \"<long>\"\n      },\n      \"locations\": {\n        \"elit_802\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"qui92f\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"inf_f\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"adipisicing_44f\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"anim4de\": \"<string>\",\n        \"auteee\": \"<string>\"\n      }\n    },\n    \"downlink_nack\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"confirmed\": \"<boolean>\",\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"gateway_id\": \"<string>\",\n              \"eui\": \"<string>\"\n            },\n            \"antenna_index\": \"<long>\",\n            \"group_index\": \"<long>\"\n          }\n        ],\n        \"absolute_time\": \"<dateTime>\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"<string>\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": \"<long>\",\n        \"max_attempts\": \"<long>\"\n      },\n      \"locations\": {\n        \"Duis1\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"exercitation_c0a\": \"<string>\"\n      }\n    },\n    \"downlink_sent\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"confirmed\": \"<boolean>\",\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"gateway_id\": \"<string>\",\n              \"eui\": \"<string>\"\n            },\n            \"antenna_index\": \"<long>\",\n            \"group_index\": \"<long>\"\n          }\n        ],\n        \"absolute_time\": \"<dateTime>\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"<string>\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": \"<long>\",\n        \"max_attempts\": \"<long>\"\n      },\n      \"locations\": {\n        \"nostrud1_\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"ut_9f\": \"<string>\"\n      }\n    },\n    \"downlink_failed\": {\n      \"downlink\": {\n        \"session_key_id\": \"<string>\",\n        \"f_port\": \"<long>\",\n        \"f_cnt\": \"<long>\",\n        \"frm_payload\": \"<string>\",\n        \"decoded_payload\": {},\n        \"decoded_payload_warnings\": [\n          \"<string>\"\n        ],\n        \"confirmed\": \"<boolean>\",\n        \"class_b_c\": {\n          \"gateways\": [\n            {\n              \"gateway_ids\": {\n                \"gateway_id\": \"<string>\",\n                \"eui\": \"<string>\"\n              },\n              \"antenna_index\": \"<long>\",\n              \"group_index\": \"<long>\"\n            }\n          ],\n          \"absolute_time\": \"<dateTime>\"\n        },\n        \"priority\": \"LOWEST\",\n        \"correlation_ids\": [\n          \"<string>\"\n        ],\n        \"confirmed_retry\": {\n          \"attempt\": \"<long>\",\n          \"max_attempts\": \"<long>\"\n        },\n        \"locations\": {\n          \"ut_9\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"dolorf2\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"eiusmod_90\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          }\n        },\n        \"version_ids\": {\n          \"brand_id\": \"<string>\",\n          \"model_id\": \"<string>\",\n          \"hardware_version\": \"<string>\",\n          \"firmware_version\": \"<string>\",\n          \"band_id\": \"<string>\"\n        },\n        \"network_ids\": {\n          \"net_id\": \"<string>\",\n          \"ns_id\": \"<string>\",\n          \"tenant_id\": \"<string>\",\n          \"cluster_id\": \"<string>\",\n          \"cluster_address\": \"<string>\",\n          \"tenant_address\": \"<string>\"\n        },\n        \"attributes\": {\n          \"veniam_e63\": \"<string>\"\n        }\n      },\n      \"error\": {\n        \"namespace\": \"<string>\",\n        \"name\": \"<string>\",\n        \"message_format\": \"<string>\",\n        \"attributes\": {},\n        \"correlation_id\": \"<string>\",\n        \"cause\": {\n          \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n        },\n        \"code\": \"<long>\",\n        \"details\": [\n          {\n            \"@type\": \"<string>\",\n            \"dolord4e\": {},\n            \"tempor3\": {}\n          }\n        ]\n      },\n      \"locations\": {\n        \"consectetur_60\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"quis94\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"adipisicing_6e\": \"<string>\",\n        \"officia6b5\": \"<string>\"\n      }\n    },\n    \"downlink_queued\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"confirmed\": \"<boolean>\",\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"gateway_id\": \"<string>\",\n              \"eui\": \"<string>\"\n            },\n            \"antenna_index\": \"<long>\",\n            \"group_index\": \"<long>\"\n          }\n        ],\n        \"absolute_time\": \"<dateTime>\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"<string>\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": \"<long>\",\n        \"max_attempts\": \"<long>\"\n      },\n      \"locations\": {\n        \"reprehenderit_5\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"seddd\": \"<string>\"\n      }\n    },\n    \"downlink_queue_invalidated\": {\n      \"downlinks\": [\n        {\n          \"session_key_id\": \"<string>\",\n          \"f_port\": \"<long>\",\n          \"f_cnt\": \"<long>\",\n          \"frm_payload\": \"<string>\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"<string>\"\n          ],\n          \"confirmed\": \"<boolean>\",\n          \"class_b_c\": {\n            \"gateways\": [\n              {\n                \"gateway_ids\": {\n                  \"gateway_id\": \"<string>\",\n                  \"eui\": \"<string>\"\n                },\n                \"antenna_index\": \"<long>\",\n                \"group_index\": \"<long>\"\n              }\n            ],\n            \"absolute_time\": \"<dateTime>\"\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"<string>\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": \"<long>\",\n            \"max_attempts\": \"<long>\"\n          },\n          \"locations\": {\n            \"minim3c\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            },\n            \"Excepteur2b\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": \"<string>\",\n            \"model_id\": \"<string>\",\n            \"hardware_version\": \"<string>\",\n            \"firmware_version\": \"<string>\",\n            \"band_id\": \"<string>\"\n          },\n          \"network_ids\": {\n            \"net_id\": \"<string>\",\n            \"ns_id\": \"<string>\",\n            \"tenant_id\": \"<string>\",\n            \"cluster_id\": \"<string>\",\n            \"cluster_address\": \"<string>\",\n            \"tenant_address\": \"<string>\"\n          },\n          \"attributes\": {\n            \"sunt_a\": \"<string>\",\n            \"dolore20e\": \"<string>\"\n          }\n        }\n      ],\n      \"last_f_cnt_down\": \"<long>\",\n      \"session_key_id\": \"<string>\",\n      \"locations\": {\n        \"et_21\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"adipisicing117\": \"<string>\",\n        \"amet_6\": \"<string>\"\n      }\n    },\n    \"location_solved\": {\n      \"service\": \"<string>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"officia_2\": \"<string>\"\n      }\n    },\n    \"service_data\": {\n      \"service\": \"<string>\",\n      \"data\": {},\n      \"locations\": {\n        \"dolor_9\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"Duis_6f2\": \"<string>\"\n      }\n    },\n    \"simulated\": \"<boolean>\"\n  },\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"details\": [\n      {\n        \"@type\": \"<string>\"\n      }\n    ]\n  }\n}",
+                                  "createdAt": "2026-07-28T03:10:26.000Z",
+                                  "updatedAt": "2026-07-28T03:10:26.000Z",
+                                  "uid": "35240-569a1b54-fb65-4106-b6b0-a72d4b6c62a4"
+                                },
+                                {
+                                  "id": "94b5934e-23fd-48be-9a10-8d7f85d9c324",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/packages/storage/:type?end_device_ids.device_id=<string>&end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&limit=<long>&after=<dateTime>&before=<dateTime>&f_port=<long>&order=<string>&field_mask=<string>&last=<string>&continuation_token=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "as",
+                                        "applications",
+                                        ":application_ids.application_id",
+                                        "packages",
+                                        "storage",
+                                        ":type"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "end_device_ids.device_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevEUI.",
+                                          "key": "end_device_ids.dev_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                          "key": "end_device_ids.join_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevAddr.",
+                                          "key": "end_device_ids.dev_addr",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Limit number of results.",
+                                          "key": "limit",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                          "key": "after",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                          "key": "before",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Query uplinks on a specific FPort only.",
+                                          "key": "f_port",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Order results.",
+                                          "key": "order",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                          "key": "last",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored.",
+                                          "key": "continuation_token",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "application_ids.application_id"
+                                        },
+                                        {
+                                          "key": "type"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"eiusmode9\": {},\n      \"pariatur_98\": {},\n      \"occaecat7\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:10:26.000Z",
+                                  "updatedAt": "2026-07-28T03:10:26.000Z",
+                                  "uid": "35240-94b5934e-23fd-48be-9a10-8d7f85d9c324"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:10:26.000Z",
+                              "updatedAt": "2026-07-28T03:10:26.000Z",
+                              "uid": "35240-e1e50b37-b529-422e-8791-dd7af87d86c3"
+                            }
+                          ],
+                          "id": "5d0ef37e-86f5-4af0-abd0-4a5181ae12ce",
+                          "createdAt": "2026-07-28T03:10:26.000Z",
+                          "updatedAt": "2026-07-28T03:10:26.000Z",
+                          "uid": "35240-5d0ef37e-86f5-4af0-abd0-4a5181ae12ce"
+                        }
+                      ],
+                      "id": "844b4567-677d-4999-a230-24716ffc5193",
+                      "createdAt": "2026-07-28T03:10:26.000Z",
+                      "updatedAt": "2026-07-28T03:10:26.000Z",
+                      "uid": "35240-844b4567-677d-4999-a230-24716ffc5193"
+                    }
+                  ],
+                  "id": "919ae30a-2221-4f35-94fc-8cdf51b37f62",
+                  "createdAt": "2026-07-28T03:10:26.000Z",
+                  "updatedAt": "2026-07-28T03:10:26.000Z",
+                  "uid": "35240-919ae30a-2221-4f35-94fc-8cdf51b37f62"
+                }
+              ],
+              "id": "002de589-ddf8-4206-bb67-49fba3bda0a2",
+              "createdAt": "2026-07-28T03:10:26.000Z",
+              "updatedAt": "2026-07-28T03:10:26.000Z",
+              "uid": "35240-002de589-ddf8-4206-bb67-49fba3bda0a2"
+            },
+            {
+              "name": "{end_device_ids.application_ids.application_id}",
+              "item": [
+                {
+                  "name": "devices",
+                  "item": [
+                    {
+                      "name": "{end_device_ids.device_id}",
+                      "item": [
+                        {
+                          "name": "packages",
+                          "item": [
+                            {
+                              "name": "storage",
+                              "item": [
+                                {
+                                  "name": "{type}",
+                                  "item": [
+                                    {
+                                      "name": "count",
+                                      "item": [
+                                        {
+                                          "name": "Returns how many application messages have been stored in the database for an application or end device.",
+                                          "id": "7db992c9-492b-4207-8ad1-d5b1d2e6162c",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/packages/storage/:type/count?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&after=<dateTime>&before=<dateTime>&f_port=<long>&last=<string>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "as",
+                                                "applications",
+                                                ":end_device_ids.application_ids.application_id",
+                                                "devices",
+                                                ":end_device_ids.device_id",
+                                                "packages",
+                                                "storage",
+                                                ":type",
+                                                "count"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "The LoRaWAN DevEUI.",
+                                                  "key": "end_device_ids.dev_eui",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                                  "key": "end_device_ids.join_eui",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The LoRaWAN DevAddr.",
+                                                  "key": "end_device_ids.dev_addr",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                                  "key": "after",
+                                                  "value": "<dateTime>"
+                                                },
+                                                {
+                                                  "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                                  "key": "before",
+                                                  "value": "<dateTime>"
+                                                },
+                                                {
+                                                  "description": "Count uplinks on a specific FPort only.",
+                                                  "key": "f_port",
+                                                  "value": "<long>"
+                                                },
+                                                {
+                                                  "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                                  "key": "last",
+                                                  "value": "<string>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "912a32c8-2471-4a99-ab3e-07e366833126",
+                                                  "key": "end_device_ids"
+                                                },
+                                                {
+                                                  "id": "e9c05322-703e-4bfa-9419-9ccf9ff75666",
+                                                  "key": "type",
+                                                  "value": "<string>",
+                                                  "description": "(Required) Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+                                                },
+                                                {
+                                                  "id": "fccc1564-1d35-49c8-844c-78cc4cfaaef5",
+                                                  "key": "end_device_ids.application_ids.application_id",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "1e870464-4f09-434e-a0e2-07eefe280d4a",
+                                                  "key": "end_device_ids.device_id",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "62c2e213-e4a4-4348-9ef3-3acf61a40430",
+                                              "name": "A successful response.",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: apikey",
+                                                    "key": "Authorization",
+                                                    "value": "<API Key>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/packages/storage/:type/count?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&after=<dateTime>&before=<dateTime>&f_port=<long>&last=<string>",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "as",
+                                                    "applications",
+                                                    ":end_device_ids.application_ids.application_id",
+                                                    "devices",
+                                                    ":end_device_ids.device_id",
+                                                    "packages",
+                                                    "storage",
+                                                    ":type",
+                                                    "count"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "The LoRaWAN DevEUI.",
+                                                      "key": "end_device_ids.dev_eui",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                                      "key": "end_device_ids.join_eui",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The LoRaWAN DevAddr.",
+                                                      "key": "end_device_ids.dev_addr",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                                      "key": "after",
+                                                      "value": "<dateTime>"
+                                                    },
+                                                    {
+                                                      "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                                      "key": "before",
+                                                      "value": "<dateTime>"
+                                                    },
+                                                    {
+                                                      "description": "Count uplinks on a specific FPort only.",
+                                                      "key": "f_port",
+                                                      "value": "<long>"
+                                                    },
+                                                    {
+                                                      "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                                      "key": "last",
+                                                      "value": "<string>"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "end_device_ids.application_ids.application_id"
+                                                    },
+                                                    {
+                                                      "key": "end_device_ids.device_id"
+                                                    },
+                                                    {
+                                                      "key": "type"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"count\": {\n    \"Ute17\": \"<long>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T03:10:26.000Z",
+                                              "updatedAt": "2026-07-28T03:10:26.000Z",
+                                              "uid": "35240-62c2e213-e4a4-4348-9ef3-3acf61a40430"
+                                            },
+                                            {
+                                              "id": "49301e4b-2c45-4f6b-823e-550b94757530",
+                                              "name": "An unexpected error response.",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: apikey",
+                                                    "key": "Authorization",
+                                                    "value": "<API Key>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/packages/storage/:type/count?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&after=<dateTime>&before=<dateTime>&f_port=<long>&last=<string>",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "as",
+                                                    "applications",
+                                                    ":end_device_ids.application_ids.application_id",
+                                                    "devices",
+                                                    ":end_device_ids.device_id",
+                                                    "packages",
+                                                    "storage",
+                                                    ":type",
+                                                    "count"
+                                                  ],
+                                                  "query": [
+                                                    {
+                                                      "description": "The LoRaWAN DevEUI.",
+                                                      "key": "end_device_ids.dev_eui",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                                      "key": "end_device_ids.join_eui",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "The LoRaWAN DevAddr.",
+                                                      "key": "end_device_ids.dev_addr",
+                                                      "value": "<string>"
+                                                    },
+                                                    {
+                                                      "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                                      "key": "after",
+                                                      "value": "<dateTime>"
+                                                    },
+                                                    {
+                                                      "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                                      "key": "before",
+                                                      "value": "<dateTime>"
+                                                    },
+                                                    {
+                                                      "description": "Count uplinks on a specific FPort only.",
+                                                      "key": "f_port",
+                                                      "value": "<long>"
+                                                    },
+                                                    {
+                                                      "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                                      "key": "last",
+                                                      "value": "<string>"
+                                                    }
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "end_device_ids.application_ids.application_id"
+                                                    },
+                                                    {
+                                                      "key": "end_device_ids.device_id"
+                                                    },
+                                                    {
+                                                      "key": "type"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"eiusmode9\": {},\n      \"pariatur_98\": {},\n      \"occaecat7\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                              "createdAt": "2026-07-28T03:10:26.000Z",
+                                              "updatedAt": "2026-07-28T03:10:26.000Z",
+                                              "uid": "35240-49301e4b-2c45-4f6b-823e-550b94757530"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T03:10:26.000Z",
+                                          "updatedAt": "2026-07-28T03:10:26.000Z",
+                                          "uid": "35240-7db992c9-492b-4207-8ad1-d5b1d2e6162c"
+                                        }
+                                      ],
+                                      "id": "7528742e-f2b2-498e-aefe-6c922ff0eda1",
+                                      "createdAt": "2026-07-28T03:10:26.000Z",
+                                      "updatedAt": "2026-07-28T03:10:26.000Z",
+                                      "uid": "35240-7528742e-f2b2-498e-aefe-6c922ff0eda1"
+                                    },
+                                    {
+                                      "name": "Returns a stream of application messages that have been stored in the database.",
+                                      "id": "72479313-a4d0-4bf0-ad05-aaa93707fdfb",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/packages/storage/:type?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&limit=<long>&after=<dateTime>&before=<dateTime>&f_port=<long>&order=<string>&field_mask=<string>&last=<string>&continuation_token=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "as",
+                                            "applications",
+                                            ":end_device_ids.application_ids.application_id",
+                                            "devices",
+                                            ":end_device_ids.device_id",
+                                            "packages",
+                                            "storage",
+                                            ":type"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "The LoRaWAN DevEUI.",
+                                              "key": "end_device_ids.dev_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                              "key": "end_device_ids.join_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevAddr.",
+                                              "key": "end_device_ids.dev_addr",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Limit number of results.",
+                                              "key": "limit",
+                                              "value": "<long>"
+                                            },
+                                            {
+                                              "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                              "key": "after",
+                                              "value": "<dateTime>"
+                                            },
+                                            {
+                                              "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                              "key": "before",
+                                              "value": "<dateTime>"
+                                            },
+                                            {
+                                              "description": "Query uplinks on a specific FPort only.",
+                                              "key": "f_port",
+                                              "value": "<long>"
+                                            },
+                                            {
+                                              "description": "Order results.",
+                                              "key": "order",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message.",
+                                              "key": "field_mask",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                              "key": "last",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored.",
+                                              "key": "continuation_token",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "11009bfc-9fa1-472b-a22c-248465326840",
+                                              "key": "end_device_ids"
+                                            },
+                                            {
+                                              "id": "033ebd7d-b8cf-4529-9d38-ccf8a33ac876",
+                                              "key": "type",
+                                              "value": "<string>",
+                                              "description": "(Required) Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+                                            },
+                                            {
+                                              "id": "9dcabd92-0379-44dd-8f44-b2da4e60ef2c",
+                                              "key": "end_device_ids.application_ids.application_id",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "91e74662-716d-45f2-ab4d-7a78aa23a00d",
+                                              "key": "end_device_ids.device_id",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "c1dab8b2-b1d2-4e96-869a-8c69d7468195",
+                                          "name": "A successful response.(streaming responses)",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: apikey",
+                                                "key": "Authorization",
+                                                "value": "<API Key>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/packages/storage/:type?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&limit=<long>&after=<dateTime>&before=<dateTime>&f_port=<long>&order=<string>&field_mask=<string>&last=<string>&continuation_token=<string>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "as",
+                                                "applications",
+                                                ":end_device_ids.application_ids.application_id",
+                                                "devices",
+                                                ":end_device_ids.device_id",
+                                                "packages",
+                                                "storage",
+                                                ":type"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "The LoRaWAN DevEUI.",
+                                                  "key": "end_device_ids.dev_eui",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                                  "key": "end_device_ids.join_eui",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The LoRaWAN DevAddr.",
+                                                  "key": "end_device_ids.dev_addr",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "Limit number of results.",
+                                                  "key": "limit",
+                                                  "value": "<long>"
+                                                },
+                                                {
+                                                  "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                                  "key": "after",
+                                                  "value": "<dateTime>"
+                                                },
+                                                {
+                                                  "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                                  "key": "before",
+                                                  "value": "<dateTime>"
+                                                },
+                                                {
+                                                  "description": "Query uplinks on a specific FPort only.",
+                                                  "key": "f_port",
+                                                  "value": "<long>"
+                                                },
+                                                {
+                                                  "description": "Order results.",
+                                                  "key": "order",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message.",
+                                                  "key": "field_mask",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                                  "key": "last",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored.",
+                                                  "key": "continuation_token",
+                                                  "value": "<string>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "end_device_ids.application_ids.application_id"
+                                                },
+                                                {
+                                                  "key": "end_device_ids.device_id"
+                                                },
+                                                {
+                                                  "key": "type"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"result\": {\n    \"end_device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"<string>\",\n      \"join_eui\": \"<string>\",\n      \"dev_addr\": \"<string>\"\n    },\n    \"correlation_ids\": [\n      \"<string>\"\n    ],\n    \"received_at\": \"<dateTime>\",\n    \"uplink_message\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"normalized_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"rx_metadata\": [\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": \"<string>\",\n            \"eui\": \"<string>\"\n          },\n          \"packet_broker\": {\n            \"message_id\": \"<string>\",\n            \"forwarder_net_id\": \"<string>\",\n            \"forwarder_tenant_id\": \"<string>\",\n            \"forwarder_cluster_id\": \"<string>\",\n            \"forwarder_gateway_eui\": \"<string>\",\n            \"forwarder_gateway_id\": \"<string>\",\n            \"home_network_net_id\": \"<string>\",\n            \"home_network_tenant_id\": \"<string>\",\n            \"home_network_cluster_id\": \"<string>\",\n            \"hops\": [\n              {\n                \"received_at\": \"<dateTime>\",\n                \"sender_name\": \"<string>\",\n                \"sender_address\": \"<string>\",\n                \"receiver_name\": \"<string>\",\n                \"receiver_agent\": \"<string>\"\n              }\n            ]\n          },\n          \"relay\": {\n            \"device_id\": \"<string>\",\n            \"wor_channel\": \"RELAY_WOR_CHANNEL_DEFAULT\"\n          },\n          \"antenna_index\": \"<long>\",\n          \"time\": \"<dateTime>\",\n          \"timestamp\": \"<long>\",\n          \"fine_timestamp\": \"<string>\",\n          \"encrypted_fine_timestamp\": \"<string>\",\n          \"encrypted_fine_timestamp_key_id\": \"<string>\",\n          \"rssi\": \"<float>\",\n          \"signal_rssi\": \"<float>\",\n          \"channel_rssi\": \"<float>\",\n          \"rssi_standard_deviation\": \"<float>\",\n          \"snr\": \"<float>\",\n          \"frequency_offset\": \"<int64>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"<string>\",\n          \"channel_index\": \"<long>\",\n          \"hopping_width\": \"<long>\",\n          \"frequency_drift\": \"<integer>\",\n          \"gps_time\": \"<dateTime>\",\n          \"received_at\": \"<dateTime>\",\n          \"advanced\": {}\n        }\n      ],\n      \"settings\": {\n        \"data_rate\": {\n          \"lora\": {\n            \"bandwidth\": \"<long>\",\n            \"spreading_factor\": \"<long>\",\n            \"coding_rate\": \"<string>\"\n          },\n          \"fsk\": {\n            \"bit_rate\": \"<long>\"\n          },\n          \"lrfhss\": {\n            \"modulation_type\": \"<long>\",\n            \"operating_channel_width\": \"<long>\",\n            \"coding_rate\": \"<string>\"\n          }\n        },\n        \"frequency\": \"<string>\",\n        \"enable_crc\": \"<boolean>\",\n        \"timestamp\": \"<long>\",\n        \"time\": \"<dateTime>\",\n        \"downlink\": {\n          \"antenna_index\": \"<long>\",\n          \"tx_power\": \"<float>\",\n          \"invert_polarization\": \"<boolean>\"\n        },\n        \"concentrator_timestamp\": \"<int64>\"\n      },\n      \"received_at\": \"<dateTime>\",\n      \"app_s_key\": {\n        \"key\": \"<string>\",\n        \"kek_label\": \"<string>\",\n        \"encrypted_key\": \"<string>\"\n      },\n      \"last_a_f_cnt_down\": \"<long>\",\n      \"confirmed\": \"<boolean>\",\n      \"consumed_airtime\": \"<string>\",\n      \"packet_error_rate\": \"<float>\",\n      \"locations\": {\n        \"commodo_3\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"exercitation391\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"Excepteur_663\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"cillum_4\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"last_battery_percentage\": {\n        \"f_cnt\": \"<long>\",\n        \"value\": \"<float>\",\n        \"received_at\": \"<dateTime>\"\n      },\n      \"attributes\": {\n        \"cillum_4\": \"<string>\",\n        \"sitdd\": \"<string>\",\n        \"in_ed\": \"<string>\"\n      }\n    },\n    \"uplink_normalized\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"normalized_payload\": {},\n      \"normalized_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"rx_metadata\": [\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": \"<string>\",\n            \"eui\": \"<string>\"\n          },\n          \"packet_broker\": {\n            \"message_id\": \"<string>\",\n            \"forwarder_net_id\": \"<string>\",\n            \"forwarder_tenant_id\": \"<string>\",\n            \"forwarder_cluster_id\": \"<string>\",\n            \"forwarder_gateway_eui\": \"<string>\",\n            \"forwarder_gateway_id\": \"<string>\",\n            \"home_network_net_id\": \"<string>\",\n            \"home_network_tenant_id\": \"<string>\",\n            \"home_network_cluster_id\": \"<string>\",\n            \"hops\": [\n              {\n                \"received_at\": \"<dateTime>\",\n                \"sender_name\": \"<string>\",\n                \"sender_address\": \"<string>\",\n                \"receiver_name\": \"<string>\",\n                \"receiver_agent\": \"<string>\"\n              }\n            ]\n          },\n          \"relay\": {\n            \"device_id\": \"<string>\",\n            \"wor_channel\": \"RELAY_WOR_CHANNEL_DEFAULT\"\n          },\n          \"antenna_index\": \"<long>\",\n          \"time\": \"<dateTime>\",\n          \"timestamp\": \"<long>\",\n          \"fine_timestamp\": \"<string>\",\n          \"encrypted_fine_timestamp\": \"<string>\",\n          \"encrypted_fine_timestamp_key_id\": \"<string>\",\n          \"rssi\": \"<float>\",\n          \"signal_rssi\": \"<float>\",\n          \"channel_rssi\": \"<float>\",\n          \"rssi_standard_deviation\": \"<float>\",\n          \"snr\": \"<float>\",\n          \"frequency_offset\": \"<int64>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"<string>\",\n          \"channel_index\": \"<long>\",\n          \"hopping_width\": \"<long>\",\n          \"frequency_drift\": \"<integer>\",\n          \"gps_time\": \"<dateTime>\",\n          \"received_at\": \"<dateTime>\",\n          \"advanced\": {}\n        }\n      ],\n      \"settings\": {\n        \"data_rate\": {\n          \"lora\": {\n            \"bandwidth\": \"<long>\",\n            \"spreading_factor\": \"<long>\",\n            \"coding_rate\": \"<string>\"\n          },\n          \"fsk\": {\n            \"bit_rate\": \"<long>\"\n          },\n          \"lrfhss\": {\n            \"modulation_type\": \"<long>\",\n            \"operating_channel_width\": \"<long>\",\n            \"coding_rate\": \"<string>\"\n          }\n        },\n        \"frequency\": \"<string>\",\n        \"enable_crc\": \"<boolean>\",\n        \"timestamp\": \"<long>\",\n        \"time\": \"<dateTime>\",\n        \"downlink\": {\n          \"antenna_index\": \"<long>\",\n          \"tx_power\": \"<float>\",\n          \"invert_polarization\": \"<boolean>\"\n        },\n        \"concentrator_timestamp\": \"<int64>\"\n      },\n      \"received_at\": \"<dateTime>\",\n      \"confirmed\": \"<boolean>\",\n      \"consumed_airtime\": \"<string>\",\n      \"locations\": {\n        \"proident_6e\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"sed_879\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"doloreb5\": \"<string>\",\n        \"enim_bd\": \"<string>\",\n        \"eu_1\": \"<string>\"\n      }\n    },\n    \"join_accept\": {\n      \"session_key_id\": \"<string>\",\n      \"app_s_key\": {\n        \"key\": \"<string>\",\n        \"kek_label\": \"<string>\",\n        \"encrypted_key\": \"<string>\"\n      },\n      \"invalidated_downlinks\": [\n        {\n          \"session_key_id\": \"<string>\",\n          \"f_port\": \"<long>\",\n          \"f_cnt\": \"<long>\",\n          \"frm_payload\": \"<string>\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"<string>\"\n          ],\n          \"confirmed\": \"<boolean>\",\n          \"class_b_c\": {\n            \"gateways\": [\n              {\n                \"gateway_ids\": {\n                  \"gateway_id\": \"<string>\",\n                  \"eui\": \"<string>\"\n                },\n                \"antenna_index\": \"<long>\",\n                \"group_index\": \"<long>\"\n              }\n            ],\n            \"absolute_time\": \"<dateTime>\"\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"<string>\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": \"<long>\",\n            \"max_attempts\": \"<long>\"\n          },\n          \"locations\": {\n            \"Duis_6a\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            },\n            \"velit_e2\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            },\n            \"eiusmodf7\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            },\n            \"aliqua2\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": \"<string>\",\n            \"model_id\": \"<string>\",\n            \"hardware_version\": \"<string>\",\n            \"firmware_version\": \"<string>\",\n            \"band_id\": \"<string>\"\n          },\n          \"network_ids\": {\n            \"net_id\": \"<string>\",\n            \"ns_id\": \"<string>\",\n            \"tenant_id\": \"<string>\",\n            \"cluster_id\": \"<string>\",\n            \"cluster_address\": \"<string>\",\n            \"tenant_address\": \"<string>\"\n          },\n          \"attributes\": {\n            \"ipsum_d5e\": \"<string>\"\n          }\n        }\n      ],\n      \"pending_session\": \"<boolean>\",\n      \"received_at\": \"<dateTime>\",\n      \"locations\": {\n        \"nonf8\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"est_7\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"consectetur_8e\": \"<string>\",\n        \"reprehenderit426\": \"<string>\"\n      }\n    },\n    \"downlink_ack\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"confirmed\": \"<boolean>\",\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"gateway_id\": \"<string>\",\n              \"eui\": \"<string>\"\n            },\n            \"antenna_index\": \"<long>\",\n            \"group_index\": \"<long>\"\n          }\n        ],\n        \"absolute_time\": \"<dateTime>\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"<string>\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": \"<long>\",\n        \"max_attempts\": \"<long>\"\n      },\n      \"locations\": {\n        \"elit_802\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"qui92f\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"inf_f\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"adipisicing_44f\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"anim4de\": \"<string>\",\n        \"auteee\": \"<string>\"\n      }\n    },\n    \"downlink_nack\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"confirmed\": \"<boolean>\",\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"gateway_id\": \"<string>\",\n              \"eui\": \"<string>\"\n            },\n            \"antenna_index\": \"<long>\",\n            \"group_index\": \"<long>\"\n          }\n        ],\n        \"absolute_time\": \"<dateTime>\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"<string>\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": \"<long>\",\n        \"max_attempts\": \"<long>\"\n      },\n      \"locations\": {\n        \"Duis1\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"exercitation_c0a\": \"<string>\"\n      }\n    },\n    \"downlink_sent\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"confirmed\": \"<boolean>\",\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"gateway_id\": \"<string>\",\n              \"eui\": \"<string>\"\n            },\n            \"antenna_index\": \"<long>\",\n            \"group_index\": \"<long>\"\n          }\n        ],\n        \"absolute_time\": \"<dateTime>\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"<string>\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": \"<long>\",\n        \"max_attempts\": \"<long>\"\n      },\n      \"locations\": {\n        \"nostrud1_\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"ut_9f\": \"<string>\"\n      }\n    },\n    \"downlink_failed\": {\n      \"downlink\": {\n        \"session_key_id\": \"<string>\",\n        \"f_port\": \"<long>\",\n        \"f_cnt\": \"<long>\",\n        \"frm_payload\": \"<string>\",\n        \"decoded_payload\": {},\n        \"decoded_payload_warnings\": [\n          \"<string>\"\n        ],\n        \"confirmed\": \"<boolean>\",\n        \"class_b_c\": {\n          \"gateways\": [\n            {\n              \"gateway_ids\": {\n                \"gateway_id\": \"<string>\",\n                \"eui\": \"<string>\"\n              },\n              \"antenna_index\": \"<long>\",\n              \"group_index\": \"<long>\"\n            }\n          ],\n          \"absolute_time\": \"<dateTime>\"\n        },\n        \"priority\": \"LOWEST\",\n        \"correlation_ids\": [\n          \"<string>\"\n        ],\n        \"confirmed_retry\": {\n          \"attempt\": \"<long>\",\n          \"max_attempts\": \"<long>\"\n        },\n        \"locations\": {\n          \"ut_9\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"dolorf2\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          \"eiusmod_90\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          }\n        },\n        \"version_ids\": {\n          \"brand_id\": \"<string>\",\n          \"model_id\": \"<string>\",\n          \"hardware_version\": \"<string>\",\n          \"firmware_version\": \"<string>\",\n          \"band_id\": \"<string>\"\n        },\n        \"network_ids\": {\n          \"net_id\": \"<string>\",\n          \"ns_id\": \"<string>\",\n          \"tenant_id\": \"<string>\",\n          \"cluster_id\": \"<string>\",\n          \"cluster_address\": \"<string>\",\n          \"tenant_address\": \"<string>\"\n        },\n        \"attributes\": {\n          \"veniam_e63\": \"<string>\"\n        }\n      },\n      \"error\": {\n        \"namespace\": \"<string>\",\n        \"name\": \"<string>\",\n        \"message_format\": \"<string>\",\n        \"attributes\": {},\n        \"correlation_id\": \"<string>\",\n        \"cause\": {\n          \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n        },\n        \"code\": \"<long>\",\n        \"details\": [\n          {\n            \"@type\": \"<string>\",\n            \"dolord4e\": {},\n            \"tempor3\": {}\n          }\n        ]\n      },\n      \"locations\": {\n        \"consectetur_60\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"quis94\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"adipisicing_6e\": \"<string>\",\n        \"officia6b5\": \"<string>\"\n      }\n    },\n    \"downlink_queued\": {\n      \"session_key_id\": \"<string>\",\n      \"f_port\": \"<long>\",\n      \"f_cnt\": \"<long>\",\n      \"frm_payload\": \"<string>\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"<string>\"\n      ],\n      \"confirmed\": \"<boolean>\",\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"gateway_id\": \"<string>\",\n              \"eui\": \"<string>\"\n            },\n            \"antenna_index\": \"<long>\",\n            \"group_index\": \"<long>\"\n          }\n        ],\n        \"absolute_time\": \"<dateTime>\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"<string>\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": \"<long>\",\n        \"max_attempts\": \"<long>\"\n      },\n      \"locations\": {\n        \"reprehenderit_5\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"seddd\": \"<string>\"\n      }\n    },\n    \"downlink_queue_invalidated\": {\n      \"downlinks\": [\n        {\n          \"session_key_id\": \"<string>\",\n          \"f_port\": \"<long>\",\n          \"f_cnt\": \"<long>\",\n          \"frm_payload\": \"<string>\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"<string>\"\n          ],\n          \"confirmed\": \"<boolean>\",\n          \"class_b_c\": {\n            \"gateways\": [\n              {\n                \"gateway_ids\": {\n                  \"gateway_id\": \"<string>\",\n                  \"eui\": \"<string>\"\n                },\n                \"antenna_index\": \"<long>\",\n                \"group_index\": \"<long>\"\n              }\n            ],\n            \"absolute_time\": \"<dateTime>\"\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"<string>\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": \"<long>\",\n            \"max_attempts\": \"<long>\"\n          },\n          \"locations\": {\n            \"minim3c\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            },\n            \"Excepteur2b\": {\n              \"latitude\": \"<double>\",\n              \"longitude\": \"<double>\",\n              \"altitude\": \"<integer>\",\n              \"accuracy\": \"<integer>\",\n              \"source\": \"SOURCE_UNKNOWN\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": \"<string>\",\n            \"model_id\": \"<string>\",\n            \"hardware_version\": \"<string>\",\n            \"firmware_version\": \"<string>\",\n            \"band_id\": \"<string>\"\n          },\n          \"network_ids\": {\n            \"net_id\": \"<string>\",\n            \"ns_id\": \"<string>\",\n            \"tenant_id\": \"<string>\",\n            \"cluster_id\": \"<string>\",\n            \"cluster_address\": \"<string>\",\n            \"tenant_address\": \"<string>\"\n          },\n          \"attributes\": {\n            \"sunt_a\": \"<string>\",\n            \"dolore20e\": \"<string>\"\n          }\n        }\n      ],\n      \"last_f_cnt_down\": \"<long>\",\n      \"session_key_id\": \"<string>\",\n      \"locations\": {\n        \"et_21\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"adipisicing117\": \"<string>\",\n        \"amet_6\": \"<string>\"\n      }\n    },\n    \"location_solved\": {\n      \"service\": \"<string>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"officia_2\": \"<string>\"\n      }\n    },\n    \"service_data\": {\n      \"service\": \"<string>\",\n      \"data\": {},\n      \"locations\": {\n        \"dolor_9\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"band_id\": \"<string>\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"<string>\",\n        \"ns_id\": \"<string>\",\n        \"tenant_id\": \"<string>\",\n        \"cluster_id\": \"<string>\",\n        \"cluster_address\": \"<string>\",\n        \"tenant_address\": \"<string>\"\n      },\n      \"attributes\": {\n        \"Duis_6f2\": \"<string>\"\n      }\n    },\n    \"simulated\": \"<boolean>\"\n  },\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"details\": [\n      {\n        \"@type\": \"<string>\"\n      }\n    ]\n  }\n}",
+                                          "createdAt": "2026-07-28T03:10:26.000Z",
+                                          "updatedAt": "2026-07-28T03:10:26.000Z",
+                                          "uid": "35240-c1dab8b2-b1d2-4e96-869a-8c69d7468195"
+                                        },
+                                        {
+                                          "id": "cdbe5f40-16a5-4f00-a318-7a6fab5d71df",
+                                          "name": "An unexpected error response.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: apikey",
+                                                "key": "Authorization",
+                                                "value": "<API Key>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/packages/storage/:type?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&limit=<long>&after=<dateTime>&before=<dateTime>&f_port=<long>&order=<string>&field_mask=<string>&last=<string>&continuation_token=<string>",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "as",
+                                                "applications",
+                                                ":end_device_ids.application_ids.application_id",
+                                                "devices",
+                                                ":end_device_ids.device_id",
+                                                "packages",
+                                                "storage",
+                                                ":type"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "The LoRaWAN DevEUI.",
+                                                  "key": "end_device_ids.dev_eui",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                                  "key": "end_device_ids.join_eui",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The LoRaWAN DevAddr.",
+                                                  "key": "end_device_ids.dev_addr",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "Limit number of results.",
+                                                  "key": "limit",
+                                                  "value": "<long>"
+                                                },
+                                                {
+                                                  "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last.",
+                                                  "key": "after",
+                                                  "value": "<dateTime>"
+                                                },
+                                                {
+                                                  "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last.",
+                                                  "key": "before",
+                                                  "value": "<dateTime>"
+                                                },
+                                                {
+                                                  "description": "Query uplinks on a specific FPort only.",
+                                                  "key": "f_port",
+                                                  "value": "<long>"
+                                                },
+                                                {
+                                                  "description": "Order results.",
+                                                  "key": "order",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message.",
+                                                  "key": "field_mask",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before.",
+                                                  "key": "last",
+                                                  "value": "<string>"
+                                                },
+                                                {
+                                                  "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored.",
+                                                  "key": "continuation_token",
+                                                  "value": "<string>"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "end_device_ids.application_ids.application_id"
+                                                },
+                                                {
+                                                  "key": "end_device_ids.device_id"
+                                                },
+                                                {
+                                                  "key": "type"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"eiusmode9\": {},\n      \"pariatur_98\": {},\n      \"occaecat7\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                          "createdAt": "2026-07-28T03:10:26.000Z",
+                                          "updatedAt": "2026-07-28T03:10:26.000Z",
+                                          "uid": "35240-cdbe5f40-16a5-4f00-a318-7a6fab5d71df"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T03:10:26.000Z",
+                                      "updatedAt": "2026-07-28T03:10:26.000Z",
+                                      "uid": "35240-72479313-a4d0-4bf0-ad05-aaa93707fdfb"
+                                    }
+                                  ],
+                                  "id": "7016eef5-e980-4b86-affa-da3ed3b46995",
+                                  "createdAt": "2026-07-28T03:10:26.000Z",
+                                  "updatedAt": "2026-07-28T03:10:26.000Z",
+                                  "uid": "35240-7016eef5-e980-4b86-affa-da3ed3b46995"
+                                }
+                              ],
+                              "id": "9a69b001-510b-46d2-bc2d-3cfb5483bee7",
+                              "createdAt": "2026-07-28T03:10:26.000Z",
+                              "updatedAt": "2026-07-28T03:10:26.000Z",
+                              "uid": "35240-9a69b001-510b-46d2-bc2d-3cfb5483bee7"
+                            }
+                          ],
+                          "id": "671ea6e8-46a7-40af-aab7-c222467aa34e",
+                          "createdAt": "2026-07-28T03:10:26.000Z",
+                          "updatedAt": "2026-07-28T03:10:26.000Z",
+                          "uid": "35240-671ea6e8-46a7-40af-aab7-c222467aa34e"
+                        }
+                      ],
+                      "id": "70bf0e7c-b18e-4bc5-a746-fa7f01fde666",
+                      "createdAt": "2026-07-28T03:10:26.000Z",
+                      "updatedAt": "2026-07-28T03:10:26.000Z",
+                      "uid": "35240-70bf0e7c-b18e-4bc5-a746-fa7f01fde666"
+                    }
+                  ],
+                  "id": "8abb155b-88b8-492f-98b3-d9c5c7abf735",
+                  "createdAt": "2026-07-28T03:10:26.000Z",
+                  "updatedAt": "2026-07-28T03:10:26.000Z",
+                  "uid": "35240-8abb155b-88b8-492f-98b3-d9c5c7abf735"
+                }
+              ],
+              "id": "d4a6137e-50e5-4794-948c-c21450126fd7",
+              "createdAt": "2026-07-28T03:10:26.000Z",
+              "updatedAt": "2026-07-28T03:10:26.000Z",
+              "uid": "35240-d4a6137e-50e5-4794-948c-c21450126fd7"
+            }
+          ],
+          "id": "d2e0a439-c243-475d-b527-9b9c22e2e65b",
+          "createdAt": "2026-07-28T03:10:26.000Z",
+          "updatedAt": "2026-07-28T03:10:26.000Z",
+          "uid": "35240-d2e0a439-c243-475d-b527-9b9c22e2e65b"
+        }
+      ],
+      "id": "5b1464c9-71df-42ec-a755-2aa7ac61a7b4",
+      "createdAt": "2026-07-28T03:10:26.000Z",
+      "updatedAt": "2026-07-28T03:10:26.000Z",
+      "uid": "35240-5b1464c9-71df-42ec-a755-2aa7ac61a7b4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

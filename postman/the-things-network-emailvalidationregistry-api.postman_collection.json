@@ -1,0 +1,376 @@
+{
+  "info": {
+    "_postman_id": "a597623e-61b6-4935-b40d-1d50a04b9a5d",
+    "name": "The Things Stack \u2014 Application Server AppAs EmailValidationRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:48.000Z",
+    "updatedAt": "2026-07-28T03:10:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a597623e-61b6-4935-b40d-1d50a04b9a5d"
+  },
+  "item": [
+    {
+      "name": "email",
+      "item": [
+        {
+          "name": "validation",
+          "item": [
+            {
+              "name": "Request validation for the non-validated contact info for the given entity.",
+              "id": "ccd436a1-fcac-4e32-a4e7-dde5782003b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/email/validation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "email",
+                    "validation"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d5690ee7-127b-4124-bc97-72c82a13aafb",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/email/validation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "email",
+                        "validation"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"token\": \"<string>\",\n  \"address\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"expires_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T03:10:49.000Z",
+                  "updatedAt": "2026-07-28T03:10:49.000Z",
+                  "uid": "35240-d5690ee7-127b-4124-bc97-72c82a13aafb"
+                },
+                {
+                  "id": "8f4f04a3-221e-40f4-93ec-96cdb58d11bb",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/email/validation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "email",
+                        "validation"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:49.000Z",
+                  "updatedAt": "2026-07-28T03:10:49.000Z",
+                  "uid": "35240-8f4f04a3-221e-40f4-93ec-96cdb58d11bb"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:49.000Z",
+              "updatedAt": "2026-07-28T03:10:49.000Z",
+              "uid": "35240-ccd436a1-fcac-4e32-a4e7-dde5782003b9"
+            },
+            {
+              "name": "Validate confirms a contact info validation.",
+              "id": "df76e8ee-0b07-47f2-ba9a-60668be75296",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/email/validation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "email",
+                    "validation"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d6496673-f48e-4d09-a076-fa576f6a6dbe",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/email/validation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "email",
+                        "validation"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T03:10:49.000Z",
+                  "updatedAt": "2026-07-28T03:10:49.000Z",
+                  "uid": "35240-d6496673-f48e-4d09-a076-fa576f6a6dbe"
+                },
+                {
+                  "id": "d2da333b-cff5-4d93-b5da-865821ef7c9d",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"token\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/email/validation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "email",
+                        "validation"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:49.000Z",
+                  "updatedAt": "2026-07-28T03:10:49.000Z",
+                  "uid": "35240-d2da333b-cff5-4d93-b5da-865821ef7c9d"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:49.000Z",
+              "updatedAt": "2026-07-28T03:10:49.000Z",
+              "uid": "35240-df76e8ee-0b07-47f2-ba9a-60668be75296"
+            }
+          ],
+          "id": "df3a714d-f3d9-4967-9be9-92b3f12abf8c",
+          "createdAt": "2026-07-28T03:10:49.000Z",
+          "updatedAt": "2026-07-28T03:10:49.000Z",
+          "uid": "35240-df3a714d-f3d9-4967-9be9-92b3f12abf8c"
+        }
+      ],
+      "id": "04b0601f-75a1-4703-84de-100916f98890",
+      "createdAt": "2026-07-28T03:10:49.000Z",
+      "updatedAt": "2026-07-28T03:10:49.000Z",
+      "uid": "35240-04b0601f-75a1-4703-84de-100916f98890"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

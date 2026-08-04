@@ -1,0 +1,571 @@
+{
+  "info": {
+    "_postman_id": "ee56e08c-360c-4f62-bc94-96a197df8400",
+    "name": "The Things Stack \u2014 Application Server AppAs ApplicationActivationSettingRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:17.000Z",
+    "updatedAt": "2026-07-28T03:10:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee56e08c-360c-4f62-bc94-96a197df8400"
+  },
+  "item": [
+    {
+      "name": "js",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "{application_ids.application_id}",
+              "item": [
+                {
+                  "name": "settings",
+                  "item": [
+                    {
+                      "name": "Get returns application activation settings.",
+                      "id": "8ec5ca04-30cd-46da-8bae-6d43b8237d97",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings?field_mask=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "js",
+                            "applications",
+                            ":application_ids.application_id",
+                            "settings"
+                          ],
+                          "query": [
+                            {
+                              "key": "field_mask",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "0c834c3d-ee5e-4a45-a42a-b3289e9894f3",
+                              "key": "application_ids"
+                            },
+                            {
+                              "id": "4f176467-a5ec-4575-85b2-396dc91c5633",
+                              "key": "application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "385be899-d918-4763-b09d-b854d827ac44",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings?field_mask=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "js",
+                                "applications",
+                                ":application_ids.application_id",
+                                "settings"
+                              ],
+                              "query": [
+                                {
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kek_label\": \"<string>\",\n  \"kek\": {\n    \"key\": \"<string>\",\n    \"kek_label\": \"<string>\",\n    \"encrypted_key\": \"<string>\"\n  },\n  \"home_net_id\": \"<string>\",\n  \"application_server_id\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:10:17.000Z",
+                          "updatedAt": "2026-07-28T03:10:17.000Z",
+                          "uid": "35240-385be899-d918-4763-b09d-b854d827ac44"
+                        },
+                        {
+                          "id": "33f3c9eb-61f6-4ae8-bc61-57f53dea20d1",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings?field_mask=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "js",
+                                "applications",
+                                ":application_ids.application_id",
+                                "settings"
+                              ],
+                              "query": [
+                                {
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"incididunt_7_d\": {},\n      \"in_c6\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"velit_b7\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:17.000Z",
+                          "updatedAt": "2026-07-28T03:10:17.000Z",
+                          "uid": "35240-33f3c9eb-61f6-4ae8-bc61-57f53dea20d1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:17.000Z",
+                      "updatedAt": "2026-07-28T03:10:17.000Z",
+                      "uid": "35240-8ec5ca04-30cd-46da-8bae-6d43b8237d97"
+                    },
+                    {
+                      "name": "Delete deletes application activation settings.",
+                      "id": "20280a1f-e195-4115-afbf-eeb967a9f846",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "js",
+                            "applications",
+                            ":application_ids.application_id",
+                            "settings"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4e643250-7553-41a8-9e1c-a6a3ba5f2eea",
+                              "key": "application_ids"
+                            },
+                            {
+                              "id": "25ab74ce-723b-46b5-b5e2-c8ec6b737cd4",
+                              "key": "application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "bce168b3-1ef8-488e-a38e-6d619f6bfcb9",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "js",
+                                "applications",
+                                ":application_ids.application_id",
+                                "settings"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:10:17.000Z",
+                          "updatedAt": "2026-07-28T03:10:17.000Z",
+                          "uid": "35240-bce168b3-1ef8-488e-a38e-6d619f6bfcb9"
+                        },
+                        {
+                          "id": "6be2963b-3c07-4485-ba1f-5195a5ac1109",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "js",
+                                "applications",
+                                ":application_ids.application_id",
+                                "settings"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"incididunt_7_d\": {},\n      \"in_c6\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"velit_b7\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:17.000Z",
+                          "updatedAt": "2026-07-28T03:10:17.000Z",
+                          "uid": "35240-6be2963b-3c07-4485-ba1f-5195a5ac1109"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:17.000Z",
+                      "updatedAt": "2026-07-28T03:10:17.000Z",
+                      "uid": "35240-20280a1f-e195-4115-afbf-eeb967a9f846"
+                    },
+                    {
+                      "name": "Set creates or updates application activation settings.",
+                      "id": "3aae92ff-010b-4d49-bd8a-edbad30d805b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"application_ids\": {},\n  \"settings\": {\n    \"kek_label\": \"<string>\",\n    \"kek\": {\n      \"key\": \"<string>\",\n      \"kek_label\": \"<string>\",\n      \"encrypted_key\": \"<string>\"\n    },\n    \"home_net_id\": \"<string>\",\n    \"application_server_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "js",
+                            "applications",
+                            ":application_ids.application_id",
+                            "settings"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8e2b95b9-b1cc-4084-8f2f-cafad0902dfa",
+                              "key": "application_ids"
+                            },
+                            {
+                              "id": "c16d25cd-ac02-47cd-ab06-8b5fa99ec4d3",
+                              "key": "application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1d9225ac-9022-4bd1-bd0c-42537c2e067d",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"application_ids\": {},\n  \"settings\": {\n    \"kek_label\": \"<string>\",\n    \"kek\": {\n      \"key\": \"<string>\",\n      \"kek_label\": \"<string>\",\n      \"encrypted_key\": \"<string>\"\n    },\n    \"home_net_id\": \"<string>\",\n    \"application_server_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "js",
+                                "applications",
+                                ":application_ids.application_id",
+                                "settings"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kek_label\": \"<string>\",\n  \"kek\": {\n    \"key\": \"<string>\",\n    \"kek_label\": \"<string>\",\n    \"encrypted_key\": \"<string>\"\n  },\n  \"home_net_id\": \"<string>\",\n  \"application_server_id\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:10:17.000Z",
+                          "updatedAt": "2026-07-28T03:10:17.000Z",
+                          "uid": "35240-1d9225ac-9022-4bd1-bd0c-42537c2e067d"
+                        },
+                        {
+                          "id": "fc3456d2-f18e-4442-ab4a-4ebc29997883",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"application_ids\": {},\n  \"settings\": {\n    \"kek_label\": \"<string>\",\n    \"kek\": {\n      \"key\": \"<string>\",\n      \"kek_label\": \"<string>\",\n      \"encrypted_key\": \"<string>\"\n    },\n    \"home_net_id\": \"<string>\",\n    \"application_server_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "js",
+                                "applications",
+                                ":application_ids.application_id",
+                                "settings"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"incididunt_7_d\": {},\n      \"in_c6\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"velit_b7\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:17.000Z",
+                          "updatedAt": "2026-07-28T03:10:17.000Z",
+                          "uid": "35240-fc3456d2-f18e-4442-ab4a-4ebc29997883"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:17.000Z",
+                      "updatedAt": "2026-07-28T03:10:17.000Z",
+                      "uid": "35240-3aae92ff-010b-4d49-bd8a-edbad30d805b"
+                    }
+                  ],
+                  "id": "5c69f99a-deb1-4385-b863-c5db9dcb4f9f",
+                  "createdAt": "2026-07-28T03:10:17.000Z",
+                  "updatedAt": "2026-07-28T03:10:17.000Z",
+                  "uid": "35240-5c69f99a-deb1-4385-b863-c5db9dcb4f9f"
+                }
+              ],
+              "id": "c13474d0-e1f3-46c9-919b-a5947d6e07d8",
+              "createdAt": "2026-07-28T03:10:17.000Z",
+              "updatedAt": "2026-07-28T03:10:17.000Z",
+              "uid": "35240-c13474d0-e1f3-46c9-919b-a5947d6e07d8"
+            }
+          ],
+          "id": "553e8e21-3d49-4ead-b206-f72b5750317c",
+          "createdAt": "2026-07-28T03:10:17.000Z",
+          "updatedAt": "2026-07-28T03:10:17.000Z",
+          "uid": "35240-553e8e21-3d49-4ead-b206-f72b5750317c"
+        }
+      ],
+      "id": "ba70a607-668b-4f87-aa94-e069a11ce327",
+      "createdAt": "2026-07-28T03:10:17.000Z",
+      "updatedAt": "2026-07-28T03:10:17.000Z",
+      "uid": "35240-ba70a607-668b-4f87-aa94-e069a11ce327"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

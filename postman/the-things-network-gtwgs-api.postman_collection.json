@@ -1,0 +1,409 @@
+{
+  "info": {
+    "_postman_id": "a9ba242e-7445-42af-9e38-7125c291e9a3",
+    "name": "The Things Stack \u2014 Application Server AppAs GtwGs API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:36.000Z",
+    "updatedAt": "2026-07-28T03:12:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a9ba242e-7445-42af-9e38-7125c291e9a3"
+  },
+  "item": [
+    {
+      "name": "gs",
+      "item": [
+        {
+          "name": "gateways",
+          "item": [
+            {
+              "name": "{gateway_id}",
+              "item": [
+                {
+                  "name": "mqtt-connection-info",
+                  "item": [
+                    {
+                      "name": "Get connection information to connect an MQTT gateway.",
+                      "id": "cd06c373-394b-427e-aeea-802cd4206335",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gs/gateways/:gateway_id/mqtt-connection-info?eui=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gs",
+                            "gateways",
+                            ":gateway_id",
+                            "mqtt-connection-info"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "eui",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "3067f9f7-d51c-45b8-a0ce-e91a6c9777e8",
+                              "key": "gateway_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4a87445c-7678-47a6-8289-1d6aac796164",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gs/gateways/:gateway_id/mqtt-connection-info?eui=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gs",
+                                "gateways",
+                                ":gateway_id",
+                                "mqtt-connection-info"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "eui",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"public_address\": \"<string>\",\n  \"public_tls_address\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:12:37.000Z",
+                          "updatedAt": "2026-07-28T03:12:37.000Z",
+                          "uid": "35240-4a87445c-7678-47a6-8289-1d6aac796164"
+                        },
+                        {
+                          "id": "ba4489db-50cc-4c1a-a26d-cad0609cbbab",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gs/gateways/:gateway_id/mqtt-connection-info?eui=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gs",
+                                "gateways",
+                                ":gateway_id",
+                                "mqtt-connection-info"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "eui",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"id3b\": {},\n      \"laboris2\": {},\n      \"est_cfe\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:37.000Z",
+                          "updatedAt": "2026-07-28T03:12:37.000Z",
+                          "uid": "35240-ba4489db-50cc-4c1a-a26d-cad0609cbbab"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:37.000Z",
+                      "updatedAt": "2026-07-28T03:12:37.000Z",
+                      "uid": "35240-cd06c373-394b-427e-aeea-802cd4206335"
+                    }
+                  ],
+                  "id": "98a6c372-8183-48cf-ac22-cf03a64bd220",
+                  "createdAt": "2026-07-28T03:12:37.000Z",
+                  "updatedAt": "2026-07-28T03:12:37.000Z",
+                  "uid": "35240-98a6c372-8183-48cf-ac22-cf03a64bd220"
+                },
+                {
+                  "name": "mqttv2-connection-info",
+                  "item": [
+                    {
+                      "name": "Get legacy connection information to connect a The Things Network Stack V2 MQTT gateway.",
+                      "id": "0a221160-c1eb-4133-a6aa-9f82f937b5f4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gs/gateways/:gateway_id/mqttv2-connection-info?eui=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gs",
+                            "gateways",
+                            ":gateway_id",
+                            "mqttv2-connection-info"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "eui",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "b3ee4199-20ef-4116-ac66-e57d0e83c991",
+                              "key": "gateway_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2f2a65ec-f035-4f5a-888d-c8c349af958d",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gs/gateways/:gateway_id/mqttv2-connection-info?eui=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gs",
+                                "gateways",
+                                ":gateway_id",
+                                "mqttv2-connection-info"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "eui",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"public_address\": \"<string>\",\n  \"public_tls_address\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:12:37.000Z",
+                          "updatedAt": "2026-07-28T03:12:37.000Z",
+                          "uid": "35240-2f2a65ec-f035-4f5a-888d-c8c349af958d"
+                        },
+                        {
+                          "id": "94beb420-38fe-4438-bd38-cf3b5012e342",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gs/gateways/:gateway_id/mqttv2-connection-info?eui=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gs",
+                                "gateways",
+                                ":gateway_id",
+                                "mqttv2-connection-info"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "eui",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"id3b\": {},\n      \"laboris2\": {},\n      \"est_cfe\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:37.000Z",
+                          "updatedAt": "2026-07-28T03:12:37.000Z",
+                          "uid": "35240-94beb420-38fe-4438-bd38-cf3b5012e342"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:37.000Z",
+                      "updatedAt": "2026-07-28T03:12:37.000Z",
+                      "uid": "35240-0a221160-c1eb-4133-a6aa-9f82f937b5f4"
+                    }
+                  ],
+                  "id": "e1e0f6bc-b521-4a6f-b5fe-65f923ce6eaa",
+                  "createdAt": "2026-07-28T03:12:37.000Z",
+                  "updatedAt": "2026-07-28T03:12:37.000Z",
+                  "uid": "35240-e1e0f6bc-b521-4a6f-b5fe-65f923ce6eaa"
+                }
+              ],
+              "id": "2c261f70-32d3-4b4e-934d-0b31742a29d1",
+              "createdAt": "2026-07-28T03:12:37.000Z",
+              "updatedAt": "2026-07-28T03:12:37.000Z",
+              "uid": "35240-2c261f70-32d3-4b4e-934d-0b31742a29d1"
+            }
+          ],
+          "id": "0949a634-dbc0-455b-ac61-ba3e4668b250",
+          "createdAt": "2026-07-28T03:12:37.000Z",
+          "updatedAt": "2026-07-28T03:12:37.000Z",
+          "uid": "35240-0949a634-dbc0-455b-ac61-ba3e4668b250"
+        }
+      ],
+      "id": "2bc131ef-1b65-43ba-adfa-06e7a824f8fa",
+      "createdAt": "2026-07-28T03:12:37.000Z",
+      "updatedAt": "2026-07-28T03:12:37.000Z",
+      "uid": "35240-2bc131ef-1b65-43ba-adfa-06e7a824f8fa"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

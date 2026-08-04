@@ -1,0 +1,487 @@
+{
+  "info": {
+    "_postman_id": "53cb9dc1-8315-4532-a5fd-4ce1e18ee0e3",
+    "name": "The Things Stack \u2014 Application Server AppAs UserInvitationRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:13:04.000Z",
+    "updatedAt": "2026-07-28T03:13:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-53cb9dc1-8315-4532-a5fd-4ce1e18ee0e3"
+  },
+  "item": [
+    {
+      "name": "invitations",
+      "item": [
+        {
+          "name": "List the invitations the caller has sent.",
+          "id": "6a879019-b9a9-42bf-aea3-bc69f16489cd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/invitations?limit=<long>&page=<long>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invitations"
+              ],
+              "query": [
+                {
+                  "description": "Limit the number of results per page.",
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "description": "Page number for pagination. 0 is interpreted as 1.",
+                  "key": "page",
+                  "value": "<long>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d55147a-be34-4725-8309-e655596df33c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations?limit=<long>&page=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"invitations\": [\n    {\n      \"email\": \"<string>\",\n      \"token\": \"<string>\",\n      \"expires_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"accepted_at\": \"<dateTime>\",\n      \"accepted_by\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"email\": \"<string>\",\n      \"token\": \"<string>\",\n      \"expires_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"accepted_at\": \"<dateTime>\",\n      \"accepted_by\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:13:04.000Z",
+              "updatedAt": "2026-07-28T03:13:04.000Z",
+              "uid": "35240-6d55147a-be34-4725-8309-e655596df33c"
+            },
+            {
+              "id": "56c5b4e9-986d-4a99-915d-1cb86a5f5917",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations?limit=<long>&page=<long>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limit the number of results per page.",
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"et_6\": {},\n      \"occaecat_7d1\": {},\n      \"nonf2d\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:13:04.000Z",
+              "updatedAt": "2026-07-28T03:13:04.000Z",
+              "uid": "35240-56c5b4e9-986d-4a99-915d-1cb86a5f5917"
+            }
+          ],
+          "createdAt": "2026-07-28T03:13:04.000Z",
+          "updatedAt": "2026-07-28T03:13:04.000Z",
+          "uid": "35240-6a879019-b9a9-42bf-aea3-bc69f16489cd"
+        },
+        {
+          "name": "Delete (revoke) a user invitation.",
+          "id": "8b2f0a4b-bcde-4ce2-a601-bf162363ebc9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/invitations?email=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invitations"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bb405dcd-a0b8-441b-98a8-028b9ed04665",
+              "name": "A successful response.",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations?email=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T03:13:04.000Z",
+              "updatedAt": "2026-07-28T03:13:04.000Z",
+              "uid": "35240-bb405dcd-a0b8-441b-98a8-028b9ed04665"
+            },
+            {
+              "id": "c69a3ef7-412f-45ee-9635-cc54f3546742",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations?email=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"et_6\": {},\n      \"occaecat_7d1\": {},\n      \"nonf2d\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:13:04.000Z",
+              "updatedAt": "2026-07-28T03:13:04.000Z",
+              "uid": "35240-c69a3ef7-412f-45ee-9635-cc54f3546742"
+            }
+          ],
+          "createdAt": "2026-07-28T03:13:04.000Z",
+          "updatedAt": "2026-07-28T03:13:04.000Z",
+          "uid": "35240-8b2f0a4b-bcde-4ce2-a601-bf162363ebc9"
+        },
+        {
+          "name": "Invite a user to join the network.",
+          "id": "8a283341-3dcd-4b60-9021-5dbddbf3fa5a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/invitations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invitations"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ed45a42a-78d8-48cf-ae4e-d63c3b814551",
+              "name": "A successful response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"email\": \"<string>\",\n  \"token\": \"<string>\",\n  \"expires_at\": \"<dateTime>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"accepted_at\": \"<dateTime>\",\n  \"accepted_by\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T03:13:04.000Z",
+              "updatedAt": "2026-07-28T03:13:04.000Z",
+              "uid": "35240-ed45a42a-78d8-48cf-ae4e-d63c3b814551"
+            },
+            {
+              "id": "ee20a5c5-440b-4451-a25e-ae27acac727a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"et_6\": {},\n      \"occaecat_7d1\": {},\n      \"nonf2d\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T03:13:04.000Z",
+              "updatedAt": "2026-07-28T03:13:04.000Z",
+              "uid": "35240-ee20a5c5-440b-4451-a25e-ae27acac727a"
+            }
+          ],
+          "createdAt": "2026-07-28T03:13:04.000Z",
+          "updatedAt": "2026-07-28T03:13:04.000Z",
+          "uid": "35240-8a283341-3dcd-4b60-9021-5dbddbf3fa5a"
+        }
+      ],
+      "id": "7fea57a7-44bd-4be4-9f93-9694e8f5935f",
+      "createdAt": "2026-07-28T03:13:04.000Z",
+      "updatedAt": "2026-07-28T03:13:04.000Z",
+      "uid": "35240-7fea57a7-44bd-4be4-9f93-9694e8f5935f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

@@ -1,0 +1,531 @@
+{
+  "info": {
+    "_postman_id": "a8dc6c76-f8a8-4bdb-847a-7be207c48763",
+    "name": "The Things Stack \u2014 Application Server AppAs GatewayConfigurationService API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:32.000Z",
+    "updatedAt": "2026-07-28T03:12:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a8dc6c76-f8a8-4bdb-847a-7be207c48763"
+  },
+  "item": [
+    {
+      "name": "gcs",
+      "item": [
+        {
+          "name": "gateways",
+          "item": [
+            {
+              "name": "configuration",
+              "item": [
+                {
+                  "name": "{gateway_ids.gateway_id}",
+                  "item": [
+                    {
+                      "name": "{format}",
+                      "item": [
+                        {
+                          "name": "{filename}",
+                          "item": [
+                            {
+                              "name": "Gateway Configuration Service Get Gateway Configuration",
+                              "id": "129afa0a-722a-44a3-9b3f-e5c5f2082b2f",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:filename?gateway_ids.eui=<string>&type=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gcs",
+                                    "gateways",
+                                    "configuration",
+                                    ":gateway_ids.gateway_id",
+                                    ":format",
+                                    ":filename"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "gateway_ids.eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "type",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d83b4295-9739-42f0-a9ec-efceac50d843",
+                                      "key": "gateway_ids"
+                                    },
+                                    {
+                                      "id": "5dd72771-c57b-4b09-a60d-2d6d752c3b6d",
+                                      "key": "format",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "72afe245-0e72-4887-818c-0f0962b8c38f",
+                                      "key": "filename",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "48d482ef-2c7b-4c99-a673-a758301757ec",
+                                      "key": "gateway_ids.gateway_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "9f2e4cad-82c7-4d19-a067-26dd9d6547db",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:filename?gateway_ids.eui=<string>&type=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "configuration",
+                                        ":gateway_ids.gateway_id",
+                                        ":format",
+                                        ":filename"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "gateway_ids.eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "type",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "gateway_ids.gateway_id"
+                                        },
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "filename"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"contents\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T03:12:33.000Z",
+                                  "updatedAt": "2026-07-28T03:12:33.000Z",
+                                  "uid": "35240-9f2e4cad-82c7-4d19-a067-26dd9d6547db"
+                                },
+                                {
+                                  "id": "86a118e7-1bd2-4665-a343-1fd21260dd2b",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:filename?gateway_ids.eui=<string>&type=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "configuration",
+                                        ":gateway_ids.gateway_id",
+                                        ":format",
+                                        ":filename"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "gateway_ids.eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "type",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "gateway_ids.gateway_id"
+                                        },
+                                        {
+                                          "key": "format"
+                                        },
+                                        {
+                                          "key": "filename"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"nulla_37\": {}\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:33.000Z",
+                                  "updatedAt": "2026-07-28T03:12:33.000Z",
+                                  "uid": "35240-86a118e7-1bd2-4665-a343-1fd21260dd2b"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:33.000Z",
+                              "updatedAt": "2026-07-28T03:12:33.000Z",
+                              "uid": "35240-129afa0a-722a-44a3-9b3f-e5c5f2082b2f"
+                            }
+                          ],
+                          "id": "9c7f8fe4-dcea-4cd6-adf0-75ffc6617f84",
+                          "createdAt": "2026-07-28T03:12:33.000Z",
+                          "updatedAt": "2026-07-28T03:12:33.000Z",
+                          "uid": "35240-9c7f8fe4-dcea-4cd6-adf0-75ffc6617f84"
+                        },
+                        {
+                          "name": "{type}",
+                          "item": [
+                            {
+                              "name": "{filename}",
+                              "item": [
+                                {
+                                  "name": "Gateway Configuration Service Get Gateway Configuration2",
+                                  "id": "c2cc87f2-458e-4e16-80f1-3e5b567427a0",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:type/:filename?gateway_ids.eui=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "configuration",
+                                        ":gateway_ids.gateway_id",
+                                        ":format",
+                                        ":type",
+                                        ":filename"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "gateway_ids.eui",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "96b2f786-7677-4d37-bb35-b53cbe0dae39",
+                                          "key": "gateway_ids"
+                                        },
+                                        {
+                                          "id": "231c1592-b147-45b5-aaad-cf21ccb44e71",
+                                          "key": "format",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "338efe05-d821-47fe-9e56-ddd9bceb4440",
+                                          "key": "type",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "4d7d6952-a034-4ab1-8334-f36eea2aeb25",
+                                          "key": "filename",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "93a82aef-d7a4-429b-89cd-d83a50e7e3e7",
+                                          "key": "gateway_ids.gateway_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "479a4659-d4b8-4d29-b79d-17a3d1d0f829",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:type/:filename?gateway_ids.eui=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "configuration",
+                                            ":gateway_ids.gateway_id",
+                                            ":format",
+                                            ":type",
+                                            ":filename"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "gateway_ids.eui",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "gateway_ids.gateway_id"
+                                            },
+                                            {
+                                              "key": "format"
+                                            },
+                                            {
+                                              "key": "type"
+                                            },
+                                            {
+                                              "key": "filename"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"contents\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T03:12:33.000Z",
+                                      "updatedAt": "2026-07-28T03:12:33.000Z",
+                                      "uid": "35240-479a4659-d4b8-4d29-b79d-17a3d1d0f829"
+                                    },
+                                    {
+                                      "id": "1b93a8f0-305d-4bc5-b96b-c09776274a30",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:type/:filename?gateway_ids.eui=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "configuration",
+                                            ":gateway_ids.gateway_id",
+                                            ":format",
+                                            ":type",
+                                            ":filename"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "gateway_ids.eui",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "gateway_ids.gateway_id"
+                                            },
+                                            {
+                                              "key": "format"
+                                            },
+                                            {
+                                              "key": "type"
+                                            },
+                                            {
+                                              "key": "filename"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"nulla_37\": {}\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:33.000Z",
+                                      "updatedAt": "2026-07-28T03:12:33.000Z",
+                                      "uid": "35240-1b93a8f0-305d-4bc5-b96b-c09776274a30"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:33.000Z",
+                                  "updatedAt": "2026-07-28T03:12:33.000Z",
+                                  "uid": "35240-c2cc87f2-458e-4e16-80f1-3e5b567427a0"
+                                }
+                              ],
+                              "id": "6a0e8c51-82fa-44be-b387-3f319b0a5e9f",
+                              "createdAt": "2026-07-28T03:12:33.000Z",
+                              "updatedAt": "2026-07-28T03:12:33.000Z",
+                              "uid": "35240-6a0e8c51-82fa-44be-b387-3f319b0a5e9f"
+                            }
+                          ],
+                          "id": "3fb0db28-c574-4e2e-863b-6cb1078b8d46",
+                          "createdAt": "2026-07-28T03:12:33.000Z",
+                          "updatedAt": "2026-07-28T03:12:33.000Z",
+                          "uid": "35240-3fb0db28-c574-4e2e-863b-6cb1078b8d46"
+                        }
+                      ],
+                      "id": "2a96e8e7-aa0f-48c1-9750-9284e21f8f6f",
+                      "createdAt": "2026-07-28T03:12:33.000Z",
+                      "updatedAt": "2026-07-28T03:12:33.000Z",
+                      "uid": "35240-2a96e8e7-aa0f-48c1-9750-9284e21f8f6f"
+                    }
+                  ],
+                  "id": "d59d29ba-46a7-44e7-8bc7-09fff35444b9",
+                  "createdAt": "2026-07-28T03:12:33.000Z",
+                  "updatedAt": "2026-07-28T03:12:33.000Z",
+                  "uid": "35240-d59d29ba-46a7-44e7-8bc7-09fff35444b9"
+                }
+              ],
+              "id": "7e85b89e-ed81-45ba-bf55-e44883a62e0a",
+              "createdAt": "2026-07-28T03:12:33.000Z",
+              "updatedAt": "2026-07-28T03:12:33.000Z",
+              "uid": "35240-7e85b89e-ed81-45ba-bf55-e44883a62e0a"
+            }
+          ],
+          "id": "7b7e9912-94d7-4fd5-aba7-896d3bad5552",
+          "createdAt": "2026-07-28T03:12:33.000Z",
+          "updatedAt": "2026-07-28T03:12:33.000Z",
+          "uid": "35240-7b7e9912-94d7-4fd5-aba7-896d3bad5552"
+        }
+      ],
+      "id": "f97553b4-5eaa-4116-8577-12d7d2e5923e",
+      "createdAt": "2026-07-28T03:12:33.000Z",
+      "updatedAt": "2026-07-28T03:12:33.000Z",
+      "uid": "35240-f97553b4-5eaa-4116-8577-12d7d2e5923e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

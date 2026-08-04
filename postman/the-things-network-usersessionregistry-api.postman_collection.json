@@ -1,0 +1,462 @@
+{
+  "info": {
+    "_postman_id": "514d48d7-ce3e-4d05-abef-76fea1e02329",
+    "name": "The Things Stack \u2014 Application Server AppAs UserSessionRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:13:07.000Z",
+    "updatedAt": "2026-07-28T03:13:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-514d48d7-ce3e-4d05-abef-76fea1e02329"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "{user_ids.user_id}",
+          "item": [
+            {
+              "name": "sessions",
+              "item": [
+                {
+                  "name": "{session_id}",
+                  "item": [
+                    {
+                      "name": "Delete (revoke) the given user session.",
+                      "id": "4e3e189d-3690-4678-8864-2ba234dcc5ee",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/sessions/:session_id?user_ids.email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "sessions",
+                            ":session_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "user_ids.email",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "ebfd3f01-422a-4c70-af59-7dfd3018e796",
+                              "key": "user_ids"
+                            },
+                            {
+                              "id": "b78a5eb8-6a6a-44d2-b341-f1e31d770c65",
+                              "key": "session_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "47ffdb2b-333c-4384-9097-bcf4d72b5190",
+                              "key": "user_ids.user_id",
+                              "value": "<string>",
+                              "description": "(Required) This ID shares namespace with organization IDs."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "3b713c35-43c3-403d-ae69-d18658dbfbd6",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/users/:user_ids.user_id/sessions/:session_id?user_ids.email=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "users",
+                                ":user_ids.user_id",
+                                "sessions",
+                                ":session_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "user_ids.email",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "user_ids.user_id"
+                                },
+                                {
+                                  "key": "session_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:13:08.000Z",
+                          "updatedAt": "2026-07-28T03:13:08.000Z",
+                          "uid": "35240-3b713c35-43c3-403d-ae69-d18658dbfbd6"
+                        },
+                        {
+                          "id": "013ffd6d-0989-4540-a7bc-37d22b6a66de",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/users/:user_ids.user_id/sessions/:session_id?user_ids.email=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "users",
+                                ":user_ids.user_id",
+                                "sessions",
+                                ":session_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "user_ids.email",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "user_ids.user_id"
+                                },
+                                {
+                                  "key": "session_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolor4\": {},\n      \"anim_65\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"amet_2c\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:13:08.000Z",
+                          "updatedAt": "2026-07-28T03:13:08.000Z",
+                          "uid": "35240-013ffd6d-0989-4540-a7bc-37d22b6a66de"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:13:08.000Z",
+                      "updatedAt": "2026-07-28T03:13:08.000Z",
+                      "uid": "35240-4e3e189d-3690-4678-8864-2ba234dcc5ee"
+                    }
+                  ],
+                  "id": "340c76ce-23ec-4d2c-ac42-cfbb6b8c8e92",
+                  "createdAt": "2026-07-28T03:13:08.000Z",
+                  "updatedAt": "2026-07-28T03:13:08.000Z",
+                  "uid": "35240-340c76ce-23ec-4d2c-ac42-cfbb6b8c8e92"
+                },
+                {
+                  "name": "List the active sessions for the given user.",
+                  "id": "5c53fe2b-20a8-4626-86de-6e4f5a9871d6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_ids.user_id/sessions?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_ids.user_id",
+                        "sessions"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "user_ids.email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "095e52f2-512d-464f-923f-669d804bdc71",
+                          "key": "user_ids"
+                        },
+                        {
+                          "id": "2dcc5c77-c4ab-42d4-8ef3-caa576c0447e",
+                          "key": "user_ids.user_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with organization IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e0ae5cac-9759-45fa-82fd-3562102f07a3",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/sessions?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "sessions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "user_ids.email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"sessions\": [\n    {\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"session_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"session_secret\": \"<string>\"\n    },\n    {\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"session_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"session_secret\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:13:08.000Z",
+                      "updatedAt": "2026-07-28T03:13:08.000Z",
+                      "uid": "35240-e0ae5cac-9759-45fa-82fd-3562102f07a3"
+                    },
+                    {
+                      "id": "c393abc4-677b-4164-8c21-59215fe709bc",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/sessions?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "sessions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "user_ids.email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"dolor4\": {},\n      \"anim_65\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"amet_2c\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:13:08.000Z",
+                      "updatedAt": "2026-07-28T03:13:08.000Z",
+                      "uid": "35240-c393abc4-677b-4164-8c21-59215fe709bc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:13:08.000Z",
+                  "updatedAt": "2026-07-28T03:13:08.000Z",
+                  "uid": "35240-5c53fe2b-20a8-4626-86de-6e4f5a9871d6"
+                }
+              ],
+              "id": "a3f3a8ad-71d0-4adc-b74a-5164d5094240",
+              "createdAt": "2026-07-28T03:13:08.000Z",
+              "updatedAt": "2026-07-28T03:13:08.000Z",
+              "uid": "35240-a3f3a8ad-71d0-4adc-b74a-5164d5094240"
+            }
+          ],
+          "id": "523f2860-60d2-4e30-a5ce-9992cff271b4",
+          "createdAt": "2026-07-28T03:13:08.000Z",
+          "updatedAt": "2026-07-28T03:13:08.000Z",
+          "uid": "35240-523f2860-60d2-4e30-a5ce-9992cff271b4"
+        }
+      ],
+      "id": "120b72ea-662c-4775-a54f-4794a84e4222",
+      "createdAt": "2026-07-28T03:13:08.000Z",
+      "updatedAt": "2026-07-28T03:13:08.000Z",
+      "uid": "35240-120b72ea-662c-4775-a54f-4794a84e4222"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

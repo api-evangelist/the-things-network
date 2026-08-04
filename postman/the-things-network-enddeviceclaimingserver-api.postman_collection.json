@@ -1,0 +1,1210 @@
+{
+  "info": {
+    "_postman_id": "84ebf307-cdfc-434f-a364-6826cc98d7f3",
+    "name": "The Things Stack \u2014 Application Server AppAs EndDeviceClaimingServer API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:52.000Z",
+    "updatedAt": "2026-07-28T03:10:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-84ebf307-cdfc-434f-a364-6826cc98d7f3"
+  },
+  "item": [
+    {
+      "name": "edcs",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "{application_ids.application_id}",
+              "item": [
+                {
+                  "name": "authorize",
+                  "item": [
+                    {
+                      "name": "Authorize the End Device Claiming Server to claim devices registered in the given application. The application\nidentifiers are the source application, where the devices are registered before they are claimed.\nThe API key is used to access the application,",
+                      "id": "ee21ff42-3aa3-4d6e-ba9e-e178ce3ffc33",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"application_ids\": {},\n  \"api_key\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/edcs/applications/:application_ids.application_id/authorize",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "edcs",
+                            "applications",
+                            ":application_ids.application_id",
+                            "authorize"
+                          ],
+                          "variable": [
+                            {
+                              "id": "97d1b72d-50b9-4ea6-8c02-2a1b38a1e076",
+                              "key": "application_ids"
+                            },
+                            {
+                              "id": "cad106c7-2598-44b1-90b9-43cf82bf63c6",
+                              "key": "application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "b961d37d-462c-46cc-8095-dd5307f66612",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"application_ids\": {},\n  \"api_key\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/edcs/applications/:application_ids.application_id/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "edcs",
+                                "applications",
+                                ":application_ids.application_id",
+                                "authorize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:10:52.000Z",
+                          "updatedAt": "2026-07-28T03:10:52.000Z",
+                          "uid": "35240-b961d37d-462c-46cc-8095-dd5307f66612"
+                        },
+                        {
+                          "id": "b7857f73-e387-46eb-9fde-88d354fe9fc0",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"application_ids\": {},\n  \"api_key\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/edcs/applications/:application_ids.application_id/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "edcs",
+                                "applications",
+                                ":application_ids.application_id",
+                                "authorize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"cupidatat_5\": {},\n      \"dolor78\": {},\n      \"ut_f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint1\": {},\n      \"in69\": {},\n      \"culpa18\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:52.000Z",
+                          "updatedAt": "2026-07-28T03:10:52.000Z",
+                          "uid": "35240-b7857f73-e387-46eb-9fde-88d354fe9fc0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:52.000Z",
+                      "updatedAt": "2026-07-28T03:10:52.000Z",
+                      "uid": "35240-ee21ff42-3aa3-4d6e-ba9e-e178ce3ffc33"
+                    }
+                  ],
+                  "id": "9b68724f-c2d8-402b-a105-5210b694348a",
+                  "createdAt": "2026-07-28T03:10:52.000Z",
+                  "updatedAt": "2026-07-28T03:10:52.000Z",
+                  "uid": "35240-9b68724f-c2d8-402b-a105-5210b694348a"
+                }
+              ],
+              "id": "4d6992a6-6771-4991-baea-80e3bf1ff211",
+              "createdAt": "2026-07-28T03:10:52.000Z",
+              "updatedAt": "2026-07-28T03:10:52.000Z",
+              "uid": "35240-4d6992a6-6771-4991-baea-80e3bf1ff211"
+            },
+            {
+              "name": "{application_id}",
+              "item": [
+                {
+                  "name": "authorize",
+                  "item": [
+                    {
+                      "name": "Unauthorize the End Device Claiming Server to claim devices in the given application.\nThis reverts the authorization given with rpc AuthorizeApplication.\nDEPRECATED: Device claiming that transfers devices between applications is no longer supported and wi",
+                      "id": "7cac6a66-bf06-4322-9a64-7b0b9b34c57b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/edcs/applications/:application_id/authorize",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "edcs",
+                            "applications",
+                            ":application_id",
+                            "authorize"
+                          ],
+                          "variable": [
+                            {
+                              "id": "aa3522f1-7bd1-43e4-b171-6b8c9dff8e08",
+                              "key": "application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "07888807-a537-44bb-8d57-cf3af2cdacea",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/edcs/applications/:application_id/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "edcs",
+                                "applications",
+                                ":application_id",
+                                "authorize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:10:52.000Z",
+                          "updatedAt": "2026-07-28T03:10:52.000Z",
+                          "uid": "35240-07888807-a537-44bb-8d57-cf3af2cdacea"
+                        },
+                        {
+                          "id": "c7ce1f1f-95f5-4427-8a57-e729f2eb990e",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/edcs/applications/:application_id/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "edcs",
+                                "applications",
+                                ":application_id",
+                                "authorize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"cupidatat_5\": {},\n      \"dolor78\": {},\n      \"ut_f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint1\": {},\n      \"in69\": {},\n      \"culpa18\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:52.000Z",
+                          "updatedAt": "2026-07-28T03:10:52.000Z",
+                          "uid": "35240-c7ce1f1f-95f5-4427-8a57-e729f2eb990e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:52.000Z",
+                      "updatedAt": "2026-07-28T03:10:52.000Z",
+                      "uid": "35240-7cac6a66-bf06-4322-9a64-7b0b9b34c57b"
+                    }
+                  ],
+                  "id": "2f04c70d-b535-4985-925f-520b33dc471d",
+                  "createdAt": "2026-07-28T03:10:52.000Z",
+                  "updatedAt": "2026-07-28T03:10:52.000Z",
+                  "uid": "35240-2f04c70d-b535-4985-925f-520b33dc471d"
+                }
+              ],
+              "id": "b2208a6f-ffcf-41e7-96c3-ef5aec844e27",
+              "createdAt": "2026-07-28T03:10:52.000Z",
+              "updatedAt": "2026-07-28T03:10:52.000Z",
+              "uid": "35240-b2208a6f-ffcf-41e7-96c3-ef5aec844e27"
+            }
+          ],
+          "id": "03900ac7-efa8-4ed1-8e76-1021fceac377",
+          "createdAt": "2026-07-28T03:10:52.000Z",
+          "updatedAt": "2026-07-28T03:10:52.000Z",
+          "uid": "35240-03900ac7-efa8-4ed1-8e76-1021fceac377"
+        },
+        {
+          "name": "claim",
+          "item": [
+            {
+              "name": "info",
+              "item": [
+                {
+                  "name": "Return whether claiming is available for a given JoinEUI.",
+                  "id": "c0df1eb6-c827-458e-897e-c149a23817fb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"join_eui\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/edcs/claim/info",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "edcs",
+                        "claim",
+                        "info"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "768455ae-321a-4d74-ac2f-ccbc3598087c",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"join_eui\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/edcs/claim/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "edcs",
+                            "claim",
+                            "info"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"join_eui\": \"<string>\",\n  \"supports_claiming\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:10:52.000Z",
+                      "updatedAt": "2026-07-28T03:10:52.000Z",
+                      "uid": "35240-768455ae-321a-4d74-ac2f-ccbc3598087c"
+                    },
+                    {
+                      "id": "14a0a04a-5cc1-45b9-9405-84505056d8c0",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"join_eui\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/edcs/claim/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "edcs",
+                            "claim",
+                            "info"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"cupidatat_5\": {},\n      \"dolor78\": {},\n      \"ut_f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint1\": {},\n      \"in69\": {},\n      \"culpa18\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:52.000Z",
+                      "updatedAt": "2026-07-28T03:10:52.000Z",
+                      "uid": "35240-14a0a04a-5cc1-45b9-9405-84505056d8c0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:52.000Z",
+                  "updatedAt": "2026-07-28T03:10:52.000Z",
+                  "uid": "35240-c0df1eb6-c827-458e-897e-c149a23817fb"
+                }
+              ],
+              "id": "441617d9-75a8-4653-819b-288461567786",
+              "createdAt": "2026-07-28T03:10:52.000Z",
+              "updatedAt": "2026-07-28T03:10:52.000Z",
+              "uid": "35240-441617d9-75a8-4653-819b-288461567786"
+            },
+            {
+              "name": "{application_ids.application_id}",
+              "item": [
+                {
+                  "name": "devices",
+                  "item": [
+                    {
+                      "name": "{device_id}",
+                      "item": [
+                        {
+                          "name": "Gets the claim status of an end device.\nEUIs provided in the request are ignored and the end device is looked up by the given identifiers.",
+                          "id": "fd53f69d-1f38-45be-9997-26fdb2797a23",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/edcs/claim/:application_ids.application_id/devices/:device_id?dev_eui=<string>&join_eui=<string>&dev_addr=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "edcs",
+                                "claim",
+                                ":application_ids.application_id",
+                                "devices",
+                                ":device_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The LoRaWAN DevEUI.",
+                                  "key": "dev_eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                  "key": "join_eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The LoRaWAN DevAddr.",
+                                  "key": "dev_addr",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "abfc4823-5d1d-4557-8ba0-29d270264fd1",
+                                  "key": "application_ids"
+                                },
+                                {
+                                  "id": "a817ccd6-9e1a-4636-badd-5ee04e9217a8",
+                                  "key": "device_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "7649bb35-1a70-472f-9ac4-442357cf3bdd",
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "89190991-cb09-4842-b90e-6e498210b921",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/edcs/claim/:application_ids.application_id/devices/:device_id?dev_eui=<string>&join_eui=<string>&dev_addr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "edcs",
+                                    "claim",
+                                    ":application_ids.application_id",
+                                    "devices",
+                                    ":device_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "dev_addr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"end_device_ids\": {\n    \"device_id\": \"<string>\",\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"home_net_id\": \"<string>\",\n  \"home_ns_id\": \"<string>\",\n  \"vendor_specific\": {\n    \"organization_unique_identifier\": \"<long>\",\n    \"data\": {}\n  }\n}",
+                              "createdAt": "2026-07-28T03:10:52.000Z",
+                              "updatedAt": "2026-07-28T03:10:52.000Z",
+                              "uid": "35240-89190991-cb09-4842-b90e-6e498210b921"
+                            },
+                            {
+                              "id": "85f30988-79ec-43a0-b6eb-09683dc152bb",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/edcs/claim/:application_ids.application_id/devices/:device_id?dev_eui=<string>&join_eui=<string>&dev_addr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "edcs",
+                                    "claim",
+                                    ":application_ids.application_id",
+                                    "devices",
+                                    ":device_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "dev_addr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"cupidatat_5\": {},\n      \"dolor78\": {},\n      \"ut_f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint1\": {},\n      \"in69\": {},\n      \"culpa18\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:52.000Z",
+                              "updatedAt": "2026-07-28T03:10:52.000Z",
+                              "uid": "35240-85f30988-79ec-43a0-b6eb-09683dc152bb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:10:52.000Z",
+                          "updatedAt": "2026-07-28T03:10:52.000Z",
+                          "uid": "35240-fd53f69d-1f38-45be-9997-26fdb2797a23"
+                        },
+                        {
+                          "name": "Unclaims the end device on a Join Server.\nEUIs provided in the request are ignored and the end device is looked up by the given identifiers.",
+                          "id": "ad68fce9-bbd5-41dc-9946-649cb8ceb9a3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/edcs/claim/:application_ids.application_id/devices/:device_id?dev_eui=<string>&join_eui=<string>&dev_addr=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "edcs",
+                                "claim",
+                                ":application_ids.application_id",
+                                "devices",
+                                ":device_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The LoRaWAN DevEUI.",
+                                  "key": "dev_eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                  "key": "join_eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The LoRaWAN DevAddr.",
+                                  "key": "dev_addr",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9c6e86d1-a033-463c-ad70-8850dc90c610",
+                                  "key": "application_ids"
+                                },
+                                {
+                                  "id": "1c4d7745-fab7-401c-af28-f53f93599c70",
+                                  "key": "device_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "131f62ae-2abf-46c8-8455-4f4c35253608",
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "387d1e68-aa79-47ed-9687-6830d78a254b",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/edcs/claim/:application_ids.application_id/devices/:device_id?dev_eui=<string>&join_eui=<string>&dev_addr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "edcs",
+                                    "claim",
+                                    ":application_ids.application_id",
+                                    "devices",
+                                    ":device_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "dev_addr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T03:10:52.000Z",
+                              "updatedAt": "2026-07-28T03:10:52.000Z",
+                              "uid": "35240-387d1e68-aa79-47ed-9687-6830d78a254b"
+                            },
+                            {
+                              "id": "dd808bec-7a17-4821-b7bd-d5ec92d00e24",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/edcs/claim/:application_ids.application_id/devices/:device_id?dev_eui=<string>&join_eui=<string>&dev_addr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "edcs",
+                                    "claim",
+                                    ":application_ids.application_id",
+                                    "devices",
+                                    ":device_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "dev_addr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"cupidatat_5\": {},\n      \"dolor78\": {},\n      \"ut_f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint1\": {},\n      \"in69\": {},\n      \"culpa18\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:52.000Z",
+                              "updatedAt": "2026-07-28T03:10:52.000Z",
+                              "uid": "35240-dd808bec-7a17-4821-b7bd-d5ec92d00e24"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:10:52.000Z",
+                          "updatedAt": "2026-07-28T03:10:52.000Z",
+                          "uid": "35240-ad68fce9-bbd5-41dc-9946-649cb8ceb9a3"
+                        }
+                      ],
+                      "id": "ee640b1b-9174-4aca-b733-c49e4b913f27",
+                      "createdAt": "2026-07-28T03:10:52.000Z",
+                      "updatedAt": "2026-07-28T03:10:52.000Z",
+                      "uid": "35240-ee640b1b-9174-4aca-b733-c49e4b913f27"
+                    }
+                  ],
+                  "id": "49839cd1-834d-4490-b778-d229f1dd0acf",
+                  "createdAt": "2026-07-28T03:10:52.000Z",
+                  "updatedAt": "2026-07-28T03:10:52.000Z",
+                  "uid": "35240-49839cd1-834d-4490-b778-d229f1dd0acf"
+                }
+              ],
+              "id": "98837374-e175-4825-a762-dccca6ee5c1f",
+              "createdAt": "2026-07-28T03:10:52.000Z",
+              "updatedAt": "2026-07-28T03:10:52.000Z",
+              "uid": "35240-98837374-e175-4825-a762-dccca6ee5c1f"
+            },
+            {
+              "name": "Claims the end device on a Join Server by claim authentication code or QR code.",
+              "id": "d0a89436-2f93-47a6-ab5b-2c4956a2853d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authenticated_identifiers\": {\n    \"join_eui\": \"<string>\",\n    \"dev_eui\": \"<string>\",\n    \"authentication_code\": \"<string>\"\n  },\n  \"qr_code\": \"<string>\",\n  \"target_application_ids\": {\n    \"application_id\": \"<string>\"\n  },\n  \"target_device_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/edcs/claim",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "edcs",
+                    "claim"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d09e2dd5-2d9a-4ff2-8696-a8e51777e7f2",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authenticated_identifiers\": {\n    \"join_eui\": \"<string>\",\n    \"dev_eui\": \"<string>\",\n    \"authentication_code\": \"<string>\"\n  },\n  \"qr_code\": \"<string>\",\n  \"target_application_ids\": {\n    \"application_id\": \"<string>\"\n  },\n  \"target_device_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/edcs/claim",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "edcs",
+                        "claim"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"device_id\": \"<string>\",\n  \"application_ids\": {\n    \"application_id\": \"<string>\"\n  },\n  \"dev_eui\": \"<string>\",\n  \"join_eui\": \"<string>\",\n  \"dev_addr\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:10:52.000Z",
+                  "updatedAt": "2026-07-28T03:10:52.000Z",
+                  "uid": "35240-d09e2dd5-2d9a-4ff2-8696-a8e51777e7f2"
+                },
+                {
+                  "id": "b4e4c578-f758-4ac6-8ede-8201c114eac4",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authenticated_identifiers\": {\n    \"join_eui\": \"<string>\",\n    \"dev_eui\": \"<string>\",\n    \"authentication_code\": \"<string>\"\n  },\n  \"qr_code\": \"<string>\",\n  \"target_application_ids\": {\n    \"application_id\": \"<string>\"\n  },\n  \"target_device_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/edcs/claim",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "edcs",
+                        "claim"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"cupidatat_5\": {},\n      \"dolor78\": {},\n      \"ut_f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"sint1\": {},\n      \"in69\": {},\n      \"culpa18\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:52.000Z",
+                  "updatedAt": "2026-07-28T03:10:52.000Z",
+                  "uid": "35240-b4e4c578-f758-4ac6-8ede-8201c114eac4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:52.000Z",
+              "updatedAt": "2026-07-28T03:10:52.000Z",
+              "uid": "35240-d0a89436-2f93-47a6-ab5b-2c4956a2853d"
+            }
+          ],
+          "id": "d69aa743-8a72-4cdf-a787-d8f4cee4349c",
+          "createdAt": "2026-07-28T03:10:52.000Z",
+          "updatedAt": "2026-07-28T03:10:52.000Z",
+          "uid": "35240-d69aa743-8a72-4cdf-a787-d8f4cee4349c"
+        }
+      ],
+      "id": "58ce5b66-6c8d-4d25-92c1-c5ba82efe1ca",
+      "createdAt": "2026-07-28T03:10:52.000Z",
+      "updatedAt": "2026-07-28T03:10:52.000Z",
+      "uid": "35240-58ce5b66-6c8d-4d25-92c1-c5ba82efe1ca"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

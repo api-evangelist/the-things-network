@@ -1,0 +1,175 @@
+{
+  "info": {
+    "_postman_id": "da23feb1-74e2-47f5-9eee-adac314f6b6d",
+    "name": "The Things Stack \u2014 Application Server AppAs Is API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:37.000Z",
+    "updatedAt": "2026-07-28T03:12:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-da23feb1-74e2-47f5-9eee-adac314f6b6d"
+  },
+  "item": [
+    {
+      "name": "is",
+      "item": [
+        {
+          "name": "configuration",
+          "item": [
+            {
+              "name": "Get the configuration of the Identity Server. The response is typically used\nto enable or disable features in a user interface.",
+              "id": "fe6a6eec-5218-4053-a813-637f47675223",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/is/configuration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "is",
+                    "configuration"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "99e36ec4-bb5a-4276-821e-202534cc1670",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/is/configuration",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "is",
+                        "configuration"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"configuration\": {\n    \"user_registration\": {\n      \"invitation\": {\n        \"required\": \"<boolean>\",\n        \"token_ttl\": \"<string>\"\n      },\n      \"contact_info_validation\": {\n        \"required\": \"<boolean>\",\n        \"token_ttl\": \"<string>\",\n        \"retry_interval\": \"<string>\"\n      },\n      \"admin_approval\": {\n        \"required\": \"<boolean>\"\n      },\n      \"password_requirements\": {\n        \"min_length\": \"<long>\",\n        \"max_length\": \"<long>\",\n        \"min_uppercase\": \"<long>\",\n        \"min_digits\": \"<long>\",\n        \"min_special\": \"<long>\"\n      },\n      \"enabled\": \"<boolean>\"\n    },\n    \"profile_picture\": {\n      \"disable_upload\": \"<boolean>\",\n      \"use_gravatar\": \"<boolean>\"\n    },\n    \"end_device_picture\": {\n      \"disable_upload\": \"<boolean>\"\n    },\n    \"user_rights\": {\n      \"create_applications\": \"<boolean>\",\n      \"create_clients\": \"<boolean>\",\n      \"create_gateways\": \"<boolean>\",\n      \"create_organizations\": \"<boolean>\"\n    },\n    \"user_login\": {\n      \"disable_credentials_login\": \"<boolean>\"\n    },\n    \"admin_rights\": {\n      \"all\": \"<boolean>\"\n    },\n    \"collaborator_rights\": {\n      \"set_others_as_contacts\": \"<boolean>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T03:12:38.000Z",
+                  "updatedAt": "2026-07-28T03:12:38.000Z",
+                  "uid": "35240-99e36ec4-bb5a-4276-821e-202534cc1670"
+                },
+                {
+                  "id": "9242aea0-692c-4e6e-90a2-9600d2542595",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/is/configuration",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "is",
+                        "configuration"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"laborum_e9_\": {},\n      \"est_2e\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"doloreb0_\": {},\n      \"Ut56\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:12:38.000Z",
+                  "updatedAt": "2026-07-28T03:12:38.000Z",
+                  "uid": "35240-9242aea0-692c-4e6e-90a2-9600d2542595"
+                }
+              ],
+              "createdAt": "2026-07-28T03:12:38.000Z",
+              "updatedAt": "2026-07-28T03:12:38.000Z",
+              "uid": "35240-fe6a6eec-5218-4053-a813-637f47675223"
+            }
+          ],
+          "id": "e9414ecc-fec0-4135-9fd6-57ae1bf22f12",
+          "createdAt": "2026-07-28T03:12:38.000Z",
+          "updatedAt": "2026-07-28T03:12:38.000Z",
+          "uid": "35240-e9414ecc-fec0-4135-9fd6-57ae1bf22f12"
+        }
+      ],
+      "id": "f92f6a3e-94dd-4498-91c2-f3ca101966c9",
+      "createdAt": "2026-07-28T03:12:38.000Z",
+      "updatedAt": "2026-07-28T03:12:38.000Z",
+      "uid": "35240-f92f6a3e-94dd-4498-91c2-f3ca101966c9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

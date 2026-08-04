@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "3c6fcd87-8a44-4153-8946-cf380776bf98",
+    "name": "The Things Stack \u2014 Application Server AppAs AsEndDeviceBatchRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:34.000Z",
+    "updatedAt": "2026-07-28T03:10:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3c6fcd87-8a44-4153-8946-cf380776bf98"
+  },
+  "item": [
+    {
+      "name": "as",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "{application_ids.application_id}",
+              "item": [
+                {
+                  "name": "devices",
+                  "item": [
+                    {
+                      "name": "batch",
+                      "item": [
+                        {
+                          "name": "Delete a list of devices within the same application.\nThis operation is atomic; either all devices are deleted or none.\nDevices not found are skipped and no error is returned.",
+                          "id": "bc8f5016-8b52-405b-820b-182cb4276867",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/devices/batch?device_ids=<string>&device_ids=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as",
+                                "applications",
+                                ":application_ids.application_id",
+                                "devices",
+                                "batch"
+                              ],
+                              "query": [
+                                {
+                                  "key": "device_ids",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "device_ids",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1374dde6-16a4-4b05-88d8-f9a14aa58025",
+                                  "key": "application_ids"
+                                },
+                                {
+                                  "id": "40b1dee5-9d21-44c2-ada5-903dd94598e2",
+                                  "key": "application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "76517345-4484-48a5-a14d-fc92e7dfe77f",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/devices/batch?device_ids=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "as",
+                                    "applications",
+                                    ":application_ids.application_id",
+                                    "devices",
+                                    "batch"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "device_ids",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application_ids.application_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T03:10:34.000Z",
+                              "updatedAt": "2026-07-28T03:10:34.000Z",
+                              "uid": "35240-76517345-4484-48a5-a14d-fc92e7dfe77f"
+                            },
+                            {
+                              "id": "571cc6a4-c6bc-4657-b709-074c6dbfcef6",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/devices/batch?device_ids=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "as",
+                                    "applications",
+                                    ":application_ids.application_id",
+                                    "devices",
+                                    "batch"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "device_ids",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application_ids.application_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"ut_be9\": {},\n      \"dolore801\": {},\n      \"sit_8f\": {},\n      \"inbb\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"minim76\": {},\n      \"sed__\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:34.000Z",
+                              "updatedAt": "2026-07-28T03:10:34.000Z",
+                              "uid": "35240-571cc6a4-c6bc-4657-b709-074c6dbfcef6"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:10:34.000Z",
+                          "updatedAt": "2026-07-28T03:10:34.000Z",
+                          "uid": "35240-bc8f5016-8b52-405b-820b-182cb4276867"
+                        }
+                      ],
+                      "id": "b9919a70-da05-42a1-9ecc-44bdb8d0ece6",
+                      "createdAt": "2026-07-28T03:10:34.000Z",
+                      "updatedAt": "2026-07-28T03:10:34.000Z",
+                      "uid": "35240-b9919a70-da05-42a1-9ecc-44bdb8d0ece6"
+                    }
+                  ],
+                  "id": "3cf9e29b-d9b2-4598-b944-e392e6ce3daa",
+                  "createdAt": "2026-07-28T03:10:34.000Z",
+                  "updatedAt": "2026-07-28T03:10:34.000Z",
+                  "uid": "35240-3cf9e29b-d9b2-4598-b944-e392e6ce3daa"
+                }
+              ],
+              "id": "4ea2fe75-f2a3-407e-bd75-de8b46095a73",
+              "createdAt": "2026-07-28T03:10:34.000Z",
+              "updatedAt": "2026-07-28T03:10:34.000Z",
+              "uid": "35240-4ea2fe75-f2a3-407e-bd75-de8b46095a73"
+            }
+          ],
+          "id": "5914b389-3c9b-4715-92a6-54b2372ba980",
+          "createdAt": "2026-07-28T03:10:34.000Z",
+          "updatedAt": "2026-07-28T03:10:34.000Z",
+          "uid": "35240-5914b389-3c9b-4715-92a6-54b2372ba980"
+        }
+      ],
+      "id": "78186231-2941-4518-9fc4-de375830827a",
+      "createdAt": "2026-07-28T03:10:34.000Z",
+      "updatedAt": "2026-07-28T03:10:34.000Z",
+      "uid": "35240-78186231-2941-4518-9fc4-de375830827a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

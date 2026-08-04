@@ -1,0 +1,864 @@
+{
+  "info": {
+    "_postman_id": "a7158cb0-a4b5-47b2-85d8-45403443b8f8",
+    "name": "The Things Stack \u2014 Application Server AppAs ManagedGatewayConfigurationService API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:42.000Z",
+    "updatedAt": "2026-07-28T03:12:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a7158cb0-a4b5-47b2-85d8-45403443b8f8"
+  },
+  "item": [
+    {
+      "name": "gcs",
+      "item": [
+        {
+          "name": "gateways",
+          "item": [
+            {
+              "name": "managed",
+              "item": [
+                {
+                  "name": "{gateway.ids.gateway_id}",
+                  "item": [
+                    {
+                      "name": "Managed Gateway Configuration Service Update",
+                      "id": "b4fdb5d5-5b7a-44e5-ba16-c92fb0be8f93",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"gateway\": {\n    \"ids\": {\n      \"eui\": \"<string>\"\n    },\n    \"version_ids\": {\n      \"brand_id\": \"<string>\",\n      \"model_id\": \"<string>\",\n      \"hardware_version\": \"<string>\",\n      \"firmware_version\": \"<string>\",\n      \"runtime_version\": \"<string>\"\n    },\n    \"cellular_imei\": \"<string>\",\n    \"cellular_imsi\": \"<string>\",\n    \"wifi_mac_address\": \"<string>\",\n    \"ethernet_mac_address\": \"<string>\",\n    \"wifi_profile_id\": \"<string>\",\n    \"ethernet_profile_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway.ids.gateway_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcs",
+                            "gateways",
+                            "managed",
+                            ":gateway.ids.gateway_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "08cd093d-5b79-46c0-8009-961541e1ca6f",
+                              "key": "gateway"
+                            },
+                            {
+                              "id": "141a80a3-d920-4561-b0c0-5c368a7424c6",
+                              "key": "gateway.ids.gateway_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d4573fd1-feac-40fd-8837-9bbcd4d57b42",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"gateway\": {\n    \"ids\": {\n      \"eui\": \"<string>\"\n    },\n    \"version_ids\": {\n      \"brand_id\": \"<string>\",\n      \"model_id\": \"<string>\",\n      \"hardware_version\": \"<string>\",\n      \"firmware_version\": \"<string>\",\n      \"runtime_version\": \"<string>\"\n    },\n    \"cellular_imei\": \"<string>\",\n    \"cellular_imsi\": \"<string>\",\n    \"wifi_mac_address\": \"<string>\",\n    \"ethernet_mac_address\": \"<string>\",\n    \"wifi_profile_id\": \"<string>\",\n    \"ethernet_profile_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway.ids.gateway_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcs",
+                                "gateways",
+                                "managed",
+                                ":gateway.ids.gateway_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway.ids.gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"ids\": {\n    \"gateway_id\": \"<string>\",\n    \"eui\": \"<string>\"\n  },\n  \"version_ids\": {\n    \"brand_id\": \"<string>\",\n    \"model_id\": \"<string>\",\n    \"hardware_version\": \"<string>\",\n    \"firmware_version\": \"<string>\",\n    \"runtime_version\": \"<string>\"\n  },\n  \"cellular_imei\": \"<string>\",\n  \"cellular_imsi\": \"<string>\",\n  \"wifi_mac_address\": \"<string>\",\n  \"ethernet_mac_address\": \"<string>\",\n  \"wifi_profile_id\": \"<string>\",\n  \"ethernet_profile_id\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:12:43.000Z",
+                          "updatedAt": "2026-07-28T03:12:43.000Z",
+                          "uid": "35240-d4573fd1-feac-40fd-8837-9bbcd4d57b42"
+                        },
+                        {
+                          "id": "e7d50627-b00a-4f29-9bed-7ee5eac8198f",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"gateway\": {\n    \"ids\": {\n      \"eui\": \"<string>\"\n    },\n    \"version_ids\": {\n      \"brand_id\": \"<string>\",\n      \"model_id\": \"<string>\",\n      \"hardware_version\": \"<string>\",\n      \"firmware_version\": \"<string>\",\n      \"runtime_version\": \"<string>\"\n    },\n    \"cellular_imei\": \"<string>\",\n    \"cellular_imsi\": \"<string>\",\n    \"wifi_mac_address\": \"<string>\",\n    \"ethernet_mac_address\": \"<string>\",\n    \"wifi_profile_id\": \"<string>\",\n    \"ethernet_profile_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway.ids.gateway_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcs",
+                                "gateways",
+                                "managed",
+                                ":gateway.ids.gateway_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway.ids.gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"etec\": {},\n      \"nulla356\": {},\n      \"anime\": {},\n      \"nulla_4c\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:43.000Z",
+                          "updatedAt": "2026-07-28T03:12:43.000Z",
+                          "uid": "35240-e7d50627-b00a-4f29-9bed-7ee5eac8198f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:43.000Z",
+                      "updatedAt": "2026-07-28T03:12:43.000Z",
+                      "uid": "35240-b4fdb5d5-5b7a-44e5-ba16-c92fb0be8f93"
+                    }
+                  ],
+                  "id": "0eaca020-5c9f-4097-9bbd-a6b03d14777b",
+                  "createdAt": "2026-07-28T03:12:43.000Z",
+                  "updatedAt": "2026-07-28T03:12:43.000Z",
+                  "uid": "35240-0eaca020-5c9f-4097-9bbd-a6b03d14777b"
+                },
+                {
+                  "name": "{gateway_ids.gateway_id}",
+                  "item": [
+                    {
+                      "name": "Managed Gateway Configuration Service Get",
+                      "id": "d4604566-bcea-48dd-a5ae-c4267eaecbd1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_ids.gateway_id?gateway_ids.eui=<string>&field_mask=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcs",
+                            "gateways",
+                            "managed",
+                            ":gateway_ids.gateway_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "gateway_ids.eui",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The names of the gateway fields that should be returned.",
+                              "key": "field_mask",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "d06d8711-ee8d-4b5e-8f2b-4f87f2bc8930",
+                              "key": "gateway_ids"
+                            },
+                            {
+                              "id": "fea089c0-ca5f-44c3-bedb-77aaae7f4778",
+                              "key": "gateway_ids.gateway_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "c06d2e87-3d5a-4177-9245-50a616cae20e",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_ids.gateway_id?gateway_ids.eui=<string>&field_mask=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcs",
+                                "gateways",
+                                "managed",
+                                ":gateway_ids.gateway_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The names of the gateway fields that should be returned.",
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_ids.gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"ids\": {\n    \"gateway_id\": \"<string>\",\n    \"eui\": \"<string>\"\n  },\n  \"version_ids\": {\n    \"brand_id\": \"<string>\",\n    \"model_id\": \"<string>\",\n    \"hardware_version\": \"<string>\",\n    \"firmware_version\": \"<string>\",\n    \"runtime_version\": \"<string>\"\n  },\n  \"cellular_imei\": \"<string>\",\n  \"cellular_imsi\": \"<string>\",\n  \"wifi_mac_address\": \"<string>\",\n  \"ethernet_mac_address\": \"<string>\",\n  \"wifi_profile_id\": \"<string>\",\n  \"ethernet_profile_id\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:12:43.000Z",
+                          "updatedAt": "2026-07-28T03:12:43.000Z",
+                          "uid": "35240-c06d2e87-3d5a-4177-9245-50a616cae20e"
+                        },
+                        {
+                          "id": "a21cfc0c-fa7e-4619-8c3f-7fe2d3450b56",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_ids.gateway_id?gateway_ids.eui=<string>&field_mask=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcs",
+                                "gateways",
+                                "managed",
+                                ":gateway_ids.gateway_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "gateway_ids.eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The names of the gateway fields that should be returned.",
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_ids.gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"etec\": {},\n      \"nulla356\": {},\n      \"anime\": {},\n      \"nulla_4c\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:43.000Z",
+                          "updatedAt": "2026-07-28T03:12:43.000Z",
+                          "uid": "35240-a21cfc0c-fa7e-4619-8c3f-7fe2d3450b56"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:43.000Z",
+                      "updatedAt": "2026-07-28T03:12:43.000Z",
+                      "uid": "35240-d4604566-bcea-48dd-a5ae-c4267eaecbd1"
+                    }
+                  ],
+                  "id": "2fa4a33a-36fb-4289-bc1c-12fcad77bd33",
+                  "createdAt": "2026-07-28T03:12:43.000Z",
+                  "updatedAt": "2026-07-28T03:12:43.000Z",
+                  "uid": "35240-2fa4a33a-36fb-4289-bc1c-12fcad77bd33"
+                },
+                {
+                  "name": "{gateway_id}",
+                  "item": [
+                    {
+                      "name": "events",
+                      "item": [
+                        {
+                          "name": "Managed Gateway Configuration Service Stream Events",
+                          "id": "0d53f5be-f125-4f49-992d-df5ef14ad0c0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"eui\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/events",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcs",
+                                "gateways",
+                                "managed",
+                                ":gateway_id",
+                                "events"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c16c68c3-4a05-42dd-a493-815a4229a14d",
+                                  "key": "gateway_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "1a9bc666-7c3d-45bc-9e2b-79e5fb1234b1",
+                              "name": "A successful response.(streaming responses)",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"eui\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/events",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gcs",
+                                    "gateways",
+                                    "managed",
+                                    ":gateway_id",
+                                    "events"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "gateway_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"result\": {\n    \"entity\": {\n      \"ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"<string>\"\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"runtime_version\": \"<string>\"\n      },\n      \"cellular_imei\": \"<string>\",\n      \"cellular_imsi\": \"<string>\",\n      \"wifi_mac_address\": \"<string>\",\n      \"ethernet_mac_address\": \"<string>\",\n      \"wifi_profile_id\": \"<string>\",\n      \"ethernet_profile_id\": \"<string>\"\n    },\n    \"location\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\",\n      \"altitude\": \"<integer>\",\n      \"accuracy\": \"<integer>\",\n      \"source\": \"SOURCE_UNKNOWN\"\n    },\n    \"system_status\": {\n      \"cpu_temperature\": \"<float>\"\n    },\n    \"controller_connection\": {\n      \"network_interface_type\": \"MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_UNSPECIFIED\"\n    },\n    \"gateway_server_connection\": {\n      \"network_interface_type\": \"MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_UNSPECIFIED\",\n      \"address\": \"<string>\"\n    },\n    \"cellular_backhaul\": {\n      \"network_interface\": {\n        \"status\": \"MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED\",\n        \"dhcp_enabled\": \"<boolean>\",\n        \"addresses\": {\n          \"ip_addresses\": \"<string>\",\n          \"subnet_mask\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"dns_servers\": \"<string>\"\n        }\n      },\n      \"operator\": \"<string>\",\n      \"rssi\": \"<float>\"\n    },\n    \"wifi_backhaul\": {\n      \"network_interface\": {\n        \"status\": \"MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED\",\n        \"dhcp_enabled\": \"<boolean>\",\n        \"addresses\": {\n          \"ip_addresses\": \"<string>\",\n          \"subnet_mask\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"dns_servers\": \"<string>\"\n        }\n      },\n      \"ssid\": \"<string>\",\n      \"bssid\": \"<string>\",\n      \"channel\": \"<long>\",\n      \"authentication_mode\": \"<string>\",\n      \"rssi\": \"<float>\"\n    },\n    \"ethernet_backhaul\": {\n      \"network_interface\": {\n        \"status\": \"MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED\",\n        \"dhcp_enabled\": \"<boolean>\",\n        \"addresses\": {\n          \"ip_addresses\": \"<string>\",\n          \"subnet_mask\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"dns_servers\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"details\": [\n      {\n        \"@type\": \"<string>\",\n        \"anim9c\": {}\n      },\n      {\n        \"@type\": \"<string>\",\n        \"exercitation_a\": {},\n        \"adipisicing7\": {}\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-07-28T03:12:43.000Z",
+                              "updatedAt": "2026-07-28T03:12:43.000Z",
+                              "uid": "35240-1a9bc666-7c3d-45bc-9e2b-79e5fb1234b1"
+                            },
+                            {
+                              "id": "1597ebf4-a199-4f57-87ad-c3196a5d753d",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"eui\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/events",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gcs",
+                                    "gateways",
+                                    "managed",
+                                    ":gateway_id",
+                                    "events"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "gateway_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"etec\": {},\n      \"nulla356\": {},\n      \"anime\": {},\n      \"nulla_4c\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:43.000Z",
+                              "updatedAt": "2026-07-28T03:12:43.000Z",
+                              "uid": "35240-1597ebf4-a199-4f57-87ad-c3196a5d753d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:43.000Z",
+                          "updatedAt": "2026-07-28T03:12:43.000Z",
+                          "uid": "35240-0d53f5be-f125-4f49-992d-df5ef14ad0c0"
+                        }
+                      ],
+                      "id": "cdc11ce4-6eb9-48d2-98ec-04eeefb5291e",
+                      "createdAt": "2026-07-28T03:12:43.000Z",
+                      "updatedAt": "2026-07-28T03:12:43.000Z",
+                      "uid": "35240-cdc11ce4-6eb9-48d2-98ec-04eeefb5291e"
+                    },
+                    {
+                      "name": "wifi",
+                      "item": [
+                        {
+                          "name": "scan",
+                          "item": [
+                            {
+                              "name": "Managed Gateway Configuration Service Scan Wi Fi Access Points",
+                              "id": "e221d494-24c7-4ef1-bff9-1d210e5f1539",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"eui\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/wifi/scan",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gcs",
+                                    "gateways",
+                                    "managed",
+                                    ":gateway_id",
+                                    "wifi",
+                                    "scan"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "8dd45c3a-6046-49a9-8010-aaa840a5a41d",
+                                      "key": "gateway_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "e4106fe0-0c7c-447b-9ebb-c6ae9c16771b",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"eui\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/wifi/scan",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "managed",
+                                        ":gateway_id",
+                                        "wifi",
+                                        "scan"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "gateway_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"access_points\": [\n    {\n      \"ssid\": \"<string>\",\n      \"bssid\": \"<string>\",\n      \"channel\": \"<long>\",\n      \"authentication_mode\": \"<string>\",\n      \"rssi\": \"<float>\"\n    },\n    {\n      \"ssid\": \"<string>\",\n      \"bssid\": \"<string>\",\n      \"channel\": \"<long>\",\n      \"authentication_mode\": \"<string>\",\n      \"rssi\": \"<float>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:43.000Z",
+                                  "updatedAt": "2026-07-28T03:12:43.000Z",
+                                  "uid": "35240-e4106fe0-0c7c-447b-9ebb-c6ae9c16771b"
+                                },
+                                {
+                                  "id": "20bf3e95-3851-442d-a94e-168802036cde",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"eui\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/wifi/scan",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "managed",
+                                        ":gateway_id",
+                                        "wifi",
+                                        "scan"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "gateway_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"etec\": {},\n      \"nulla356\": {},\n      \"anime\": {},\n      \"nulla_4c\": {}\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:43.000Z",
+                                  "updatedAt": "2026-07-28T03:12:43.000Z",
+                                  "uid": "35240-20bf3e95-3851-442d-a94e-168802036cde"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:43.000Z",
+                              "updatedAt": "2026-07-28T03:12:43.000Z",
+                              "uid": "35240-e221d494-24c7-4ef1-bff9-1d210e5f1539"
+                            }
+                          ],
+                          "id": "ba75e017-5142-4dfa-a4a6-e40788fda6ee",
+                          "createdAt": "2026-07-28T03:12:43.000Z",
+                          "updatedAt": "2026-07-28T03:12:43.000Z",
+                          "uid": "35240-ba75e017-5142-4dfa-a4a6-e40788fda6ee"
+                        }
+                      ],
+                      "id": "ada1b3b7-1d41-48df-9d54-afcd8881f27a",
+                      "createdAt": "2026-07-28T03:12:43.000Z",
+                      "updatedAt": "2026-07-28T03:12:43.000Z",
+                      "uid": "35240-ada1b3b7-1d41-48df-9d54-afcd8881f27a"
+                    }
+                  ],
+                  "id": "9590d4dd-6604-4eb0-9f56-dd748666dd62",
+                  "createdAt": "2026-07-28T03:12:43.000Z",
+                  "updatedAt": "2026-07-28T03:12:43.000Z",
+                  "uid": "35240-9590d4dd-6604-4eb0-9f56-dd748666dd62"
+                }
+              ],
+              "id": "ca3d962e-d117-4113-a057-c51f4ecb24e6",
+              "createdAt": "2026-07-28T03:12:43.000Z",
+              "updatedAt": "2026-07-28T03:12:43.000Z",
+              "uid": "35240-ca3d962e-d117-4113-a057-c51f4ecb24e6"
+            }
+          ],
+          "id": "2fbbc91e-680a-4ace-9f8e-084cb985684e",
+          "createdAt": "2026-07-28T03:12:43.000Z",
+          "updatedAt": "2026-07-28T03:12:43.000Z",
+          "uid": "35240-2fbbc91e-680a-4ace-9f8e-084cb985684e"
+        }
+      ],
+      "id": "487bb508-1839-46b2-b4e4-f7495f0fc845",
+      "createdAt": "2026-07-28T03:12:43.000Z",
+      "updatedAt": "2026-07-28T03:12:43.000Z",
+      "uid": "35240-487bb508-1839-46b2-b4e4-f7495f0fc845"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

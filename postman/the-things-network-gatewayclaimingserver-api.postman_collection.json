@@ -1,0 +1,950 @@
+{
+  "info": {
+    "_postman_id": "71e58538-93c6-484a-b0cc-63fda53765dc",
+    "name": "The Things Stack \u2014 Application Server AppAs GatewayClaimingServer API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:31.000Z",
+    "updatedAt": "2026-07-28T03:12:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-71e58538-93c6-484a-b0cc-63fda53765dc"
+  },
+  "item": [
+    {
+      "name": "gcls",
+      "item": [
+        {
+          "name": "claim",
+          "item": [
+            {
+              "name": "info",
+              "item": [
+                {
+                  "name": "Return whether claiming is available for a given gateway EUI.",
+                  "id": "31513286-ebee-4b64-9c8c-511d53c9e848",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"eui\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcls/claim/info",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcls",
+                        "claim",
+                        "info"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d106e559-d01d-4d4a-bca0-61a4d47df5f3",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eui\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcls/claim/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcls",
+                            "claim",
+                            "info"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"eui\": \"<string>\",\n  \"supports_claiming\": \"<boolean>\",\n  \"is_managed\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T03:12:32.000Z",
+                      "updatedAt": "2026-07-28T03:12:32.000Z",
+                      "uid": "35240-d106e559-d01d-4d4a-bca0-61a4d47df5f3"
+                    },
+                    {
+                      "id": "71cc5850-cf22-41af-a1a5-b0c047c404e0",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"eui\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcls/claim/info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcls",
+                            "claim",
+                            "info"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"nulla0\": {},\n      \"aliqua3\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:12:32.000Z",
+                      "updatedAt": "2026-07-28T03:12:32.000Z",
+                      "uid": "35240-71cc5850-cf22-41af-a1a5-b0c047c404e0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:12:32.000Z",
+                  "updatedAt": "2026-07-28T03:12:32.000Z",
+                  "uid": "35240-31513286-ebee-4b64-9c8c-511d53c9e848"
+                }
+              ],
+              "id": "3dd8e497-719c-4d4f-9cbb-f99559aa69e0",
+              "createdAt": "2026-07-28T03:12:32.000Z",
+              "updatedAt": "2026-07-28T03:12:32.000Z",
+              "uid": "35240-3dd8e497-719c-4d4f-9cbb-f99559aa69e0"
+            },
+            {
+              "name": "{gateway_id}",
+              "item": [
+                {
+                  "name": "Unclaims the gateway.\nEUI provided in the request are ignored and the end device is looked up by the gateway ID.",
+                  "id": "3be2b7e0-8b80-490a-92e3-0cf56c944ad4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcls/claim/:gateway_id?eui=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcls",
+                        "claim",
+                        ":gateway_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "eui",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7d6f3675-5613-47fa-a92e-6ac6aec592b1",
+                          "key": "gateway_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "795cc9ea-bae1-4297-8ff3-77a610a2a99a",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcls/claim/:gateway_id?eui=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcls",
+                            "claim",
+                            ":gateway_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "eui",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "gateway_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T03:12:32.000Z",
+                      "updatedAt": "2026-07-28T03:12:32.000Z",
+                      "uid": "35240-795cc9ea-bae1-4297-8ff3-77a610a2a99a"
+                    },
+                    {
+                      "id": "771d9528-4cb3-4894-a9b9-69ecd067bc7f",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcls/claim/:gateway_id?eui=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcls",
+                            "claim",
+                            ":gateway_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "eui",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "gateway_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"nulla0\": {},\n      \"aliqua3\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:12:32.000Z",
+                      "updatedAt": "2026-07-28T03:12:32.000Z",
+                      "uid": "35240-771d9528-4cb3-4894-a9b9-69ecd067bc7f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:12:32.000Z",
+                  "updatedAt": "2026-07-28T03:12:32.000Z",
+                  "uid": "35240-3be2b7e0-8b80-490a-92e3-0cf56c944ad4"
+                }
+              ],
+              "id": "aaf4d7b4-70dc-4210-9983-5f10a1d13468",
+              "createdAt": "2026-07-28T03:12:32.000Z",
+              "updatedAt": "2026-07-28T03:12:32.000Z",
+              "uid": "35240-aaf4d7b4-70dc-4210-9983-5f10a1d13468"
+            },
+            {
+              "name": "Claims a gateway by claim authentication code or QR code and transfers the gateway to the target user.",
+              "id": "e3285911-2058-4d5d-8f73-c50f76711eb9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authenticated_identifiers\": {\n    \"gateway_eui\": \"<string>\",\n    \"authentication_code\": \"<string>\"\n  },\n  \"qr_code\": \"<string>\",\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"target_gateway_id\": \"<string>\",\n  \"target_gateway_server_address\": \"<string>\",\n  \"cups_redirection\": {\n    \"target_cups_uri\": \"<string>\",\n    \"current_gateway_key\": \"<string>\",\n    \"target_cups_trust\": \"<string>\",\n    \"client_tls\": {\n      \"cert\": \"<string>\",\n      \"key\": \"<string>\"\n    },\n    \"auth_token\": \"<string>\"\n  },\n  \"target_frequency_plan_id\": \"<string>\",\n  \"target_frequency_plan_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/gcls/claim",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gcls",
+                    "claim"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0cda33c3-fa64-445c-b2cb-148300fa5114",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authenticated_identifiers\": {\n    \"gateway_eui\": \"<string>\",\n    \"authentication_code\": \"<string>\"\n  },\n  \"qr_code\": \"<string>\",\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"target_gateway_id\": \"<string>\",\n  \"target_gateway_server_address\": \"<string>\",\n  \"cups_redirection\": {\n    \"target_cups_uri\": \"<string>\",\n    \"current_gateway_key\": \"<string>\",\n    \"target_cups_trust\": \"<string>\",\n    \"client_tls\": {\n      \"cert\": \"<string>\",\n      \"key\": \"<string>\"\n    },\n    \"auth_token\": \"<string>\"\n  },\n  \"target_frequency_plan_id\": \"<string>\",\n  \"target_frequency_plan_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcls/claim",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcls",
+                        "claim"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"gateway_id\": \"<string>\",\n  \"eui\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:12:32.000Z",
+                  "updatedAt": "2026-07-28T03:12:32.000Z",
+                  "uid": "35240-0cda33c3-fa64-445c-b2cb-148300fa5114"
+                },
+                {
+                  "id": "f7c3cd25-0dcb-4475-b0fb-f03471143d04",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authenticated_identifiers\": {\n    \"gateway_eui\": \"<string>\",\n    \"authentication_code\": \"<string>\"\n  },\n  \"qr_code\": \"<string>\",\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"target_gateway_id\": \"<string>\",\n  \"target_gateway_server_address\": \"<string>\",\n  \"cups_redirection\": {\n    \"target_cups_uri\": \"<string>\",\n    \"current_gateway_key\": \"<string>\",\n    \"target_cups_trust\": \"<string>\",\n    \"client_tls\": {\n      \"cert\": \"<string>\",\n      \"key\": \"<string>\"\n    },\n    \"auth_token\": \"<string>\"\n  },\n  \"target_frequency_plan_id\": \"<string>\",\n  \"target_frequency_plan_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcls/claim",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcls",
+                        "claim"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"nulla0\": {},\n      \"aliqua3\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:12:32.000Z",
+                  "updatedAt": "2026-07-28T03:12:32.000Z",
+                  "uid": "35240-f7c3cd25-0dcb-4475-b0fb-f03471143d04"
+                }
+              ],
+              "createdAt": "2026-07-28T03:12:32.000Z",
+              "updatedAt": "2026-07-28T03:12:32.000Z",
+              "uid": "35240-e3285911-2058-4d5d-8f73-c50f76711eb9"
+            }
+          ],
+          "id": "433e3888-26ac-4823-ac4a-96f69065b19e",
+          "createdAt": "2026-07-28T03:12:32.000Z",
+          "updatedAt": "2026-07-28T03:12:32.000Z",
+          "uid": "35240-433e3888-26ac-4823-ac4a-96f69065b19e"
+        },
+        {
+          "name": "gateways",
+          "item": [
+            {
+              "name": "{gateway_ids.gateway_id}",
+              "item": [
+                {
+                  "name": "authorize",
+                  "item": [
+                    {
+                      "name": "AuthorizeGateway allows a gateway to be claimed.\nDEPRECATED: Authorizing gateways for claiming is no longer supported and will be removed in a future version of The\nThings Stack.",
+                      "id": "f81823c9-8ef9-415d-ad9b-8805eaedd6e0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"<string>\"\n  },\n  \"api_key\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcls/gateways/:gateway_ids.gateway_id/authorize",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcls",
+                            "gateways",
+                            ":gateway_ids.gateway_id",
+                            "authorize"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7da7a9ab-3b34-40ce-8fad-d482fe603a82",
+                              "key": "gateway_ids"
+                            },
+                            {
+                              "id": "bd694a2e-b28a-46e5-a984-4ba8cb38da84",
+                              "key": "gateway_ids.gateway_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f65203fb-be18-472c-b04c-5fe6bd1ad3d6",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"<string>\"\n  },\n  \"api_key\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gcls/gateways/:gateway_ids.gateway_id/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcls",
+                                "gateways",
+                                ":gateway_ids.gateway_id",
+                                "authorize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_ids.gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:12:32.000Z",
+                          "updatedAt": "2026-07-28T03:12:32.000Z",
+                          "uid": "35240-f65203fb-be18-472c-b04c-5fe6bd1ad3d6"
+                        },
+                        {
+                          "id": "8a78e791-663b-401f-9780-4d423d79fc7d",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"<string>\"\n  },\n  \"api_key\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gcls/gateways/:gateway_ids.gateway_id/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcls",
+                                "gateways",
+                                ":gateway_ids.gateway_id",
+                                "authorize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_ids.gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"nulla0\": {},\n      \"aliqua3\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:32.000Z",
+                          "updatedAt": "2026-07-28T03:12:32.000Z",
+                          "uid": "35240-8a78e791-663b-401f-9780-4d423d79fc7d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:32.000Z",
+                      "updatedAt": "2026-07-28T03:12:32.000Z",
+                      "uid": "35240-f81823c9-8ef9-415d-ad9b-8805eaedd6e0"
+                    }
+                  ],
+                  "id": "95fc1ffd-5ac1-4ad0-aeb1-c6e7001d5f84",
+                  "createdAt": "2026-07-28T03:12:32.000Z",
+                  "updatedAt": "2026-07-28T03:12:32.000Z",
+                  "uid": "35240-95fc1ffd-5ac1-4ad0-aeb1-c6e7001d5f84"
+                }
+              ],
+              "id": "f6fb6627-04d7-4d73-a543-8a1110a6bf94",
+              "createdAt": "2026-07-28T03:12:32.000Z",
+              "updatedAt": "2026-07-28T03:12:32.000Z",
+              "uid": "35240-f6fb6627-04d7-4d73-a543-8a1110a6bf94"
+            },
+            {
+              "name": "{gateway_id}",
+              "item": [
+                {
+                  "name": "authorize",
+                  "item": [
+                    {
+                      "name": "UnauthorizeGateway prevents a gateway from being claimed.\nDEPRECATED: Unauthorizing (locking) gateways for claiming is no longer supported and will be removed in a future\nversion of The Things Stack.",
+                      "id": "3babfe61-a11b-4857-94fa-d42bb379fff2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcls/gateways/:gateway_id/authorize?eui=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcls",
+                            "gateways",
+                            ":gateway_id",
+                            "authorize"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "eui",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "95715160-c82c-4d52-8d9f-1ce317060dd9",
+                              "key": "gateway_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "8cb55199-d601-4009-8c61-965971e12057",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gcls/gateways/:gateway_id/authorize?eui=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcls",
+                                "gateways",
+                                ":gateway_id",
+                                "authorize"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "eui",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:12:32.000Z",
+                          "updatedAt": "2026-07-28T03:12:32.000Z",
+                          "uid": "35240-8cb55199-d601-4009-8c61-965971e12057"
+                        },
+                        {
+                          "id": "63840faf-d02d-433b-9f4f-051defa7fa2e",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gcls/gateways/:gateway_id/authorize?eui=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcls",
+                                "gateways",
+                                ":gateway_id",
+                                "authorize"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "eui",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "gateway_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"nulla0\": {},\n      \"aliqua3\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:32.000Z",
+                          "updatedAt": "2026-07-28T03:12:32.000Z",
+                          "uid": "35240-63840faf-d02d-433b-9f4f-051defa7fa2e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:32.000Z",
+                      "updatedAt": "2026-07-28T03:12:32.000Z",
+                      "uid": "35240-3babfe61-a11b-4857-94fa-d42bb379fff2"
+                    }
+                  ],
+                  "id": "560a0919-33ab-4b54-95f2-89c5d60d1543",
+                  "createdAt": "2026-07-28T03:12:32.000Z",
+                  "updatedAt": "2026-07-28T03:12:32.000Z",
+                  "uid": "35240-560a0919-33ab-4b54-95f2-89c5d60d1543"
+                }
+              ],
+              "id": "0f83b4eb-078a-4ad5-8bf8-7922aeafcd5a",
+              "createdAt": "2026-07-28T03:12:32.000Z",
+              "updatedAt": "2026-07-28T03:12:32.000Z",
+              "uid": "35240-0f83b4eb-078a-4ad5-8bf8-7922aeafcd5a"
+            }
+          ],
+          "id": "9308251b-89ab-4543-a97f-5b66b5b701a3",
+          "createdAt": "2026-07-28T03:12:32.000Z",
+          "updatedAt": "2026-07-28T03:12:32.000Z",
+          "uid": "35240-9308251b-89ab-4543-a97f-5b66b5b701a3"
+        }
+      ],
+      "id": "87271017-12a7-402c-ac65-6cb21b4db16a",
+      "createdAt": "2026-07-28T03:12:32.000Z",
+      "updatedAt": "2026-07-28T03:12:32.000Z",
+      "uid": "35240-87271017-12a7-402c-ac65-6cb21b4db16a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

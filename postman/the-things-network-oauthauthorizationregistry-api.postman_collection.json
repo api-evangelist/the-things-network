@@ -1,0 +1,914 @@
+{
+  "info": {
+    "_postman_id": "74b61e46-668e-41be-a530-6002619ca76e",
+    "name": "The Things Stack \u2014 Application Server AppAs OAuthAuthorizationRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:55.000Z",
+    "updatedAt": "2026-07-28T03:12:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-74b61e46-668e-41be-a530-6002619ca76e"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "{user_ids.user_id}",
+          "item": [
+            {
+              "name": "authorizations",
+              "item": [
+                {
+                  "name": "{client_ids.client_id}",
+                  "item": [
+                    {
+                      "name": "tokens",
+                      "item": [
+                        {
+                          "name": "{id}",
+                          "item": [
+                            {
+                              "name": "Delete (invalidate) an OAuth access token.",
+                              "id": "14d9aa93-357f-4761-beb5-7c8417c13de6",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id/tokens/:id?user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "users",
+                                    ":user_ids.user_id",
+                                    "authorizations",
+                                    ":client_ids.client_id",
+                                    "tokens",
+                                    ":id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ced6bb10-f32b-4939-80fd-225abd485a96",
+                                      "key": "user_ids"
+                                    },
+                                    {
+                                      "id": "9fc8f237-1f30-475a-aa45-73f0c9d65d0c",
+                                      "key": "client_ids"
+                                    },
+                                    {
+                                      "id": "2a6178ec-c818-418e-b205-9fdadb1bb31e",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "812a864f-b7fe-406d-b80d-91d0ef820652",
+                                      "key": "user_ids.user_id",
+                                      "value": "<string>",
+                                      "description": "(Required) This ID shares namespace with organization IDs."
+                                    },
+                                    {
+                                      "id": "4f2747d4-d0e6-4068-b5df-95d8cbf0eee4",
+                                      "key": "client_ids.client_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "0971e54b-eabc-4be6-a157-5a003f60fb5e",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id/tokens/:id?user_ids.email=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "users",
+                                        ":user_ids.user_id",
+                                        "authorizations",
+                                        ":client_ids.client_id",
+                                        "tokens",
+                                        ":id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "user_ids.email",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "user_ids.user_id"
+                                        },
+                                        {
+                                          "key": "client_ids.client_id"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-07-28T03:12:56.000Z",
+                                  "updatedAt": "2026-07-28T03:12:56.000Z",
+                                  "uid": "35240-0971e54b-eabc-4be6-a157-5a003f60fb5e"
+                                },
+                                {
+                                  "id": "a6c9c716-24fd-4a5b-af03-c741ccca5182",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id/tokens/:id?user_ids.email=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "users",
+                                        ":user_ids.user_id",
+                                        "authorizations",
+                                        ":client_ids.client_id",
+                                        "tokens",
+                                        ":id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "user_ids.email",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "user_ids.user_id"
+                                        },
+                                        {
+                                          "key": "client_ids.client_id"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"elit7f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"deserunte\": {}\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:56.000Z",
+                                  "updatedAt": "2026-07-28T03:12:56.000Z",
+                                  "uid": "35240-a6c9c716-24fd-4a5b-af03-c741ccca5182"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:56.000Z",
+                              "updatedAt": "2026-07-28T03:12:56.000Z",
+                              "uid": "35240-14d9aa93-357f-4761-beb5-7c8417c13de6"
+                            }
+                          ],
+                          "id": "be1cc8fd-03f3-4f3d-a8fe-ef4031bc0ce2",
+                          "createdAt": "2026-07-28T03:12:56.000Z",
+                          "updatedAt": "2026-07-28T03:12:56.000Z",
+                          "uid": "35240-be1cc8fd-03f3-4f3d-a8fe-ef4031bc0ce2"
+                        },
+                        {
+                          "name": "List OAuth access tokens issued to the OAuth client on behalf of the user.",
+                          "id": "2e57c9e8-37a6-436d-925b-1d36a8241b5d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id/tokens?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "users",
+                                ":user_ids.user_id",
+                                "authorizations",
+                                ":client_ids.client_id",
+                                "tokens"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "user_ids.email",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                                  "key": "order",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the number of results per page.",
+                                  "key": "limit",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Page number for pagination. 0 is interpreted as 1.",
+                                  "key": "page",
+                                  "value": "<long>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5ef668e1-ee8a-4d19-b7b2-3576e5c82ea1",
+                                  "key": "user_ids"
+                                },
+                                {
+                                  "id": "b9ef9776-48e2-4989-ab4e-16c6c74958d6",
+                                  "key": "client_ids"
+                                },
+                                {
+                                  "id": "53f8802d-6f3d-4f9c-be02-42070d0645da",
+                                  "key": "user_ids.user_id",
+                                  "value": "<string>",
+                                  "description": "(Required) This ID shares namespace with organization IDs."
+                                },
+                                {
+                                  "id": "3c655e94-8faa-44f2-a1a3-c6310999866b",
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "b23be3f8-bd85-4119-8c52-4128f3e0e7c0",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id/tokens?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "users",
+                                    ":user_ids.user_id",
+                                    "authorizations",
+                                    ":client_ids.client_id",
+                                    "tokens"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "user_ids.email",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                                      "key": "order",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of results per page.",
+                                      "key": "limit",
+                                      "value": "<long>"
+                                    },
+                                    {
+                                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                                      "key": "page",
+                                      "value": "<long>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "user_ids.user_id"
+                                    },
+                                    {
+                                      "key": "client_ids.client_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"tokens\": [\n    {\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"user_session_id\": \"<string>\",\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"id\": \"<string>\",\n      \"access_token\": \"<string>\",\n      \"refresh_token\": \"<string>\",\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\"\n    },\n    {\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"user_session_id\": \"<string>\",\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"id\": \"<string>\",\n      \"access_token\": \"<string>\",\n      \"refresh_token\": \"<string>\",\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:56.000Z",
+                              "updatedAt": "2026-07-28T03:12:56.000Z",
+                              "uid": "35240-b23be3f8-bd85-4119-8c52-4128f3e0e7c0"
+                            },
+                            {
+                              "id": "a2e060fb-b44f-42ba-a9b6-e10216577fa0",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id/tokens?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "users",
+                                    ":user_ids.user_id",
+                                    "authorizations",
+                                    ":client_ids.client_id",
+                                    "tokens"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "user_ids.email",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                                      "key": "order",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of results per page.",
+                                      "key": "limit",
+                                      "value": "<long>"
+                                    },
+                                    {
+                                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                                      "key": "page",
+                                      "value": "<long>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "user_ids.user_id"
+                                    },
+                                    {
+                                      "key": "client_ids.client_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"elit7f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"deserunte\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:56.000Z",
+                              "updatedAt": "2026-07-28T03:12:56.000Z",
+                              "uid": "35240-a2e060fb-b44f-42ba-a9b6-e10216577fa0"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:56.000Z",
+                          "updatedAt": "2026-07-28T03:12:56.000Z",
+                          "uid": "35240-2e57c9e8-37a6-436d-925b-1d36a8241b5d"
+                        }
+                      ],
+                      "id": "7209003d-ef06-4548-a71a-b31b6bb09e6e",
+                      "createdAt": "2026-07-28T03:12:56.000Z",
+                      "updatedAt": "2026-07-28T03:12:56.000Z",
+                      "uid": "35240-7209003d-ef06-4548-a71a-b31b6bb09e6e"
+                    },
+                    {
+                      "name": "Delete (de-authorize) an OAuth client for the user.",
+                      "id": "0f59c8e6-7447-4cdd-97f0-6f9f25019810",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id?user_ids.email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "authorizations",
+                            ":client_ids.client_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "user_ids.email",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "01e934c0-f281-4a05-8a3e-0e68e4a1468c",
+                              "key": "user_ids"
+                            },
+                            {
+                              "id": "41882db5-2fe2-401e-80c2-907b6600cdde",
+                              "key": "client_ids"
+                            },
+                            {
+                              "id": "b4bdf7d9-6514-48bd-bcd4-0baf4597522b",
+                              "key": "user_ids.user_id",
+                              "value": "<string>",
+                              "description": "(Required) This ID shares namespace with organization IDs."
+                            },
+                            {
+                              "id": "ac8bb7be-7ee9-434e-842c-1018fa411a51",
+                              "key": "client_ids.client_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "58c725fc-1dc2-48c4-a384-d84187355e16",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id?user_ids.email=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "users",
+                                ":user_ids.user_id",
+                                "authorizations",
+                                ":client_ids.client_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "user_ids.email",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "user_ids.user_id"
+                                },
+                                {
+                                  "key": "client_ids.client_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:12:56.000Z",
+                          "updatedAt": "2026-07-28T03:12:56.000Z",
+                          "uid": "35240-58c725fc-1dc2-48c4-a384-d84187355e16"
+                        },
+                        {
+                          "id": "473b54c7-8828-429f-abd6-8a15ec278335",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id?user_ids.email=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "users",
+                                ":user_ids.user_id",
+                                "authorizations",
+                                ":client_ids.client_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "user_ids.email",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "user_ids.user_id"
+                                },
+                                {
+                                  "key": "client_ids.client_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"elit7f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"deserunte\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:56.000Z",
+                          "updatedAt": "2026-07-28T03:12:56.000Z",
+                          "uid": "35240-473b54c7-8828-429f-abd6-8a15ec278335"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:56.000Z",
+                      "updatedAt": "2026-07-28T03:12:56.000Z",
+                      "uid": "35240-0f59c8e6-7447-4cdd-97f0-6f9f25019810"
+                    }
+                  ],
+                  "id": "057ba9ac-b5d3-43b6-a0e6-6d6ccc6b69a5",
+                  "createdAt": "2026-07-28T03:12:56.000Z",
+                  "updatedAt": "2026-07-28T03:12:56.000Z",
+                  "uid": "35240-057ba9ac-b5d3-43b6-a0e6-6d6ccc6b69a5"
+                },
+                {
+                  "name": "List OAuth clients that are authorized by the user.",
+                  "id": "14662cda-b5b0-4769-b395-02702de12c1c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_ids.user_id",
+                        "authorizations"
+                      ],
+                      "query": [
+                        {
+                          "description": "Secondary identifier, which can only be used in specific requests.",
+                          "key": "user_ids.email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ccfe92ff-62fb-4b95-be86-4c5946ba51d8",
+                          "key": "user_ids"
+                        },
+                        {
+                          "id": "772c0f63-04ef-4493-b44c-89cd5fa9d710",
+                          "key": "user_ids.user_id",
+                          "value": "<string>",
+                          "description": "(Required) This ID shares namespace with organization IDs."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "27b70774-00a5-4d33-b95c-37834d07efa1",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "authorizations"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "user_ids.email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"authorizations\": [\n    {\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:12:56.000Z",
+                      "updatedAt": "2026-07-28T03:12:56.000Z",
+                      "uid": "35240-27b70774-00a5-4d33-b95c-37834d07efa1"
+                    },
+                    {
+                      "id": "b859faf0-ffab-4290-a10d-ecc2c82a6dd8",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_ids.user_id/authorizations?user_ids.email=<string>&order=<string>&limit=<long>&page=<long>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_ids.user_id",
+                            "authorizations"
+                          ],
+                          "query": [
+                            {
+                              "description": "Secondary identifier, which can only be used in specific requests.",
+                              "key": "user_ids.email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_ids.user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"elit7f\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"deserunte\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:12:56.000Z",
+                      "updatedAt": "2026-07-28T03:12:56.000Z",
+                      "uid": "35240-b859faf0-ffab-4290-a10d-ecc2c82a6dd8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:12:56.000Z",
+                  "updatedAt": "2026-07-28T03:12:56.000Z",
+                  "uid": "35240-14662cda-b5b0-4769-b395-02702de12c1c"
+                }
+              ],
+              "id": "0f83c092-fa0a-48ca-a96e-2ae9643f25e4",
+              "createdAt": "2026-07-28T03:12:56.000Z",
+              "updatedAt": "2026-07-28T03:12:56.000Z",
+              "uid": "35240-0f83c092-fa0a-48ca-a96e-2ae9643f25e4"
+            }
+          ],
+          "id": "867ca5de-f04d-47b9-b406-fadcb00dd625",
+          "createdAt": "2026-07-28T03:12:56.000Z",
+          "updatedAt": "2026-07-28T03:12:56.000Z",
+          "uid": "35240-867ca5de-f04d-47b9-b406-fadcb00dd625"
+        }
+      ],
+      "id": "b04182e4-4a25-44a4-ac8c-27bf0a87cd0c",
+      "createdAt": "2026-07-28T03:12:56.000Z",
+      "updatedAt": "2026-07-28T03:12:56.000Z",
+      "uid": "35240-b04182e4-4a25-44a4-ac8c-27bf0a87cd0c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

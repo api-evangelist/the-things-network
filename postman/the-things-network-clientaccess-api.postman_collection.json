@@ -1,0 +1,1481 @@
+{
+  "info": {
+    "_postman_id": "029d43e4-9309-4993-af17-ee5797d9657b",
+    "name": "The Things Stack \u2014 Application Server AppAs ClientAccess API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:42.000Z",
+    "updatedAt": "2026-07-28T03:10:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-029d43e4-9309-4993-af17-ee5797d9657b"
+  },
+  "item": [
+    {
+      "name": "clients",
+      "item": [
+        {
+          "name": "{client_ids.client_id}",
+          "item": [
+            {
+              "name": "collaborator",
+              "item": [
+                {
+                  "name": "organization",
+                  "item": [
+                    {
+                      "name": "{collaborator.organization_ids.organization_id}",
+                      "item": [
+                        {
+                          "name": "Get the rights of a collaborator (member) of the client.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+                          "id": "4ba5c69f-45ed-4972-94a2-1025c59a749b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborator/organization/:collaborator.organization_ids.organization_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "clients",
+                                ":client_ids.client_id",
+                                "collaborator",
+                                "organization",
+                                ":collaborator.organization_ids.organization_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "This ID shares namespace with organization IDs.",
+                                  "key": "collaborator.user_ids.user_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "collaborator.user_ids.email",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b554e8aa-bb20-409d-b381-5f2fd9bb217e",
+                                  "key": "client_ids"
+                                },
+                                {
+                                  "id": "1fad0f2f-3978-46f5-979d-40164fdc5cf3",
+                                  "key": "collaborator"
+                                },
+                                {
+                                  "id": "62b7a659-d23e-47f4-9e87-f7de0bb0a419",
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "02906585-7f8e-47f6-85c7-08488f94e300",
+                                  "key": "collaborator.organization_ids.organization_id",
+                                  "value": "<string>",
+                                  "description": "(Required) This ID shares namespace with user IDs."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "7c2e8c81-1ea5-449e-8f24-f04ba28b4d34",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborator/organization/:collaborator.organization_ids.organization_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "clients",
+                                    ":client_ids.client_id",
+                                    "collaborator",
+                                    "organization",
+                                    ":collaborator.organization_ids.organization_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with organization IDs.",
+                                      "key": "collaborator.user_ids.user_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator.user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "client_ids.client_id"
+                                    },
+                                    {
+                                      "key": "collaborator.organization_ids.organization_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"ids\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:42.000Z",
+                              "updatedAt": "2026-07-28T03:10:42.000Z",
+                              "uid": "35240-7c2e8c81-1ea5-449e-8f24-f04ba28b4d34"
+                            },
+                            {
+                              "id": "a9afb08f-77e2-4a66-be9c-7d68213b1ad0",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborator/organization/:collaborator.organization_ids.organization_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "clients",
+                                    ":client_ids.client_id",
+                                    "collaborator",
+                                    "organization",
+                                    ":collaborator.organization_ids.organization_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with organization IDs.",
+                                      "key": "collaborator.user_ids.user_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator.user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "client_ids.client_id"
+                                    },
+                                    {
+                                      "key": "collaborator.organization_ids.organization_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"irure_a\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:42.000Z",
+                              "updatedAt": "2026-07-28T03:10:42.000Z",
+                              "uid": "35240-a9afb08f-77e2-4a66-be9c-7d68213b1ad0"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:10:42.000Z",
+                          "updatedAt": "2026-07-28T03:10:42.000Z",
+                          "uid": "35240-4ba5c69f-45ed-4972-94a2-1025c59a749b"
+                        }
+                      ],
+                      "id": "ac17cbf3-27f4-4700-8e38-f132cbc18db1",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-ac17cbf3-27f4-4700-8e38-f132cbc18db1"
+                    }
+                  ],
+                  "id": "075a6443-d786-415a-ad7c-f939152081c3",
+                  "createdAt": "2026-07-28T03:10:42.000Z",
+                  "updatedAt": "2026-07-28T03:10:42.000Z",
+                  "uid": "35240-075a6443-d786-415a-ad7c-f939152081c3"
+                },
+                {
+                  "name": "user",
+                  "item": [
+                    {
+                      "name": "{collaborator.user_ids.user_id}",
+                      "item": [
+                        {
+                          "name": "Get the rights of a collaborator (member) of the client.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+                          "id": "3c25817c-e92d-4670-b314-d757859de655",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborator/user/:collaborator.user_ids.user_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "clients",
+                                ":client_ids.client_id",
+                                "collaborator",
+                                "user",
+                                ":collaborator.user_ids.user_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "This ID shares namespace with user IDs.",
+                                  "key": "collaborator.organization_ids.organization_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "collaborator.user_ids.email",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cdbd1975-14a1-43da-955a-98e3eecf3557",
+                                  "key": "client_ids"
+                                },
+                                {
+                                  "id": "d2e2b525-1c58-4461-9d80-ad600bb09957",
+                                  "key": "collaborator"
+                                },
+                                {
+                                  "id": "2482ea23-efa1-43d6-9cae-c57587f6315d",
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a364e822-fee1-4753-a398-210846007202",
+                                  "key": "collaborator.user_ids.user_id",
+                                  "value": "<string>",
+                                  "description": "(Required) This ID shares namespace with organization IDs."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4b97fd73-2cdc-4c4d-8814-8b8a3e72f3be",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborator/user/:collaborator.user_ids.user_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "clients",
+                                    ":client_ids.client_id",
+                                    "collaborator",
+                                    "user",
+                                    ":collaborator.user_ids.user_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with user IDs.",
+                                      "key": "collaborator.organization_ids.organization_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator.user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "client_ids.client_id"
+                                    },
+                                    {
+                                      "key": "collaborator.user_ids.user_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"ids\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:42.000Z",
+                              "updatedAt": "2026-07-28T03:10:42.000Z",
+                              "uid": "35240-4b97fd73-2cdc-4c4d-8814-8b8a3e72f3be"
+                            },
+                            {
+                              "id": "3ff4a3cd-220c-4cbd-824d-42fe24c36bfe",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborator/user/:collaborator.user_ids.user_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "clients",
+                                    ":client_ids.client_id",
+                                    "collaborator",
+                                    "user",
+                                    ":collaborator.user_ids.user_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with user IDs.",
+                                      "key": "collaborator.organization_ids.organization_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator.user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "client_ids.client_id"
+                                    },
+                                    {
+                                      "key": "collaborator.user_ids.user_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"irure_a\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:42.000Z",
+                              "updatedAt": "2026-07-28T03:10:42.000Z",
+                              "uid": "35240-3ff4a3cd-220c-4cbd-824d-42fe24c36bfe"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:10:42.000Z",
+                          "updatedAt": "2026-07-28T03:10:42.000Z",
+                          "uid": "35240-3c25817c-e92d-4670-b314-d757859de655"
+                        }
+                      ],
+                      "id": "12c1c802-fb98-4a1a-a574-903a2ab5c2a5",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-12c1c802-fb98-4a1a-a574-903a2ab5c2a5"
+                    }
+                  ],
+                  "id": "b832394f-d2b1-4ba1-b5d5-d0cde6e856c7",
+                  "createdAt": "2026-07-28T03:10:42.000Z",
+                  "updatedAt": "2026-07-28T03:10:42.000Z",
+                  "uid": "35240-b832394f-d2b1-4ba1-b5d5-d0cde6e856c7"
+                }
+              ],
+              "id": "fef67e40-e19a-4c39-a005-e19580496cce",
+              "createdAt": "2026-07-28T03:10:42.000Z",
+              "updatedAt": "2026-07-28T03:10:42.000Z",
+              "uid": "35240-fef67e40-e19a-4c39-a005-e19580496cce"
+            },
+            {
+              "name": "collaborators",
+              "item": [
+                {
+                  "name": "organization",
+                  "item": [
+                    {
+                      "name": "{collaborator_ids.organization_ids.organization_id}",
+                      "item": [
+                        {
+                          "name": "DeleteCollaborator removes a collaborator from a client.",
+                          "id": "5dddd771-d98a-4a54-b35a-6b761deba37a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/organization/:collaborator_ids.organization_ids.organization_id?collaborator_ids.user_ids.user_id=<string>&collaborator_ids.user_ids.email=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "clients",
+                                ":client_ids.client_id",
+                                "collaborators",
+                                "organization",
+                                ":collaborator_ids.organization_ids.organization_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "This ID shares namespace with organization IDs.",
+                                  "key": "collaborator_ids.user_ids.user_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "collaborator_ids.user_ids.email",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0989ee54-47d3-4f6f-98ff-271027f76317",
+                                  "key": "client_ids"
+                                },
+                                {
+                                  "id": "d2b79737-d16b-420a-a6ae-af9b5773d034",
+                                  "key": "collaborator_ids"
+                                },
+                                {
+                                  "id": "8240ad1f-af8d-40f6-8d90-979fea9a9931",
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "d2c87dc1-fce3-4a09-a290-25f79926a321",
+                                  "key": "collaborator_ids.organization_ids.organization_id",
+                                  "value": "<string>",
+                                  "description": "(Required) This ID shares namespace with user IDs."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "5891038e-b1c4-4e61-a325-052b1cb9884a",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/organization/:collaborator_ids.organization_ids.organization_id?collaborator_ids.user_ids.user_id=<string>&collaborator_ids.user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "clients",
+                                    ":client_ids.client_id",
+                                    "collaborators",
+                                    "organization",
+                                    ":collaborator_ids.organization_ids.organization_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with organization IDs.",
+                                      "key": "collaborator_ids.user_ids.user_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator_ids.user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "client_ids.client_id"
+                                    },
+                                    {
+                                      "key": "collaborator_ids.organization_ids.organization_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T03:10:42.000Z",
+                              "updatedAt": "2026-07-28T03:10:42.000Z",
+                              "uid": "35240-5891038e-b1c4-4e61-a325-052b1cb9884a"
+                            },
+                            {
+                              "id": "3f30bd7d-fdde-403f-a174-bc2c21035c91",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/organization/:collaborator_ids.organization_ids.organization_id?collaborator_ids.user_ids.user_id=<string>&collaborator_ids.user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "clients",
+                                    ":client_ids.client_id",
+                                    "collaborators",
+                                    "organization",
+                                    ":collaborator_ids.organization_ids.organization_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with organization IDs.",
+                                      "key": "collaborator_ids.user_ids.user_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator_ids.user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "client_ids.client_id"
+                                    },
+                                    {
+                                      "key": "collaborator_ids.organization_ids.organization_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"irure_a\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:42.000Z",
+                              "updatedAt": "2026-07-28T03:10:42.000Z",
+                              "uid": "35240-3f30bd7d-fdde-403f-a174-bc2c21035c91"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:10:42.000Z",
+                          "updatedAt": "2026-07-28T03:10:42.000Z",
+                          "uid": "35240-5dddd771-d98a-4a54-b35a-6b761deba37a"
+                        }
+                      ],
+                      "id": "08a7fd06-f02b-4426-b36d-014a7e344e25",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-08a7fd06-f02b-4426-b36d-014a7e344e25"
+                    }
+                  ],
+                  "id": "e71d8437-d0d6-47b9-8734-3247eb0216dc",
+                  "createdAt": "2026-07-28T03:10:42.000Z",
+                  "updatedAt": "2026-07-28T03:10:42.000Z",
+                  "uid": "35240-e71d8437-d0d6-47b9-8734-3247eb0216dc"
+                },
+                {
+                  "name": "user",
+                  "item": [
+                    {
+                      "name": "{collaborator_ids.user_ids.user_id}",
+                      "item": [
+                        {
+                          "name": "DeleteCollaborator removes a collaborator from a client.",
+                          "id": "f8f7a978-9146-44ec-9f54-46aac5a726f7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/user/:collaborator_ids.user_ids.user_id?collaborator_ids.organization_ids.organization_id=<string>&collaborator_ids.user_ids.email=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "clients",
+                                ":client_ids.client_id",
+                                "collaborators",
+                                "user",
+                                ":collaborator_ids.user_ids.user_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "This ID shares namespace with user IDs.",
+                                  "key": "collaborator_ids.organization_ids.organization_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "collaborator_ids.user_ids.email",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e5ed6721-c198-4314-a880-6a08cb23d677",
+                                  "key": "client_ids"
+                                },
+                                {
+                                  "id": "0b625af2-d538-4eb9-be37-a51e3a0cb17d",
+                                  "key": "collaborator_ids"
+                                },
+                                {
+                                  "id": "f476e8e4-89a2-4d0d-b87f-8aca44c638b5",
+                                  "key": "client_ids.client_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "f4a3f5ca-eced-4957-8421-ef97958c5673",
+                                  "key": "collaborator_ids.user_ids.user_id",
+                                  "value": "<string>",
+                                  "description": "(Required) This ID shares namespace with organization IDs."
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e88ff2a1-fd95-4fe8-aaea-f2d639f3fbdc",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/user/:collaborator_ids.user_ids.user_id?collaborator_ids.organization_ids.organization_id=<string>&collaborator_ids.user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "clients",
+                                    ":client_ids.client_id",
+                                    "collaborators",
+                                    "user",
+                                    ":collaborator_ids.user_ids.user_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with user IDs.",
+                                      "key": "collaborator_ids.organization_ids.organization_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator_ids.user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "client_ids.client_id"
+                                    },
+                                    {
+                                      "key": "collaborator_ids.user_ids.user_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T03:10:42.000Z",
+                              "updatedAt": "2026-07-28T03:10:42.000Z",
+                              "uid": "35240-e88ff2a1-fd95-4fe8-aaea-f2d639f3fbdc"
+                            },
+                            {
+                              "id": "df950283-01ee-4b03-a6ac-03ad79aa9d0c",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/user/:collaborator_ids.user_ids.user_id?collaborator_ids.organization_ids.organization_id=<string>&collaborator_ids.user_ids.email=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "clients",
+                                    ":client_ids.client_id",
+                                    "collaborators",
+                                    "user",
+                                    ":collaborator_ids.user_ids.user_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with user IDs.",
+                                      "key": "collaborator_ids.organization_ids.organization_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator_ids.user_ids.email",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "client_ids.client_id"
+                                    },
+                                    {
+                                      "key": "collaborator_ids.user_ids.user_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"irure_a\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:42.000Z",
+                              "updatedAt": "2026-07-28T03:10:42.000Z",
+                              "uid": "35240-df950283-01ee-4b03-a6ac-03ad79aa9d0c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:10:42.000Z",
+                          "updatedAt": "2026-07-28T03:10:42.000Z",
+                          "uid": "35240-f8f7a978-9146-44ec-9f54-46aac5a726f7"
+                        }
+                      ],
+                      "id": "9cb69148-e76a-4404-aad4-9c70a3892020",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-9cb69148-e76a-4404-aad4-9c70a3892020"
+                    }
+                  ],
+                  "id": "3e892a5a-8877-4560-8a7d-889f04b32289",
+                  "createdAt": "2026-07-28T03:10:42.000Z",
+                  "updatedAt": "2026-07-28T03:10:42.000Z",
+                  "uid": "35240-3e892a5a-8877-4560-8a7d-889f04b32289"
+                },
+                {
+                  "name": "List the collaborators on this OAuth client.",
+                  "id": "71771148-2a24-4b25-801e-6ac101f68b8d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators?limit=<long>&page=<long>&order=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_ids.client_id",
+                        "collaborators"
+                      ],
+                      "query": [
+                        {
+                          "description": "Limit the number of results per page.",
+                          "key": "limit",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                          "key": "page",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                          "key": "order",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c1590ca6-57bd-47c5-be83-b5d26132a32c",
+                          "key": "client_ids"
+                        },
+                        {
+                          "id": "d7adfd21-fb35-49bd-a676-8a1966c8211a",
+                          "key": "client_ids.client_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e0a7642f-e044-4081-bf46-4cc04d4058e1",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators?limit=<long>&page=<long>&order=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_ids.client_id",
+                            "collaborators"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_ids.client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"collaborators\": [\n    {\n      \"ids\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-e0a7642f-e044-4081-bf46-4cc04d4058e1"
+                    },
+                    {
+                      "id": "85911c0d-7672-4dff-a142-c6e04c272a96",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators?limit=<long>&page=<long>&order=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_ids.client_id",
+                            "collaborators"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limit the number of results per page.",
+                              "key": "limit",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Page number for pagination. 0 is interpreted as 1.",
+                              "key": "page",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order.",
+                              "key": "order",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_ids.client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"irure_a\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-85911c0d-7672-4dff-a142-c6e04c272a96"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:42.000Z",
+                  "updatedAt": "2026-07-28T03:10:42.000Z",
+                  "uid": "35240-71771148-2a24-4b25-801e-6ac101f68b8d"
+                },
+                {
+                  "name": "Set the rights of a collaborator (member) on the OAuth client.\nThis method can also be used to delete the collaborator, by giving them no rights.\nThe caller is required to have all assigned or/and removed rights.",
+                  "id": "e03f34a7-30eb-4f51-a045-bd14735c212e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client_ids\": {},\n  \"collaborator\": {\n    \"ids\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_ids.client_id",
+                        "collaborators"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6edcb873-aa23-4d2e-9399-2a9cdaf2acea",
+                          "key": "client_ids"
+                        },
+                        {
+                          "id": "f7051e7d-7147-4530-a199-8cd912bca755",
+                          "key": "client_ids.client_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f066cdb1-95ef-4d94-9fae-4d085f146fe2",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client_ids\": {},\n  \"collaborator\": {\n    \"ids\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_ids.client_id",
+                            "collaborators"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_ids.client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-f066cdb1-95ef-4d94-9fae-4d085f146fe2"
+                    },
+                    {
+                      "id": "d84fc105-8908-4b95-8556-86d4aac567a7",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client_ids\": {},\n  \"collaborator\": {\n    \"ids\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_ids.client_id/collaborators",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_ids.client_id",
+                            "collaborators"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_ids.client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"irure_a\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-d84fc105-8908-4b95-8556-86d4aac567a7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:42.000Z",
+                  "updatedAt": "2026-07-28T03:10:42.000Z",
+                  "uid": "35240-e03f34a7-30eb-4f51-a045-bd14735c212e"
+                }
+              ],
+              "id": "6065119f-9efa-407d-8c33-e6a94ef03a7d",
+              "createdAt": "2026-07-28T03:10:42.000Z",
+              "updatedAt": "2026-07-28T03:10:42.000Z",
+              "uid": "35240-6065119f-9efa-407d-8c33-e6a94ef03a7d"
+            }
+          ],
+          "id": "475c8ec6-32b3-4382-9e24-ac15f5c8e72c",
+          "createdAt": "2026-07-28T03:10:42.000Z",
+          "updatedAt": "2026-07-28T03:10:42.000Z",
+          "uid": "35240-475c8ec6-32b3-4382-9e24-ac15f5c8e72c"
+        },
+        {
+          "name": "{client_id}",
+          "item": [
+            {
+              "name": "rights",
+              "item": [
+                {
+                  "name": "List the rights the caller has on this application.",
+                  "id": "851ae373-88cd-4860-9d7b-41195ca6e805",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/clients/:client_id/rights",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clients",
+                        ":client_id",
+                        "rights"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d682b23a-2fa1-4202-bb00-734d225298c7",
+                          "key": "client_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "9816dfc4-85fc-4bdd-97a4-66ba550d41e5",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_id/rights",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_id",
+                            "rights"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-9816dfc4-85fc-4bdd-97a4-66ba550d41e5"
+                    },
+                    {
+                      "id": "e6e00870-4d30-4b57-8dd6-7796ef2a31ed",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clients/:client_id/rights",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clients",
+                            ":client_id",
+                            "rights"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"irure_a\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:42.000Z",
+                      "updatedAt": "2026-07-28T03:10:42.000Z",
+                      "uid": "35240-e6e00870-4d30-4b57-8dd6-7796ef2a31ed"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:42.000Z",
+                  "updatedAt": "2026-07-28T03:10:42.000Z",
+                  "uid": "35240-851ae373-88cd-4860-9d7b-41195ca6e805"
+                }
+              ],
+              "id": "dcab4278-dec6-4aff-b6fc-46b3489f33a3",
+              "createdAt": "2026-07-28T03:10:42.000Z",
+              "updatedAt": "2026-07-28T03:10:42.000Z",
+              "uid": "35240-dcab4278-dec6-4aff-b6fc-46b3489f33a3"
+            }
+          ],
+          "id": "2b6104ee-6ed6-4c7f-84d7-c3d7214af6b2",
+          "createdAt": "2026-07-28T03:10:42.000Z",
+          "updatedAt": "2026-07-28T03:10:42.000Z",
+          "uid": "35240-2b6104ee-6ed6-4c7f-84d7-c3d7214af6b2"
+        }
+      ],
+      "id": "4b906bf9-4de6-4577-9d72-871e4d890989",
+      "createdAt": "2026-07-28T03:10:42.000Z",
+      "updatedAt": "2026-07-28T03:10:42.000Z",
+      "uid": "35240-4b906bf9-4de6-4577-9d72-871e4d890989"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

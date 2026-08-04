@@ -1,0 +1,2056 @@
+{
+  "info": {
+    "_postman_id": "75f030a3-00c2-4dae-ae2c-7ac589d27437",
+    "name": "The Things Stack \u2014 Application Server AppAs NsRelayConfigurationService API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:54.000Z",
+    "updatedAt": "2026-07-28T03:12:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-75f030a3-00c2-4dae-ae2c-7ac589d27437"
+  },
+  "item": [
+    {
+      "name": "ns",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "{end_device_ids.application_ids.application_id}",
+              "item": [
+                {
+                  "name": "relays",
+                  "item": [
+                    {
+                      "name": "{end_device_ids.device_id}",
+                      "item": [
+                        {
+                          "name": "uplink-forwarding-rules",
+                          "item": [
+                            {
+                              "name": "{index}",
+                              "item": [
+                                {
+                                  "name": "Get an uplink forwarding rule.",
+                                  "id": "218f957c-2296-4d35-baca-8d175c8a4b3b",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "ns",
+                                        "applications",
+                                        ":end_device_ids.application_ids.application_id",
+                                        "relays",
+                                        ":end_device_ids.device_id",
+                                        "uplink-forwarding-rules",
+                                        ":index"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "The LoRaWAN DevEUI.",
+                                          "key": "end_device_ids.dev_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                          "key": "end_device_ids.join_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevAddr.",
+                                          "key": "end_device_ids.dev_addr",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Field mask of the fields to return.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "b69b0054-ae26-4cdd-b450-b56688e33a08",
+                                          "key": "end_device_ids"
+                                        },
+                                        {
+                                          "id": "dd2ba735-f424-4c6a-87b0-f3f6fd5dae25",
+                                          "key": "index",
+                                          "value": "<long>",
+                                          "description": "(Required) Index of the uplink forwarding rule."
+                                        },
+                                        {
+                                          "id": "31a458bf-26b4-4290-ac83-9181a0eaae8c",
+                                          "key": "end_device_ids.application_ids.application_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "fe9a9b4a-ee42-4112-adfd-857c3bb630e2",
+                                          "key": "end_device_ids.device_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "981615fc-93ad-47bd-9ee0-f1069d5cd424",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "ns",
+                                            "applications",
+                                            ":end_device_ids.application_ids.application_id",
+                                            "relays",
+                                            ":end_device_ids.device_id",
+                                            "uplink-forwarding-rules",
+                                            ":index"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "The LoRaWAN DevEUI.",
+                                              "key": "end_device_ids.dev_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                              "key": "end_device_ids.join_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevAddr.",
+                                              "key": "end_device_ids.dev_addr",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Field mask of the fields to return.",
+                                              "key": "field_mask",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "end_device_ids.application_ids.application_id"
+                                            },
+                                            {
+                                              "key": "end_device_ids.device_id"
+                                            },
+                                            {
+                                              "key": "index"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T03:12:55.000Z",
+                                      "updatedAt": "2026-07-28T03:12:55.000Z",
+                                      "uid": "35240-981615fc-93ad-47bd-9ee0-f1069d5cd424"
+                                    },
+                                    {
+                                      "id": "2fffd66c-f602-4455-801c-47eea2249117",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "ns",
+                                            "applications",
+                                            ":end_device_ids.application_ids.application_id",
+                                            "relays",
+                                            ":end_device_ids.device_id",
+                                            "uplink-forwarding-rules",
+                                            ":index"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "The LoRaWAN DevEUI.",
+                                              "key": "end_device_ids.dev_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                              "key": "end_device_ids.join_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevAddr.",
+                                              "key": "end_device_ids.dev_addr",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Field mask of the fields to return.",
+                                              "key": "field_mask",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "end_device_ids.application_ids.application_id"
+                                            },
+                                            {
+                                              "key": "end_device_ids.device_id"
+                                            },
+                                            {
+                                              "key": "index"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:55.000Z",
+                                      "updatedAt": "2026-07-28T03:12:55.000Z",
+                                      "uid": "35240-2fffd66c-f602-4455-801c-47eea2249117"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:55.000Z",
+                                  "updatedAt": "2026-07-28T03:12:55.000Z",
+                                  "uid": "35240-218f957c-2296-4d35-baca-8d175c8a4b3b"
+                                },
+                                {
+                                  "name": "Delete an uplink forwarding rule.",
+                                  "id": "e27e626a-8cf4-4d64-b8ce-61c578164728",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "ns",
+                                        "applications",
+                                        ":end_device_ids.application_ids.application_id",
+                                        "relays",
+                                        ":end_device_ids.device_id",
+                                        "uplink-forwarding-rules",
+                                        ":index"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "The LoRaWAN DevEUI.",
+                                          "key": "end_device_ids.dev_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                          "key": "end_device_ids.join_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevAddr.",
+                                          "key": "end_device_ids.dev_addr",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "4f947c54-aa88-4007-95d0-d8ac02789fdc",
+                                          "key": "end_device_ids"
+                                        },
+                                        {
+                                          "id": "aaf7cee8-65f1-4ef6-adb8-7718937e3e29",
+                                          "key": "index",
+                                          "value": "<long>",
+                                          "description": "(Required) Index of the uplink forwarding rule."
+                                        },
+                                        {
+                                          "id": "d01aad51-5204-4995-ae8a-9b4a1a2d0692",
+                                          "key": "end_device_ids.application_ids.application_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "e553857d-1bcb-4810-96bc-08fac1d474df",
+                                          "key": "end_device_ids.device_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "b3f6d013-ff29-4770-af7d-a1154ebf459f",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "ns",
+                                            "applications",
+                                            ":end_device_ids.application_ids.application_id",
+                                            "relays",
+                                            ":end_device_ids.device_id",
+                                            "uplink-forwarding-rules",
+                                            ":index"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "The LoRaWAN DevEUI.",
+                                              "key": "end_device_ids.dev_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                              "key": "end_device_ids.join_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevAddr.",
+                                              "key": "end_device_ids.dev_addr",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "end_device_ids.application_ids.application_id"
+                                            },
+                                            {
+                                              "key": "end_device_ids.device_id"
+                                            },
+                                            {
+                                              "key": "index"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{}",
+                                      "createdAt": "2026-07-28T03:12:55.000Z",
+                                      "updatedAt": "2026-07-28T03:12:55.000Z",
+                                      "uid": "35240-b3f6d013-ff29-4770-af7d-a1154ebf459f"
+                                    },
+                                    {
+                                      "id": "bf51c747-c8fb-4467-9525-a5da98dc7698",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "ns",
+                                            "applications",
+                                            ":end_device_ids.application_ids.application_id",
+                                            "relays",
+                                            ":end_device_ids.device_id",
+                                            "uplink-forwarding-rules",
+                                            ":index"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "The LoRaWAN DevEUI.",
+                                              "key": "end_device_ids.dev_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                              "key": "end_device_ids.join_eui",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The LoRaWAN DevAddr.",
+                                              "key": "end_device_ids.dev_addr",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "end_device_ids.application_ids.application_id"
+                                            },
+                                            {
+                                              "key": "end_device_ids.device_id"
+                                            },
+                                            {
+                                              "key": "index"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:55.000Z",
+                                      "updatedAt": "2026-07-28T03:12:55.000Z",
+                                      "uid": "35240-bf51c747-c8fb-4467-9525-a5da98dc7698"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:55.000Z",
+                                  "updatedAt": "2026-07-28T03:12:55.000Z",
+                                  "uid": "35240-e27e626a-8cf4-4d64-b8ce-61c578164728"
+                                },
+                                {
+                                  "name": "Update an uplink forwarding rule.",
+                                  "id": "44fdad5f-867c-4a49-8239-19b8bdea0bbe",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "ns",
+                                        "applications",
+                                        ":end_device_ids.application_ids.application_id",
+                                        "relays",
+                                        ":end_device_ids.device_id",
+                                        "uplink-forwarding-rules",
+                                        ":index"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "2c8f5c4c-bc58-41de-939a-2820f9617226",
+                                          "key": "end_device_ids"
+                                        },
+                                        {
+                                          "id": "6bd0ee2e-0196-4491-9678-b3437fd0b517",
+                                          "key": "index",
+                                          "value": "<long>",
+                                          "description": "(Required) Index of the uplink forwarding rule."
+                                        },
+                                        {
+                                          "id": "fd2b5c3b-ea5e-40d1-926b-3cde0025bfa0",
+                                          "key": "end_device_ids.application_ids.application_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "584c878a-0753-48da-a98c-c1656c4490eb",
+                                          "key": "end_device_ids.device_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "4d9d9ca0-297c-4b80-a7ce-214916c8cb2f",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "ns",
+                                            "applications",
+                                            ":end_device_ids.application_ids.application_id",
+                                            "relays",
+                                            ":end_device_ids.device_id",
+                                            "uplink-forwarding-rules",
+                                            ":index"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "end_device_ids.application_ids.application_id"
+                                            },
+                                            {
+                                              "key": "end_device_ids.device_id"
+                                            },
+                                            {
+                                              "key": "index"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T03:12:55.000Z",
+                                      "updatedAt": "2026-07-28T03:12:55.000Z",
+                                      "uid": "35240-4d9d9ca0-297c-4b80-a7ce-214916c8cb2f"
+                                    },
+                                    {
+                                      "id": "50dce1ad-2e19-45d3-9bfb-8bf4764ad0eb",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules/:index",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "ns",
+                                            "applications",
+                                            ":end_device_ids.application_ids.application_id",
+                                            "relays",
+                                            ":end_device_ids.device_id",
+                                            "uplink-forwarding-rules",
+                                            ":index"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "end_device_ids.application_ids.application_id"
+                                            },
+                                            {
+                                              "key": "end_device_ids.device_id"
+                                            },
+                                            {
+                                              "key": "index"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:55.000Z",
+                                      "updatedAt": "2026-07-28T03:12:55.000Z",
+                                      "uid": "35240-50dce1ad-2e19-45d3-9bfb-8bf4764ad0eb"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:55.000Z",
+                                  "updatedAt": "2026-07-28T03:12:55.000Z",
+                                  "uid": "35240-44fdad5f-867c-4a49-8239-19b8bdea0bbe"
+                                }
+                              ],
+                              "id": "731a4164-1975-4fc9-92ea-b7a86ce0b2d9",
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-731a4164-1975-4fc9-92ea-b7a86ce0b2d9"
+                            },
+                            {
+                              "name": "List uplink forwarding rules.",
+                              "id": "2d48b59f-c05d-4e02-9e8e-38a0935270c9",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":end_device_ids.application_ids.application_id",
+                                    "relays",
+                                    ":end_device_ids.device_id",
+                                    "uplink-forwarding-rules"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "end_device_ids.dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "end_device_ids.join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "end_device_ids.dev_addr",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Field mask of the fields to return.",
+                                      "key": "field_mask",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "154dd000-2f42-4651-b010-013fb3b9fab9",
+                                      "key": "end_device_ids"
+                                    },
+                                    {
+                                      "id": "301eb622-02b4-479f-9b8d-43f5c6a6c81d",
+                                      "key": "end_device_ids.application_ids.application_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "9d827f5d-7751-446e-a213-d636436eb29c",
+                                      "key": "end_device_ids.device_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "deb547ff-1b6b-44a7-95f3-ce5ef4f50851",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "ns",
+                                        "applications",
+                                        ":end_device_ids.application_ids.application_id",
+                                        "relays",
+                                        ":end_device_ids.device_id",
+                                        "uplink-forwarding-rules"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "The LoRaWAN DevEUI.",
+                                          "key": "end_device_ids.dev_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                          "key": "end_device_ids.join_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevAddr.",
+                                          "key": "end_device_ids.dev_addr",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Field mask of the fields to return.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "end_device_ids.application_ids.application_id"
+                                        },
+                                        {
+                                          "key": "end_device_ids.device_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"rules\": [\n    {\n      \"limits\": {\n        \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n        \"reload_rate\": \"<long>\"\n      },\n      \"last_w_f_cnt\": \"<long>\",\n      \"device_id\": \"<string>\",\n      \"session_key_id\": \"<string>\"\n    },\n    {\n      \"limits\": {\n        \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n        \"reload_rate\": \"<long>\"\n      },\n      \"last_w_f_cnt\": \"<long>\",\n      \"device_id\": \"<string>\",\n      \"session_key_id\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:55.000Z",
+                                  "updatedAt": "2026-07-28T03:12:55.000Z",
+                                  "uid": "35240-deb547ff-1b6b-44a7-95f3-ce5ef4f50851"
+                                },
+                                {
+                                  "id": "af99e8ba-72e8-46de-936e-e88f89556535",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "ns",
+                                        "applications",
+                                        ":end_device_ids.application_ids.application_id",
+                                        "relays",
+                                        ":end_device_ids.device_id",
+                                        "uplink-forwarding-rules"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "The LoRaWAN DevEUI.",
+                                          "key": "end_device_ids.dev_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                          "key": "end_device_ids.join_eui",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The LoRaWAN DevAddr.",
+                                          "key": "end_device_ids.dev_addr",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Field mask of the fields to return.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "end_device_ids.application_ids.application_id"
+                                        },
+                                        {
+                                          "key": "end_device_ids.device_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:55.000Z",
+                                  "updatedAt": "2026-07-28T03:12:55.000Z",
+                                  "uid": "35240-af99e8ba-72e8-46de-936e-e88f89556535"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-2d48b59f-c05d-4e02-9e8e-38a0935270c9"
+                            },
+                            {
+                              "name": "Create an uplink forwarding rule.",
+                              "id": "20bb9277-87bf-4577-b368-a65cdac6d615",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"index\": \"<long>\",\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":end_device_ids.application_ids.application_id",
+                                    "relays",
+                                    ":end_device_ids.device_id",
+                                    "uplink-forwarding-rules"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "17c8437f-ead3-4df5-8a17-d5a044be7339",
+                                      "key": "end_device_ids"
+                                    },
+                                    {
+                                      "id": "7382ae7d-79bf-4f2d-8752-1fe025be46b2",
+                                      "key": "end_device_ids.application_ids.application_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "14f6df31-e89f-44e7-b47c-f71c7632955c",
+                                      "key": "end_device_ids.device_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "6e762fd9-be7a-4773-983a-8e23937ae5d8",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"index\": \"<long>\",\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "ns",
+                                        "applications",
+                                        ":end_device_ids.application_ids.application_id",
+                                        "relays",
+                                        ":end_device_ids.device_id",
+                                        "uplink-forwarding-rules"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "end_device_ids.application_ids.application_id"
+                                        },
+                                        {
+                                          "key": "end_device_ids.device_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T03:12:55.000Z",
+                                  "updatedAt": "2026-07-28T03:12:55.000Z",
+                                  "uid": "35240-6e762fd9-be7a-4773-983a-8e23937ae5d8"
+                                },
+                                {
+                                  "id": "6d6f48f2-0169-4c61-9c50-facf749bd2f4",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"index\": \"<long>\",\n  \"rule\": {\n    \"limits\": {\n      \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n      \"reload_rate\": \"<long>\"\n    },\n    \"last_w_f_cnt\": \"<long>\",\n    \"device_id\": \"<string>\",\n    \"session_key_id\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id/uplink-forwarding-rules",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "ns",
+                                        "applications",
+                                        ":end_device_ids.application_ids.application_id",
+                                        "relays",
+                                        ":end_device_ids.device_id",
+                                        "uplink-forwarding-rules"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "end_device_ids.application_ids.application_id"
+                                        },
+                                        {
+                                          "key": "end_device_ids.device_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:55.000Z",
+                                  "updatedAt": "2026-07-28T03:12:55.000Z",
+                                  "uid": "35240-6d6f48f2-0169-4c61-9c50-facf749bd2f4"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-20bb9277-87bf-4577-b368-a65cdac6d615"
+                            }
+                          ],
+                          "id": "47d08f20-0e68-48b9-a104-81354d51dab2",
+                          "createdAt": "2026-07-28T03:12:55.000Z",
+                          "updatedAt": "2026-07-28T03:12:55.000Z",
+                          "uid": "35240-47d08f20-0e68-48b9-a104-81354d51dab2"
+                        },
+                        {
+                          "name": "Get a relay.",
+                          "id": "5c179c29-94ef-4c4e-9504-98ac2d48472b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":end_device_ids.application_ids.application_id",
+                                "relays",
+                                ":end_device_ids.device_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The LoRaWAN DevEUI.",
+                                  "key": "end_device_ids.dev_eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                  "key": "end_device_ids.join_eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The LoRaWAN DevAddr.",
+                                  "key": "end_device_ids.dev_addr",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Field mask of the fields to return.",
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f51feb1b-9aea-4f38-bd78-7f4a74745b6b",
+                                  "key": "end_device_ids"
+                                },
+                                {
+                                  "id": "12384fe5-3ea2-407e-9131-e3abd55a0c1d",
+                                  "key": "end_device_ids.application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "dfc8a07d-df82-46a9-9133-25fcababf524",
+                                  "key": "end_device_ids.device_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "11111169-d076-4245-b341-deed5b905b38",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":end_device_ids.application_ids.application_id",
+                                    "relays",
+                                    ":end_device_ids.device_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "end_device_ids.dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "end_device_ids.join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "end_device_ids.dev_addr",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Field mask of the fields to return.",
+                                      "key": "field_mask",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "end_device_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "end_device_ids.device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-11111169-d076-4245-b341-deed5b905b38"
+                            },
+                            {
+                              "id": "6ed63c40-f1fd-4163-98f9-f8b3ee464db7",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>&field_mask=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":end_device_ids.application_ids.application_id",
+                                    "relays",
+                                    ":end_device_ids.device_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "end_device_ids.dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "end_device_ids.join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "end_device_ids.dev_addr",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Field mask of the fields to return.",
+                                      "key": "field_mask",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "end_device_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "end_device_ids.device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-6ed63c40-f1fd-4163-98f9-f8b3ee464db7"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:55.000Z",
+                          "updatedAt": "2026-07-28T03:12:55.000Z",
+                          "uid": "35240-5c179c29-94ef-4c4e-9504-98ac2d48472b"
+                        },
+                        {
+                          "name": "Delete a relay.",
+                          "id": "a549b01a-a70a-4a31-a423-6bd76345518c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":end_device_ids.application_ids.application_id",
+                                "relays",
+                                ":end_device_ids.device_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The LoRaWAN DevEUI.",
+                                  "key": "end_device_ids.dev_eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                  "key": "end_device_ids.join_eui",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The LoRaWAN DevAddr.",
+                                  "key": "end_device_ids.dev_addr",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ea05845f-9642-41aa-ab70-aa308d47388b",
+                                  "key": "end_device_ids"
+                                },
+                                {
+                                  "id": "1dbc5a0a-41a1-47b5-9553-ddcbfb66d7fb",
+                                  "key": "end_device_ids.application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "cd54e886-3a95-4338-a247-1cdb49999e42",
+                                  "key": "end_device_ids.device_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "74855631-494b-4857-8ed3-67c58db979b5",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":end_device_ids.application_ids.application_id",
+                                    "relays",
+                                    ":end_device_ids.device_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "end_device_ids.dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "end_device_ids.join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "end_device_ids.dev_addr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "end_device_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "end_device_ids.device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-74855631-494b-4857-8ed3-67c58db979b5"
+                            },
+                            {
+                              "id": "bfee8f1d-48b7-4c5b-9343-35af529819b5",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id?end_device_ids.dev_eui=<string>&end_device_ids.join_eui=<string>&end_device_ids.dev_addr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":end_device_ids.application_ids.application_id",
+                                    "relays",
+                                    ":end_device_ids.device_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "The LoRaWAN DevEUI.",
+                                      "key": "end_device_ids.dev_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).",
+                                      "key": "end_device_ids.join_eui",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The LoRaWAN DevAddr.",
+                                      "key": "end_device_ids.dev_addr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "end_device_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "end_device_ids.device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-bfee8f1d-48b7-4c5b-9343-35af529819b5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:55.000Z",
+                          "updatedAt": "2026-07-28T03:12:55.000Z",
+                          "uid": "35240-a549b01a-a70a-4a31-a423-6bd76345518c"
+                        },
+                        {
+                          "name": "Update a relay.",
+                          "id": "f8e97606-fd82-424e-b65d-984fa065dc9c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":end_device_ids.application_ids.application_id",
+                                "relays",
+                                ":end_device_ids.device_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4396c29c-af0c-426e-8f42-d1f27084a33a",
+                                  "key": "end_device_ids"
+                                },
+                                {
+                                  "id": "f0d5ea1d-92d3-439c-a532-81b3a5f80244",
+                                  "key": "end_device_ids.application_ids.application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "efb4f619-848a-4cb3-b737-f7a01de095e7",
+                                  "key": "end_device_ids.device_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "c14d427a-2707-476b-b526-78255a5ed56c",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":end_device_ids.application_ids.application_id",
+                                    "relays",
+                                    ":end_device_ids.device_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "end_device_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "end_device_ids.device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-c14d427a-2707-476b-b526-78255a5ed56c"
+                            },
+                            {
+                              "id": "f868403b-f447-4017-97b4-8259311acc1f",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"end_device_ids\": {\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays/:end_device_ids.device_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ns",
+                                    "applications",
+                                    ":end_device_ids.application_ids.application_id",
+                                    "relays",
+                                    ":end_device_ids.device_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "end_device_ids.application_ids.application_id"
+                                    },
+                                    {
+                                      "key": "end_device_ids.device_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:55.000Z",
+                              "updatedAt": "2026-07-28T03:12:55.000Z",
+                              "uid": "35240-f868403b-f447-4017-97b4-8259311acc1f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:55.000Z",
+                          "updatedAt": "2026-07-28T03:12:55.000Z",
+                          "uid": "35240-f8e97606-fd82-424e-b65d-984fa065dc9c"
+                        }
+                      ],
+                      "id": "259b33ed-774b-43ee-b3c5-dea63fe5ba7f",
+                      "createdAt": "2026-07-28T03:12:55.000Z",
+                      "updatedAt": "2026-07-28T03:12:55.000Z",
+                      "uid": "35240-259b33ed-774b-43ee-b3c5-dea63fe5ba7f"
+                    },
+                    {
+                      "name": "Create a relay.",
+                      "id": "e613fa4f-0998-4e6b-900a-9cf3b9d4dd5b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"end_device_ids\": {\n    \"device_id\": \"<string>\",\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ns",
+                            "applications",
+                            ":end_device_ids.application_ids.application_id",
+                            "relays"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0b1074f6-08f3-43dd-b8e5-673f32e5bc5e",
+                              "key": "end_device_ids"
+                            },
+                            {
+                              "id": "93e76027-4a5a-42ad-8a2b-b5186b5d4a24",
+                              "key": "end_device_ids.application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "824be026-f228-4649-9e1d-b7a2b502778c",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"end_device_ids\": {\n    \"device_id\": \"<string>\",\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":end_device_ids.application_ids.application_id",
+                                "relays"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "end_device_ids.application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T03:12:55.000Z",
+                          "updatedAt": "2026-07-28T03:12:55.000Z",
+                          "uid": "35240-824be026-f228-4649-9e1d-b7a2b502778c"
+                        },
+                        {
+                          "id": "2d923fcc-0b2e-47a6-a868-24e7e61e70bb",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"end_device_ids\": {\n    \"device_id\": \"<string>\",\n    \"application_ids\": {},\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"settings\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"default_channel_index\": \"<long>\",\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n            \"reload_rate\": \"<long>\"\n          },\n          \"last_w_f_cnt\": \"<long>\",\n          \"device_id\": \"<string>\",\n          \"session_key_id\": \"<string>\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"notifications\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        },\n        \"overall\": {\n          \"bucket_size\": \"RELAY_LIMIT_BUCKET_SIZE_1\",\n          \"reload_rate\": \"<long>\"\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": \"<long>\",\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"<string>\"\n      },\n      \"serving_device_id\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/relays",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ns",
+                                "applications",
+                                ":end_device_ids.application_ids.application_id",
+                                "relays"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "end_device_ids.application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:55.000Z",
+                          "updatedAt": "2026-07-28T03:12:55.000Z",
+                          "uid": "35240-2d923fcc-0b2e-47a6-a868-24e7e61e70bb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:55.000Z",
+                      "updatedAt": "2026-07-28T03:12:55.000Z",
+                      "uid": "35240-e613fa4f-0998-4e6b-900a-9cf3b9d4dd5b"
+                    }
+                  ],
+                  "id": "0967ef24-978b-44c1-b90c-5e47e3665cc2",
+                  "createdAt": "2026-07-28T03:12:55.000Z",
+                  "updatedAt": "2026-07-28T03:12:55.000Z",
+                  "uid": "35240-0967ef24-978b-44c1-b90c-5e47e3665cc2"
+                }
+              ],
+              "id": "4c59ecb7-b9fa-4c66-813d-df31b90b9bb1",
+              "createdAt": "2026-07-28T03:12:55.000Z",
+              "updatedAt": "2026-07-28T03:12:55.000Z",
+              "uid": "35240-4c59ecb7-b9fa-4c66-813d-df31b90b9bb1"
+            }
+          ],
+          "id": "fcfdd0bb-4c2f-4d6a-ac87-687d2365bcbf",
+          "createdAt": "2026-07-28T03:12:55.000Z",
+          "updatedAt": "2026-07-28T03:12:55.000Z",
+          "uid": "35240-fcfdd0bb-4c2f-4d6a-ac87-687d2365bcbf"
+        }
+      ],
+      "id": "41042a72-a389-40af-90bc-f25620dbf5ba",
+      "createdAt": "2026-07-28T03:12:55.000Z",
+      "updatedAt": "2026-07-28T03:12:55.000Z",
+      "uid": "35240-41042a72-a389-40af-90bc-f25620dbf5ba"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

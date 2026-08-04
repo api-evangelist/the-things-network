@@ -1,0 +1,865 @@
+{
+  "info": {
+    "_postman_id": "08f1e96c-6f39-4b87-8122-d6ccd05451ee",
+    "name": "The Things Stack \u2014 Application Server AppAs Configuration API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:44.000Z",
+    "updatedAt": "2026-07-28T03:10:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-08f1e96c-6f39-4b87-8122-d6ccd05451ee"
+  },
+  "item": [
+    {
+      "name": "configuration",
+      "item": [
+        {
+          "name": "bands",
+          "item": [
+            {
+              "name": "{band_id}",
+              "item": [
+                {
+                  "name": "{phy_version}",
+                  "item": [
+                    {
+                      "name": "Configuration List Bands3",
+                      "id": "4d3a810c-984c-4415-9675-d89cee75f1f2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/configuration/bands/:band_id/:phy_version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "configuration",
+                            "bands",
+                            ":band_id",
+                            ":phy_version"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9103e22e-7d8e-481c-b359-b91ac1720eb6",
+                              "key": "band_id",
+                              "value": "<string>",
+                              "description": "(Required) Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                            },
+                            {
+                              "id": "24c34739-d406-4eaf-a9e2-148dafe044fe",
+                              "key": "phy_version",
+                              "value": "PHY_V1_0_2_REV_A",
+                              "description": "(Required) Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ba8217e1-6b81-443b-8e71-cea3992ae343",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/configuration/bands/:band_id/:phy_version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "configuration",
+                                "bands",
+                                ":band_id",
+                                ":phy_version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "band_id"
+                                },
+                                {
+                                  "key": "phy_version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"descriptions\": {\n    \"mollit_b90\": {\n      \"band\": {\n        \"Ut_a\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"occaecatb\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"qui15\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"anim146\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"deserunt_0f3\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"quis_3e4\": {\n      \"band\": {\n        \"amet_4f\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"qui_1\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"anim_b_\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"et462\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"in521\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"nostrud_308\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"fugiat_25\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"in_4\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"in3e\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        }\n      }\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T03:10:45.000Z",
+                          "updatedAt": "2026-07-28T03:10:45.000Z",
+                          "uid": "35240-ba8217e1-6b81-443b-8e71-cea3992ae343"
+                        },
+                        {
+                          "id": "fa07552f-a00b-43ef-8862-b5815db82e2b",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/configuration/bands/:band_id/:phy_version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "configuration",
+                                "bands",
+                                ":band_id",
+                                ":phy_version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "band_id"
+                                },
+                                {
+                                  "key": "phy_version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"irure_ef\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"inf21\": {},\n      \"elit_\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:45.000Z",
+                          "updatedAt": "2026-07-28T03:10:45.000Z",
+                          "uid": "35240-fa07552f-a00b-43ef-8862-b5815db82e2b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:45.000Z",
+                      "updatedAt": "2026-07-28T03:10:45.000Z",
+                      "uid": "35240-4d3a810c-984c-4415-9675-d89cee75f1f2"
+                    }
+                  ],
+                  "id": "ec3ea166-6810-4ed7-be70-acd05b06769a",
+                  "createdAt": "2026-07-28T03:10:45.000Z",
+                  "updatedAt": "2026-07-28T03:10:45.000Z",
+                  "uid": "35240-ec3ea166-6810-4ed7-be70-acd05b06769a"
+                },
+                {
+                  "name": "Configuration List Bands2",
+                  "id": "b47d07af-88c1-4414-b4c5-d1a82694a59b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/configuration/bands/:band_id?phy_version=PHY_UNKNOWN",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "configuration",
+                        "bands",
+                        ":band_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned.",
+                          "key": "phy_version",
+                          "value": "PHY_UNKNOWN"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "05e4f0dd-6fbd-490d-8b0e-df327e1fefff",
+                          "key": "band_id",
+                          "value": "<string>",
+                          "description": "(Required) Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "460ea4ca-cff0-4f49-8023-508184340f61",
+                      "name": "A successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/configuration/bands/:band_id?phy_version=PHY_UNKNOWN",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "configuration",
+                            "bands",
+                            ":band_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned.",
+                              "key": "phy_version",
+                              "value": "PHY_UNKNOWN"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "band_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"descriptions\": {\n    \"mollit_b90\": {\n      \"band\": {\n        \"Ut_a\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"occaecatb\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"qui15\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"anim146\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"deserunt_0f3\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"quis_3e4\": {\n      \"band\": {\n        \"amet_4f\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"qui_1\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"anim_b_\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"et462\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"in521\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"nostrud_308\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"fugiat_25\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"in_4\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"in3e\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        }\n      }\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T03:10:45.000Z",
+                      "updatedAt": "2026-07-28T03:10:45.000Z",
+                      "uid": "35240-460ea4ca-cff0-4f49-8023-508184340f61"
+                    },
+                    {
+                      "id": "3dbe31c7-c3a0-485b-b189-a4c949b8a7ab",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/configuration/bands/:band_id?phy_version=PHY_UNKNOWN",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "configuration",
+                            "bands",
+                            ":band_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned.",
+                              "key": "phy_version",
+                              "value": "PHY_UNKNOWN"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "band_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"irure_ef\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"inf21\": {},\n      \"elit_\": {}\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:10:45.000Z",
+                      "updatedAt": "2026-07-28T03:10:45.000Z",
+                      "uid": "35240-3dbe31c7-c3a0-485b-b189-a4c949b8a7ab"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:10:45.000Z",
+                  "updatedAt": "2026-07-28T03:10:45.000Z",
+                  "uid": "35240-b47d07af-88c1-4414-b4c5-d1a82694a59b"
+                }
+              ],
+              "id": "b8b5d82d-5927-4eb6-ae7a-77684851a375",
+              "createdAt": "2026-07-28T03:10:45.000Z",
+              "updatedAt": "2026-07-28T03:10:45.000Z",
+              "uid": "35240-b8b5d82d-5927-4eb6-ae7a-77684851a375"
+            },
+            {
+              "name": "Configuration List Bands",
+              "id": "ac5752c4-d02c-40f4-9926-6e16351cd33b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/configuration/bands?band_id=<string>&phy_version=PHY_UNKNOWN",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "configuration",
+                    "bands"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands are returned.",
+                      "key": "band_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned.",
+                      "key": "phy_version",
+                      "value": "PHY_UNKNOWN"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8691187d-f648-41f5-b548-6eb4a3bf0270",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/configuration/bands?band_id=<string>&phy_version=PHY_UNKNOWN",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "configuration",
+                        "bands"
+                      ],
+                      "query": [
+                        {
+                          "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands are returned.",
+                          "key": "band_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned.",
+                          "key": "phy_version",
+                          "value": "PHY_UNKNOWN"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"descriptions\": {\n    \"mollit_b90\": {\n      \"band\": {\n        \"Ut_a\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"occaecatb\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"qui15\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"anim146\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"deserunt_0f3\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"quis_3e4\": {\n      \"band\": {\n        \"amet_4f\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"qui_1\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"anim_b_\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"et462\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"in521\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"nostrud_308\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            },\n            \"fugiat_25\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        },\n        \"in_4\": {\n          \"id\": \"<string>\",\n          \"beacon\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"coding_rate\": \"<string>\",\n            \"frequencies\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"max_uplink_channels\": \"<long>\",\n          \"uplink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"max_downlink_channels\": \"<long>\",\n          \"downlink_channels\": [\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            },\n            {\n              \"frequency\": \"<string>\",\n              \"min_data_rate\": \"DATA_RATE_0\",\n              \"max_data_rate\": \"DATA_RATE_0\"\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            },\n            {\n              \"min_frequency\": \"<string>\",\n              \"max_frequency\": \"<string>\",\n              \"duty_cycle\": \"<float>\",\n              \"max_eirp\": \"<float>\"\n            }\n          ],\n          \"data_rates\": {\n            \"in3e\": {\n              \"rate\": {\n                \"lora\": {\n                  \"bandwidth\": \"<long>\",\n                  \"spreading_factor\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                },\n                \"fsk\": {\n                  \"bit_rate\": \"<long>\"\n                },\n                \"lrfhss\": {\n                  \"modulation_type\": \"<long>\",\n                  \"operating_channel_width\": \"<long>\",\n                  \"coding_rate\": \"<string>\"\n                }\n              }\n            }\n          },\n          \"freq_multiplier\": \"<string>\",\n          \"implements_cf_list\": \"<boolean>\",\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"<string>\",\n          \"receive_delay_2\": \"<string>\",\n          \"join_accept_delay_1\": \"<string>\",\n          \"join_accept_delay_2\": \"<string>\",\n          \"max_fcnt_gap\": \"<string>\",\n          \"supports_dynamic_adr\": \"<boolean>\",\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"<string>\",\n          \"max_retransmit_timeout\": \"<string>\",\n          \"tx_offset\": [\n            \"<float>\",\n            \"<float>\"\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"<string>\",\n          \"relay_receive_delay\": \"<string>\",\n          \"tx_param_setup_req_support\": \"<boolean>\",\n          \"default_max_eirp\": \"<float>\",\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": \"DATA_RATE_0\",\n            \"frequency\": \"<string>\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": \"<boolean>\",\n            \"downlinks\": \"<boolean>\"\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              },\n              {\n                \"frequency\": \"<string>\",\n                \"ack_frequency\": \"<string>\",\n                \"data_rate_index\": \"DATA_RATE_0\"\n              }\n            ]\n          }\n        }\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T03:10:45.000Z",
+                  "updatedAt": "2026-07-28T03:10:45.000Z",
+                  "uid": "35240-8691187d-f648-41f5-b548-6eb4a3bf0270"
+                },
+                {
+                  "id": "e85c9289-43c5-4afc-a709-66338ea5e068",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/configuration/bands?band_id=<string>&phy_version=PHY_UNKNOWN",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "configuration",
+                        "bands"
+                      ],
+                      "query": [
+                        {
+                          "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands are returned.",
+                          "key": "band_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned.",
+                          "key": "phy_version",
+                          "value": "PHY_UNKNOWN"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"irure_ef\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"inf21\": {},\n      \"elit_\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:45.000Z",
+                  "updatedAt": "2026-07-28T03:10:45.000Z",
+                  "uid": "35240-e85c9289-43c5-4afc-a709-66338ea5e068"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:45.000Z",
+              "updatedAt": "2026-07-28T03:10:45.000Z",
+              "uid": "35240-ac5752c4-d02c-40f4-9926-6e16351cd33b"
+            }
+          ],
+          "id": "b33a08dd-39be-4e20-ba45-8f9e01f5778c",
+          "createdAt": "2026-07-28T03:10:45.000Z",
+          "updatedAt": "2026-07-28T03:10:45.000Z",
+          "uid": "35240-b33a08dd-39be-4e20-ba45-8f9e01f5778c"
+        },
+        {
+          "name": "frequency-plans",
+          "item": [
+            {
+              "name": "Configuration List Frequency Plans",
+              "id": "e17a9121-1060-46db-9835-0da900985a59",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/configuration/frequency-plans?base_frequency=<long>&band_id=<string>&gateways_only=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "configuration",
+                    "frequency-plans"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional base frequency in MHz for hardware support (433, 470, 868 or 915)",
+                      "key": "base_frequency",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Optional Band ID to filter the results.",
+                      "key": "band_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional field to include only gateway related results.",
+                      "key": "gateways_only",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "112e0b99-1ae4-44ba-a3cd-511eafddba02",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/configuration/frequency-plans?base_frequency=<long>&band_id=<string>&gateways_only=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "configuration",
+                        "frequency-plans"
+                      ],
+                      "query": [
+                        {
+                          "description": "Optional base frequency in MHz for hardware support (433, 470, 868 or 915)",
+                          "key": "base_frequency",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Optional Band ID to filter the results.",
+                          "key": "band_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional field to include only gateway related results.",
+                          "key": "gateways_only",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"frequency_plans\": [\n    {\n      \"id\": \"<string>\",\n      \"base_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"base_frequency\": \"<long>\",\n      \"band_id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"base_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"base_frequency\": \"<long>\",\n      \"band_id\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:45.000Z",
+                  "updatedAt": "2026-07-28T03:10:45.000Z",
+                  "uid": "35240-112e0b99-1ae4-44ba-a3cd-511eafddba02"
+                },
+                {
+                  "id": "ad602180-74f3-4632-98af-c0eac8b3835c",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/configuration/frequency-plans?base_frequency=<long>&band_id=<string>&gateways_only=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "configuration",
+                        "frequency-plans"
+                      ],
+                      "query": [
+                        {
+                          "description": "Optional base frequency in MHz for hardware support (433, 470, 868 or 915)",
+                          "key": "base_frequency",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "Optional Band ID to filter the results.",
+                          "key": "band_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional field to include only gateway related results.",
+                          "key": "gateways_only",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"irure_ef\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"inf21\": {},\n      \"elit_\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:45.000Z",
+                  "updatedAt": "2026-07-28T03:10:45.000Z",
+                  "uid": "35240-ad602180-74f3-4632-98af-c0eac8b3835c"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:45.000Z",
+              "updatedAt": "2026-07-28T03:10:45.000Z",
+              "uid": "35240-e17a9121-1060-46db-9835-0da900985a59"
+            }
+          ],
+          "id": "4b03475c-5276-4234-b6c2-016b3f008dff",
+          "createdAt": "2026-07-28T03:10:45.000Z",
+          "updatedAt": "2026-07-28T03:10:45.000Z",
+          "uid": "35240-4b03475c-5276-4234-b6c2-016b3f008dff"
+        },
+        {
+          "name": "phy-versions",
+          "item": [
+            {
+              "name": "Returns a list of supported LoRaWAN PHY Versions for the given Band ID.",
+              "id": "d17afb4f-c41f-4ead-b3aa-aac5780e63b2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/configuration/phy-versions?band_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "configuration",
+                    "phy-versions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands and their versions are returned.",
+                      "key": "band_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "547970f8-9591-4d76-875e-41fe6ed56fd6",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/configuration/phy-versions?band_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "configuration",
+                        "phy-versions"
+                      ],
+                      "query": [
+                        {
+                          "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands and their versions are returned.",
+                          "key": "band_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"version_info\": [\n    {\n      \"band_id\": \"<string>\",\n      \"phy_versions\": [\n        \"PHY_UNKNOWN\",\n        \"PHY_UNKNOWN\"\n      ]\n    },\n    {\n      \"band_id\": \"<string>\",\n      \"phy_versions\": [\n        \"PHY_UNKNOWN\",\n        \"PHY_UNKNOWN\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:45.000Z",
+                  "updatedAt": "2026-07-28T03:10:45.000Z",
+                  "uid": "35240-547970f8-9591-4d76-875e-41fe6ed56fd6"
+                },
+                {
+                  "id": "54bb5ed8-f95b-46cf-88c3-b34881de7694",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/configuration/phy-versions?band_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "configuration",
+                        "phy-versions"
+                      ],
+                      "query": [
+                        {
+                          "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands and their versions are returned.",
+                          "key": "band_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"irure_ef\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"inf21\": {},\n      \"elit_\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:45.000Z",
+                  "updatedAt": "2026-07-28T03:10:45.000Z",
+                  "uid": "35240-54bb5ed8-f95b-46cf-88c3-b34881de7694"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:45.000Z",
+              "updatedAt": "2026-07-28T03:10:45.000Z",
+              "uid": "35240-d17afb4f-c41f-4ead-b3aa-aac5780e63b2"
+            }
+          ],
+          "id": "64c12c5a-ceaa-41b4-842d-cad4261dca8c",
+          "createdAt": "2026-07-28T03:10:45.000Z",
+          "updatedAt": "2026-07-28T03:10:45.000Z",
+          "uid": "35240-64c12c5a-ceaa-41b4-842d-cad4261dca8c"
+        }
+      ],
+      "id": "ce4b0774-d60d-4e71-9f9b-2c28b713134e",
+      "createdAt": "2026-07-28T03:10:45.000Z",
+      "updatedAt": "2026-07-28T03:10:45.000Z",
+      "uid": "35240-ce4b0774-d60d-4e71-9f9b-2c28b713134e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

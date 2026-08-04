@@ -1,0 +1,864 @@
+{
+  "info": {
+    "_postman_id": "25ec960d-859f-4618-9ab8-156635a58507",
+    "name": "The Things Stack \u2014 Application Server AppAs As API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:10:28.000Z",
+    "updatedAt": "2026-07-28T03:10:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-25ec960d-859f-4618-9ab8-156635a58507"
+  },
+  "item": [
+    {
+      "name": "as",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "{application_ids.application_id}",
+              "item": [
+                {
+                  "name": "link",
+                  "item": [
+                    {
+                      "name": "Get a link configuration from the Application Server to Network Server.\nThis only contains the configuration. Use GetLinkStats to view statistics and any link errors.",
+                      "id": "e8637c8d-b48f-4431-8e3d-30f159af4b6d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/link?field_mask=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as",
+                            "applications",
+                            ":application_ids.application_id",
+                            "link"
+                          ],
+                          "query": [
+                            {
+                              "key": "field_mask",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "aedaae93-c47e-4952-bbfb-db803766310b",
+                              "key": "application_ids"
+                            },
+                            {
+                              "id": "4687fc26-04be-4d28-9349-3887efe8566e",
+                              "key": "application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "c9b7a412-ec2b-4bc1-a600-e97c1ed527db",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/link?field_mask=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as",
+                                "applications",
+                                ":application_ids.application_id",
+                                "link"
+                              ],
+                              "query": [
+                                {
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"default_formatters\": {\n    \"up_formatter\": \"FORMATTER_NONE\",\n    \"up_formatter_parameter\": \"<string>\",\n    \"down_formatter\": \"FORMATTER_NONE\",\n    \"down_formatter_parameter\": \"<string>\"\n  },\n  \"skip_payload_crypto\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:10:29.000Z",
+                          "updatedAt": "2026-07-28T03:10:29.000Z",
+                          "uid": "35240-c9b7a412-ec2b-4bc1-a600-e97c1ed527db"
+                        },
+                        {
+                          "id": "26085563-ef3a-4e91-9312-df2a3c0dd37f",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/link?field_mask=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as",
+                                "applications",
+                                ":application_ids.application_id",
+                                "link"
+                              ],
+                              "query": [
+                                {
+                                  "key": "field_mask",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"anim_2e0\": {},\n      \"veniam_18\": {},\n      \"amete4\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:29.000Z",
+                          "updatedAt": "2026-07-28T03:10:29.000Z",
+                          "uid": "35240-26085563-ef3a-4e91-9312-df2a3c0dd37f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:29.000Z",
+                      "updatedAt": "2026-07-28T03:10:29.000Z",
+                      "uid": "35240-e8637c8d-b48f-4431-8e3d-30f159af4b6d"
+                    },
+                    {
+                      "name": "Set a link configuration from the Application Server a Network Server.\nThis call returns immediately after setting the link configuration; it does not wait for a link to establish.\nTo get link statistics or errors, use GetLinkStats.\nNote that there can on",
+                      "id": "7059f208-0ddf-44f4-918c-11c7398f9519",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"application_ids\": {},\n  \"link\": {\n    \"default_formatters\": {\n      \"up_formatter\": \"FORMATTER_NONE\",\n      \"up_formatter_parameter\": \"<string>\",\n      \"down_formatter\": \"FORMATTER_NONE\",\n      \"down_formatter_parameter\": \"<string>\"\n    },\n    \"skip_payload_crypto\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/link",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as",
+                            "applications",
+                            ":application_ids.application_id",
+                            "link"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3f08b7d8-66cb-4a7f-ad7b-f7e965708a67",
+                              "key": "application_ids"
+                            },
+                            {
+                              "id": "6825d563-0e7f-4f18-8359-74c2e0a573d0",
+                              "key": "application_ids.application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "3d02297c-e5db-48f7-868d-d849b017293d",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"application_ids\": {},\n  \"link\": {\n    \"default_formatters\": {\n      \"up_formatter\": \"FORMATTER_NONE\",\n      \"up_formatter_parameter\": \"<string>\",\n      \"down_formatter\": \"FORMATTER_NONE\",\n      \"down_formatter_parameter\": \"<string>\"\n    },\n    \"skip_payload_crypto\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/link",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as",
+                                "applications",
+                                ":application_ids.application_id",
+                                "link"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"default_formatters\": {\n    \"up_formatter\": \"FORMATTER_NONE\",\n    \"up_formatter_parameter\": \"<string>\",\n    \"down_formatter\": \"FORMATTER_NONE\",\n    \"down_formatter_parameter\": \"<string>\"\n  },\n  \"skip_payload_crypto\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T03:10:29.000Z",
+                          "updatedAt": "2026-07-28T03:10:29.000Z",
+                          "uid": "35240-3d02297c-e5db-48f7-868d-d849b017293d"
+                        },
+                        {
+                          "id": "dec079de-415b-47e2-a012-4f9afd05da7d",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"application_ids\": {},\n  \"link\": {\n    \"default_formatters\": {\n      \"up_formatter\": \"FORMATTER_NONE\",\n      \"up_formatter_parameter\": \"<string>\",\n      \"down_formatter\": \"FORMATTER_NONE\",\n      \"down_formatter_parameter\": \"<string>\"\n    },\n    \"skip_payload_crypto\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/as/applications/:application_ids.application_id/link",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as",
+                                "applications",
+                                ":application_ids.application_id",
+                                "link"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_ids.application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"anim_2e0\": {},\n      \"veniam_18\": {},\n      \"amete4\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:29.000Z",
+                          "updatedAt": "2026-07-28T03:10:29.000Z",
+                          "uid": "35240-dec079de-415b-47e2-a012-4f9afd05da7d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:29.000Z",
+                      "updatedAt": "2026-07-28T03:10:29.000Z",
+                      "uid": "35240-7059f208-0ddf-44f4-918c-11c7398f9519"
+                    }
+                  ],
+                  "id": "a9dd55a5-3f95-452e-a746-dafc0a47da96",
+                  "createdAt": "2026-07-28T03:10:29.000Z",
+                  "updatedAt": "2026-07-28T03:10:29.000Z",
+                  "uid": "35240-a9dd55a5-3f95-452e-a746-dafc0a47da96"
+                }
+              ],
+              "id": "a73048a0-9fad-474f-bbdd-58cd140f2992",
+              "createdAt": "2026-07-28T03:10:29.000Z",
+              "updatedAt": "2026-07-28T03:10:29.000Z",
+              "uid": "35240-a73048a0-9fad-474f-bbdd-58cd140f2992"
+            },
+            {
+              "name": "{application_id}",
+              "item": [
+                {
+                  "name": "link",
+                  "item": [
+                    {
+                      "name": "stats",
+                      "item": [
+                        {
+                          "name": "GetLinkStats returns the link statistics.\nThis call returns a NotFound error code if there is no link for the given application identifiers.\nThis call returns the error code of the link error if linking to a Network Server failed.",
+                          "id": "57565797-024a-4e6a-b720-7d4de14ae86d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as/applications/:application_id/link/stats",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as",
+                                "applications",
+                                ":application_id",
+                                "link",
+                                "stats"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "227ef8bd-45b4-47a8-86f4-961a2bd1479b",
+                                  "key": "application_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "87168885-64da-427a-93ac-ac68078c276d",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/as/applications/:application_id/link/stats",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "as",
+                                    "applications",
+                                    ":application_id",
+                                    "link",
+                                    "stats"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"linked_at\": \"<dateTime>\",\n  \"network_server_address\": \"<string>\",\n  \"last_up_received_at\": \"<dateTime>\",\n  \"up_count\": \"<string>\",\n  \"last_downlink_forwarded_at\": \"<dateTime>\",\n  \"downlink_count\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:10:29.000Z",
+                              "updatedAt": "2026-07-28T03:10:29.000Z",
+                              "uid": "35240-87168885-64da-427a-93ac-ac68078c276d"
+                            },
+                            {
+                              "id": "61ad7971-3fc7-48a9-a3a8-b69a76a39c4c",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/as/applications/:application_id/link/stats",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "as",
+                                    "applications",
+                                    ":application_id",
+                                    "link",
+                                    "stats"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"anim_2e0\": {},\n      \"veniam_18\": {},\n      \"amete4\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:10:29.000Z",
+                              "updatedAt": "2026-07-28T03:10:29.000Z",
+                              "uid": "35240-61ad7971-3fc7-48a9-a3a8-b69a76a39c4c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:10:29.000Z",
+                          "updatedAt": "2026-07-28T03:10:29.000Z",
+                          "uid": "35240-57565797-024a-4e6a-b720-7d4de14ae86d"
+                        }
+                      ],
+                      "id": "5e3aba53-a01e-4fda-a20a-e5cb28a33792",
+                      "createdAt": "2026-07-28T03:10:29.000Z",
+                      "updatedAt": "2026-07-28T03:10:29.000Z",
+                      "uid": "35240-5e3aba53-a01e-4fda-a20a-e5cb28a33792"
+                    },
+                    {
+                      "name": "Delete the link between the Application Server and Network Server for the specified application.",
+                      "id": "59df6b92-d76e-4b68-88fc-cc16fc96cf41",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/as/applications/:application_id/link",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "as",
+                            "applications",
+                            ":application_id",
+                            "link"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4c6d254a-4f33-440b-a5a3-667d714072a9",
+                              "key": "application_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e1e1035f-acd8-4714-ab2e-f161fffd6a9a",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as/applications/:application_id/link",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as",
+                                "applications",
+                                ":application_id",
+                                "link"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T03:10:29.000Z",
+                          "updatedAt": "2026-07-28T03:10:29.000Z",
+                          "uid": "35240-e1e1035f-acd8-4714-ab2e-f161fffd6a9a"
+                        },
+                        {
+                          "id": "9dea1200-64af-46f3-b264-9421d820efe0",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/as/applications/:application_id/link",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "as",
+                                "applications",
+                                ":application_id",
+                                "link"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"anim_2e0\": {},\n      \"veniam_18\": {},\n      \"amete4\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:10:29.000Z",
+                          "updatedAt": "2026-07-28T03:10:29.000Z",
+                          "uid": "35240-9dea1200-64af-46f3-b264-9421d820efe0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:10:29.000Z",
+                      "updatedAt": "2026-07-28T03:10:29.000Z",
+                      "uid": "35240-59df6b92-d76e-4b68-88fc-cc16fc96cf41"
+                    }
+                  ],
+                  "id": "70d6fe3d-60f0-4de7-8eeb-1ae127f4bd44",
+                  "createdAt": "2026-07-28T03:10:29.000Z",
+                  "updatedAt": "2026-07-28T03:10:29.000Z",
+                  "uid": "35240-70d6fe3d-60f0-4de7-8eeb-1ae127f4bd44"
+                }
+              ],
+              "id": "9868abca-f152-4a2e-9459-c6aea2ed23c3",
+              "createdAt": "2026-07-28T03:10:29.000Z",
+              "updatedAt": "2026-07-28T03:10:29.000Z",
+              "uid": "35240-9868abca-f152-4a2e-9459-c6aea2ed23c3"
+            }
+          ],
+          "id": "25e13700-3260-41ec-b9a8-96accb1503a4",
+          "createdAt": "2026-07-28T03:10:29.000Z",
+          "updatedAt": "2026-07-28T03:10:29.000Z",
+          "uid": "35240-25e13700-3260-41ec-b9a8-96accb1503a4"
+        },
+        {
+          "name": "configuration",
+          "item": [
+            {
+              "name": "As Get Configuration",
+              "id": "480c60f6-e060-4905-92fc-972b8c1904a3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/as/configuration",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "as",
+                    "configuration"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "035ed800-a7b5-4de3-b67f-bc99b303969a",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/as/configuration",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "as",
+                        "configuration"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"configuration\": {\n    \"pubsub\": {\n      \"providers\": {\n        \"mqtt\": \"ENABLED\",\n        \"nats\": \"ENABLED\"\n      }\n    },\n    \"webhooks\": {\n      \"unhealthy_attempts_threshold\": \"<int64>\",\n      \"unhealthy_retry_interval\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T03:10:29.000Z",
+                  "updatedAt": "2026-07-28T03:10:29.000Z",
+                  "uid": "35240-035ed800-a7b5-4de3-b67f-bc99b303969a"
+                },
+                {
+                  "id": "57d0b45e-9b54-45e0-bdd6-eb7c58d5f83c",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/as/configuration",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "as",
+                        "configuration"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"anim_2e0\": {},\n      \"veniam_18\": {},\n      \"amete4\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:10:29.000Z",
+                  "updatedAt": "2026-07-28T03:10:29.000Z",
+                  "uid": "35240-57d0b45e-9b54-45e0-bdd6-eb7c58d5f83c"
+                }
+              ],
+              "createdAt": "2026-07-28T03:10:29.000Z",
+              "updatedAt": "2026-07-28T03:10:29.000Z",
+              "uid": "35240-480c60f6-e060-4905-92fc-972b8c1904a3"
+            }
+          ],
+          "id": "c0de7d61-e554-48ef-a07b-c699d7ef2a81",
+          "createdAt": "2026-07-28T03:10:29.000Z",
+          "updatedAt": "2026-07-28T03:10:29.000Z",
+          "uid": "35240-c0de7d61-e554-48ef-a07b-c699d7ef2a81"
+        }
+      ],
+      "id": "f982a161-d484-40b8-9049-5fb731ab7f50",
+      "createdAt": "2026-07-28T03:10:29.000Z",
+      "updatedAt": "2026-07-28T03:10:29.000Z",
+      "uid": "35240-f982a161-d484-40b8-9049-5fb731ab7f50"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

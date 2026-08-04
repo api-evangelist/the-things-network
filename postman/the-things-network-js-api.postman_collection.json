@@ -1,0 +1,301 @@
+{
+  "info": {
+    "_postman_id": "afce08ce-47fb-4fd4-99b6-92d8ac195984",
+    "name": "The Things Stack \u2014 Application Server AppAs Js API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:38.000Z",
+    "updatedAt": "2026-07-28T03:12:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-afce08ce-47fb-4fd4-99b6-92d8ac195984"
+  },
+  "item": [
+    {
+      "name": "js",
+      "item": [
+        {
+          "name": "default_join_eui",
+          "item": [
+            {
+              "name": "Request the default JoinEUI that is configured for this Join Server.",
+              "id": "65d8d9dc-e044-43c8-858e-151d4a5ed590",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/js/default_join_eui",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "js",
+                    "default_join_eui"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2497e5af-e8f3-4671-8ec2-c77296fc45c0",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/js/default_join_eui",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "js",
+                        "default_join_eui"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"join_eui\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:12:39.000Z",
+                  "updatedAt": "2026-07-28T03:12:39.000Z",
+                  "uid": "35240-2497e5af-e8f3-4671-8ec2-c77296fc45c0"
+                },
+                {
+                  "id": "20c12b5b-b632-4e97-95d0-e3fa0ea8d7a2",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/js/default_join_eui",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "js",
+                        "default_join_eui"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"et2a\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:12:39.000Z",
+                  "updatedAt": "2026-07-28T03:12:39.000Z",
+                  "uid": "35240-20c12b5b-b632-4e97-95d0-e3fa0ea8d7a2"
+                }
+              ],
+              "createdAt": "2026-07-28T03:12:39.000Z",
+              "updatedAt": "2026-07-28T03:12:39.000Z",
+              "uid": "35240-65d8d9dc-e044-43c8-858e-151d4a5ed590"
+            }
+          ],
+          "id": "9da377e4-1ef6-4ae0-8459-12cef766c8cf",
+          "createdAt": "2026-07-28T03:12:39.000Z",
+          "updatedAt": "2026-07-28T03:12:39.000Z",
+          "uid": "35240-9da377e4-1ef6-4ae0-8459-12cef766c8cf"
+        },
+        {
+          "name": "join_eui_prefixes",
+          "item": [
+            {
+              "name": "Request the JoinEUI prefixes that are configured for this Join Server.",
+              "id": "3ac831a0-1e14-4f40-a6c2-e67f78b75974",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/js/join_eui_prefixes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "js",
+                    "join_eui_prefixes"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8c8bc295-eb29-48ea-b532-5bf23143e8e0",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/js/join_eui_prefixes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "js",
+                        "join_eui_prefixes"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"prefixes\": [\n    {\n      \"join_eui\": \"<string>\",\n      \"length\": \"<long>\"\n    },\n    {\n      \"join_eui\": \"<string>\",\n      \"length\": \"<long>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:12:39.000Z",
+                  "updatedAt": "2026-07-28T03:12:39.000Z",
+                  "uid": "35240-8c8bc295-eb29-48ea-b532-5bf23143e8e0"
+                },
+                {
+                  "id": "72f0887f-fa97-4766-ad8e-8e35db64223e",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/js/join_eui_prefixes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "js",
+                        "join_eui_prefixes"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\"\n    },\n    {\n      \"@type\": \"<string>\",\n      \"et2a\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:12:39.000Z",
+                  "updatedAt": "2026-07-28T03:12:39.000Z",
+                  "uid": "35240-72f0887f-fa97-4766-ad8e-8e35db64223e"
+                }
+              ],
+              "createdAt": "2026-07-28T03:12:39.000Z",
+              "updatedAt": "2026-07-28T03:12:39.000Z",
+              "uid": "35240-3ac831a0-1e14-4f40-a6c2-e67f78b75974"
+            }
+          ],
+          "id": "6df61dae-6de3-454e-94ca-90001d85e705",
+          "createdAt": "2026-07-28T03:12:39.000Z",
+          "updatedAt": "2026-07-28T03:12:39.000Z",
+          "uid": "35240-6df61dae-6de3-454e-94ca-90001d85e705"
+        }
+      ],
+      "id": "77b10afc-5730-4344-87f8-d530229c86d4",
+      "createdAt": "2026-07-28T03:12:39.000Z",
+      "updatedAt": "2026-07-28T03:12:39.000Z",
+      "uid": "35240-77b10afc-5730-4344-87f8-d530229c86d4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

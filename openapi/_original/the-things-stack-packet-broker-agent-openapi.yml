@@ -1,0 +1,994 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Packet Broker Agent
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the
+    upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'
+security:
+- ApiKeyAuth: []
+tags:
+- name: Pba
+paths:
+  /pba/forwarders/policies:
+    get:
+      summary: 'List the routing policies that Forwarders configured with Packet Broker Agent as Home Network.
+
+        Listing routing policies requires administrative access.'
+      operationId: Pba_ListForwarderRoutingPolicies
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerRoutingPolicies'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: home_network_id.net_id
+        description: LoRa Alliance NetID.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: home_network_id.tenant_id
+        description: Tenant identifier if the registration leases DevAddr blocks from a NetID.
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - Pba
+  /pba/home-networks:
+    get:
+      summary: 'List the listed home networks for which routing policies can be configured.
+
+        Listing home networks requires administrative access.'
+      operationId: Pba_ListHomeNetworks
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerNetworks'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: tenant_id_contains
+        description: Filter by tenant ID.
+        in: query
+        required: false
+        type: string
+      - name: name_contains
+        description: Filter by name.
+        in: query
+        required: false
+        type: string
+      tags:
+      - Pba
+  /pba/home-networks/gateway-visibilities/default:
+    get:
+      summary: 'Get the default gateway visibility.
+
+        Getting gateway visibilities requires administrative access.'
+      operationId: Pba_GetHomeNetworkDefaultGatewayVisibility
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerDefaultGatewayVisibility'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - Pba
+    delete:
+      summary: 'Deletes the default gateway visibility.
+
+        Deleting gateway visibilities requires administrative access.'
+      operationId: Pba_DeleteHomeNetworkDefaultGatewayVisibility
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - Pba
+    post:
+      summary: 'Set the default gateway visibility.
+
+        Setting gateway visibilities requires administrative access.'
+      operationId: Pba_SetHomeNetworkDefaultGatewayVisibility2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3SetPacketBrokerDefaultGatewayVisibilityRequest'
+      tags:
+      - Pba
+    put:
+      summary: 'Set the default gateway visibility.
+
+        Setting gateway visibilities requires administrative access.'
+      operationId: Pba_SetHomeNetworkDefaultGatewayVisibility
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3SetPacketBrokerDefaultGatewayVisibilityRequest'
+      tags:
+      - Pba
+  /pba/home-networks/policies:
+    get:
+      summary: 'List the routing policies that Packet Broker Agent as Forwarder configured with Home Networks.
+
+        Listing routing policies requires administrative access.'
+      operationId: Pba_ListHomeNetworkRoutingPolicies
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerRoutingPolicies'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - Pba
+  /pba/home-networks/policies/default:
+    get:
+      summary: 'Get the default routing policy.
+
+        Getting routing policies requires administrative access.'
+      operationId: Pba_GetHomeNetworkDefaultRoutingPolicy
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerDefaultRoutingPolicy'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - Pba
+    delete:
+      summary: 'Deletes the default routing policy.
+
+        Deleting routing policies requires administrative access.'
+      operationId: Pba_DeleteHomeNetworkDefaultRoutingPolicy
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - Pba
+    post:
+      summary: 'Set the default routing policy.
+
+        Setting routing policies requires administrative access.'
+      operationId: Pba_SetHomeNetworkDefaultRoutingPolicy2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3SetPacketBrokerDefaultRoutingPolicyRequest'
+      tags:
+      - Pba
+    put:
+      summary: 'Set the default routing policy.
+
+        Setting routing policies requires administrative access.'
+      operationId: Pba_SetHomeNetworkDefaultRoutingPolicy
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3SetPacketBrokerDefaultRoutingPolicyRequest'
+      tags:
+      - Pba
+  /pba/home-networks/policies/{home_network_id.net_id}:
+    post:
+      summary: 'Set the routing policy for the given Home Network.
+
+        Setting routing policies requires administrative access.'
+      operationId: Pba_SetHomeNetworkRoutingPolicy2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: home_network_id.net_id
+        description: LoRa Alliance NetID.
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PbaSetHomeNetworkRoutingPolicyBody'
+      tags:
+      - Pba
+    put:
+      summary: 'Set the routing policy for the given Home Network.
+
+        Setting routing policies requires administrative access.'
+      operationId: Pba_SetHomeNetworkRoutingPolicy
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: home_network_id.net_id
+        description: LoRa Alliance NetID.
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PbaSetHomeNetworkRoutingPolicyBody'
+      tags:
+      - Pba
+  /pba/home-networks/policies/{home_network_id.net_id}/{home_network_id.tenant_id}:
+    post:
+      summary: 'Set the routing policy for the given Home Network.
+
+        Setting routing policies requires administrative access.'
+      operationId: Pba_SetHomeNetworkRoutingPolicy4
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: home_network_id.net_id
+        description: LoRa Alliance NetID.
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: home_network_id.tenant_id
+        description: Tenant identifier if the registration leases DevAddr blocks from a NetID.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PbaSetHomeNetworkRoutingPolicyBody'
+      tags:
+      - Pba
+    put:
+      summary: 'Set the routing policy for the given Home Network.
+
+        Setting routing policies requires administrative access.'
+      operationId: Pba_SetHomeNetworkRoutingPolicy3
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: home_network_id.net_id
+        description: LoRa Alliance NetID.
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: home_network_id.tenant_id
+        description: Tenant identifier if the registration leases DevAddr blocks from a NetID.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PbaSetHomeNetworkRoutingPolicyBody'
+      tags:
+      - Pba
+  /pba/home-networks/policies/{net_id}:
+    get:
+      summary: 'Get the routing policy for the given Home Network.
+
+        Getting routing policies requires administrative access.'
+      operationId: Pba_GetHomeNetworkRoutingPolicy
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerRoutingPolicy'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: net_id
+        description: LoRa Alliance NetID.
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: tenant_id
+        description: Tenant identifier if the registration leases DevAddr blocks from a NetID.
+        in: query
+        required: false
+        type: string
+      tags:
+      - Pba
+    delete:
+      summary: 'Delete the routing policy for the given Home Network.
+
+        Deleting routing policies requires administrative access.'
+      operationId: Pba_DeleteHomeNetworkRoutingPolicy
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: net_id
+        description: LoRa Alliance NetID.
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: tenant_id
+        description: Tenant identifier if the registration leases DevAddr blocks from a NetID.
+        in: query
+        required: false
+        type: string
+      tags:
+      - Pba
+  /pba/home-networks/policies/{net_id}/{tenant_id}:
+    get:
+      summary: 'Get the routing policy for the given Home Network.
+
+        Getting routing policies requires administrative access.'
+      operationId: Pba_GetHomeNetworkRoutingPolicy2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerRoutingPolicy'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: net_id
+        description: LoRa Alliance NetID.
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: tenant_id
+        description: Tenant identifier if the registration leases DevAddr blocks from a NetID.
+        in: path
+        required: true
+        type: string
+      tags:
+      - Pba
+    delete:
+      summary: 'Delete the routing policy for the given Home Network.
+
+        Deleting routing policies requires administrative access.'
+      operationId: Pba_DeleteHomeNetworkRoutingPolicy2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: net_id
+        description: LoRa Alliance NetID.
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: tenant_id
+        description: Tenant identifier if the registration leases DevAddr blocks from a NetID.
+        in: path
+        required: true
+        type: string
+      tags:
+      - Pba
+  /pba/info:
+    get:
+      summary: 'Get information about the Packet Broker registration.
+
+        Viewing Packet Packet information requires administrative access.'
+      operationId: Pba_GetInfo
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerInfo'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - Pba
+  /pba/networks:
+    get:
+      summary: 'List all listed networks.
+
+        Listing networks requires administrative access.'
+      operationId: Pba_ListNetworks
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerNetworks'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: with_routing_policy
+        description: If true, list only the Forwarders and Home Networks with whom a routing policy has been defined in either
+          direction.
+        in: query
+        required: false
+        type: boolean
+      - name: tenant_id_contains
+        description: Filter by tenant ID.
+        in: query
+        required: false
+        type: string
+      - name: name_contains
+        description: Filter by name.
+        in: query
+        required: false
+        type: string
+      tags:
+      - Pba
+  /pba/registration:
+    delete:
+      summary: 'Deregister from Packet Broker.
+
+        Packet Broker deregistration requires administrative access.
+
+        Packet Broker deregistration is only supported for tenants and requires Packet Broker Agent to be configured with
+
+        NetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.'
+      operationId: Pba_Deregister
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - Pba
+    post:
+      summary: 'Register with Packet Broker. If no registration exists, it will be created. Any existing registration will
+        be updated.
+
+        Registration settings not in the request message are taken from Packet Broker Agent configuration and caller context.
+
+        Packet Broker registration requires administrative access.
+
+        Packet Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with
+
+        NetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.'
+      operationId: Pba_Register2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerNetwork'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3PacketBrokerRegisterRequest'
+      tags:
+      - Pba
+    put:
+      summary: 'Register with Packet Broker. If no registration exists, it will be created. Any existing registration will
+        be updated.
+
+        Registration settings not in the request message are taken from Packet Broker Agent configuration and caller context.
+
+        Packet Broker registration requires administrative access.
+
+        Packet Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with
+
+        NetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.'
+      operationId: Pba_Register
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3PacketBrokerNetwork'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3PacketBrokerRegisterRequest'
+      tags:
+      - Pba
+definitions:
+  PbaSetHomeNetworkRoutingPolicyBody:
+    type: object
+    properties:
+      home_network_id:
+        type: object
+        description: Packet Broker identifier of the Home Network.
+        title: Packet Broker identifier of the Home Network.
+      uplink:
+        $ref: '#/definitions/v3PacketBrokerRoutingPolicyUplink'
+        description: Uplink policy.
+      downlink:
+        $ref: '#/definitions/v3PacketBrokerRoutingPolicyDownlink'
+        description: Downlink policy.
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This\
+          \ string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully\
+          \ qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n\
+          (e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\n\
+          expect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one\
+          \ can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme\
+          \ is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary\
+          \ format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have\
+          \ them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n\
+          \  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is\
+          \ not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\
+          \ As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes\
+          \ other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type\
+      \ of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility\
+      \ functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n   \
+      \ Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\n\
+      Example 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class))\
+      \ {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n\
+      \      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n  \
+      \  foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n\
+      \      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n\
+      \     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err\
+      \ != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name'\
+      \ as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL,\
+      \ for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any`\
+      \ value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which\
+      \ contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n\
+      \      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n    \
+      \  \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has\
+      \ a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom\
+      \ JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\"\
+      : \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+  v3ContactInfo:
+    type: object
+    properties:
+      contact_type:
+        $ref: '#/definitions/v3ContactType'
+      contact_method:
+        $ref: '#/definitions/v3ContactMethod'
+      value:
+        type: string
+      public:
+        type: boolean
+      validated_at:
+        type: string
+        format: date-time
+  v3ContactMethod:
+    type: string
+    enum:
+    - CONTACT_METHOD_OTHER
+    - CONTACT_METHOD_EMAIL
+    - CONTACT_METHOD_PHONE
+    default: CONTACT_METHOD_OTHER
+  v3ContactType:
+    type: string
+    enum:
+    - CONTACT_TYPE_OTHER
+    - CONTACT_TYPE_ABUSE
+    - CONTACT_TYPE_BILLING
+    - CONTACT_TYPE_TECHNICAL
+    default: CONTACT_TYPE_OTHER
+  v3DevAddrPrefix:
+    type: object
+    properties:
+      dev_addr:
+        type: string
+        format: string
+        example: 2600ABCD
+        description: DevAddr base.
+      length:
+        type: integer
+        format: int64
+        description: Number of most significant bits from dev_addr that are used as prefix.
+  v3PacketBrokerDefaultGatewayVisibility:
+    type: object
+    properties:
+      updated_at:
+        type: string
+        format: date-time
+        description: Timestamp when the policy got last updated.
+      visibility:
+        $ref: '#/definitions/v3PacketBrokerGatewayVisibility'
+  v3PacketBrokerDefaultRoutingPolicy:
+    type: object
+    properties:
+      updated_at:
+        type: string
+        format: date-time
+        description: Timestamp when the policy got last updated.
+      uplink:
+        $ref: '#/definitions/v3PacketBrokerRoutingPolicyUplink'
+        description: Uplink policy.
+      downlink:
+        $ref: '#/definitions/v3PacketBrokerRoutingPolicyDownlink'
+        description: Downlink policy.
+  v3PacketBrokerDevAddrBlock:
+    type: object
+    properties:
+      dev_addr_prefix:
+        $ref: '#/definitions/v3DevAddrPrefix'
+      home_network_cluster_id:
+        type: string
+  v3PacketBrokerGatewayVisibility:
+    type: object
+    properties:
+      location:
+        type: boolean
+        description: Show location.
+      antenna_placement:
+        type: boolean
+        description: Show antenna placement (indoor/outdoor).
+      antenna_count:
+        type: boolean
+        description: Show antenna count.
+      fine_timestamps:
+        type: boolean
+        description: Show whether the gateway produces fine timestamps.
+      contact_info:
+        type: boolean
+        description: Show contact information.
+      status:
+        type: boolean
+        description: Show status (online/offline).
+      frequency_plan:
+        type: boolean
+        description: Show frequency plan.
+      packet_rates:
+        type: boolean
+        description: Show receive and transmission packet rates.
+  v3PacketBrokerInfo:
+    type: object
+    properties:
+      registration:
+        $ref: '#/definitions/v3PacketBrokerNetwork'
+        description: The current registration, unset if there isn't a registration.
+      forwarder_enabled:
+        type: boolean
+        description: Whether the server is configured as Forwarder (with gateways).
+      home_network_enabled:
+        type: boolean
+        description: Whether the server is configured as Home Network (with end devices).
+      register_enabled:
+        type: boolean
+        description: Whether the registration can be changed.
+  v3PacketBrokerNetwork:
+    type: object
+    properties:
+      id:
+        $ref: '#/definitions/v3PacketBrokerNetworkIdentifier'
+        description: Packet Broker network identifier.
+      name:
+        type: string
+        description: Name of the network.
+      dev_addr_blocks:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3PacketBrokerDevAddrBlock'
+        description: DevAddr blocks that are assigned to this registration.
+      contact_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ContactInfo'
+        description: 'Contact information.
+
+          This field is deprecated. Use administrative_contact and technical_contact instead.'
+      administrative_contact:
+        $ref: '#/definitions/v3ContactInfo'
+      technical_contact:
+        $ref: '#/definitions/v3ContactInfo'
+      listed:
+        type: boolean
+        description: Whether the network is listed so it can be viewed by other networks.
+  v3PacketBrokerNetworkIdentifier:
+    type: object
+    properties:
+      net_id:
+        type: integer
+        format: int64
+        description: LoRa Alliance NetID.
+      tenant_id:
+        type: string
+        description: Tenant identifier if the registration leases DevAddr blocks from a NetID.
+  v3PacketBrokerNetworks:
+    type: object
+    properties:
+      networks:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3PacketBrokerNetwork'
+  v3PacketBrokerRegisterRequest:
+    type: object
+    properties:
+      listed:
+        type: boolean
+        description: 'Whether the network should be listed in Packet Broker.
+
+          If unset, the value is taken from the registration settings.'
+  v3PacketBrokerRoutingPolicies:
+    type: object
+    properties:
+      policies:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3PacketBrokerRoutingPolicy'
+  v3PacketBrokerRoutingPolicy:
+    type: object
+    properties:
+      forwarder_id:
+        $ref: '#/definitions/v3PacketBrokerNetworkIdentifier'
+        description: Packet Broker identifier of the Forwarder.
+      home_network_id:
+        $ref: '#/definitions/v3PacketBrokerNetworkIdentifier'
+        description: Packet Broker identifier of the Home Network.
+      updated_at:
+        type: string
+        format: date-time
+        description: Timestamp when the policy got last updated.
+      uplink:
+        $ref: '#/definitions/v3PacketBrokerRoutingPolicyUplink'
+        description: Uplink policy.
+      downlink:
+        $ref: '#/definitions/v3PacketBrokerRoutingPolicyDownlink'
+        description: Downlink policy.
+  v3PacketBrokerRoutingPolicyDownlink:
+    type: object
+    properties:
+      join_accept:
+        type: boolean
+        description: Allow join-accept messages.
+      mac_data:
+        type: boolean
+        description: Allow downlink messages with FPort of 0.
+      application_data:
+        type: boolean
+        description: Allow downlink messages with FPort between 1 and 255.
+  v3PacketBrokerRoutingPolicyUplink:
+    type: object
+    properties:
+      join_request:
+        type: boolean
+        description: Forward join-request messages.
+      mac_data:
+        type: boolean
+        description: Forward uplink messages with FPort of 0.
+      application_data:
+        type: boolean
+        description: Forward uplink messages with FPort between 1 and 255.
+      signal_quality:
+        type: boolean
+        description: Forward RSSI and SNR.
+      localization:
+        type: boolean
+        description: Forward gateway location, RSSI, SNR and fine timestamp.
+  v3SetPacketBrokerDefaultGatewayVisibilityRequest:
+    type: object
+    properties:
+      visibility:
+        $ref: '#/definitions/v3PacketBrokerGatewayVisibility'
+  v3SetPacketBrokerDefaultRoutingPolicyRequest:
+    type: object
+    properties:
+      uplink:
+        $ref: '#/definitions/v3PacketBrokerRoutingPolicyUplink'
+        description: Uplink policy.
+      downlink:
+        $ref: '#/definitions/v3PacketBrokerRoutingPolicyDownlink'
+        description: Downlink policy.

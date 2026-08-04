@@ -1,0 +1,175 @@
+{
+  "info": {
+    "_postman_id": "05723759-a462-4da2-9514-6cbeaace2f8b",
+    "name": "The Things Stack \u2014 Application Server AppAs GatewayBatchRegistry API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:30.000Z",
+    "updatedAt": "2026-07-28T03:12:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-05723759-a462-4da2-9514-6cbeaace2f8b"
+  },
+  "item": [
+    {
+      "name": "gateways",
+      "item": [
+        {
+          "name": "batch",
+          "item": [
+            {
+              "name": "Delete a batch of gateways.\nThis operation is atomic; either all gateways are deleted or none.\nThe caller must have delete rights on all requested gateways.",
+              "id": "969d8f2a-f835-4e21-b4a8-04fe9736e7b1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/gateways/batch",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gateways",
+                    "batch"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5ee565b8-ea9e-47c5-a8cf-6f11f26f5b25",
+                  "name": "A successful response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gateways/batch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gateways",
+                        "batch"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T03:12:31.000Z",
+                  "updatedAt": "2026-07-28T03:12:31.000Z",
+                  "uid": "35240-5ee565b8-ea9e-47c5-a8cf-6f11f26f5b25"
+                },
+                {
+                  "id": "adcb2883-5489-4632-9a58-20cd06d9cbd8",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gateways/batch",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gateways",
+                        "batch"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"elit_dda\": {},\n      \"ullamco_b\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"ad43e\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:12:31.000Z",
+                  "updatedAt": "2026-07-28T03:12:31.000Z",
+                  "uid": "35240-adcb2883-5489-4632-9a58-20cd06d9cbd8"
+                }
+              ],
+              "createdAt": "2026-07-28T03:12:31.000Z",
+              "updatedAt": "2026-07-28T03:12:31.000Z",
+              "uid": "35240-969d8f2a-f835-4e21-b4a8-04fe9736e7b1"
+            }
+          ],
+          "id": "f039f398-ac3f-467a-bbdd-3e1e9557521e",
+          "createdAt": "2026-07-28T03:12:31.000Z",
+          "updatedAt": "2026-07-28T03:12:31.000Z",
+          "uid": "35240-f039f398-ac3f-467a-bbdd-3e1e9557521e"
+        }
+      ],
+      "id": "072a8244-3e9a-43cb-9b48-d33ee1611eef",
+      "createdAt": "2026-07-28T03:12:31.000Z",
+      "updatedAt": "2026-07-28T03:12:31.000Z",
+      "uid": "35240-072a8244-3e9a-43cb-9b48-d33ee1611eef"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

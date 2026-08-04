@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "84131085-38ae-48b3-b1fa-7d90033686fa",
+    "name": "The Things Stack \u2014 Application Server AppAs Gs API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:35.000Z",
+    "updatedAt": "2026-07-28T03:12:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-84131085-38ae-48b3-b1fa-7d90033686fa"
+  },
+  "item": [
+    {
+      "name": "gs",
+      "item": [
+        {
+          "name": "gateways",
+          "item": [
+            {
+              "name": "connection",
+              "item": [
+                {
+                  "name": "stats",
+                  "item": [
+                    {
+                      "name": "Get statistics about gateway connections to the Gateway Server of a batch of gateways.\n- Statistics are not persisted between reconnects.\n- Gateways that are not connected or are part of a different cluster are ignored.\n- The client should ensure that the",
+                      "id": "0e291947-09b3-4e1c-bb70-dbd55b3f2e25",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"gateway_ids\": [\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    },\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    }\n  ],\n  \"field_mask\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gs/gateways/connection/stats",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gs",
+                            "gateways",
+                            "connection",
+                            "stats"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e6d66a14-8a85-457a-ac15-b9db8f805fd9",
+                          "name": "A successful response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"gateway_ids\": [\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    },\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    }\n  ],\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gs/gateways/connection/stats",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gs",
+                                "gateways",
+                                "connection",
+                                "stats"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"entries\": {\n    \"elit_580\": {\n      \"connected_at\": \"<dateTime>\",\n      \"disconnected_at\": \"<dateTime>\",\n      \"protocol\": \"<string>\",\n      \"last_status_received_at\": \"<dateTime>\",\n      \"last_status\": {\n        \"time\": \"<dateTime>\",\n        \"boot_time\": \"<dateTime>\",\n        \"versions\": {\n          \"consectetur5\": \"<string>\",\n          \"dolore_3\": \"<string>\"\n        },\n        \"antenna_locations\": [\n          {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          }\n        ],\n        \"ip\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"metrics\": {\n          \"reprehenderit415\": \"<float>\",\n          \"esse_0\": \"<float>\"\n        },\n        \"advanced\": {}\n      },\n      \"last_uplink_received_at\": \"<dateTime>\",\n      \"uplink_count\": \"<string>\",\n      \"last_downlink_received_at\": \"<dateTime>\",\n      \"downlink_count\": \"<string>\",\n      \"last_tx_acknowledgment_received_at\": \"<dateTime>\",\n      \"tx_acknowledgment_count\": \"<string>\",\n      \"round_trip_times\": {\n        \"min\": \"<string>\",\n        \"max\": \"<string>\",\n        \"median\": \"<string>\",\n        \"count\": \"<long>\"\n      },\n      \"sub_bands\": [\n        {\n          \"min_frequency\": \"<string>\",\n          \"max_frequency\": \"<string>\",\n          \"downlink_utilization_limit\": \"<float>\",\n          \"downlink_utilization\": \"<float>\"\n        },\n        {\n          \"min_frequency\": \"<string>\",\n          \"max_frequency\": \"<string>\",\n          \"downlink_utilization_limit\": \"<float>\",\n          \"downlink_utilization\": \"<float>\"\n        }\n      ],\n      \"gateway_remote_address\": {\n        \"ip\": \"<string>\"\n      }\n    },\n    \"aliquipa\": {\n      \"connected_at\": \"<dateTime>\",\n      \"disconnected_at\": \"<dateTime>\",\n      \"protocol\": \"<string>\",\n      \"last_status_received_at\": \"<dateTime>\",\n      \"last_status\": {\n        \"time\": \"<dateTime>\",\n        \"boot_time\": \"<dateTime>\",\n        \"versions\": {\n          \"anim5\": \"<string>\"\n        },\n        \"antenna_locations\": [\n          {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          },\n          {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": \"SOURCE_UNKNOWN\"\n          }\n        ],\n        \"ip\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"metrics\": {\n          \"sint602\": \"<float>\",\n          \"quis_38\": \"<float>\",\n          \"proident_b\": \"<float>\"\n        },\n        \"advanced\": {}\n      },\n      \"last_uplink_received_at\": \"<dateTime>\",\n      \"uplink_count\": \"<string>\",\n      \"last_downlink_received_at\": \"<dateTime>\",\n      \"downlink_count\": \"<string>\",\n      \"last_tx_acknowledgment_received_at\": \"<dateTime>\",\n      \"tx_acknowledgment_count\": \"<string>\",\n      \"round_trip_times\": {\n        \"min\": \"<string>\",\n        \"max\": \"<string>\",\n        \"median\": \"<string>\",\n        \"count\": \"<long>\"\n      },\n      \"sub_bands\": [\n        {\n          \"min_frequency\": \"<string>\",\n          \"max_frequency\": \"<string>\",\n          \"downlink_utilization_limit\": \"<float>\",\n          \"downlink_utilization\": \"<float>\"\n        },\n        {\n          \"min_frequency\": \"<string>\",\n          \"max_frequency\": \"<string>\",\n          \"downlink_utilization_limit\": \"<float>\",\n          \"downlink_utilization\": \"<float>\"\n        }\n      ],\n      \"gateway_remote_address\": {\n        \"ip\": \"<string>\"\n      }\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T03:12:36.000Z",
+                          "updatedAt": "2026-07-28T03:12:36.000Z",
+                          "uid": "35240-e6d66a14-8a85-457a-ac15-b9db8f805fd9"
+                        },
+                        {
+                          "id": "50c19340-b037-4186-bbc7-e789e53c58fb",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"gateway_ids\": [\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    },\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    }\n  ],\n  \"field_mask\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gs/gateways/connection/stats",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gs",
+                                "gateways",
+                                "connection",
+                                "stats"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"irureb5\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:12:36.000Z",
+                          "updatedAt": "2026-07-28T03:12:36.000Z",
+                          "uid": "35240-50c19340-b037-4186-bbc7-e789e53c58fb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:12:36.000Z",
+                      "updatedAt": "2026-07-28T03:12:36.000Z",
+                      "uid": "35240-0e291947-09b3-4e1c-bb70-dbd55b3f2e25"
+                    }
+                  ],
+                  "id": "2c9014e1-9688-4030-85bf-e749ad4a4efe",
+                  "createdAt": "2026-07-28T03:12:36.000Z",
+                  "updatedAt": "2026-07-28T03:12:36.000Z",
+                  "uid": "35240-2c9014e1-9688-4030-85bf-e749ad4a4efe"
+                }
+              ],
+              "id": "1bfb298c-8ca7-4ee4-889e-a25e170ccd18",
+              "createdAt": "2026-07-28T03:12:36.000Z",
+              "updatedAt": "2026-07-28T03:12:36.000Z",
+              "uid": "35240-1bfb298c-8ca7-4ee4-889e-a25e170ccd18"
+            },
+            {
+              "name": "{gateway_id}",
+              "item": [
+                {
+                  "name": "connection",
+                  "item": [
+                    {
+                      "name": "stats",
+                      "item": [
+                        {
+                          "name": "Get statistics about the current gateway connection to the Gateway Server.\nThis is not persisted between reconnects.",
+                          "id": "e3b2ef8e-973b-476e-966d-907de27ac843",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gs/gateways/:gateway_id/connection/stats?eui=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gs",
+                                "gateways",
+                                ":gateway_id",
+                                "connection",
+                                "stats"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Secondary identifier, which can only be used in specific requests.",
+                                  "key": "eui",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1f4ba2f1-391c-4389-886b-0a6fda76d83b",
+                                  "key": "gateway_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4cc35c33-da10-4b45-9285-fc9cdaef02c6",
+                              "name": "A successful response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gs/gateways/:gateway_id/connection/stats?eui=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gs",
+                                    "gateways",
+                                    ":gateway_id",
+                                    "connection",
+                                    "stats"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "eui",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "gateway_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"connected_at\": \"<dateTime>\",\n  \"disconnected_at\": \"<dateTime>\",\n  \"protocol\": \"<string>\",\n  \"last_status_received_at\": \"<dateTime>\",\n  \"last_status\": {\n    \"time\": \"<dateTime>\",\n    \"boot_time\": \"<dateTime>\",\n    \"versions\": {\n      \"dolore6\": \"<string>\",\n      \"irure748\": \"<string>\",\n      \"cupidatat_3e9\": \"<string>\",\n      \"culpa_b7a\": \"<string>\"\n    },\n    \"antenna_locations\": [\n      {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      }\n    ],\n    \"ip\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metrics\": {\n      \"commodo32f\": \"<float>\",\n      \"proident_5b\": \"<float>\",\n      \"pariatur2f\": \"<float>\"\n    },\n    \"advanced\": {}\n  },\n  \"last_uplink_received_at\": \"<dateTime>\",\n  \"uplink_count\": \"<string>\",\n  \"last_downlink_received_at\": \"<dateTime>\",\n  \"downlink_count\": \"<string>\",\n  \"last_tx_acknowledgment_received_at\": \"<dateTime>\",\n  \"tx_acknowledgment_count\": \"<string>\",\n  \"round_trip_times\": {\n    \"min\": \"<string>\",\n    \"max\": \"<string>\",\n    \"median\": \"<string>\",\n    \"count\": \"<long>\"\n  },\n  \"sub_bands\": [\n    {\n      \"min_frequency\": \"<string>\",\n      \"max_frequency\": \"<string>\",\n      \"downlink_utilization_limit\": \"<float>\",\n      \"downlink_utilization\": \"<float>\"\n    },\n    {\n      \"min_frequency\": \"<string>\",\n      \"max_frequency\": \"<string>\",\n      \"downlink_utilization_limit\": \"<float>\",\n      \"downlink_utilization\": \"<float>\"\n    }\n  ],\n  \"gateway_remote_address\": {\n    \"ip\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T03:12:36.000Z",
+                              "updatedAt": "2026-07-28T03:12:36.000Z",
+                              "uid": "35240-4cc35c33-da10-4b45-9285-fc9cdaef02c6"
+                            },
+                            {
+                              "id": "2eed5e55-b468-4329-9387-24499e12e1f7",
+                              "name": "An unexpected error response.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gs/gateways/:gateway_id/connection/stats?eui=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gs",
+                                    "gateways",
+                                    ":gateway_id",
+                                    "connection",
+                                    "stats"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "eui",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "gateway_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"irureb5\": {}\n    },\n    {\n      \"@type\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:12:36.000Z",
+                              "updatedAt": "2026-07-28T03:12:36.000Z",
+                              "uid": "35240-2eed5e55-b468-4329-9387-24499e12e1f7"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:12:36.000Z",
+                          "updatedAt": "2026-07-28T03:12:36.000Z",
+                          "uid": "35240-e3b2ef8e-973b-476e-966d-907de27ac843"
+                        }
+                      ],
+                      "id": "d7f355fc-6c77-41f8-849a-b36ee442e09b",
+                      "createdAt": "2026-07-28T03:12:36.000Z",
+                      "updatedAt": "2026-07-28T03:12:36.000Z",
+                      "uid": "35240-d7f355fc-6c77-41f8-849a-b36ee442e09b"
+                    }
+                  ],
+                  "id": "54f4493a-7580-4748-a6cf-fcf7229956f2",
+                  "createdAt": "2026-07-28T03:12:36.000Z",
+                  "updatedAt": "2026-07-28T03:12:36.000Z",
+                  "uid": "35240-54f4493a-7580-4748-a6cf-fcf7229956f2"
+                }
+              ],
+              "id": "2e84f9b8-d06f-4323-9c3d-a9aa3eb73173",
+              "createdAt": "2026-07-28T03:12:36.000Z",
+              "updatedAt": "2026-07-28T03:12:36.000Z",
+              "uid": "35240-2e84f9b8-d06f-4323-9c3d-a9aa3eb73173"
+            }
+          ],
+          "id": "acc0de10-c1a2-4194-9050-48cf9b81a5e9",
+          "createdAt": "2026-07-28T03:12:36.000Z",
+          "updatedAt": "2026-07-28T03:12:36.000Z",
+          "uid": "35240-acc0de10-c1a2-4194-9050-48cf9b81a5e9"
+        }
+      ],
+      "id": "21318cf4-9e81-4871-9507-0a235108f081",
+      "createdAt": "2026-07-28T03:12:36.000Z",
+      "updatedAt": "2026-07-28T03:12:36.000Z",
+      "uid": "35240-21318cf4-9e81-4871-9507-0a235108f081"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

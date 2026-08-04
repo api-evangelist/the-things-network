@@ -1,0 +1,2260 @@
+{
+  "info": {
+    "_postman_id": "ceb31b84-3463-41bc-b67d-aef19028abc3",
+    "name": "The Things Stack \u2014 Application Server AppAs ManagedGatewayEthernetProfileConfigurationService API",
+    "description": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:12:44.000Z",
+    "updatedAt": "2026-07-28T03:12:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ceb31b84-3463-41bc-b67d-aef19028abc3"
+  },
+  "item": [
+    {
+      "name": "gcs",
+      "item": [
+        {
+          "name": "gateways",
+          "item": [
+            {
+              "name": "profiles",
+              "item": [
+                {
+                  "name": "ethernet",
+                  "item": [
+                    {
+                      "name": "organizations",
+                      "item": [
+                        {
+                          "name": "{collaborator.organization_ids.organization_id}",
+                          "item": [
+                            {
+                              "name": "{profile.profile_id}",
+                              "item": [
+                                {
+                                  "name": "Managed Gateway Ethernet Profile Configuration Service Update",
+                                  "id": "a9fbd3c7-a71b-4656-b6db-f1788782aa25",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"profile\": {\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile.profile_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "organizations",
+                                        ":collaborator.organization_ids.organization_id",
+                                        ":profile.profile_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "9e85e397-8328-4ff0-831c-0f91c665864c",
+                                          "key": "collaborator"
+                                        },
+                                        {
+                                          "id": "b7b8ba63-abb6-45c6-a7f4-2d8516afcdff",
+                                          "key": "profile"
+                                        },
+                                        {
+                                          "id": "6081426d-2658-4971-bdd0-dd0836682b99",
+                                          "key": "collaborator.organization_ids.organization_id",
+                                          "value": "<string>",
+                                          "description": "(Required) This ID shares namespace with user IDs."
+                                        },
+                                        {
+                                          "id": "21259c2b-1ed1-4724-8369-2e49cb4f6f2e",
+                                          "key": "profile.profile_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "8dea812e-118a-4312-a602-822cc8f12177",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"profile\": {\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile.profile_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "organizations",
+                                            ":collaborator.organization_ids.organization_id",
+                                            ":profile.profile_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.organization_ids.organization_id"
+                                            },
+                                            {
+                                              "key": "profile.profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"profile_id\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"shared\": \"<boolean>\",\n  \"network_interface_addresses\": {\n    \"ip_addresses\": \"<string>\",\n    \"subnet_mask\": \"<string>\",\n    \"gateway\": \"<string>\",\n    \"dns_servers\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-8dea812e-118a-4312-a602-822cc8f12177"
+                                    },
+                                    {
+                                      "id": "963ffe42-d57e-4dd9-a648-738dc9cf918d",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"profile\": {\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile.profile_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "organizations",
+                                            ":collaborator.organization_ids.organization_id",
+                                            ":profile.profile_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.organization_ids.organization_id"
+                                            },
+                                            {
+                                              "key": "profile.profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-963ffe42-d57e-4dd9-a648-738dc9cf918d"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-a9fbd3c7-a71b-4656-b6db-f1788782aa25"
+                                }
+                              ],
+                              "id": "577cedbb-334b-454b-aaf5-5a854497b306",
+                              "createdAt": "2026-07-28T03:12:44.000Z",
+                              "updatedAt": "2026-07-28T03:12:44.000Z",
+                              "uid": "35240-577cedbb-334b-454b-aaf5-5a854497b306"
+                            },
+                            {
+                              "name": "{profile_id}",
+                              "item": [
+                                {
+                                  "name": "Managed Gateway Ethernet Profile Configuration Service Get",
+                                  "id": "a1004d65-13be-4ac8-a56d-f509e1c464e4",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "organizations",
+                                        ":collaborator.organization_ids.organization_id",
+                                        ":profile_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "This ID shares namespace with organization IDs.",
+                                          "key": "collaborator.user_ids.user_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "collaborator.user_ids.email",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The names of the gateway fields that should be returned.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "9b9e210d-c6c4-4bbc-a96e-51bf5b01cc46",
+                                          "key": "collaborator"
+                                        },
+                                        {
+                                          "id": "31aeeec8-baf8-47a3-8bf9-1b05ac60e370",
+                                          "key": "profile_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "cfe2df15-cf50-43f6-9c81-7719d2dacd56",
+                                          "key": "collaborator.organization_ids.organization_id",
+                                          "value": "<string>",
+                                          "description": "(Required) This ID shares namespace with user IDs."
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "eea85c08-2989-48a0-a029-af91a208f6c4",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "organizations",
+                                            ":collaborator.organization_ids.organization_id",
+                                            ":profile_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "This ID shares namespace with organization IDs.",
+                                              "key": "collaborator.user_ids.user_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "collaborator.user_ids.email",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The names of the gateway fields that should be returned.",
+                                              "key": "field_mask",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.organization_ids.organization_id"
+                                            },
+                                            {
+                                              "key": "profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"profile_id\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"shared\": \"<boolean>\",\n  \"network_interface_addresses\": {\n    \"ip_addresses\": \"<string>\",\n    \"subnet_mask\": \"<string>\",\n    \"gateway\": \"<string>\",\n    \"dns_servers\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-eea85c08-2989-48a0-a029-af91a208f6c4"
+                                    },
+                                    {
+                                      "id": "6169d956-3818-4ca7-94b0-cb0adeb32244",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "organizations",
+                                            ":collaborator.organization_ids.organization_id",
+                                            ":profile_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "This ID shares namespace with organization IDs.",
+                                              "key": "collaborator.user_ids.user_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "collaborator.user_ids.email",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The names of the gateway fields that should be returned.",
+                                              "key": "field_mask",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.organization_ids.organization_id"
+                                            },
+                                            {
+                                              "key": "profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-6169d956-3818-4ca7-94b0-cb0adeb32244"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-a1004d65-13be-4ac8-a56d-f509e1c464e4"
+                                },
+                                {
+                                  "name": "Managed Gateway Ethernet Profile Configuration Service Delete",
+                                  "id": "85bfcccf-0f2e-4099-9ba2-6dfb1198ae66",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "organizations",
+                                        ":collaborator.organization_ids.organization_id",
+                                        ":profile_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "This ID shares namespace with organization IDs.",
+                                          "key": "collaborator.user_ids.user_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "collaborator.user_ids.email",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "b36c332e-1523-4202-8f7c-2f322aeff209",
+                                          "key": "collaborator"
+                                        },
+                                        {
+                                          "id": "afc0ef43-44be-4f5a-93ce-0cbdef226220",
+                                          "key": "profile_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "f45c1af3-0031-4d7c-810f-37a08030bb6b",
+                                          "key": "collaborator.organization_ids.organization_id",
+                                          "value": "<string>",
+                                          "description": "(Required) This ID shares namespace with user IDs."
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "0dcacfc4-a21c-4ff1-8b31-d4df1d1d7d9e",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "organizations",
+                                            ":collaborator.organization_ids.organization_id",
+                                            ":profile_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "This ID shares namespace with organization IDs.",
+                                              "key": "collaborator.user_ids.user_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "collaborator.user_ids.email",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.organization_ids.organization_id"
+                                            },
+                                            {
+                                              "key": "profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-0dcacfc4-a21c-4ff1-8b31-d4df1d1d7d9e"
+                                    },
+                                    {
+                                      "id": "e92a5c29-9ad3-4964-9a6e-e7a434b2cd75",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id/:profile_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "organizations",
+                                            ":collaborator.organization_ids.organization_id",
+                                            ":profile_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "This ID shares namespace with organization IDs.",
+                                              "key": "collaborator.user_ids.user_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "collaborator.user_ids.email",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.organization_ids.organization_id"
+                                            },
+                                            {
+                                              "key": "profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-e92a5c29-9ad3-4964-9a6e-e7a434b2cd75"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-85bfcccf-0f2e-4099-9ba2-6dfb1198ae66"
+                                }
+                              ],
+                              "id": "875d9423-2524-4137-ac33-302319733dc2",
+                              "createdAt": "2026-07-28T03:12:44.000Z",
+                              "updatedAt": "2026-07-28T03:12:44.000Z",
+                              "uid": "35240-875d9423-2524-4137-ac33-302319733dc2"
+                            },
+                            {
+                              "name": "Managed Gateway Ethernet Profile Configuration Service List",
+                              "id": "fdaa4cc3-7b55-4183-b2e3-4a318b9c55ee",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&limit=<long>&page=<long>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gcs",
+                                    "gateways",
+                                    "profiles",
+                                    "ethernet",
+                                    "organizations",
+                                    ":collaborator.organization_ids.organization_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with organization IDs.",
+                                      "key": "collaborator.user_ids.user_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator.user_ids.email",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The names of the gateway fields that should be returned.",
+                                      "key": "field_mask",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of results per page.",
+                                      "key": "limit",
+                                      "value": "<long>"
+                                    },
+                                    {
+                                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                                      "key": "page",
+                                      "value": "<long>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "afd930e4-a74d-4767-a608-4bd033747184",
+                                      "key": "collaborator"
+                                    },
+                                    {
+                                      "id": "fcf438fb-f206-4bb8-bc9d-9f09cfec5d9c",
+                                      "key": "collaborator.organization_ids.organization_id",
+                                      "value": "<string>",
+                                      "description": "(Required) This ID shares namespace with user IDs."
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "46e0a5b1-1f20-4036-84cd-3131d113d1a7",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&limit=<long>&page=<long>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "organizations",
+                                        ":collaborator.organization_ids.organization_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "This ID shares namespace with organization IDs.",
+                                          "key": "collaborator.user_ids.user_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "collaborator.user_ids.email",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The names of the gateway fields that should be returned.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Limit the number of results per page.",
+                                          "key": "limit",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                                          "key": "page",
+                                          "value": "<long>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collaborator.organization_ids.organization_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"profiles\": [\n    {\n      \"profile_id\": \"<string>\",\n      \"profile_name\": \"<string>\",\n      \"shared\": \"<boolean>\",\n      \"network_interface_addresses\": {\n        \"ip_addresses\": \"<string>\",\n        \"subnet_mask\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"dns_servers\": \"<string>\"\n      }\n    },\n    {\n      \"profile_id\": \"<string>\",\n      \"profile_name\": \"<string>\",\n      \"shared\": \"<boolean>\",\n      \"network_interface_addresses\": {\n        \"ip_addresses\": \"<string>\",\n        \"subnet_mask\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"dns_servers\": \"<string>\"\n      }\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-46e0a5b1-1f20-4036-84cd-3131d113d1a7"
+                                },
+                                {
+                                  "id": "78ad1876-68a9-40fb-8a58-2b309618aed6",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id?collaborator.user_ids.user_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&limit=<long>&page=<long>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "organizations",
+                                        ":collaborator.organization_ids.organization_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "This ID shares namespace with organization IDs.",
+                                          "key": "collaborator.user_ids.user_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "collaborator.user_ids.email",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The names of the gateway fields that should be returned.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Limit the number of results per page.",
+                                          "key": "limit",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                                          "key": "page",
+                                          "value": "<long>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collaborator.organization_ids.organization_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-78ad1876-68a9-40fb-8a58-2b309618aed6"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:44.000Z",
+                              "updatedAt": "2026-07-28T03:12:44.000Z",
+                              "uid": "35240-fdaa4cc3-7b55-4183-b2e3-4a318b9c55ee"
+                            },
+                            {
+                              "name": "Managed Gateway Ethernet Profile Configuration Service Create",
+                              "id": "6e268fd1-d3f0-4d5d-9030-4893e3a8a7f3",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"profile\": {\n    \"profile_id\": \"<string>\",\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gcs",
+                                    "gateways",
+                                    "profiles",
+                                    "ethernet",
+                                    "organizations",
+                                    ":collaborator.organization_ids.organization_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "baa89833-5a36-4a2c-a08f-468713ba84f7",
+                                      "key": "collaborator"
+                                    },
+                                    {
+                                      "id": "abefcdfc-6641-4593-8766-3cb387af6f97",
+                                      "key": "collaborator.organization_ids.organization_id",
+                                      "value": "<string>",
+                                      "description": "(Required) This ID shares namespace with user IDs."
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "c58043e8-80ec-4bf2-9f7d-f6dad72b50b3",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"profile\": {\n    \"profile_id\": \"<string>\",\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "organizations",
+                                        ":collaborator.organization_ids.organization_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collaborator.organization_ids.organization_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"profile_id\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"shared\": \"<boolean>\",\n  \"network_interface_addresses\": {\n    \"ip_addresses\": \"<string>\",\n    \"subnet_mask\": \"<string>\",\n    \"gateway\": \"<string>\",\n    \"dns_servers\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-c58043e8-80ec-4bf2-9f7d-f6dad72b50b3"
+                                },
+                                {
+                                  "id": "f67ff78f-a25a-4892-a774-ee94a51a51dc",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"profile\": {\n    \"profile_id\": \"<string>\",\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/organizations/:collaborator.organization_ids.organization_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "organizations",
+                                        ":collaborator.organization_ids.organization_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collaborator.organization_ids.organization_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-f67ff78f-a25a-4892-a774-ee94a51a51dc"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:44.000Z",
+                              "updatedAt": "2026-07-28T03:12:44.000Z",
+                              "uid": "35240-6e268fd1-d3f0-4d5d-9030-4893e3a8a7f3"
+                            }
+                          ],
+                          "id": "1631e5e1-0b03-47f3-be0c-e407dd9e83d8",
+                          "createdAt": "2026-07-28T03:12:44.000Z",
+                          "updatedAt": "2026-07-28T03:12:44.000Z",
+                          "uid": "35240-1631e5e1-0b03-47f3-be0c-e407dd9e83d8"
+                        }
+                      ],
+                      "id": "0b9127ca-f90f-4a71-b266-91aaa531546e",
+                      "createdAt": "2026-07-28T03:12:44.000Z",
+                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                      "uid": "35240-0b9127ca-f90f-4a71-b266-91aaa531546e"
+                    },
+                    {
+                      "name": "users",
+                      "item": [
+                        {
+                          "name": "{collaborator.user_ids.user_id}",
+                          "item": [
+                            {
+                              "name": "{profile.profile_id}",
+                              "item": [
+                                {
+                                  "name": "Managed Gateway Ethernet Profile Configuration Service Update2",
+                                  "id": "4c700231-683e-4b40-b002-b4faf716e530",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"profile\": {\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile.profile_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "users",
+                                        ":collaborator.user_ids.user_id",
+                                        ":profile.profile_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "03f9e662-0b34-430a-a5a9-c6c41f104e7f",
+                                          "key": "collaborator"
+                                        },
+                                        {
+                                          "id": "498c73a0-eb0c-4f49-9da3-2ac914cb7461",
+                                          "key": "profile"
+                                        },
+                                        {
+                                          "id": "873b191a-4886-4555-93f9-c7e5ffdcfa43",
+                                          "key": "collaborator.user_ids.user_id",
+                                          "value": "<string>",
+                                          "description": "(Required) This ID shares namespace with organization IDs."
+                                        },
+                                        {
+                                          "id": "51eb6dcf-2eb7-4785-8027-e6e3af39883e",
+                                          "key": "profile.profile_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "3c78dfc6-6219-4b58-9e66-242c76fab022",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"profile\": {\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile.profile_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "users",
+                                            ":collaborator.user_ids.user_id",
+                                            ":profile.profile_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.user_ids.user_id"
+                                            },
+                                            {
+                                              "key": "profile.profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"profile_id\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"shared\": \"<boolean>\",\n  \"network_interface_addresses\": {\n    \"ip_addresses\": \"<string>\",\n    \"subnet_mask\": \"<string>\",\n    \"gateway\": \"<string>\",\n    \"dns_servers\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-3c78dfc6-6219-4b58-9e66-242c76fab022"
+                                    },
+                                    {
+                                      "id": "384062f5-e8f1-4d22-9be7-6372af172d4c",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"profile\": {\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile.profile_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "users",
+                                            ":collaborator.user_ids.user_id",
+                                            ":profile.profile_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.user_ids.user_id"
+                                            },
+                                            {
+                                              "key": "profile.profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-384062f5-e8f1-4d22-9be7-6372af172d4c"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-4c700231-683e-4b40-b002-b4faf716e530"
+                                }
+                              ],
+                              "id": "66b7b0de-2c8c-42f8-b1d4-b4dab50b4c47",
+                              "createdAt": "2026-07-28T03:12:44.000Z",
+                              "updatedAt": "2026-07-28T03:12:44.000Z",
+                              "uid": "35240-66b7b0de-2c8c-42f8-b1d4-b4dab50b4c47"
+                            },
+                            {
+                              "name": "{profile_id}",
+                              "item": [
+                                {
+                                  "name": "Managed Gateway Ethernet Profile Configuration Service Get2",
+                                  "id": "138d24b6-78f0-44cf-9780-a7cf21943e6c",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "users",
+                                        ":collaborator.user_ids.user_id",
+                                        ":profile_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "This ID shares namespace with user IDs.",
+                                          "key": "collaborator.organization_ids.organization_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "collaborator.user_ids.email",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The names of the gateway fields that should be returned.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "cb1a7570-4d8a-41be-bb5a-822c2c31543e",
+                                          "key": "collaborator"
+                                        },
+                                        {
+                                          "id": "2a31823e-95db-4033-ad47-439406c2df4a",
+                                          "key": "profile_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "0a6e4905-0d48-4c5e-abd3-a1eefa04b469",
+                                          "key": "collaborator.user_ids.user_id",
+                                          "value": "<string>",
+                                          "description": "(Required) This ID shares namespace with organization IDs."
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "c5cc65f2-d8dd-4065-a9f1-192be9157114",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "users",
+                                            ":collaborator.user_ids.user_id",
+                                            ":profile_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "This ID shares namespace with user IDs.",
+                                              "key": "collaborator.organization_ids.organization_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "collaborator.user_ids.email",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The names of the gateway fields that should be returned.",
+                                              "key": "field_mask",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.user_ids.user_id"
+                                            },
+                                            {
+                                              "key": "profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"profile_id\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"shared\": \"<boolean>\",\n  \"network_interface_addresses\": {\n    \"ip_addresses\": \"<string>\",\n    \"subnet_mask\": \"<string>\",\n    \"gateway\": \"<string>\",\n    \"dns_servers\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-c5cc65f2-d8dd-4065-a9f1-192be9157114"
+                                    },
+                                    {
+                                      "id": "7d8c6696-f23b-4d7f-ae6b-c6fead3dcc51",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "users",
+                                            ":collaborator.user_ids.user_id",
+                                            ":profile_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "This ID shares namespace with user IDs.",
+                                              "key": "collaborator.organization_ids.organization_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "collaborator.user_ids.email",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "The names of the gateway fields that should be returned.",
+                                              "key": "field_mask",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.user_ids.user_id"
+                                            },
+                                            {
+                                              "key": "profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-7d8c6696-f23b-4d7f-ae6b-c6fead3dcc51"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-138d24b6-78f0-44cf-9780-a7cf21943e6c"
+                                },
+                                {
+                                  "name": "Managed Gateway Ethernet Profile Configuration Service Delete2",
+                                  "id": "96c3a093-e26f-43eb-833f-e5c946e563a2",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "users",
+                                        ":collaborator.user_ids.user_id",
+                                        ":profile_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "This ID shares namespace with user IDs.",
+                                          "key": "collaborator.organization_ids.organization_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "collaborator.user_ids.email",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "05452a47-3bf7-492e-91e9-f3a6b5a09005",
+                                          "key": "collaborator"
+                                        },
+                                        {
+                                          "id": "3efc4f64-b641-4689-8018-95dc55224c0f",
+                                          "key": "profile_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "e78d9f56-c290-4e8c-8b2f-7f964c25b679",
+                                          "key": "collaborator.user_ids.user_id",
+                                          "value": "<string>",
+                                          "description": "(Required) This ID shares namespace with organization IDs."
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "cc4d371d-aefb-4dbe-9571-6ab8cf2ef25b",
+                                      "name": "A successful response.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "users",
+                                            ":collaborator.user_ids.user_id",
+                                            ":profile_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "This ID shares namespace with user IDs.",
+                                              "key": "collaborator.organization_ids.organization_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "collaborator.user_ids.email",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.user_ids.user_id"
+                                            },
+                                            {
+                                              "key": "profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-cc4d371d-aefb-4dbe-9571-6ab8cf2ef25b"
+                                    },
+                                    {
+                                      "id": "548c6977-a758-4887-8137-b07a449d97c3",
+                                      "name": "An unexpected error response.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id/:profile_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "gcs",
+                                            "gateways",
+                                            "profiles",
+                                            "ethernet",
+                                            "users",
+                                            ":collaborator.user_ids.user_id",
+                                            ":profile_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "This ID shares namespace with user IDs.",
+                                              "key": "collaborator.organization_ids.organization_id",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Secondary identifier, which can only be used in specific requests.",
+                                              "key": "collaborator.user_ids.email",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "collaborator.user_ids.user_id"
+                                            },
+                                            {
+                                              "key": "profile_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T03:12:44.000Z",
+                                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                                      "uid": "35240-548c6977-a758-4887-8137-b07a449d97c3"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-96c3a093-e26f-43eb-833f-e5c946e563a2"
+                                }
+                              ],
+                              "id": "1225fe6a-f61a-4a0f-acef-e57f8f256a42",
+                              "createdAt": "2026-07-28T03:12:44.000Z",
+                              "updatedAt": "2026-07-28T03:12:44.000Z",
+                              "uid": "35240-1225fe6a-f61a-4a0f-acef-e57f8f256a42"
+                            },
+                            {
+                              "name": "Managed Gateway Ethernet Profile Configuration Service List2",
+                              "id": "75d08597-da9c-43bd-a4be-1d164a062208",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&limit=<long>&page=<long>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gcs",
+                                    "gateways",
+                                    "profiles",
+                                    "ethernet",
+                                    "users",
+                                    ":collaborator.user_ids.user_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "This ID shares namespace with user IDs.",
+                                      "key": "collaborator.organization_ids.organization_id",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Secondary identifier, which can only be used in specific requests.",
+                                      "key": "collaborator.user_ids.email",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "The names of the gateway fields that should be returned.",
+                                      "key": "field_mask",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of results per page.",
+                                      "key": "limit",
+                                      "value": "<long>"
+                                    },
+                                    {
+                                      "description": "Page number for pagination. 0 is interpreted as 1.",
+                                      "key": "page",
+                                      "value": "<long>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a309edff-3c47-40a9-a12b-6a8ba89b0748",
+                                      "key": "collaborator"
+                                    },
+                                    {
+                                      "id": "208c7f2d-74e8-45e7-bbb6-11c85b5f708d",
+                                      "key": "collaborator.user_ids.user_id",
+                                      "value": "<string>",
+                                      "description": "(Required) This ID shares namespace with organization IDs."
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "ce3a15ab-ab60-4fa4-924b-c6b85921084c",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&limit=<long>&page=<long>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "users",
+                                        ":collaborator.user_ids.user_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "This ID shares namespace with user IDs.",
+                                          "key": "collaborator.organization_ids.organization_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "collaborator.user_ids.email",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The names of the gateway fields that should be returned.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Limit the number of results per page.",
+                                          "key": "limit",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                                          "key": "page",
+                                          "value": "<long>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collaborator.user_ids.user_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"profiles\": [\n    {\n      \"profile_id\": \"<string>\",\n      \"profile_name\": \"<string>\",\n      \"shared\": \"<boolean>\",\n      \"network_interface_addresses\": {\n        \"ip_addresses\": \"<string>\",\n        \"subnet_mask\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"dns_servers\": \"<string>\"\n      }\n    },\n    {\n      \"profile_id\": \"<string>\",\n      \"profile_name\": \"<string>\",\n      \"shared\": \"<boolean>\",\n      \"network_interface_addresses\": {\n        \"ip_addresses\": \"<string>\",\n        \"subnet_mask\": \"<string>\",\n        \"gateway\": \"<string>\",\n        \"dns_servers\": \"<string>\"\n      }\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-ce3a15ab-ab60-4fa4-924b-c6b85921084c"
+                                },
+                                {
+                                  "id": "53e4ec06-85df-44b6-85d2-2c7e31e8f5db",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id?collaborator.organization_ids.organization_id=<string>&collaborator.user_ids.email=<string>&field_mask=<string>&limit=<long>&page=<long>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "users",
+                                        ":collaborator.user_ids.user_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "This ID shares namespace with user IDs.",
+                                          "key": "collaborator.organization_ids.organization_id",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Secondary identifier, which can only be used in specific requests.",
+                                          "key": "collaborator.user_ids.email",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "The names of the gateway fields that should be returned.",
+                                          "key": "field_mask",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Limit the number of results per page.",
+                                          "key": "limit",
+                                          "value": "<long>"
+                                        },
+                                        {
+                                          "description": "Page number for pagination. 0 is interpreted as 1.",
+                                          "key": "page",
+                                          "value": "<long>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collaborator.user_ids.user_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-53e4ec06-85df-44b6-85d2-2c7e31e8f5db"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:44.000Z",
+                              "updatedAt": "2026-07-28T03:12:44.000Z",
+                              "uid": "35240-75d08597-da9c-43bd-a4be-1d164a062208"
+                            },
+                            {
+                              "name": "Managed Gateway Ethernet Profile Configuration Service Create2",
+                              "id": "a8761cff-629c-43d6-ba47-c3e863367bf4",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"profile\": {\n    \"profile_id\": \"<string>\",\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gcs",
+                                    "gateways",
+                                    "profiles",
+                                    "ethernet",
+                                    "users",
+                                    ":collaborator.user_ids.user_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "cab6c4c4-8fb1-455e-9daa-5fd7b4a2b322",
+                                      "key": "collaborator"
+                                    },
+                                    {
+                                      "id": "25db246b-4d5d-4169-9b1b-39c5d920132f",
+                                      "key": "collaborator.user_ids.user_id",
+                                      "value": "<string>",
+                                      "description": "(Required) This ID shares namespace with organization IDs."
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "d83e4e74-1cd9-4d0b-8953-1523f51af8fa",
+                                  "name": "A successful response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"profile\": {\n    \"profile_id\": \"<string>\",\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "users",
+                                        ":collaborator.user_ids.user_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collaborator.user_ids.user_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"profile_id\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"shared\": \"<boolean>\",\n  \"network_interface_addresses\": {\n    \"ip_addresses\": \"<string>\",\n    \"subnet_mask\": \"<string>\",\n    \"gateway\": \"<string>\",\n    \"dns_servers\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-d83e4e74-1cd9-4d0b-8953-1523f51af8fa"
+                                },
+                                {
+                                  "id": "63b33928-3d64-4d64-9248-c07484dd3136",
+                                  "name": "An unexpected error response.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"profile\": {\n    \"profile_id\": \"<string>\",\n    \"profile_name\": \"<string>\",\n    \"shared\": \"<boolean>\",\n    \"network_interface_addresses\": {\n      \"ip_addresses\": \"<string>\",\n      \"subnet_mask\": \"<string>\",\n      \"gateway\": \"<string>\",\n      \"dns_servers\": \"<string>\"\n    }\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gcs/gateways/profiles/ethernet/users/:collaborator.user_ids.user_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gcs",
+                                        "gateways",
+                                        "profiles",
+                                        "ethernet",
+                                        "users",
+                                        ":collaborator.user_ids.user_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collaborator.user_ids.user_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"details\": [\n    {\n      \"@type\": \"<string>\",\n      \"aliquip8_\": {},\n      \"minim_66\": {},\n      \"aliquip_34\": {}\n    },\n    {\n      \"@type\": \"<string>\",\n      \"fugiat33\": {}\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:12:44.000Z",
+                                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                                  "uid": "35240-63b33928-3d64-4d64-9248-c07484dd3136"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:12:44.000Z",
+                              "updatedAt": "2026-07-28T03:12:44.000Z",
+                              "uid": "35240-a8761cff-629c-43d6-ba47-c3e863367bf4"
+                            }
+                          ],
+                          "id": "f6359134-d050-43a0-b58c-c1817642dc88",
+                          "createdAt": "2026-07-28T03:12:44.000Z",
+                          "updatedAt": "2026-07-28T03:12:44.000Z",
+                          "uid": "35240-f6359134-d050-43a0-b58c-c1817642dc88"
+                        }
+                      ],
+                      "id": "db15c9e2-b6dd-47bf-8d10-068052f67f2e",
+                      "createdAt": "2026-07-28T03:12:44.000Z",
+                      "updatedAt": "2026-07-28T03:12:44.000Z",
+                      "uid": "35240-db15c9e2-b6dd-47bf-8d10-068052f67f2e"
+                    }
+                  ],
+                  "id": "a8d34213-cf40-4197-a2d3-44cc72760ffb",
+                  "createdAt": "2026-07-28T03:12:44.000Z",
+                  "updatedAt": "2026-07-28T03:12:44.000Z",
+                  "uid": "35240-a8d34213-cf40-4197-a2d3-44cc72760ffb"
+                }
+              ],
+              "id": "a5d77561-8b74-407d-a63b-3cdfa7b80d5a",
+              "createdAt": "2026-07-28T03:12:44.000Z",
+              "updatedAt": "2026-07-28T03:12:44.000Z",
+              "uid": "35240-a5d77561-8b74-407d-a63b-3cdfa7b80d5a"
+            }
+          ],
+          "id": "f3819427-ecd9-4f71-b0c0-050b11a5afb3",
+          "createdAt": "2026-07-28T03:12:44.000Z",
+          "updatedAt": "2026-07-28T03:12:44.000Z",
+          "uid": "35240-f3819427-ecd9-4f71-b0c0-050b11a5afb3"
+        }
+      ],
+      "id": "488ab93a-a0d2-4aaf-a1e7-81a8e70cd226",
+      "createdAt": "2026-07-28T03:12:44.000Z",
+      "updatedAt": "2026-07-28T03:12:44.000Z",
+      "uid": "35240-488ab93a-a0d2-4aaf-a1e7-81a8e70cd226"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eu1.cloud.thethings.industries/api/v3"
+    }
+  ]
+}

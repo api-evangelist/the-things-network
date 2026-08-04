@@ -1,0 +1,3838 @@
+swagger: '2.0'
+info:
+  title: The Things Stack — Gateway Server
+  version: v3.36
+  description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the
+    upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: The Things Industries
+    url: https://www.thethingsindustries.com
+host: eu1.cloud.thethings.industries
+basePath: /api/v3
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'
+security:
+- ApiKeyAuth: []
+tags:
+- name: GatewayRegistry
+- name: GatewayAccess
+- name: GatewayBatchRegistry
+- name: GatewayBatchAccess
+- name: GatewayConfigurationService
+- name: ManagedGatewayConfigurationService
+- name: ManagedGatewayWiFiProfileConfigurationService
+- name: ManagedGatewayEthernetProfileConfigurationService
+- name: Gs
+- name: GtwGs
+- name: GatewayClaimingServer
+- name: GatewayQRCodeGenerator
+paths:
+  /gateways:
+    get:
+      summary: 'List gateways where the given user or organization is a direct collaborator.
+
+        If no user or organization is given, this returns the gateways the caller
+
+        has access to.
+
+        Similar to Get, this selects the fields given by the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_List
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted gateways.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - GatewayRegistry
+  /gateways/batch:
+    delete:
+      summary: 'Delete a batch of gateways.
+
+        This operation is atomic; either all gateways are deleted or none.
+
+        The caller must have delete rights on all requested gateways.'
+      operationId: GatewayBatchRegistry_Delete
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+      - GatewayBatchRegistry
+  /gateways/filter:
+    post:
+      summary: 'List gateways where the given user or organization is a direct collaborator.
+
+        If no user or organization is given, this returns the gateways the caller
+
+        has access to.
+
+        Similar to Get, this selects the fields given by the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_List4
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ListGatewaysRequest'
+      tags:
+      - GatewayRegistry
+  /gateways/rights/batch:
+    get:
+      summary: 'Assert that the caller has the requested rights on all the requested gateways.
+
+        The check is successful if there are no errors.'
+      operationId: GatewayBatchAccess_AssertRights
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: required.rights
+        description: " - RIGHT_USER_INFO: The right to view user information.\n - RIGHT_USER_SETTINGS_BASIC: The right to\
+          \ edit basic user settings.\n - RIGHT_USER_LIST: The right to list users accounts.\n - RIGHT_USER_CREATE: The right\
+          \ to create an user account.\n - RIGHT_USER_SETTINGS_API_KEYS: The right to view and edit user API keys.\n - RIGHT_USER_DELETE:\
+          \ The right to delete user account.\n - RIGHT_USER_PURGE: The right to delete user account.\n - RIGHT_USER_AUTHORIZED_CLIENTS:\
+          \ The right to view and edit authorized OAuth clients of the user.\n - RIGHT_USER_APPLICATIONS_LIST: The right to\
+          \ list applications the user is a collaborator of.\n - RIGHT_USER_APPLICATIONS_CREATE: The right to create an application\
+          \ under the user account.\n - RIGHT_USER_GATEWAYS_LIST: The right to list gateways the user is a collaborator of.\n\
+          \ - RIGHT_USER_GATEWAYS_CREATE: The right to create a gateway under the account of the user.\n - RIGHT_USER_CLIENTS_LIST:\
+          \ The right to list OAuth clients the user is a collaborator of.\n - RIGHT_USER_CLIENTS_CREATE: The right to create\
+          \ an OAuth client under the account of the user.\n - RIGHT_USER_ORGANIZATIONS_LIST: The right to list organizations\
+          \ the user is a member of.\n - RIGHT_USER_ORGANIZATIONS_CREATE: The right to create an organization under the user\
+          \ account.\n - RIGHT_USER_NOTIFICATIONS_READ: The right to read notifications sent to the user.\n - RIGHT_USER_ALL:\
+          \ The pseudo-right for all (current and future) user rights.\n - RIGHT_APPLICATION_INFO: The right to view application\
+          \ information.\n - RIGHT_APPLICATION_SETTINGS_BASIC: The right to edit basic application settings.\n - RIGHT_APPLICATION_SETTINGS_API_KEYS:\
+          \ The right to view and edit application API keys.\n - RIGHT_APPLICATION_SETTINGS_COLLABORATORS: The right to view\
+          \ and edit application collaborators.\n - RIGHT_APPLICATION_SETTINGS_PACKAGES: The right to view and edit application\
+          \ packages and associations.\n - RIGHT_APPLICATION_DELETE: The right to delete application.\n - RIGHT_APPLICATION_PURGE:\
+          \ The right to purge application.\n - RIGHT_APPLICATION_DEVICES_READ: The right to view devices in application.\n\
+          \ - RIGHT_APPLICATION_DEVICES_WRITE: The right to create devices in application.\n - RIGHT_APPLICATION_DEVICES_READ_KEYS:\
+          \ The right to view device keys in application.\nNote that keys may not be stored in a way that supports viewing\
+          \ them.\n - RIGHT_APPLICATION_DEVICES_WRITE_KEYS: The right to edit device keys in application.\n - RIGHT_APPLICATION_TRAFFIC_READ:\
+          \ The right to read application traffic (uplink and downlink).\n - RIGHT_APPLICATION_TRAFFIC_UP_WRITE: The right\
+          \ to write uplink application traffic.\n - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE: The right to write downlink application\
+          \ traffic.\n - RIGHT_APPLICATION_LINK: The right to link as Application to a Network Server for traffic exchange,\n\
+          i.e. read uplink and write downlink (API keys only).\nThis right is typically only given to an Application Server.\n\
+          This right implies RIGHT_APPLICATION_INFO, RIGHT_APPLICATION_TRAFFIC_READ,\nand RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE.\n\
+          \ - RIGHT_APPLICATION_ALL: The pseudo-right for all (current and future) application rights.\n - RIGHT_CLIENT_ALL:\
+          \ The pseudo-right for all (current and future) OAuth client rights.\n - RIGHT_CLIENT_INFO: The right to read client\
+          \ information.\n - RIGHT_CLIENT_SETTINGS_BASIC: The right to edit basic client settings.\n - RIGHT_CLIENT_SETTINGS_COLLABORATORS:\
+          \ The right to view and edit client collaborators.\n - RIGHT_CLIENT_DELETE: The right to delete a client.\n - RIGHT_CLIENT_PURGE:\
+          \ The right to purge a client.\n - RIGHT_GATEWAY_INFO: The right to view gateway information.\n - RIGHT_GATEWAY_SETTINGS_BASIC:\
+          \ The right to edit basic gateway settings.\n - RIGHT_GATEWAY_SETTINGS_API_KEYS: The right to view and edit gateway\
+          \ API keys.\n - RIGHT_GATEWAY_SETTINGS_COLLABORATORS: The right to view and edit gateway collaborators.\n - RIGHT_GATEWAY_DELETE:\
+          \ The right to delete gateway.\n - RIGHT_GATEWAY_PURGE: The right to purge gateway.\n - RIGHT_GATEWAY_TRAFFIC_READ:\
+          \ The right to read gateway traffic.\n - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE: The right to write downlink gateway traffic.\n\
+          \ - RIGHT_GATEWAY_LINK: The right to link as Gateway to a Gateway Server for traffic exchange,\ni.e. write uplink\
+          \ and read downlink (API keys only)\nThis right is typically only given to a gateway.\nThis right implies RIGHT_GATEWAY_INFO.\n\
+          \ - RIGHT_GATEWAY_STATUS_READ: The right to view gateway status.\n - RIGHT_GATEWAY_LOCATION_READ: The right to view\
+          \ view gateway location.\n - RIGHT_GATEWAY_WRITE_SECRETS: The right to store secrets associated with this gateway.\n\
+          \ - RIGHT_GATEWAY_READ_SECRETS: The right to retrieve secrets associated with this gateway.\n - RIGHT_GATEWAY_ALL:\
+          \ The pseudo-right for all (current and future) gateway rights.\n - RIGHT_ORGANIZATION_INFO: The right to view organization\
+          \ information.\n - RIGHT_ORGANIZATION_SETTINGS_BASIC: The right to edit basic organization settings.\n - RIGHT_ORGANIZATION_SETTINGS_API_KEYS:\
+          \ The right to view and edit organization API keys.\n - RIGHT_ORGANIZATION_SETTINGS_MEMBERS: The right to view and\
+          \ edit organization members.\n - RIGHT_ORGANIZATION_DELETE: The right to delete organization.\n - RIGHT_ORGANIZATION_PURGE:\
+          \ The right to purge organization.\n - RIGHT_ORGANIZATION_APPLICATIONS_LIST: The right to list the applications\
+          \ the organization is a collaborator of.\n - RIGHT_ORGANIZATION_APPLICATIONS_CREATE: The right to create an application\
+          \ under the organization.\n - RIGHT_ORGANIZATION_GATEWAYS_LIST: The right to list the gateways the organization\
+          \ is a collaborator of.\n - RIGHT_ORGANIZATION_GATEWAYS_CREATE: The right to create a gateway under the organization.\n\
+          \ - RIGHT_ORGANIZATION_CLIENTS_LIST: The right to list the OAuth clients the organization is a collaborator of.\n\
+          \ - RIGHT_ORGANIZATION_CLIENTS_CREATE: The right to create an OAuth client under the organization.\n - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR:\
+          \ The right to add the organization as a collaborator on an existing entity.\n - RIGHT_ORGANIZATION_ALL: The pseudo-right\
+          \ for all (current and future) organization rights.\n - RIGHT_SEND_INVITES: The right to send invites to new users.\n\
+          Note that this is not prefixed with \"USER_\"; it is not a right on the user entity.\n - RIGHT_ALL: The pseudo-right\
+          \ for all (current and future) possible rights."
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+          enum:
+          - right_invalid
+          - RIGHT_USER_INFO
+          - RIGHT_USER_SETTINGS_BASIC
+          - RIGHT_USER_LIST
+          - RIGHT_USER_CREATE
+          - RIGHT_USER_SETTINGS_API_KEYS
+          - RIGHT_USER_DELETE
+          - RIGHT_USER_PURGE
+          - RIGHT_USER_AUTHORIZED_CLIENTS
+          - RIGHT_USER_APPLICATIONS_LIST
+          - RIGHT_USER_APPLICATIONS_CREATE
+          - RIGHT_USER_GATEWAYS_LIST
+          - RIGHT_USER_GATEWAYS_CREATE
+          - RIGHT_USER_CLIENTS_LIST
+          - RIGHT_USER_CLIENTS_CREATE
+          - RIGHT_USER_ORGANIZATIONS_LIST
+          - RIGHT_USER_ORGANIZATIONS_CREATE
+          - RIGHT_USER_NOTIFICATIONS_READ
+          - RIGHT_USER_ALL
+          - RIGHT_APPLICATION_INFO
+          - RIGHT_APPLICATION_SETTINGS_BASIC
+          - RIGHT_APPLICATION_SETTINGS_API_KEYS
+          - RIGHT_APPLICATION_SETTINGS_COLLABORATORS
+          - RIGHT_APPLICATION_SETTINGS_PACKAGES
+          - RIGHT_APPLICATION_DELETE
+          - RIGHT_APPLICATION_PURGE
+          - RIGHT_APPLICATION_DEVICES_READ
+          - RIGHT_APPLICATION_DEVICES_WRITE
+          - RIGHT_APPLICATION_DEVICES_READ_KEYS
+          - RIGHT_APPLICATION_DEVICES_WRITE_KEYS
+          - RIGHT_APPLICATION_TRAFFIC_READ
+          - RIGHT_APPLICATION_TRAFFIC_UP_WRITE
+          - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE
+          - RIGHT_APPLICATION_LINK
+          - RIGHT_APPLICATION_ALL
+          - RIGHT_CLIENT_ALL
+          - RIGHT_CLIENT_INFO
+          - RIGHT_CLIENT_SETTINGS_BASIC
+          - RIGHT_CLIENT_SETTINGS_COLLABORATORS
+          - RIGHT_CLIENT_DELETE
+          - RIGHT_CLIENT_PURGE
+          - RIGHT_GATEWAY_INFO
+          - RIGHT_GATEWAY_SETTINGS_BASIC
+          - RIGHT_GATEWAY_SETTINGS_API_KEYS
+          - RIGHT_GATEWAY_SETTINGS_COLLABORATORS
+          - RIGHT_GATEWAY_DELETE
+          - RIGHT_GATEWAY_PURGE
+          - RIGHT_GATEWAY_TRAFFIC_READ
+          - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE
+          - RIGHT_GATEWAY_LINK
+          - RIGHT_GATEWAY_STATUS_READ
+          - RIGHT_GATEWAY_LOCATION_READ
+          - RIGHT_GATEWAY_WRITE_SECRETS
+          - RIGHT_GATEWAY_READ_SECRETS
+          - RIGHT_GATEWAY_ALL
+          - RIGHT_ORGANIZATION_INFO
+          - RIGHT_ORGANIZATION_SETTINGS_BASIC
+          - RIGHT_ORGANIZATION_SETTINGS_API_KEYS
+          - RIGHT_ORGANIZATION_SETTINGS_MEMBERS
+          - RIGHT_ORGANIZATION_DELETE
+          - RIGHT_ORGANIZATION_PURGE
+          - RIGHT_ORGANIZATION_APPLICATIONS_LIST
+          - RIGHT_ORGANIZATION_APPLICATIONS_CREATE
+          - RIGHT_ORGANIZATION_GATEWAYS_LIST
+          - RIGHT_ORGANIZATION_GATEWAYS_CREATE
+          - RIGHT_ORGANIZATION_CLIENTS_LIST
+          - RIGHT_ORGANIZATION_CLIENTS_CREATE
+          - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR
+          - RIGHT_ORGANIZATION_ALL
+          - RIGHT_SEND_INVITES
+          - RIGHT_ALL
+        collectionFormat: multi
+      tags:
+      - GatewayBatchAccess
+  /gateways/{gateway.ids.gateway_id}:
+    put:
+      summary: Update the gateway, changing the fields specified by the field mask to the provided values.
+      operationId: GatewayRegistry_Update
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway.ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayRegistryUpdateBody'
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_ids.gateway_id}:
+    get:
+      summary: 'Get the gateway with the given identifiers, selecting the fields specified
+
+        in the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_Get
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_ids.gateway_id}/api-keys:
+    get:
+      summary: List the API keys for this gateway.
+      operationId: GatewayAccess_ListAPIKeys
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3APIKeys'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: order
+        description: 'Order the results by this field path.
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - GatewayAccess
+    post:
+      summary: Create an API key scoped to this gateway.
+      operationId: GatewayAccess_CreateAPIKey
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3APIKey'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayAccessCreateAPIKeyBody'
+      tags:
+      - GatewayAccess
+  /gateways/{gateway_ids.gateway_id}/api-keys/{api_key.id}:
+    put:
+      summary: 'Update the rights of an API key of the gateway.
+
+        This method can also be used to delete the API key, by giving it no rights.
+
+        The caller is required to have all assigned or/and removed rights.'
+      operationId: GatewayAccess_UpdateAPIKey
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3APIKey'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: api_key.id
+        description: 'Immutable and unique public identifier for the API key.
+
+          Generated by the Access Server.'
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayAccessUpdateAPIKeyBody'
+      tags:
+      - GatewayAccess
+  /gateways/{gateway_ids.gateway_id}/api-keys/{key_id}:
+    get:
+      summary: Get a single API key of this gateway.
+      operationId: GatewayAccess_GetAPIKey
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3APIKey'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: key_id
+        description: Unique public identifier for the API key.
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayAccess
+    delete:
+      summary: Delete a single API key of this gateway.
+      operationId: GatewayAccess_DeleteAPIKey
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: key_id
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayAccess
+  /gateways/{gateway_ids.gateway_id}/collaborator/organization/{collaborator.organization_ids.organization_id}:
+    get:
+      summary: 'Get the rights of a collaborator (member) of the gateway.
+
+        Pseudo-rights in the response (such as the "_ALL" right) are not expanded.'
+      operationId: GatewayAccess_GetCollaborator2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GetCollaboratorResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - GatewayAccess
+  /gateways/{gateway_ids.gateway_id}/collaborator/user/{collaborator.user_ids.user_id}:
+    get:
+      summary: 'Get the rights of a collaborator (member) of the gateway.
+
+        Pseudo-rights in the response (such as the "_ALL" right) are not expanded.'
+      operationId: GatewayAccess_GetCollaborator
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GetCollaboratorResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - GatewayAccess
+  /gateways/{gateway_ids.gateway_id}/collaborators:
+    get:
+      summary: List the collaborators on this gateway.
+      operationId: GatewayAccess_ListCollaborators
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Collaborators'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      tags:
+      - GatewayAccess
+    put:
+      summary: 'Set the rights of a collaborator (member) on the gateway.
+
+        This method can also be used to delete the collaborator, by giving them no rights.
+
+        The caller is required to have all assigned or/and removed rights.'
+      operationId: GatewayAccess_SetCollaborator
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayAccessSetCollaboratorBody'
+      tags:
+      - GatewayAccess
+  /gateways/{gateway_ids.gateway_id}/collaborators/organization/{collaborator_ids.organization_ids.organization_id}:
+    delete:
+      summary: DeleteCollaborator removes a collaborator from a gateway.
+      operationId: GatewayAccess_DeleteCollaborator2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator_ids.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: collaborator_ids.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator_ids.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - GatewayAccess
+  /gateways/{gateway_ids.gateway_id}/collaborators/user/{collaborator_ids.user_ids.user_id}:
+    delete:
+      summary: DeleteCollaborator removes a collaborator from a gateway.
+      operationId: GatewayAccess_DeleteCollaborator
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator_ids.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: collaborator_ids.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator_ids.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - GatewayAccess
+  /gateways/{gateway_id}:
+    delete:
+      summary: Delete the gateway. This may not release the gateway ID for reuse, but it does release the EUI.
+      operationId: GatewayRegistry_Delete
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_id}/purge:
+    delete:
+      summary: 'Purge the gateway. This will release both gateway ID and EUI for reuse.
+
+        The gateway owner is responsible for clearing data from any (external) integrations
+
+        that may store and expose data by gateway ID.'
+      operationId: GatewayRegistry_Purge
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_id}/restore:
+    post:
+      summary: 'Restore a recently deleted gateway. This does not restore the EUI,
+
+        as that was released when deleting the gateway.'
+      description: 'Deployment configuration may specify if, and for how long after deletion,
+
+        entities can be restored.'
+      operationId: GatewayRegistry_Restore
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayRegistry
+  /gateways/{gateway_id}/rights:
+    get:
+      summary: List the rights the caller has on this gateway.
+      operationId: GatewayAccess_ListRights
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Rights'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayAccess
+  /gcls/claim:
+    post:
+      summary: Claims a gateway by claim authentication code or QR code and transfers the gateway to the target user.
+      operationId: GatewayClaimingServer_Claim
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/lorawanv3GatewayIdentifiers'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ClaimGatewayRequest'
+      tags:
+      - GatewayClaimingServer
+  /gcls/claim/info:
+    post:
+      summary: Return whether claiming is available for a given gateway EUI.
+      operationId: GatewayClaimingServer_GetInfoByGatewayEUI
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GetInfoByGatewayEUIResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GetInfoByGatewayEUIRequest'
+      tags:
+      - GatewayClaimingServer
+  /gcls/claim/{gateway_id}:
+    delete:
+      summary: 'Unclaims the gateway.
+
+        EUI provided in the request are ignored and the end device is looked up by the gateway ID.'
+      operationId: GatewayClaimingServer_Unclaim
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayClaimingServer
+  /gcls/gateways/{gateway_ids.gateway_id}/authorize:
+    post:
+      summary: 'AuthorizeGateway allows a gateway to be claimed.
+
+        DEPRECATED: Authorizing gateways for claiming is no longer supported and will be removed in a future version of The
+
+        Things Stack.'
+      operationId: GatewayClaimingServer_AuthorizeGateway
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/GatewayClaimingServerAuthorizeGatewayBody'
+      tags:
+      - GatewayClaimingServer
+  /gcls/gateways/{gateway_id}/authorize:
+    delete:
+      summary: 'UnauthorizeGateway prevents a gateway from being claimed.
+
+        DEPRECATED: Unauthorizing (locking) gateways for claiming is no longer supported and will be removed in a future
+
+        version of The Things Stack.'
+      operationId: GatewayClaimingServer_UnauthorizeGateway
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayClaimingServer
+  /gcs/gateways/configuration/{gateway_ids.gateway_id}/{format}/{filename}:
+    get:
+      operationId: GatewayConfigurationService_GetGatewayConfiguration
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GetGatewayConfigurationResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: format
+        in: path
+        required: true
+        type: string
+      - name: filename
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: type
+        in: query
+        required: false
+        type: string
+      tags:
+      - GatewayConfigurationService
+  /gcs/gateways/configuration/{gateway_ids.gateway_id}/{format}/{type}/{filename}:
+    get:
+      operationId: GatewayConfigurationService_GetGatewayConfiguration2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GetGatewayConfigurationResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: format
+        in: path
+        required: true
+        type: string
+      - name: type
+        in: path
+        required: true
+        type: string
+      - name: filename
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GatewayConfigurationService
+  /gcs/gateways/managed/{gateway.ids.gateway_id}:
+    put:
+      operationId: ManagedGatewayConfigurationService_Update
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway.ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayConfigurationServiceUpdateBody'
+      tags:
+      - ManagedGatewayConfigurationService
+  /gcs/gateways/managed/{gateway_ids.gateway_id}:
+    get:
+      operationId: ManagedGatewayConfigurationService_Get
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_ids.gateway_id
+        in: path
+        required: true
+        type: string
+      - name: gateway_ids.eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayConfigurationService
+  /gcs/gateways/managed/{gateway_id}/events:
+    post:
+      operationId: ManagedGatewayConfigurationService_StreamEvents
+      responses:
+        '200':
+          description: A successful response.(streaming responses)
+          schema:
+            type: object
+            properties:
+              result:
+                $ref: '#/definitions/v3ManagedGatewayEventData'
+              error:
+                $ref: '#/definitions/googlerpcStatus'
+            title: Stream result of v3ManagedGatewayEventData
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ManagedGatewayConfigurationServiceStreamEventsBody'
+      tags:
+      - ManagedGatewayConfigurationService
+  /gcs/gateways/managed/{gateway_id}/wifi/scan:
+    post:
+      operationId: ManagedGatewayConfigurationService_ScanWiFiAccessPoints
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiAccessPoints'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ManagedGatewayConfigurationServiceScanWiFiAccessPointsBody'
+      tags:
+      - ManagedGatewayConfigurationService
+  /gcs/gateways/profiles/ethernet/organizations/{collaborator.organization_ids.organization_id}:
+    get:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_List
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayEthernetProfiles'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+    post:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_Create
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayEthernetProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayEthernetProfileConfigurationServiceCreateBody'
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+  /gcs/gateways/profiles/ethernet/organizations/{collaborator.organization_ids.organization_id}/{profile.profile_id}:
+    put:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_Update
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayEthernetProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile.profile_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayEthernetProfileConfigurationServiceUpdateBody'
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+  /gcs/gateways/profiles/ethernet/organizations/{collaborator.organization_ids.organization_id}/{profile_id}:
+    get:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_Get
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayEthernetProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+    delete:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_Delete
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+  /gcs/gateways/profiles/ethernet/users/{collaborator.user_ids.user_id}:
+    get:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_List2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayEthernetProfiles'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+    post:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_Create2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayEthernetProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayEthernetProfileConfigurationServiceCreateBody'
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+  /gcs/gateways/profiles/ethernet/users/{collaborator.user_ids.user_id}/{profile.profile_id}:
+    put:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_Update2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayEthernetProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile.profile_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayEthernetProfileConfigurationServiceUpdateBody'
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+  /gcs/gateways/profiles/ethernet/users/{collaborator.user_ids.user_id}/{profile_id}:
+    get:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_Get2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayEthernetProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+    delete:
+      operationId: ManagedGatewayEthernetProfileConfigurationService_Delete2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayEthernetProfileConfigurationService
+  /gcs/gateways/profiles/wifi/organizations/{collaborator.organization_ids.organization_id}:
+    get:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_List
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiProfiles'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+    post:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_Create
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayWiFiProfileConfigurationServiceCreateBody'
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+  /gcs/gateways/profiles/wifi/organizations/{collaborator.organization_ids.organization_id}/{profile.profile_id}:
+    put:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_Update
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile.profile_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayWiFiProfileConfigurationServiceUpdateBody'
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+  /gcs/gateways/profiles/wifi/organizations/{collaborator.organization_ids.organization_id}/{profile_id}:
+    get:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_Get
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+    delete:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_Delete
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+  /gcs/gateways/profiles/wifi/users/{collaborator.user_ids.user_id}:
+    get:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_List2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiProfiles'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+    post:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_Create2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayWiFiProfileConfigurationServiceCreateBody'
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+  /gcs/gateways/profiles/wifi/users/{collaborator.user_ids.user_id}/{profile.profile_id}:
+    put:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_Update2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile.profile_id
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ManagedGatewayWiFiProfileConfigurationServiceUpdateBody'
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+  /gcs/gateways/profiles/wifi/users/{collaborator.user_ids.user_id}/{profile_id}:
+    get:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_Get2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ManagedGatewayWiFiProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+    delete:
+      operationId: ManagedGatewayWiFiProfileConfigurationService_Delete2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: profile_id
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      tags:
+      - ManagedGatewayWiFiProfileConfigurationService
+  /gs/gateways/connection/stats:
+    post:
+      summary: 'Get statistics about gateway connections to the Gateway Server of a batch of gateways.
+
+        - Statistics are not persisted between reconnects.
+
+        - Gateways that are not connected or are part of a different cluster are ignored.
+
+        - The client should ensure that the requested gateways are in the requested cluster.
+
+        - The client should have the right to get the gateway connection stats on all requested gateways.'
+      operationId: Gs_BatchGetGatewayConnectionStats
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3BatchGetGatewayConnectionStatsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3BatchGetGatewayConnectionStatsRequest'
+      tags:
+      - Gs
+  /gs/gateways/{gateway_id}/connection/stats:
+    get:
+      summary: 'Get statistics about the current gateway connection to the Gateway Server.
+
+        This is not persisted between reconnects.'
+      operationId: Gs_GetGatewayConnectionStats
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3GatewayConnectionStats'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - Gs
+  /gs/gateways/{gateway_id}/mqtt-connection-info:
+    get:
+      summary: Get connection information to connect an MQTT gateway.
+      operationId: GtwGs_GetMQTTConnectionInfo
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3MQTTConnectionInfo'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GtwGs
+  /gs/gateways/{gateway_id}/mqttv2-connection-info:
+    get:
+      summary: Get legacy connection information to connect a The Things Network Stack V2 MQTT gateway.
+      operationId: GtwGs_GetMQTTV2ConnectionInfo
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3MQTTConnectionInfo'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: gateway_id
+        in: path
+        required: true
+        type: string
+      - name: eui
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+        format: string
+      tags:
+      - GtwGs
+  /organizations/{collaborator.organization_ids.organization_id}/gateways:
+    get:
+      summary: 'List gateways where the given user or organization is a direct collaborator.
+
+        If no user or organization is given, this returns the gateways the caller
+
+        has access to.
+
+        Similar to Get, this selects the fields given by the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_List3
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted gateways.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - GatewayRegistry
+    post:
+      summary: 'Create a new gateway. This also sets the given organization or user as
+
+        first collaborator with all possible rights.'
+      operationId: GatewayRegistry_Create2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayRegistryCreateBody'
+      tags:
+      - GatewayRegistry
+  /qr-codes/gateways/parse:
+    post:
+      summary: Parse QR Codes of known formats and return the information contained within.
+      operationId: GatewayQRCodeGenerator_Parse
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ParseGatewayQRCodeResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3ParseGatewayQRCodeRequest'
+      tags:
+      - GatewayQRCodeGenerator
+  /qr-codes/gateways/{format_id}/parse:
+    post:
+      summary: Parse QR Codes of known formats and return the information contained within.
+      operationId: GatewayQRCodeGenerator_Parse2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3ParseGatewayQRCodeResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: format_id
+        description: 'QR code format identifier.
+
+          If this field is not specified, the server will default to ttigpro1.'
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayQRCodeGeneratorParseBody'
+      tags:
+      - GatewayQRCodeGenerator
+  /users/{collaborator.user_ids.user_id}/gateways:
+    get:
+      summary: 'List gateways where the given user or organization is a direct collaborator.
+
+        If no user or organization is given, this returns the gateways the caller
+
+        has access to.
+
+        Similar to Get, this selects the fields given by the field mask.
+
+        More or less fields may be returned, depending on the rights of the caller.'
+      operationId: GatewayRegistry_List2
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateways'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: collaborator.organization_ids.organization_id
+        description: This ID shares namespace with user IDs.
+        in: query
+        required: false
+        type: string
+      - name: collaborator.user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        type: string
+      - name: field_mask
+        description: The names of the gateway fields that should be returned.
+        in: query
+        required: false
+        type: string
+      - name: order
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        type: integer
+        format: int64
+      - name: deleted
+        description: Only return recently deleted gateways.
+        in: query
+        required: false
+        type: boolean
+      tags:
+      - GatewayRegistry
+    post:
+      summary: 'Create a new gateway. This also sets the given organization or user as
+
+        first collaborator with all possible rights.'
+      operationId: GatewayRegistry_Create
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v3Gateway'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+      - name: collaborator.user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/v3GatewayRegistryCreateBody'
+      tags:
+      - GatewayRegistry
+definitions:
+  CUPSRedirectionClientTLS:
+    type: object
+    properties:
+      cert:
+        type: string
+        format: byte
+        description: PEM encoded Client Certificate.
+      key:
+        type: string
+        format: byte
+        description: PEM encoded Client Private Key.
+  GatewayClaimingServerAuthorizeGatewayBody:
+    type: object
+    properties:
+      gateway_ids:
+        type: object
+        properties:
+          eui:
+            type: string
+            format: string
+            example: 70B3D57ED000ABCD
+            description: Secondary identifier, which can only be used in specific requests.
+      api_key:
+        type: string
+  GatewayConnectionStatsRoundTripTimes:
+    type: object
+    properties:
+      min:
+        type: string
+      max:
+        type: string
+      median:
+        type: string
+      count:
+        type: integer
+        format: int64
+  GatewayConnectionStatsSubBand:
+    type: object
+    properties:
+      min_frequency:
+        type: string
+        format: uint64
+      max_frequency:
+        type: string
+        format: uint64
+      downlink_utilization_limit:
+        type: number
+        format: float
+        description: Duty-cycle limit of the sub-band as a fraction of time.
+      downlink_utilization:
+        type: number
+        format: float
+        description: Utilization rate of the available duty-cycle. This value should not exceed downlink_utilization_limit.
+  GatewayLRFHSS:
+    type: object
+    properties:
+      supported:
+        type: boolean
+        description: The gateway supports the LR-FHSS uplink channels.
+    description: LR-FHSS gateway capabilities.
+  ManagedGatewayConfigurationServiceScanWiFiAccessPointsBody:
+    type: object
+    properties:
+      eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: Secondary identifier, which can only be used in specific requests.
+  ManagedGatewayConfigurationServiceStreamEventsBody:
+    type: object
+    properties:
+      eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: Secondary identifier, which can only be used in specific requests.
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  lorawanv3GatewayIdentifiers:
+    type: object
+    properties:
+      gateway_id:
+        type: string
+      eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+        description: Secondary identifier, which can only be used in specific requests.
+  lorawanv3Location:
+    type: object
+    properties:
+      latitude:
+        type: number
+        format: double
+        description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South
+          pole is negative.
+      longitude:
+        type: number
+        format: double
+        description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive
+          , West is negative.
+      altitude:
+        type: integer
+        format: int32
+        description: The altitude (meters), where 0 is the mean sea level.
+      accuracy:
+        type: integer
+        format: int32
+        description: The accuracy of the location (meters).
+      source:
+        $ref: '#/definitions/v3LocationSource'
+        description: Source of the location information.
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This\
+          \ string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully\
+          \ qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n\
+          (e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\n\
+          expect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one\
+          \ can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme\
+          \ is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary\
+          \ format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have\
+          \ them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n\
+          \  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is\
+          \ not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\
+          \ As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes\
+          \ other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+    additionalProperties: {}
+    description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type\
+      \ of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility\
+      \ functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n   \
+      \ Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\n\
+      Example 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class))\
+      \ {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n\
+      \      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n  \
+      \  foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n\
+      \      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n\
+      \     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err\
+      \ != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name'\
+      \ as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL,\
+      \ for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any`\
+      \ value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which\
+      \ contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n\
+      \      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n    \
+      \  \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has\
+      \ a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom\
+      \ JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\"\
+      : \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+  v3APIKey:
+    type: object
+    properties:
+      id:
+        type: string
+        description: 'Immutable and unique public identifier for the API key.
+
+          Generated by the Access Server.'
+      key:
+        type: string
+        description: 'Immutable and unique secret value of the API key.
+
+          Generated by the Access Server.'
+      name:
+        type: string
+        description: User-defined (friendly) name for the API key.
+      rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+        description: Rights that are granted to this API key.
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      expires_at:
+        type: string
+        format: date-time
+  v3APIKeys:
+    type: object
+    properties:
+      api_keys:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3APIKey'
+  v3BatchGetGatewayConnectionStatsRequest:
+    type: object
+    properties:
+      gateway_ids:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/lorawanv3GatewayIdentifiers'
+      field_mask:
+        type: string
+        description: 'The names of the gateway stats fields that should be returned.
+
+          This mask will be applied on each entry returned.'
+  v3BatchGetGatewayConnectionStatsResponse:
+    type: object
+    properties:
+      entries:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/v3GatewayConnectionStats'
+        description: The map key is the gateway identifier.
+  v3CUPSRedirection:
+    type: object
+    properties:
+      target_cups_uri:
+        type: string
+        description: CUPS URI for LoRa Basics Station CUPS redirection.
+      current_gateway_key:
+        type: string
+        description: The key set in the gateway to authenticate itself.
+      target_cups_trust:
+        type: string
+        format: byte
+        description: Optional PEM encoded CA Root certificate. If this field is empty, DCS will attempt to dial the Target
+          CUPS server and fetch the CA.
+      client_tls:
+        $ref: '#/definitions/CUPSRedirectionClientTLS'
+        title: 'TODO: Support mTLS (https://github.com/TheThingsNetwork/lorawan-stack/issues/137)'
+      auth_token:
+        type: string
+        description: The Device Claiming Server will fill this field with a The Things Stack API Key.
+    description: 'DEPRECATED: This message is deprecated and will be removed in a future version of The Things Stack.'
+  v3ClaimGatewayRequest:
+    type: object
+    properties:
+      authenticated_identifiers:
+        $ref: '#/definitions/v3ClaimGatewayRequestAuthenticatedIdentifiers'
+      qr_code:
+        type: string
+        format: byte
+      collaborator:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+        description: Collaborator to grant all rights on the target gateway.
+      target_gateway_id:
+        type: string
+        description: 'Gateway ID for the target gateway. This must be a unique value.
+
+          If this is not set, the target ID for the target gateway will be set to `<gateway-eui>`.'
+      target_gateway_server_address:
+        type: string
+        description: Target Gateway Server Address for the target gateway.
+      cups_redirection:
+        $ref: '#/definitions/v3CUPSRedirection'
+        description: 'Parameters to set CUPS redirection for the gateway.
+
+          DEPRECATED: This field is deprecated and will be removed in a future version of The Things Stack.'
+      target_frequency_plan_id:
+        type: string
+        description: 'Frequency plan ID of the target gateway.
+
+          TODO: Remove this field (https://github.com/TheThingsIndustries/lorawan-stack/issues/4024)
+
+          DEPRECATED: Use target_frequency_plan_ids instead.'
+      target_frequency_plan_ids:
+        type: array
+        items:
+          type: string
+        description: Frequency plan IDs of the target gateway.
+  v3ClaimGatewayRequestAuthenticatedIdentifiers:
+    type: object
+    properties:
+      gateway_eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+      authentication_code:
+        type: string
+        format: byte
+  v3Collaborator:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+  v3Collaborators:
+    type: object
+    properties:
+      collaborators:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3Collaborator'
+  v3ContactInfo:
+    type: object
+    properties:
+      contact_type:
+        $ref: '#/definitions/v3ContactType'
+      contact_method:
+        $ref: '#/definitions/v3ContactMethod'
+      value:
+        type: string
+      public:
+        type: boolean
+      validated_at:
+        type: string
+        format: date-time
+  v3ContactMethod:
+    type: string
+    enum:
+    - CONTACT_METHOD_OTHER
+    - CONTACT_METHOD_EMAIL
+    - CONTACT_METHOD_PHONE
+    default: CONTACT_METHOD_OTHER
+  v3ContactType:
+    type: string
+    enum:
+    - CONTACT_TYPE_OTHER
+    - CONTACT_TYPE_ABUSE
+    - CONTACT_TYPE_BILLING
+    - CONTACT_TYPE_TECHNICAL
+    default: CONTACT_TYPE_OTHER
+  v3DownlinkPathConstraint:
+    type: string
+    enum:
+    - DOWNLINK_PATH_CONSTRAINT_NONE
+    - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER
+    - DOWNLINK_PATH_CONSTRAINT_NEVER
+    default: DOWNLINK_PATH_CONSTRAINT_NONE
+    description: " - DOWNLINK_PATH_CONSTRAINT_NONE: Indicates that the gateway can be selected for downlink without constraints\
+      \ by the Network Server.\n - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER: Indicates that the gateway can be selected for downlink\
+      \ only if no other or better gateway can be selected.\n - DOWNLINK_PATH_CONSTRAINT_NEVER: Indicates that this gateway\
+      \ will never be selected for downlink, even if that results in no available downlink path."
+  v3Gateway:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/lorawanv3GatewayIdentifiers'
+        description: The identifiers of the gateway. These are public and can be seen by any authenticated user in the network.
+      created_at:
+        type: string
+        format: date-time
+        description: When the gateway was created. This information is public and can be seen by any authenticated user in
+          the network.
+      updated_at:
+        type: string
+        format: date-time
+        description: When the gateway was last updated. This information is public and can be seen by any authenticated user
+          in the network.
+      deleted_at:
+        type: string
+        format: date-time
+        description: When the gateway was deleted. This information is public and can be seen by any authenticated user in
+          the network.
+      name:
+        type: string
+        description: The name of the gateway. This information is public and can be seen by any authenticated user in the
+          network.
+      description:
+        type: string
+        description: A description for the gateway. This information is public and can be seen by any authenticated user in
+          the network.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+        description: Key-value attributes for this gateway. Typically used for organizing gateways or for storing integration-specific
+          data.
+      contact_info:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ContactInfo'
+        description: 'Contact information for this gateway. Typically used to indicate who to contact with technical/security
+          questions about the gateway.
+
+          This field is deprecated. Use administrative_contact and technical_contact instead.'
+      administrative_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      technical_contact:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      version_ids:
+        $ref: '#/definitions/v3GatewayVersionIdentifiers'
+      gateway_server_address:
+        type: string
+        description: 'The address of the Gateway Server to connect to.
+
+          This information is public and can be seen by any authenticated user in the network if status_public is true.
+
+          The typical format of the address is "scheme://host:port". The scheme is optional. If the port is omitted,
+
+          the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+          The connection shall be established with transport layer security (TLS).
+
+          Custom certificate authorities may be configured out-of-band.'
+      auto_update:
+        type: boolean
+      update_channel:
+        type: string
+      frequency_plan_id:
+        type: string
+        description: 'Frequency plan ID of the gateway.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          DEPRECATED: use frequency_plan_ids.
+
+          This equals the first element of the frequency_plan_ids field.'
+      frequency_plan_ids:
+        type: array
+        items:
+          type: string
+        description: 'Frequency plan IDs of the gateway.
+
+          This information is public and can be seen by any authenticated user in the network.
+
+          The first element equals the frequency_plan_id field.'
+      antennas:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3GatewayAntenna'
+        description: Antennas of the gateway. Location information of the antennas is public and can be seen by any authenticated
+          user in the network if location_public=true.
+      status_public:
+        type: boolean
+        description: The status of this gateway may be publicly displayed.
+      location_public:
+        type: boolean
+        description: The location of this gateway may be publicly displayed.
+      schedule_downlink_late:
+        type: boolean
+        description: 'Enable server-side buffering of downlink messages. This is recommended for gateways using the Semtech
+          UDP Packet
+
+          Forwarder v2.x or older, as it does not feature a just-in-time queue. If enabled, the Gateway Server schedules the
+
+          downlink message late to the gateway so that it does not overwrite previously scheduled downlink messages that have
+
+          not been transmitted yet.'
+      enforce_duty_cycle:
+        type: boolean
+        description: 'Enforcing gateway duty cycle is recommended for all gateways to respect spectrum regulations. Disable
+          enforcing the
+
+          duty cycle only in controlled research and development environments.'
+      downlink_path_constraint:
+        $ref: '#/definitions/v3DownlinkPathConstraint'
+      schedule_anytime_delay:
+        type: string
+        description: Adjust the time that GS schedules class C messages in advance. This is useful for gateways that have
+          a known high latency backhaul, like 3G and satellite.
+      update_location_from_status:
+        type: boolean
+        description: Update the location of this gateway from status messages. This only works for gateways connecting with
+          authentication; gateways connected over UDP are not supported.
+      lbs_lns_secret:
+        $ref: '#/definitions/v3Secret'
+        description: 'The LoRa Basics Station LNS secret.
+
+          This is either an auth token (such as an API Key) or a TLS private certificate.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+      claim_authentication_code:
+        $ref: '#/definitions/v3GatewayClaimAuthenticationCode'
+        description: 'The authentication code for gateway claiming.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.
+
+          The entire field must be used in RPCs since sub-fields are validated wrt to each other. Direct selection/update
+          of sub-fields only are not allowed.
+
+          Use the top level field mask `claim_authentication_code` even when updating single fields.'
+      target_cups_uri:
+        type: string
+        description: 'CUPS URI for LoRa Basics Station CUPS redirection.
+
+          The CUPS Trust field will be automatically fetched from the cert chain presented by the target server.'
+      target_cups_key:
+        $ref: '#/definitions/v3Secret'
+        description: 'CUPS Key for LoRa Basics Station CUPS redirection.
+
+          If redirecting to another instance of TTS, use the CUPS API Key for the gateway on the target instance.
+
+          Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+      require_authenticated_connection:
+        type: boolean
+        description: Require an authenticated gateway connection. This prevents the gateway from using the UDP protocol and
+          requires authentication when using other protocols.
+      lrfhss:
+        $ref: '#/definitions/GatewayLRFHSS'
+      disable_packet_broker_forwarding:
+        type: boolean
+    description: Gateway is the message that defines a gateway on the network.
+  v3GatewayAccessCreateAPIKeyBody:
+    type: object
+    properties:
+      gateway_ids:
+        type: object
+        properties:
+          eui:
+            type: string
+            format: string
+            example: 70B3D57ED000ABCD
+            description: Secondary identifier, which can only be used in specific requests.
+      name:
+        type: string
+      rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+      expires_at:
+        type: string
+        format: date-time
+  v3GatewayAccessSetCollaboratorBody:
+    type: object
+    properties:
+      gateway_ids:
+        type: object
+        properties:
+          eui:
+            type: string
+            format: string
+            example: 70B3D57ED000ABCD
+            description: Secondary identifier, which can only be used in specific requests.
+      collaborator:
+        $ref: '#/definitions/v3Collaborator'
+  v3GatewayAccessUpdateAPIKeyBody:
+    type: object
+    properties:
+      gateway_ids:
+        type: object
+        properties:
+          eui:
+            type: string
+            format: string
+            example: 70B3D57ED000ABCD
+            description: Secondary identifier, which can only be used in specific requests.
+      api_key:
+        type: object
+        properties:
+          key:
+            type: string
+            description: 'Immutable and unique secret value of the API key.
+
+              Generated by the Access Server.'
+          name:
+            type: string
+            description: User-defined (friendly) name for the API key.
+          rights:
+            type: array
+            items:
+              $ref: '#/definitions/v3Right'
+            description: Rights that are granted to this API key.
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          expires_at:
+            type: string
+            format: date-time
+      field_mask:
+        type: string
+        description: The names of the api key fields that should be updated.
+  v3GatewayAntenna:
+    type: object
+    properties:
+      gain:
+        type: number
+        format: float
+        description: Antenna gain relative to the gateway, in dBi.
+      location:
+        $ref: '#/definitions/lorawanv3Location'
+        description: location is the antenna's location.
+      attributes:
+        type: object
+        additionalProperties:
+          type: string
+      placement:
+        $ref: '#/definitions/v3GatewayAntennaPlacement'
+    description: GatewayAntenna is the message that defines a gateway antenna.
+  v3GatewayAntennaPlacement:
+    type: string
+    enum:
+    - PLACEMENT_UNKNOWN
+    - INDOOR
+    - OUTDOOR
+    default: PLACEMENT_UNKNOWN
+  v3GatewayClaimAuthenticationCode:
+    type: object
+    properties:
+      secret:
+        $ref: '#/definitions/v3Secret'
+      valid_from:
+        type: string
+        format: date-time
+      valid_to:
+        type: string
+        format: date-time
+    description: Authentication code for claiming gateways.
+  v3GatewayConnectionStats:
+    type: object
+    properties:
+      connected_at:
+        type: string
+        format: date-time
+      disconnected_at:
+        type: string
+        format: date-time
+      protocol:
+        type: string
+        title: Protocol used to connect (for example, udp, mqtt, grpc)
+      last_status_received_at:
+        type: string
+        format: date-time
+      last_status:
+        $ref: '#/definitions/v3GatewayStatus'
+      last_uplink_received_at:
+        type: string
+        format: date-time
+      uplink_count:
+        type: string
+        format: uint64
+      last_downlink_received_at:
+        type: string
+        format: date-time
+      downlink_count:
+        type: string
+        format: uint64
+      last_tx_acknowledgment_received_at:
+        type: string
+        format: date-time
+      tx_acknowledgment_count:
+        type: string
+        format: uint64
+      round_trip_times:
+        $ref: '#/definitions/GatewayConnectionStatsRoundTripTimes'
+      sub_bands:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/GatewayConnectionStatsSubBand'
+        description: Statistics for each sub band.
+      gateway_remote_address:
+        $ref: '#/definitions/v3GatewayRemoteAddress'
+        description: Gateway Remote Address.
+    description: Connection stats as monitored by the Gateway Server.
+  v3GatewayQRCodeGeneratorParseBody:
+    type: object
+    properties:
+      qr_code:
+        type: string
+        format: byte
+        description: Raw QR code contents.
+  v3GatewayRegistryCreateBody:
+    type: object
+    properties:
+      gateway:
+        $ref: '#/definitions/v3Gateway'
+      collaborator:
+        type: object
+        properties:
+          organization_ids:
+            type: object
+          user_ids:
+            $ref: '#/definitions/v3UserIdentifiers'
+        description: Collaborator to grant all rights on the newly created gateway.
+        title: Collaborator to grant all rights on the newly created gateway.
+  v3GatewayRegistryUpdateBody:
+    type: object
+    properties:
+      gateway:
+        type: object
+        properties:
+          ids:
+            type: object
+            properties:
+              eui:
+                type: string
+                format: string
+                example: 70B3D57ED000ABCD
+                description: Secondary identifier, which can only be used in specific requests.
+            description: The identifiers of the gateway. These are public and can be seen by any authenticated user in the
+              network.
+            title: The identifiers of the gateway. These are public and can be seen by any authenticated user in the network.
+          created_at:
+            type: string
+            format: date-time
+            description: When the gateway was created. This information is public and can be seen by any authenticated user
+              in the network.
+          updated_at:
+            type: string
+            format: date-time
+            description: When the gateway was last updated. This information is public and can be seen by any authenticated
+              user in the network.
+          deleted_at:
+            type: string
+            format: date-time
+            description: When the gateway was deleted. This information is public and can be seen by any authenticated user
+              in the network.
+          name:
+            type: string
+            description: The name of the gateway. This information is public and can be seen by any authenticated user in
+              the network.
+          description:
+            type: string
+            description: A description for the gateway. This information is public and can be seen by any authenticated user
+              in the network.
+          attributes:
+            type: object
+            additionalProperties:
+              type: string
+            description: Key-value attributes for this gateway. Typically used for organizing gateways or for storing integration-specific
+              data.
+          contact_info:
+            type: array
+            items:
+              type: object
+              $ref: '#/definitions/v3ContactInfo'
+            description: 'Contact information for this gateway. Typically used to indicate who to contact with technical/security
+              questions about the gateway.
+
+              This field is deprecated. Use administrative_contact and technical_contact instead.'
+          administrative_contact:
+            $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+          technical_contact:
+            $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+          version_ids:
+            $ref: '#/definitions/v3GatewayVersionIdentifiers'
+          gateway_server_address:
+            type: string
+            description: 'The address of the Gateway Server to connect to.
+
+              This information is public and can be seen by any authenticated user in the network if status_public is true.
+
+              The typical format of the address is "scheme://host:port". The scheme is optional. If the port is omitted,
+
+              the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+              The connection shall be established with transport layer security (TLS).
+
+              Custom certificate authorities may be configured out-of-band.'
+          auto_update:
+            type: boolean
+          update_channel:
+            type: string
+          frequency_plan_id:
+            type: string
+            description: 'Frequency plan ID of the gateway.
+
+              This information is public and can be seen by any authenticated user in the network.
+
+              DEPRECATED: use frequency_plan_ids.
+
+              This equals the first element of the frequency_plan_ids field.'
+          frequency_plan_ids:
+            type: array
+            items:
+              type: string
+            description: 'Frequency plan IDs of the gateway.
+
+              This information is public and can be seen by any authenticated user in the network.
+
+              The first element equals the frequency_plan_id field.'
+          antennas:
+            type: array
+            items:
+              type: object
+              $ref: '#/definitions/v3GatewayAntenna'
+            description: Antennas of the gateway. Location information of the antennas is public and can be seen by any authenticated
+              user in the network if location_public=true.
+          status_public:
+            type: boolean
+            description: The status of this gateway may be publicly displayed.
+          location_public:
+            type: boolean
+            description: The location of this gateway may be publicly displayed.
+          schedule_downlink_late:
+            type: boolean
+            description: 'Enable server-side buffering of downlink messages. This is recommended for gateways using the Semtech
+              UDP Packet
+
+              Forwarder v2.x or older, as it does not feature a just-in-time queue. If enabled, the Gateway Server schedules
+              the
+
+              downlink message late to the gateway so that it does not overwrite previously scheduled downlink messages that
+              have
+
+              not been transmitted yet.'
+          enforce_duty_cycle:
+            type: boolean
+            description: 'Enforcing gateway duty cycle is recommended for all gateways to respect spectrum regulations. Disable
+              enforcing the
+
+              duty cycle only in controlled research and development environments.'
+          downlink_path_constraint:
+            $ref: '#/definitions/v3DownlinkPathConstraint'
+          schedule_anytime_delay:
+            type: string
+            description: Adjust the time that GS schedules class C messages in advance. This is useful for gateways that have
+              a known high latency backhaul, like 3G and satellite.
+          update_location_from_status:
+            type: boolean
+            description: Update the location of this gateway from status messages. This only works for gateways connecting
+              with authentication; gateways connected over UDP are not supported.
+          lbs_lns_secret:
+            $ref: '#/definitions/v3Secret'
+            description: 'The LoRa Basics Station LNS secret.
+
+              This is either an auth token (such as an API Key) or a TLS private certificate.
+
+              Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+          claim_authentication_code:
+            $ref: '#/definitions/v3GatewayClaimAuthenticationCode'
+            description: 'The authentication code for gateway claiming.
+
+              Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.
+
+              The entire field must be used in RPCs since sub-fields are validated wrt to each other. Direct selection/update
+              of sub-fields only are not allowed.
+
+              Use the top level field mask `claim_authentication_code` even when updating single fields.'
+          target_cups_uri:
+            type: string
+            description: 'CUPS URI for LoRa Basics Station CUPS redirection.
+
+              The CUPS Trust field will be automatically fetched from the cert chain presented by the target server.'
+          target_cups_key:
+            $ref: '#/definitions/v3Secret'
+            description: 'CUPS Key for LoRa Basics Station CUPS redirection.
+
+              If redirecting to another instance of TTS, use the CUPS API Key for the gateway on the target instance.
+
+              Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+          require_authenticated_connection:
+            type: boolean
+            description: Require an authenticated gateway connection. This prevents the gateway from using the UDP protocol
+              and requires authentication when using other protocols.
+          lrfhss:
+            $ref: '#/definitions/GatewayLRFHSS'
+          disable_packet_broker_forwarding:
+            type: boolean
+        description: Gateway is the message that defines a gateway on the network.
+      field_mask:
+        type: string
+        description: The names of the gateway fields that should be updated.
+  v3GatewayRemoteAddress:
+    type: object
+    properties:
+      ip:
+        type: string
+        description: IPv4 or IPv6 address.
+    description: Remote Address of the Gateway, as seen by the Gateway Server.
+  v3GatewayStatus:
+    type: object
+    properties:
+      time:
+        type: string
+        format: date-time
+        title: Current time of the gateway
+      boot_time:
+        type: string
+        format: date-time
+        title: 'Boot time of the gateway
+
+          - can be left out to save bandwidth; old value will be kept'
+      versions:
+        type: object
+        additionalProperties:
+          type: string
+        title: "Versions of gateway subsystems\n- each field can be left out to save bandwidth; old value will be kept\n-\
+          \ map keys are written in snake_case\n- for example:\n    firmware: \"2.0.4\"\n    forwarder: \"v2-3.3.1\"\n   \
+          \ fpga: \"48\"\n    dsp: \"27\"\n    hal: \"v2-3.5.0\""
+      antenna_locations:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/lorawanv3Location'
+        title: 'Location of each gateway''s antenna
+
+          - if left out, server uses registry-set location as fallback'
+      ip:
+        type: array
+        items:
+          type: string
+        description: 'IP addresses of this gateway.
+
+          Repeated addresses can be used to communicate addresses of multiple interfaces (LAN, Public IP, ...).'
+      metrics:
+        type: object
+        additionalProperties:
+          type: number
+          format: float
+        title: 'Metrics
+
+          - can be used for forwarding gateway metrics such as temperatures or performance metrics
+
+          - map keys are written in snake_case'
+      advanced:
+        type: object
+        title: 'Advanced metadata fields
+
+          - can be used for advanced information or experimental features that are not yet formally defined in the API
+
+          - field names are written in snake_case'
+  v3GatewayVersionIdentifiers:
+    type: object
+    properties:
+      brand_id:
+        type: string
+      model_id:
+        type: string
+      hardware_version:
+        type: string
+      firmware_version:
+        type: string
+      runtime_version:
+        type: string
+    description: Identifies an end device model with version information.
+  v3Gateways:
+    type: object
+    properties:
+      gateways:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3Gateway'
+  v3GetCollaboratorResponse:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+      rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+  v3GetGatewayConfigurationResponse:
+    type: object
+    properties:
+      contents:
+        type: string
+        format: byte
+  v3GetInfoByGatewayEUIRequest:
+    type: object
+    properties:
+      eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+  v3GetInfoByGatewayEUIResponse:
+    type: object
+    properties:
+      eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+      supports_claiming:
+        type: boolean
+      is_managed:
+        type: boolean
+        description: 'Indicates whether the gateway is a managed gateway.
+
+          If true, when the gateway is successfully claimed, it can be managed with ManagedGatewayConfigurationService.'
+  v3ListGatewaysRequest:
+    type: object
+    properties:
+      collaborator:
+        $ref: '#/definitions/v3OrganizationOrUserIdentifiers'
+        description: 'By default we list all gateways the caller has rights on.
+
+          Set the user or the organization (not both) to instead list the gateways
+
+          where the user or organization is collaborator on.'
+      field_mask:
+        type: string
+        description: The names of the gateway fields that should be returned.
+      order:
+        type: string
+        description: 'Order the results by this field path (must be present in the field mask).
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+      limit:
+        type: integer
+        format: int64
+        description: Limit the number of results per page.
+      page:
+        type: integer
+        format: int64
+        description: Page number for pagination. 0 is interpreted as 1.
+      deleted:
+        type: boolean
+        description: Only return recently deleted gateways.
+      filters:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ListGatewaysRequestFilter'
+  v3ListGatewaysRequestFilter:
+    type: object
+    properties:
+      updated_since:
+        type: string
+        format: date-time
+    description: Filter gateways by fields.
+  v3LocationSource:
+    type: string
+    enum:
+    - SOURCE_UNKNOWN
+    - SOURCE_GPS
+    - SOURCE_REGISTRY
+    - SOURCE_IP_GEOLOCATION
+    - SOURCE_WIFI_RSSI_GEOLOCATION
+    - SOURCE_BT_RSSI_GEOLOCATION
+    - SOURCE_LORA_RSSI_GEOLOCATION
+    - SOURCE_LORA_TDOA_GEOLOCATION
+    - SOURCE_COMBINED_GEOLOCATION
+    default: SOURCE_UNKNOWN
+    description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined\
+      \ by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location\
+      \ is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n\
+      \ - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION:\
+      \ The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated\
+      \ with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation\
+      \ sources.\n\nMore estimation methods can be added."
+  v3MQTTConnectionInfo:
+    type: object
+    properties:
+      public_address:
+        type: string
+        description: The public listen address of the frontend.
+      public_tls_address:
+        type: string
+        description: The public listen address of the TLS frontend.
+      username:
+        type: string
+        description: The username to be used for authentication.
+    description: The connection information of an MQTT frontend.
+  v3ManagedGateway:
+    type: object
+    properties:
+      ids:
+        $ref: '#/definitions/lorawanv3GatewayIdentifiers'
+      version_ids:
+        $ref: '#/definitions/v3GatewayVersionIdentifiers'
+      cellular_imei:
+        type: string
+      cellular_imsi:
+        type: string
+      wifi_mac_address:
+        type: string
+        format: string
+        example: EC656E000100
+      ethernet_mac_address:
+        type: string
+        format: string
+        example: EC656E000100
+      wifi_profile_id:
+        type: string
+      ethernet_profile_id:
+        type: string
+  v3ManagedGatewayCellularBackhaul:
+    type: object
+    properties:
+      network_interface:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceInfo'
+      operator:
+        type: string
+      rssi:
+        type: number
+        format: float
+  v3ManagedGatewayConfigurationServiceUpdateBody:
+    type: object
+    properties:
+      gateway:
+        type: object
+        properties:
+          ids:
+            type: object
+            properties:
+              eui:
+                type: string
+                format: string
+                example: 70B3D57ED000ABCD
+                description: Secondary identifier, which can only be used in specific requests.
+          version_ids:
+            $ref: '#/definitions/v3GatewayVersionIdentifiers'
+          cellular_imei:
+            type: string
+          cellular_imsi:
+            type: string
+          wifi_mac_address:
+            type: string
+            format: string
+            example: EC656E000100
+          ethernet_mac_address:
+            type: string
+            format: string
+            example: EC656E000100
+          wifi_profile_id:
+            type: string
+          ethernet_profile_id:
+            type: string
+      field_mask:
+        type: string
+        description: The names of the gateway fields that should be updated.
+  v3ManagedGatewayControllerConnection:
+    type: object
+    properties:
+      network_interface_type:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceType'
+  v3ManagedGatewayEthernetBackhaul:
+    type: object
+    properties:
+      network_interface:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceInfo'
+  v3ManagedGatewayEthernetProfile:
+    type: object
+    properties:
+      profile_id:
+        type: string
+      profile_name:
+        type: string
+      shared:
+        type: boolean
+      network_interface_addresses:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceAddresses'
+  v3ManagedGatewayEthernetProfileConfigurationServiceCreateBody:
+    type: object
+    properties:
+      profile:
+        $ref: '#/definitions/v3ManagedGatewayEthernetProfile'
+      collaborator:
+        type: object
+        properties:
+          organization_ids:
+            $ref: '#/definitions/v3OrganizationIdentifiers'
+          user_ids:
+            type: object
+            properties:
+              email:
+                type: string
+                description: Secondary identifier, which can only be used in specific requests.
+        description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+  v3ManagedGatewayEthernetProfileConfigurationServiceUpdateBody:
+    type: object
+    properties:
+      profile:
+        type: object
+        properties:
+          profile_name:
+            type: string
+          shared:
+            type: boolean
+          network_interface_addresses:
+            $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceAddresses'
+      collaborator:
+        type: object
+        properties:
+          organization_ids:
+            $ref: '#/definitions/v3OrganizationIdentifiers'
+          user_ids:
+            type: object
+            properties:
+              email:
+                type: string
+                description: Secondary identifier, which can only be used in specific requests.
+        description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+      field_mask:
+        type: string
+        description: The names of the gateway fields that should be updated.
+  v3ManagedGatewayEthernetProfiles:
+    type: object
+    properties:
+      profiles:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ManagedGatewayEthernetProfile'
+  v3ManagedGatewayEventData:
+    type: object
+    properties:
+      entity:
+        $ref: '#/definitions/v3ManagedGateway'
+      location:
+        $ref: '#/definitions/lorawanv3Location'
+      system_status:
+        $ref: '#/definitions/v3ManagedGatewaySystemStatus'
+      controller_connection:
+        $ref: '#/definitions/v3ManagedGatewayControllerConnection'
+      gateway_server_connection:
+        $ref: '#/definitions/v3ManagedGatewayGatewayServerConnection'
+      cellular_backhaul:
+        $ref: '#/definitions/v3ManagedGatewayCellularBackhaul'
+      wifi_backhaul:
+        $ref: '#/definitions/v3ManagedGatewayWiFiBackhaul'
+      ethernet_backhaul:
+        $ref: '#/definitions/v3ManagedGatewayEthernetBackhaul'
+  v3ManagedGatewayGatewayServerConnection:
+    type: object
+    properties:
+      network_interface_type:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceType'
+      address:
+        type: string
+  v3ManagedGatewayNetworkInterfaceAddresses:
+    type: object
+    properties:
+      ip_addresses:
+        type: string
+        example:
+        - 192.0.2.0
+        - 2001:db8::1
+        items:
+          type: string
+          format: string
+      subnet_mask:
+        type: string
+        format: string
+        example: 192.0.2.0
+      gateway:
+        type: string
+        format: string
+        example: 192.0.2.0
+      dns_servers:
+        type: string
+        example:
+        - 192.0.2.0
+        - 192.0.2.1
+        items:
+          type: string
+          format: string
+  v3ManagedGatewayNetworkInterfaceInfo:
+    type: object
+    properties:
+      status:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceStatus'
+      dhcp_enabled:
+        type: boolean
+      addresses:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceAddresses'
+  v3ManagedGatewayNetworkInterfaceStatus:
+    type: string
+    enum:
+    - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED
+    - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_DOWN
+    - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UP
+    - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_FAILED
+    default: MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED
+  v3ManagedGatewayNetworkInterfaceType:
+    type: string
+    enum:
+    - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_UNSPECIFIED
+    - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_CELLULAR
+    - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_WIFI
+    - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_ETHERNET
+    default: MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_UNSPECIFIED
+  v3ManagedGatewaySystemStatus:
+    type: object
+    properties:
+      cpu_temperature:
+        type: number
+        format: float
+        description: CPU temperature (Celsius).
+  v3ManagedGatewayWiFiAccessPoint:
+    type: object
+    properties:
+      ssid:
+        type: string
+      bssid:
+        type: string
+        format: string
+        example: EC656E000100
+      channel:
+        type: integer
+        format: int64
+      authentication_mode:
+        type: string
+      rssi:
+        type: number
+        format: float
+  v3ManagedGatewayWiFiAccessPoints:
+    type: object
+    properties:
+      access_points:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ManagedGatewayWiFiAccessPoint'
+  v3ManagedGatewayWiFiBackhaul:
+    type: object
+    properties:
+      network_interface:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceInfo'
+      ssid:
+        type: string
+      bssid:
+        type: string
+        format: string
+        example: EC656E000100
+      channel:
+        type: integer
+        format: int64
+      authentication_mode:
+        type: string
+      rssi:
+        type: number
+        format: float
+  v3ManagedGatewayWiFiProfile:
+    type: object
+    properties:
+      profile_id:
+        type: string
+      profile_name:
+        type: string
+      shared:
+        type: boolean
+      ssid:
+        type: string
+      password:
+        type: string
+      network_interface_addresses:
+        $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceAddresses'
+  v3ManagedGatewayWiFiProfileConfigurationServiceCreateBody:
+    type: object
+    properties:
+      profile:
+        $ref: '#/definitions/v3ManagedGatewayWiFiProfile'
+      collaborator:
+        type: object
+        properties:
+          organization_ids:
+            $ref: '#/definitions/v3OrganizationIdentifiers'
+          user_ids:
+            type: object
+            properties:
+              email:
+                type: string
+                description: Secondary identifier, which can only be used in specific requests.
+        description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+  v3ManagedGatewayWiFiProfileConfigurationServiceUpdateBody:
+    type: object
+    properties:
+      profile:
+        type: object
+        properties:
+          profile_name:
+            type: string
+          shared:
+            type: boolean
+          ssid:
+            type: string
+          password:
+            type: string
+          network_interface_addresses:
+            $ref: '#/definitions/v3ManagedGatewayNetworkInterfaceAddresses'
+      collaborator:
+        type: object
+        properties:
+          organization_ids:
+            $ref: '#/definitions/v3OrganizationIdentifiers'
+          user_ids:
+            type: object
+            properties:
+              email:
+                type: string
+                description: Secondary identifier, which can only be used in specific requests.
+        description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+      field_mask:
+        type: string
+        description: The names of the gateway fields that should be updated.
+  v3ManagedGatewayWiFiProfiles:
+    type: object
+    properties:
+      profiles:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v3ManagedGatewayWiFiProfile'
+  v3OrganizationIdentifiers:
+    type: object
+    properties:
+      organization_id:
+        type: string
+        description: This ID shares namespace with user IDs.
+  v3OrganizationOrUserIdentifiers:
+    type: object
+    properties:
+      organization_ids:
+        $ref: '#/definitions/v3OrganizationIdentifiers'
+      user_ids:
+        $ref: '#/definitions/v3UserIdentifiers'
+    description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+  v3ParseGatewayQRCodeRequest:
+    type: object
+    properties:
+      format_id:
+        type: string
+        description: 'QR code format identifier.
+
+          If this field is not specified, the server will default to ttigpro1.'
+      qr_code:
+        type: string
+        format: byte
+        description: Raw QR code contents.
+  v3ParseGatewayQRCodeResponse:
+    type: object
+    properties:
+      format_id:
+        type: string
+        description: Identifier of the format used to parse the QR code data.
+      gateway_eui:
+        type: string
+        format: string
+        example: 70B3D57ED000ABCD
+      owner_token:
+        type: string
+  v3Right:
+    type: string
+    enum:
+    - right_invalid
+    - RIGHT_USER_INFO
+    - RIGHT_USER_SETTINGS_BASIC
+    - RIGHT_USER_LIST
+    - RIGHT_USER_CREATE
+    - RIGHT_USER_SETTINGS_API_KEYS
+    - RIGHT_USER_DELETE
+    - RIGHT_USER_PURGE
+    - RIGHT_USER_AUTHORIZED_CLIENTS
+    - RIGHT_USER_APPLICATIONS_LIST
+    - RIGHT_USER_APPLICATIONS_CREATE
+    - RIGHT_USER_GATEWAYS_LIST
+    - RIGHT_USER_GATEWAYS_CREATE
+    - RIGHT_USER_CLIENTS_LIST
+    - RIGHT_USER_CLIENTS_CREATE
+    - RIGHT_USER_ORGANIZATIONS_LIST
+    - RIGHT_USER_ORGANIZATIONS_CREATE
+    - RIGHT_USER_NOTIFICATIONS_READ
+    - RIGHT_USER_ALL
+    - RIGHT_APPLICATION_INFO
+    - RIGHT_APPLICATION_SETTINGS_BASIC
+    - RIGHT_APPLICATION_SETTINGS_API_KEYS
+    - RIGHT_APPLICATION_SETTINGS_COLLABORATORS
+    - RIGHT_APPLICATION_SETTINGS_PACKAGES
+    - RIGHT_APPLICATION_DELETE
+    - RIGHT_APPLICATION_PURGE
+    - RIGHT_APPLICATION_DEVICES_READ
+    - RIGHT_APPLICATION_DEVICES_WRITE
+    - RIGHT_APPLICATION_DEVICES_READ_KEYS
+    - RIGHT_APPLICATION_DEVICES_WRITE_KEYS
+    - RIGHT_APPLICATION_TRAFFIC_READ
+    - RIGHT_APPLICATION_TRAFFIC_UP_WRITE
+    - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE
+    - RIGHT_APPLICATION_LINK
+    - RIGHT_APPLICATION_ALL
+    - RIGHT_CLIENT_ALL
+    - RIGHT_CLIENT_INFO
+    - RIGHT_CLIENT_SETTINGS_BASIC
+    - RIGHT_CLIENT_SETTINGS_COLLABORATORS
+    - RIGHT_CLIENT_DELETE
+    - RIGHT_CLIENT_PURGE
+    - RIGHT_GATEWAY_INFO
+    - RIGHT_GATEWAY_SETTINGS_BASIC
+    - RIGHT_GATEWAY_SETTINGS_API_KEYS
+    - RIGHT_GATEWAY_SETTINGS_COLLABORATORS
+    - RIGHT_GATEWAY_DELETE
+    - RIGHT_GATEWAY_PURGE
+    - RIGHT_GATEWAY_TRAFFIC_READ
+    - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE
+    - RIGHT_GATEWAY_LINK
+    - RIGHT_GATEWAY_STATUS_READ
+    - RIGHT_GATEWAY_LOCATION_READ
+    - RIGHT_GATEWAY_WRITE_SECRETS
+    - RIGHT_GATEWAY_READ_SECRETS
+    - RIGHT_GATEWAY_ALL
+    - RIGHT_ORGANIZATION_INFO
+    - RIGHT_ORGANIZATION_SETTINGS_BASIC
+    - RIGHT_ORGANIZATION_SETTINGS_API_KEYS
+    - RIGHT_ORGANIZATION_SETTINGS_MEMBERS
+    - RIGHT_ORGANIZATION_DELETE
+    - RIGHT_ORGANIZATION_PURGE
+    - RIGHT_ORGANIZATION_APPLICATIONS_LIST
+    - RIGHT_ORGANIZATION_APPLICATIONS_CREATE
+    - RIGHT_ORGANIZATION_GATEWAYS_LIST
+    - RIGHT_ORGANIZATION_GATEWAYS_CREATE
+    - RIGHT_ORGANIZATION_CLIENTS_LIST
+    - RIGHT_ORGANIZATION_CLIENTS_CREATE
+    - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR
+    - RIGHT_ORGANIZATION_ALL
+    - RIGHT_SEND_INVITES
+    - RIGHT_ALL
+    default: right_invalid
+    description: "Right is the enum that defines all the different rights to do something in the network.\n\n - RIGHT_USER_INFO:\
+      \ The right to view user information.\n - RIGHT_USER_SETTINGS_BASIC: The right to edit basic user settings.\n - RIGHT_USER_LIST:\
+      \ The right to list users accounts.\n - RIGHT_USER_CREATE: The right to create an user account.\n - RIGHT_USER_SETTINGS_API_KEYS:\
+      \ The right to view and edit user API keys.\n - RIGHT_USER_DELETE: The right to delete user account.\n - RIGHT_USER_PURGE:\
+      \ The right to delete user account.\n - RIGHT_USER_AUTHORIZED_CLIENTS: The right to view and edit authorized OAuth clients\
+      \ of the user.\n - RIGHT_USER_APPLICATIONS_LIST: The right to list applications the user is a collaborator of.\n - RIGHT_USER_APPLICATIONS_CREATE:\
+      \ The right to create an application under the user account.\n - RIGHT_USER_GATEWAYS_LIST: The right to list gateways\
+      \ the user is a collaborator of.\n - RIGHT_USER_GATEWAYS_CREATE: The right to create a gateway under the account of\
+      \ the user.\n - RIGHT_USER_CLIENTS_LIST: The right to list OAuth clients the user is a collaborator of.\n - RIGHT_USER_CLIENTS_CREATE:\
+      \ The right to create an OAuth client under the account of the user.\n - RIGHT_USER_ORGANIZATIONS_LIST: The right to\
+      \ list organizations the user is a member of.\n - RIGHT_USER_ORGANIZATIONS_CREATE: The right to create an organization\
+      \ under the user account.\n - RIGHT_USER_NOTIFICATIONS_READ: The right to read notifications sent to the user.\n - RIGHT_USER_ALL:\
+      \ The pseudo-right for all (current and future) user rights.\n - RIGHT_APPLICATION_INFO: The right to view application\
+      \ information.\n - RIGHT_APPLICATION_SETTINGS_BASIC: The right to edit basic application settings.\n - RIGHT_APPLICATION_SETTINGS_API_KEYS:\
+      \ The right to view and edit application API keys.\n - RIGHT_APPLICATION_SETTINGS_COLLABORATORS: The right to view and\
+      \ edit application collaborators.\n - RIGHT_APPLICATION_SETTINGS_PACKAGES: The right to view and edit application packages\
+      \ and associations.\n - RIGHT_APPLICATION_DELETE: The right to delete application.\n - RIGHT_APPLICATION_PURGE: The\
+      \ right to purge application.\n - RIGHT_APPLICATION_DEVICES_READ: The right to view devices in application.\n - RIGHT_APPLICATION_DEVICES_WRITE:\
+      \ The right to create devices in application.\n - RIGHT_APPLICATION_DEVICES_READ_KEYS: The right to view device keys\
+      \ in application.\nNote that keys may not be stored in a way that supports viewing them.\n - RIGHT_APPLICATION_DEVICES_WRITE_KEYS:\
+      \ The right to edit device keys in application.\n - RIGHT_APPLICATION_TRAFFIC_READ: The right to read application traffic\
+      \ (uplink and downlink).\n - RIGHT_APPLICATION_TRAFFIC_UP_WRITE: The right to write uplink application traffic.\n -\
+      \ RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE: The right to write downlink application traffic.\n - RIGHT_APPLICATION_LINK:\
+      \ The right to link as Application to a Network Server for traffic exchange,\ni.e. read uplink and write downlink (API\
+      \ keys only).\nThis right is typically only given to an Application Server.\nThis right implies RIGHT_APPLICATION_INFO,\
+      \ RIGHT_APPLICATION_TRAFFIC_READ,\nand RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE.\n - RIGHT_APPLICATION_ALL: The pseudo-right\
+      \ for all (current and future) application rights.\n - RIGHT_CLIENT_ALL: The pseudo-right for all (current and future)\
+      \ OAuth client rights.\n - RIGHT_CLIENT_INFO: The right to read client information.\n - RIGHT_CLIENT_SETTINGS_BASIC:\
+      \ The right to edit basic client settings.\n - RIGHT_CLIENT_SETTINGS_COLLABORATORS: The right to view and edit client\
+      \ collaborators.\n - RIGHT_CLIENT_DELETE: The right to delete a client.\n - RIGHT_CLIENT_PURGE: The right to purge a\
+      \ client.\n - RIGHT_GATEWAY_INFO: The right to view gateway information.\n - RIGHT_GATEWAY_SETTINGS_BASIC: The right\
+      \ to edit basic gateway settings.\n - RIGHT_GATEWAY_SETTINGS_API_KEYS: The right to view and edit gateway API keys.\n\
+      \ - RIGHT_GATEWAY_SETTINGS_COLLABORATORS: The right to view and edit gateway collaborators.\n - RIGHT_GATEWAY_DELETE:\
+      \ The right to delete gateway.\n - RIGHT_GATEWAY_PURGE: The right to purge gateway.\n - RIGHT_GATEWAY_TRAFFIC_READ:\
+      \ The right to read gateway traffic.\n - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE: The right to write downlink gateway traffic.\n\
+      \ - RIGHT_GATEWAY_LINK: The right to link as Gateway to a Gateway Server for traffic exchange,\ni.e. write uplink and\
+      \ read downlink (API keys only)\nThis right is typically only given to a gateway.\nThis right implies RIGHT_GATEWAY_INFO.\n\
+      \ - RIGHT_GATEWAY_STATUS_READ: The right to view gateway status.\n - RIGHT_GATEWAY_LOCATION_READ: The right to view\
+      \ view gateway location.\n - RIGHT_GATEWAY_WRITE_SECRETS: The right to store secrets associated with this gateway.\n\
+      \ - RIGHT_GATEWAY_READ_SECRETS: The right to retrieve secrets associated with this gateway.\n - RIGHT_GATEWAY_ALL: The\
+      \ pseudo-right for all (current and future) gateway rights.\n - RIGHT_ORGANIZATION_INFO: The right to view organization\
+      \ information.\n - RIGHT_ORGANIZATION_SETTINGS_BASIC: The right to edit basic organization settings.\n - RIGHT_ORGANIZATION_SETTINGS_API_KEYS:\
+      \ The right to view and edit organization API keys.\n - RIGHT_ORGANIZATION_SETTINGS_MEMBERS: The right to view and edit\
+      \ organization members.\n - RIGHT_ORGANIZATION_DELETE: The right to delete organization.\n - RIGHT_ORGANIZATION_PURGE:\
+      \ The right to purge organization.\n - RIGHT_ORGANIZATION_APPLICATIONS_LIST: The right to list the applications the\
+      \ organization is a collaborator of.\n - RIGHT_ORGANIZATION_APPLICATIONS_CREATE: The right to create an application\
+      \ under the organization.\n - RIGHT_ORGANIZATION_GATEWAYS_LIST: The right to list the gateways the organization is a\
+      \ collaborator of.\n - RIGHT_ORGANIZATION_GATEWAYS_CREATE: The right to create a gateway under the organization.\n -\
+      \ RIGHT_ORGANIZATION_CLIENTS_LIST: The right to list the OAuth clients the organization is a collaborator of.\n - RIGHT_ORGANIZATION_CLIENTS_CREATE:\
+      \ The right to create an OAuth client under the organization.\n - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR: The right\
+      \ to add the organization as a collaborator on an existing entity.\n - RIGHT_ORGANIZATION_ALL: The pseudo-right for\
+      \ all (current and future) organization rights.\n - RIGHT_SEND_INVITES: The right to send invites to new users.\nNote\
+      \ that this is not prefixed with \"USER_\"; it is not a right on the user entity.\n - RIGHT_ALL: The pseudo-right for\
+      \ all (current and future) possible rights."
+  v3Rights:
+    type: object
+    properties:
+      rights:
+        type: array
+        items:
+          $ref: '#/definitions/v3Right'
+  v3Secret:
+    type: object
+    properties:
+      key_id:
+        type: string
+        description: ID of the Key used to encrypt the secret.
+      value:
+        type: string
+        format: byte
+    description: Secret contains a secret value. It also contains the ID of the Encryption key used to encrypt it.
+  v3UserIdentifiers:
+    type: object
+    properties:
+      user_id:
+        type: string
+        description: This ID shares namespace with organization IDs.
+      email:
+        type: string
+        description: Secondary identifier, which can only be used in specific requests.
