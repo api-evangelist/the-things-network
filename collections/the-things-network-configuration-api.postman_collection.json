@@ -1,0 +1,842 @@
+{
+  "item": [
+    {
+      "id": "9ddce5ed-17b0-4a8c-856e-39658b2b9837",
+      "name": "Configuration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "18dec0a3-2cc4-4aad-bde3-f52b2efff90b",
+          "name": "Configuration List Bands",
+          "request": {
+            "name": "Configuration List Bands",
+            "description": {},
+            "url": {
+              "path": [
+                "configuration",
+                "bands"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "band_id",
+                  "value": "<string>",
+                  "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "phy_version",
+                  "value": "PHY_UNKNOWN",
+                  "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a0f1507-de17-4f5e-8924-c7b2cde0e353",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "bands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "band_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phy_version",
+                      "value": "PHY_UNKNOWN"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"descriptions\": {\n    \"key_0\": {\n      \"band\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4612,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 745,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": false,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": true,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            807.3658411265706,\n            6684.0950559161065\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": false,\n          \"default_max_eirp\": 8044.403728178173,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": true,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 5545,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 3537,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": false,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": true,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            3505.716288857258,\n            9224.843533585708\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": false,\n          \"default_max_eirp\": 1183.497353516978,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": true,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"key_1\": {\n      \"band\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 9419,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 3933,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_1\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_2\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": false,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": true,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            50.6327327715117,\n            2271.697576396744\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": false,\n          \"default_max_eirp\": 5479.9675525725415,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 7925,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 2827,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_1\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_2\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_3\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_4\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": true,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": true,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            9993.305320487065,\n            1128.728384709946\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": true,\n          \"default_max_eirp\": 7173.691069672972,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": true,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 9215,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 959,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_1\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": true,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            8314.946034248882,\n            4088.2768253723434\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": true,\n          \"default_max_eirp\": 9972.516836524026,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": true,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce94e108-2583-44e7-a724-1cdf635cd1d2",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "bands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "band_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phy_version",
+                      "value": "PHY_UNKNOWN"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3553,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc914928-795f-499a-ba77-50e262b8da76",
+          "name": "Configuration List Bands2",
+          "request": {
+            "name": "Configuration List Bands2",
+            "description": {},
+            "url": {
+              "path": [
+                "configuration",
+                "bands",
+                ":band_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "phy_version",
+                  "value": "PHY_UNKNOWN",
+                  "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "band_id",
+                  "description": "(Required) Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8807f89-b57f-4d7b-9c2e-e5bc287ae4bc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "bands",
+                    ":band_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "phy_version",
+                      "value": "PHY_UNKNOWN"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "band_id",
+                      "description": "(Required) Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"descriptions\": {\n    \"key_0\": {\n      \"band\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4797,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 5839,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": false,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            270.9061448887651,\n            3753.424616346721\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": true,\n          \"default_max_eirp\": 66.14724603283828,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": false\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4208,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 7696,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": true,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": true,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            5367.289872004374,\n            3214.5252847442007\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": true,\n          \"default_max_eirp\": 2250.2164938437495,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4677,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 5949,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": false,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            780.2767969674618,\n            5210.199309864471\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": false,\n          \"default_max_eirp\": 4989.599399080421,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_3\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 2707,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 9395,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_1\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_2\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_3\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_4\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": true,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            5604.722881248504,\n            3723.509259320862\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": true,\n          \"default_max_eirp\": 5562.949857128688,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": false\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"key_1\": {\n      \"band\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4227,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 2289,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": true,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            8137.393973071123,\n            4152.584437731041\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": false,\n          \"default_max_eirp\": 1388.8157054779692,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ee542ac-7611-4ed7-af87-ad58b61b41e7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "bands",
+                    ":band_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "phy_version",
+                      "value": "PHY_UNKNOWN"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "band_id",
+                      "description": "(Required) Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9451,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3abef72-2169-462e-90ca-8397430fbaee",
+          "name": "Configuration List Bands3",
+          "request": {
+            "name": "Configuration List Bands3",
+            "description": {},
+            "url": {
+              "path": [
+                "configuration",
+                "bands",
+                ":band_id",
+                ":phy_version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "band_id",
+                  "description": "(Required) Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "phy_version",
+                  "description": "(Required) Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c71125a1-4720-4ff8-bdce-511a2da64f62",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "bands",
+                    ":band_id",
+                    ":phy_version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "band_id",
+                      "description": "(Required) Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "phy_version",
+                      "description": "(Required) Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"descriptions\": {\n    \"key_0\": {\n      \"band\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4797,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 5839,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": false,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            270.9061448887651,\n            3753.424616346721\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": true,\n          \"default_max_eirp\": 66.14724603283828,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": false\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4208,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 7696,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": true,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": true,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            5367.289872004374,\n            3214.5252847442007\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": true,\n          \"default_max_eirp\": 2250.2164938437495,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4677,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 5949,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": false,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            780.2767969674618,\n            5210.199309864471\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": false,\n          \"default_max_eirp\": 4989.599399080421,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        \"key_3\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 2707,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 9395,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_1\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_2\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_3\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"key_4\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": true,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            5604.722881248504,\n            3723.509259320862\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": true,\n          \"default_max_eirp\": 5562.949857128688,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": false\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"key_1\": {\n      \"band\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"beacon\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"coding_rate\": \"string\",\n            \"frequencies\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"ping_slot_frequencies\": [\n            \"string\",\n            \"string\"\n          ],\n          \"max_uplink_channels\": 4227,\n          \"uplink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"max_downlink_channels\": 2289,\n          \"downlink_channels\": [\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"min_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_data_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"sub_bands\": [\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"min_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_frequency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"duty_cycle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"max_eirp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"data_rates\": {\n            \"key_0\": {\n              \"rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          \"freq_multiplier\": \"string\",\n          \"implements_cf_list\": true,\n          \"cf_list_type\": \"FREQUENCIES\",\n          \"receive_delay_1\": \"string\",\n          \"receive_delay_2\": \"string\",\n          \"join_accept_delay_1\": \"string\",\n          \"join_accept_delay_2\": \"string\",\n          \"max_fcnt_gap\": \"string\",\n          \"supports_dynamic_adr\": false,\n          \"adr_ack_limit\": \"ADR_ACK_LIMIT_1\",\n          \"min_retransmit_timeout\": \"string\",\n          \"max_retransmit_timeout\": \"string\",\n          \"tx_offset\": [\n            8137.393973071123,\n            4152.584437731041\n          ],\n          \"max_adr_data_rate_index\": \"DATA_RATE_0\",\n          \"relay_forward_delay\": \"string\",\n          \"relay_receive_delay\": \"string\",\n          \"tx_param_setup_req_support\": false,\n          \"default_max_eirp\": 1388.8157054779692,\n          \"default_rx2_parameters\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": \"string\"\n          },\n          \"boot_dwell_time\": {\n            \"uplinks\": false,\n            \"downlinks\": true\n          },\n          \"relay\": {\n            \"wor_channels\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e82d0aaa-0062-4791-819f-0fde8b90e020",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "bands",
+                    ":band_id",
+                    ":phy_version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "band_id",
+                      "description": "(Required) Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "phy_version",
+                      "description": "(Required) Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9451,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17f94c28-de08-4658-91e0-af86393fe58f",
+          "name": "Configuration List Frequency Plans",
+          "request": {
+            "name": "Configuration List Frequency Plans",
+            "description": {},
+            "url": {
+              "path": [
+                "configuration",
+                "frequency-plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "base_frequency",
+                  "value": "<long>",
+                  "description": "Optional base frequency in MHz for hardware support (433, 470, 868 or 915)"
+                },
+                {
+                  "disabled": false,
+                  "key": "band_id",
+                  "value": "<string>",
+                  "description": "Optional Band ID to filter the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "gateways_only",
+                  "value": "<boolean>",
+                  "description": "Optional field to include only gateway related results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "113a4ee7-d56b-4a5a-8f49-c26e89705cae",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "frequency-plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "base_frequency",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "band_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateways_only",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"frequency_plans\": [\n    {\n      \"id\": \"string\",\n      \"base_id\": \"string\",\n      \"name\": \"string\",\n      \"base_frequency\": 1463,\n      \"band_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"base_id\": \"string\",\n      \"name\": \"string\",\n      \"base_frequency\": 1931,\n      \"band_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "471da0b0-cf68-4f99-b4eb-6d088ecc1692",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "frequency-plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "base_frequency",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "band_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateways_only",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9451,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7eb414b-42cf-4feb-9e32-d27b2a4f13f7",
+          "name": "Returns a list of supported LoRaWAN PHY Versions for the given Band ID.",
+          "request": {
+            "name": "Returns a list of supported LoRaWAN PHY Versions for the given Band ID.",
+            "description": {},
+            "url": {
+              "path": [
+                "configuration",
+                "phy-versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "band_id",
+                  "value": "<string>",
+                  "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands and their versions are returned."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "308d971e-4c4b-44ba-931f-5c8e298bf860",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "phy-versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "band_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version_info\": [\n    {\n      \"band_id\": \"string\",\n      \"phy_versions\": [\n        \"PHY_UNKNOWN\",\n        \"PHY_UNKNOWN\"\n      ]\n    },\n    {\n      \"band_id\": \"string\",\n      \"phy_versions\": [\n        \"PHY_UNKNOWN\",\n        \"PHY_UNKNOWN\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "291badc6-464e-4617-8cbd-74483896bb19",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "phy-versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "band_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9451,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ec055004-82fe-4988-83e3-60c7996dca25",
+    "name": "The Things Stack — Application Server AppAs Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1010 @@
+{
+  "item": [
+    {
+      "id": "325e5dca-ef9a-4f4e-bcbc-ad6e3c518d0b",
+      "name": "NsMACSettingsProfileRegistry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a52ba667-269d-4d01-834f-40892d59fe4c",
+          "name": "List lists the MAC settings profiles.",
+          "request": {
+            "name": "List lists the MAC settings profiles.",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "applications",
+                ":application_ids.application_id",
+                "mac_settings_profiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the fields that should be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c153bba-0db0-4dc4-bf3d-76ede666f539",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":application_ids.application_id",
+                    "mac_settings_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mac_settings_profiles\": [\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"profile_id\": \"string\"\n      },\n      \"mac_settings\": {\n        \"class_b_timeout\": \"string\",\n        \"ping_slot_periodicity\": {\n          \"value\": \"PING_EVERY_1S\"\n        },\n        \"ping_slot_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"ping_slot_frequency\": {\n          \"value\": \"string\"\n        },\n        \"beacon_frequency\": {\n          \"value\": \"string\"\n        },\n        \"class_c_timeout\": \"string\",\n        \"rx1_delay\": {\n          \"value\": \"RX_DELAY_0\"\n        },\n        \"rx1_data_rate_offset\": {\n          \"value\": \"DATA_RATE_OFFSET_0\"\n        },\n        \"rx2_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"rx2_frequency\": {\n          \"value\": \"string\"\n        },\n        \"factory_preset_frequencies\": [\n          \"string\",\n          \"string\"\n        ],\n        \"max_duty_cycle\": {\n          \"value\": \"DUTY_CYCLE_1\"\n        },\n        \"supports_32_bit_f_cnt\": {\n          \"value\": false\n        },\n        \"use_adr\": {\n          \"value\": false\n        },\n        \"adr_margin\": 3428.5384638596406,\n        \"resets_f_cnt\": {\n          \"value\": false\n        },\n        \"status_time_periodicity\": \"string\",\n        \"status_count_periodicity\": 3318,\n        \"desired_rx1_delay\": {\n          \"value\": \"RX_DELAY_0\"\n        },\n        \"desired_rx1_data_rate_offset\": {\n          \"value\": \"DATA_RATE_OFFSET_0\"\n        },\n        \"desired_rx2_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"desired_rx2_frequency\": {\n          \"value\": \"string\"\n        },\n        \"desired_max_duty_cycle\": {\n          \"value\": \"DUTY_CYCLE_1\"\n        },\n        \"desired_adr_ack_limit_exponent\": {\n          \"value\": \"ADR_ACK_LIMIT_1\"\n        },\n        \"desired_adr_ack_delay_exponent\": {\n          \"value\": \"ADR_ACK_DELAY_1\"\n        },\n        \"desired_ping_slot_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"desired_ping_slot_frequency\": {\n          \"value\": \"string\"\n        },\n        \"desired_beacon_frequency\": {\n          \"value\": \"string\"\n        },\n        \"desired_max_eirp\": {\n          \"value\": \"DEVICE_EIRP_8\"\n        },\n        \"class_b_c_downlink_interval\": \"string\",\n        \"uplink_dwell_time\": {\n          \"value\": true\n        },\n        \"downlink_dwell_time\": {\n          \"value\": true\n        },\n        \"adr\": {\n          \"static\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tx_power_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nb_trans\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dynamic\": {\n            \"margin\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"min_data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"min_tx_power_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_tx_power_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"min_nb_trans\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_nb_trans\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channel_steering\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overrides\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"disabled\": {}\n        },\n        \"schedule_downlinks\": {\n          \"value\": false\n        },\n        \"relay\": {\n          \"serving\": {\n            \"second_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"default_channel_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cad_periodicity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_forwarding_rules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limits\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"served\": {\n            \"always\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dynamic\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_device_controlled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"backoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"second_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"serving_device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"desired_relay\": {\n          \"serving\": {\n            \"second_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"default_channel_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cad_periodicity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_forwarding_rules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limits\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"served\": {\n            \"always\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dynamic\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_device_controlled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"backoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"second_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"serving_device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"end_devices_count\": 7355\n    },\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"profile_id\": \"string\"\n      },\n      \"mac_settings\": {\n        \"class_b_timeout\": \"string\",\n        \"ping_slot_periodicity\": {\n          \"value\": \"PING_EVERY_1S\"\n        },\n        \"ping_slot_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"ping_slot_frequency\": {\n          \"value\": \"string\"\n        },\n        \"beacon_frequency\": {\n          \"value\": \"string\"\n        },\n        \"class_c_timeout\": \"string\",\n        \"rx1_delay\": {\n          \"value\": \"RX_DELAY_0\"\n        },\n        \"rx1_data_rate_offset\": {\n          \"value\": \"DATA_RATE_OFFSET_0\"\n        },\n        \"rx2_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"rx2_frequency\": {\n          \"value\": \"string\"\n        },\n        \"factory_preset_frequencies\": [\n          \"string\",\n          \"string\"\n        ],\n        \"max_duty_cycle\": {\n          \"value\": \"DUTY_CYCLE_1\"\n        },\n        \"supports_32_bit_f_cnt\": {\n          \"value\": true\n        },\n        \"use_adr\": {\n          \"value\": true\n        },\n        \"adr_margin\": 5592.335884172414,\n        \"resets_f_cnt\": {\n          \"value\": false\n        },\n        \"status_time_periodicity\": \"string\",\n        \"status_count_periodicity\": 1460,\n        \"desired_rx1_delay\": {\n          \"value\": \"RX_DELAY_0\"\n        },\n        \"desired_rx1_data_rate_offset\": {\n          \"value\": \"DATA_RATE_OFFSET_0\"\n        },\n        \"desired_rx2_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"desired_rx2_frequency\": {\n          \"value\": \"string\"\n        },\n        \"desired_max_duty_cycle\": {\n          \"value\": \"DUTY_CYCLE_1\"\n        },\n        \"desired_adr_ack_limit_exponent\": {\n          \"value\": \"ADR_ACK_LIMIT_1\"\n        },\n        \"desired_adr_ack_delay_exponent\": {\n          \"value\": \"ADR_ACK_DELAY_1\"\n        },\n        \"desired_ping_slot_data_rate_index\": {\n          \"value\": \"DATA_RATE_0\"\n        },\n        \"desired_ping_slot_frequency\": {\n          \"value\": \"string\"\n        },\n        \"desired_beacon_frequency\": {\n          \"value\": \"string\"\n        },\n        \"desired_max_eirp\": {\n          \"value\": \"DEVICE_EIRP_8\"\n        },\n        \"class_b_c_downlink_interval\": \"string\",\n        \"uplink_dwell_time\": {\n          \"value\": false\n        },\n        \"downlink_dwell_time\": {\n          \"value\": true\n        },\n        \"adr\": {\n          \"static\": {\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tx_power_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nb_trans\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dynamic\": {\n            \"margin\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"min_data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"min_tx_power_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_tx_power_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"min_nb_trans\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_nb_trans\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"channel_steering\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overrides\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"disabled\": {}\n        },\n        \"schedule_downlinks\": {\n          \"value\": false\n        },\n        \"relay\": {\n          \"serving\": {\n            \"second_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"default_channel_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cad_periodicity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_forwarding_rules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limits\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"served\": {\n            \"always\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dynamic\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_device_controlled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"backoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"second_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"serving_device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"desired_relay\": {\n          \"serving\": {\n            \"second_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"default_channel_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cad_periodicity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_forwarding_rules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"limits\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"served\": {\n            \"always\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dynamic\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_device_controlled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"backoff\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"second_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"serving_device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"end_devices_count\": 6852\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76437e3e-a683-46b5-beb5-657162841235",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":application_ids.application_id",
+                    "mac_settings_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9850,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f7b647a-a197-46b2-aa33-13cb8dfeaca6",
+          "name": "Create creates a new MAC settings profile.",
+          "request": {
+            "name": "Create creates a new MAC settings profile.",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "applications",
+                ":mac_settings_profile.ids.application_ids.application_id",
+                "mac_settings_profiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mac_settings_profile.ids.application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"max_data_rate_index\": {\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_4\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_5\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_6\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_7\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_8\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_9\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_10\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_11\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_12\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_13\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_14\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_15\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"join_requests\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notifications\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_messages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overall\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": \"<object>\",\n          \"dynamic\": {\n            \"smart_enable_level\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"end_device_controlled\": \"<object>\",\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"join_requests\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notifications\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_messages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overall\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": \"<object>\",\n          \"dynamic\": {\n            \"smart_enable_level\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"end_device_controlled\": \"<object>\",\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0899df63-490a-4df7-afc4-074db785297e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":mac_settings_profile.ids.application_ids.application_id",
+                    "mac_settings_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"max_data_rate_index\": {\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_4\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_5\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_6\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_7\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_8\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_9\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_10\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_11\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_12\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_13\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_14\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_15\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"join_requests\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notifications\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_messages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overall\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": \"<object>\",\n          \"dynamic\": {\n            \"smart_enable_level\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"end_device_controlled\": \"<object>\",\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"join_requests\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notifications\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_messages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overall\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": \"<object>\",\n          \"dynamic\": {\n            \"smart_enable_level\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"end_device_controlled\": \"<object>\",\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"string\"\n      },\n      \"profile_id\": \"string\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"overrides\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": 38\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "501b7903-85d6-45bb-ae00-712cb839bfa9",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":mac_settings_profile.ids.application_ids.application_id",
+                    "mac_settings_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": \"DATA_RATE_0\",\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"max_data_rate_index\": {\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"lora_narrow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"overrides\": {\n            \"data_rate_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_4\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_5\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_6\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_7\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_8\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_9\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_10\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_11\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_12\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_13\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_14\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_15\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"join_requests\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notifications\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_messages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overall\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": \"<object>\",\n          \"dynamic\": {\n            \"smart_enable_level\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"end_device_controlled\": \"<object>\",\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"reset_behavior\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"join_requests\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"notifications\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"uplink_messages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"overall\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"served\": {\n          \"always\": \"<object>\",\n          \"dynamic\": {\n            \"smart_enable_level\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"end_device_controlled\": \"<object>\",\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"ack_offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data_rate_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4163,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "733efe8a-fb84-412a-bba8-01b58e162b86",
+          "name": "Get returns the MAC settings profile that matches the given identifiers.",
+          "request": {
+            "name": "Get returns the MAC settings profile that matches the given identifiers.",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "applications",
+                ":mac_settings_profile_ids.application_ids.application_id",
+                "mac_settings_profiles",
+                ":mac_settings_profile_ids.profile_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the fields that should be returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mac_settings_profile_ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mac_settings_profile_ids.profile_id",
+                  "description": "(Required) Profile ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bce4d4bb-e31a-4525-bd5d-a9c242e124ec",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":mac_settings_profile_ids.application_ids.application_id",
+                    "mac_settings_profiles",
+                    ":mac_settings_profile_ids.profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.profile_id",
+                      "description": "(Required) Profile ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"string\"\n      },\n      \"profile_id\": \"string\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"overrides\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": 38\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ab3a6c3-bc2f-4bd0-b868-c6d282d7cfa7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":mac_settings_profile_ids.application_ids.application_id",
+                    "mac_settings_profiles",
+                    ":mac_settings_profile_ids.profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.profile_id",
+                      "description": "(Required) Profile ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4163,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41becc04-e7d1-4b68-80ab-888b9ae4c896",
+          "name": "Delete deletes the MAC settings profile that matches the given identifiers.",
+          "request": {
+            "name": "Delete deletes the MAC settings profile that matches the given identifiers.",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "applications",
+                ":mac_settings_profile_ids.application_ids.application_id",
+                "mac_settings_profiles",
+                ":mac_settings_profile_ids.profile_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mac_settings_profile_ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mac_settings_profile_ids.profile_id",
+                  "description": "(Required) Profile ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f31992c-d2f5-493f-820a-f6b79bee322c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":mac_settings_profile_ids.application_ids.application_id",
+                    "mac_settings_profiles",
+                    ":mac_settings_profile_ids.profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.profile_id",
+                      "description": "(Required) Profile ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42b4cfa0-b65b-47be-b841-7a4dd62cbdcc",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":mac_settings_profile_ids.application_ids.application_id",
+                    "mac_settings_profiles",
+                    ":mac_settings_profile_ids.profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.profile_id",
+                      "description": "(Required) Profile ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4163,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "091f9e23-a506-43ae-9722-4eedea90e042",
+          "name": "Update updates the MAC settings profile that matches the given identifiers.",
+          "request": {
+            "name": "Update updates the MAC settings profile that matches the given identifiers.",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "applications",
+                ":mac_settings_profile_ids.application_ids.application_id",
+                "mac_settings_profiles",
+                ":mac_settings_profile_ids.profile_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mac_settings_profile_ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mac_settings_profile_ids.profile_id",
+                  "description": "(Required) Profile ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mac_settings_profile_ids\": {\n    \"application_ids\": \"<object>\"\n  },\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"overrides\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "26c74dcd-e6ad-438d-8122-5ce42befb0a2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":mac_settings_profile_ids.application_ids.application_id",
+                    "mac_settings_profiles",
+                    ":mac_settings_profile_ids.profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.profile_id",
+                      "description": "(Required) Profile ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mac_settings_profile_ids\": {\n    \"application_ids\": \"<object>\"\n  },\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"overrides\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"overrides\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5653e7d5-ddba-42c8-9998-3f2892e5597b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "applications",
+                    ":mac_settings_profile_ids.application_ids.application_id",
+                    "mac_settings_profiles",
+                    ":mac_settings_profile_ids.profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mac_settings_profile_ids.profile_id",
+                      "description": "(Required) Profile ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mac_settings_profile_ids\": {\n    \"application_ids\": \"<object>\"\n  },\n  \"mac_settings_profile\": {\n    \"ids\": {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"profile_id\": \"<string>\"\n    },\n    \"mac_settings\": {\n      \"class_b_timeout\": \"<string>\",\n      \"ping_slot_periodicity\": {\n        \"value\": \"PING_EVERY_1S\"\n      },\n      \"ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"class_c_timeout\": \"<string>\",\n      \"rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"factory_preset_frequencies\": [\n        \"<uint64>\",\n        \"<uint64>\"\n      ],\n      \"max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"supports_32_bit_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"use_adr\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr_margin\": \"<float>\",\n      \"resets_f_cnt\": {\n        \"value\": \"<boolean>\"\n      },\n      \"status_time_periodicity\": \"<string>\",\n      \"status_count_periodicity\": \"<long>\",\n      \"desired_rx1_delay\": {\n        \"value\": \"RX_DELAY_0\"\n      },\n      \"desired_rx1_data_rate_offset\": {\n        \"value\": \"DATA_RATE_OFFSET_0\"\n      },\n      \"desired_rx2_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_rx2_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_duty_cycle\": {\n        \"value\": \"DUTY_CYCLE_1\"\n      },\n      \"desired_adr_ack_limit_exponent\": {\n        \"value\": \"ADR_ACK_LIMIT_1\"\n      },\n      \"desired_adr_ack_delay_exponent\": {\n        \"value\": \"ADR_ACK_DELAY_1\"\n      },\n      \"desired_ping_slot_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"desired_ping_slot_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_beacon_frequency\": {\n        \"value\": \"<uint64>\"\n      },\n      \"desired_max_eirp\": {\n        \"value\": \"DEVICE_EIRP_8\"\n      },\n      \"class_b_c_downlink_interval\": \"<string>\",\n      \"uplink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"downlink_dwell_time\": {\n        \"value\": \"<boolean>\"\n      },\n      \"adr\": {\n        \"static\": {\n          \"data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tx_power_index\": \"<long>\",\n          \"nb_trans\": \"<long>\"\n        },\n        \"dynamic\": {\n          \"margin\": \"<float>\",\n          \"min_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max_data_rate_index\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"min_tx_power_index\": \"<long>\",\n          \"max_tx_power_index\": \"<long>\",\n          \"min_nb_trans\": \"<long>\",\n          \"max_nb_trans\": \"<long>\",\n          \"channel_steering\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"overrides\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"disabled\": \"<object>\"\n      },\n      \"schedule_downlinks\": {\n        \"value\": \"<boolean>\"\n      },\n      \"relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      },\n      \"desired_relay\": {\n        \"serving\": {\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"default_channel_index\": \"<long>\",\n          \"cad_periodicity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"uplink_forwarding_rules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"limits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"served\": {\n          \"always\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dynamic\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end_device_controlled\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"backoff\": \"<long>\",\n          \"second_channel\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serving_device_id\": \"<string>\"\n        }\n      }\n    },\n    \"end_devices_count\": \"<long>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4163,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9de0f040-6ae5-46a9-9a0c-67729d24103b",
+    "name": "The Things Stack — Application Server AppAs NsMACSettingsProfileRegistry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

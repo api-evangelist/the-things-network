@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs GatewayClaimingServer API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GatewayClaimingServer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Claims a gateway by claim authentication code or QR code and transfers the gateway to the target user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcls/claim"
+          },
+          "docs": "Claims a gateway by claim authentication code or QR code and transfers the gateway to the target user."
+        },
+        {
+          "info": {
+            "name": "Return whether claiming is available for a given gateway EUI.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcls/claim/info"
+          },
+          "docs": "Return whether claiming is available for a given gateway EUI."
+        },
+        {
+          "info": {
+            "name": "Unclaims the gateway.\nEUI provided in the request are ignored and the end device is looked up by the gateway ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gcls/claim/:gateway_id",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Unclaims the gateway.\nEUI provided in the request are ignored and the end device is looked up by the gateway ID."
+        },
+        {
+          "info": {
+            "name": "AuthorizeGateway allows a gateway to be claimed.\nDEPRECATED: Authorizing gateways for claiming is no longer supported and will be removed in a future version of The\nThings Stack.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcls/gateways/:gateway_ids.gateway_id/authorize",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "AuthorizeGateway allows a gateway to be claimed.\nDEPRECATED: Authorizing gateways for claiming is no longer supported and will be removed in a future version of The\nThings Stack."
+        },
+        {
+          "info": {
+            "name": "UnauthorizeGateway prevents a gateway from being claimed.\nDEPRECATED: Unauthorizing (locking) gateways for claiming is no longer supported and will be removed in a future\nversion of The Things Stack.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/gcls/gateways/:gateway_id/authorize",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "UnauthorizeGateway prevents a gateway from being claimed.\nDEPRECATED: Unauthorizing (locking) gateways for claiming is no longer supported and will be removed in a future\nversion of The Things Stack."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

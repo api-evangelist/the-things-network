@@ -1,0 +1,2651 @@
+{
+  "item": [
+    {
+      "id": "429c532d-6814-4ed1-a7a8-f5af3c356b03",
+      "name": "EntityRegistrySearch",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b33d7a40-38fd-4c47-b8a5-2c0ab9cf1cd4",
+          "name": "Search for accounts that match the conditions specified in the request.",
+          "request": {
+            "name": "Search for accounts that match the conditions specified in the request.",
+            "description": {},
+            "url": {
+              "path": [
+                "applications",
+                ":application_ids.application_id",
+                "collaborators",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_users",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "complement_collaborators",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8c983ea-5f6d-434c-a87c-cbd302f472c6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":application_ids.application_id",
+                    "collaborators",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a66c221-9900-497c-aee5-0ea8c07fdfc7",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":application_ids.application_id",
+                    "collaborators",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9513,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "107cbd36-2c64-453b-ae55-ff75bdff84be",
+          "name": "Search for accounts that match the conditions specified in the request.",
+          "request": {
+            "name": "Search for accounts that match the conditions specified in the request.",
+            "description": {},
+            "url": {
+              "path": [
+                "clients",
+                ":client_ids.client_id",
+                "collaborators",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_users",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "complement_collaborators",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "client_ids.client_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c80e444-1c16-488c-aeea-b5013d10f6ef",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clients",
+                    ":client_ids.client_id",
+                    "collaborators",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "client_ids.client_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72777aca-5526-4852-9dd0-b6ae4e1210d4",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clients",
+                    ":client_ids.client_id",
+                    "collaborators",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "client_ids.client_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7558309c-7044-453a-a145-625fd4fd970e",
+          "name": "Search for accounts that match the conditions specified in the request.",
+          "request": {
+            "name": "Search for accounts that match the conditions specified in the request.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "collaborators",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_users",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "complement_collaborators",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12bc962c-1ca3-4d76-b28d-e50621f60153",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac776049-36bd-479c-a66d-00da2aa14610",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20132462-3d1e-4305-9916-067c0dd504e8",
+          "name": "Search for accounts that match the conditions specified in the request.",
+          "request": {
+            "name": "Search for accounts that match the conditions specified in the request.",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":organization_ids.organization_id",
+                "collaborators",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_users",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "complement_collaborators",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization_ids.organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ede7df35-2934-4163-8789-995798203e22",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_ids.organization_id",
+                    "collaborators",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81202995-aacb-45fe-af15-6200567ca390",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_ids.organization_id",
+                    "collaborators",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "112acb73-b558-409b-90c0-8fc9f929cb58",
+          "name": "Search for accounts that match the conditions specified in the request.",
+          "request": {
+            "name": "Search for accounts that match the conditions specified in the request.",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_users",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "complement_collaborators",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd2181c0-a555-4b3a-a694-008adb23640c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_ids\": [\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    },\n    {\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5aaba7d7-6263-4c4e-b30c-53d4ffff1949",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_users",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complement_collaborators",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79fe7547-9232-494e-a9cb-97cea36ab7da",
+          "name": "Search for applications that match the conditions specified in the request.\nNon-admin users will only match applications that they have rights on.",
+          "request": {
+            "name": "Search for applications that match the conditions specified in the request.\nNon-admin users will only match applications that they have rights on.",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Find applications where the ID, name or description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "id_contains",
+                  "value": "<string>",
+                  "description": "Find applications where the ID contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_contains",
+                  "value": "<string>",
+                  "description": "Find applications where the name contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "description_contains",
+                  "value": "<string>",
+                  "description": "Find applications where the description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes_contain[string]",
+                  "value": "<string>",
+                  "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18"
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted applications."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fcc02e74-1c7d-4516-8929-e44364e1431f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applications\": [\n    {\n      \"ids\": {\n        \"application_id\": \"string\"\n      },\n      \"created_at\": \"1963-07-18T03:31:24.326Z\",\n      \"updated_at\": \"1989-05-28T09:26:40.190Z\",\n      \"deleted_at\": \"1959-11-18T12:55:01.480Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1997-09-06T09:58:10.069Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1955-04-12T06:36:05.758Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"network_server_address\": \"string\",\n      \"application_server_address\": \"string\",\n      \"join_server_address\": \"string\",\n      \"dev_eui_counter\": 9699\n    },\n    {\n      \"ids\": {\n        \"application_id\": \"string\"\n      },\n      \"created_at\": \"2018-03-19T09:39:39.287Z\",\n      \"updated_at\": \"1959-12-22T01:56:32.088Z\",\n      \"deleted_at\": \"2019-01-12T03:48:50.742Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1969-03-15T07:16:05.982Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1967-10-10T09:38:47.800Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"network_server_address\": \"string\",\n      \"application_server_address\": \"string\",\n      \"join_server_address\": \"string\",\n      \"dev_eui_counter\": 991\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fe97096-f2a0-415f-b2fb-03a5ec7bb46d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50ec405b-436e-40f6-a56e-8cf75d41d9dd",
+          "name": "Search for OAuth clients that match the conditions specified in the request.\nNon-admin users will only match OAuth clients that they have rights on.",
+          "request": {
+            "name": "Search for OAuth clients that match the conditions specified in the request.\nNon-admin users will only match OAuth clients that they have rights on.",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "clients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Find OAuth clients where the ID, name or description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "id_contains",
+                  "value": "<string>",
+                  "description": "Find OAuth clients where the ID contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_contains",
+                  "value": "<string>",
+                  "description": "Find OAuth clients where the name contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "description_contains",
+                  "value": "<string>",
+                  "description": "Find OAuth clients where the description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes_contain[string]",
+                  "value": "<string>",
+                  "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Find OAuth clients where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Find OAuth clients where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted OAuth clients."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4de95c01-77a6-4ed3-b78b-bbecca576565",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "clients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clients\": [\n    {\n      \"ids\": {\n        \"client_id\": \"string\"\n      },\n      \"created_at\": \"1982-10-11T03:43:01.077Z\",\n      \"updated_at\": \"1992-08-05T01:20:50.122Z\",\n      \"deleted_at\": \"2017-05-05T04:52:39.732Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1972-02-02T05:00:00.597Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"2024-06-29T03:40:38.047Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"secret\": \"string\",\n      \"redirect_uris\": [\n        \"string\",\n        \"string\"\n      ],\n      \"logout_redirect_uris\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"string\",\n      \"skip_authorization\": false,\n      \"endorsed\": true,\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"client_id\": \"string\"\n      },\n      \"created_at\": \"2009-01-17T15:12:38.929Z\",\n      \"updated_at\": \"1972-09-05T19:33:57.880Z\",\n      \"deleted_at\": \"1978-01-04T19:47:22.406Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1999-01-08T16:15:04.082Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"2024-03-30T19:43:17.745Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"secret\": \"string\",\n      \"redirect_uris\": [\n        \"string\",\n        \"string\"\n      ],\n      \"logout_redirect_uris\": [\n        \"string\",\n        \"string\"\n      ],\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"string\",\n      \"skip_authorization\": false,\n      \"endorsed\": false,\n      \"grants\": [\n        \"GRANT_AUTHORIZATION_CODE\",\n        \"GRANT_AUTHORIZATION_CODE\"\n      ],\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b999a5f-d466-4c58-a3c0-a646b889487a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "clients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a209b63-a3c0-469b-8960-7920d703b183",
+          "name": "Search for gateways that match the conditions specified in the request.\nNon-admin users will only match gateways that they have rights on.",
+          "request": {
+            "name": "Search for gateways that match the conditions specified in the request.\nNon-admin users will only match gateways that they have rights on.",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Find gateways where the ID, name, description or EUI contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "id_contains",
+                  "value": "<string>",
+                  "description": "Find gateways where the ID contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_contains",
+                  "value": "<string>",
+                  "description": "Find gateways where the name contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "description_contains",
+                  "value": "<string>",
+                  "description": "Find gateways where the description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes_contain[string]",
+                  "value": "<string>",
+                  "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18"
+                },
+                {
+                  "disabled": false,
+                  "key": "eui_contains",
+                  "value": "<string>",
+                  "description": "Find gateways where the (hexadecimal) EUI contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted gateways."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "244ee22b-ef4a-4da4-b4dc-4931f5e802a8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eui_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gateways\": [\n    {\n      \"ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"2013-07-11T06:31:42.831Z\",\n      \"updated_at\": \"1981-09-27T07:40:04.726Z\",\n      \"deleted_at\": \"1952-06-06T00:42:04.194Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1992-12-24T02:49:20.752Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"2003-10-09T04:54:40.155Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"runtime_version\": \"string\"\n      },\n      \"gateway_server_address\": \"string\",\n      \"auto_update\": false,\n      \"update_channel\": \"string\",\n      \"frequency_plan_id\": \"string\",\n      \"frequency_plan_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": 7501.035530183038,\n          \"location\": {\n            \"latitude\": 1477.8538617880788,\n            \"longitude\": 5781.898210368274,\n            \"altitude\": 3351,\n            \"accuracy\": 3401,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": 585.9864049301156,\n          \"location\": {\n            \"latitude\": 4557.194644758695,\n            \"longitude\": 5804.88578563913,\n            \"altitude\": 2995,\n            \"accuracy\": 6878,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": false,\n      \"location_public\": true,\n      \"schedule_downlink_late\": false,\n      \"enforce_duty_cycle\": true,\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"string\",\n      \"update_location_from_status\": true,\n      \"lbs_lns_secret\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"string\",\n          \"value\": \"string\"\n        },\n        \"valid_from\": \"2021-01-17T15:30:20.913Z\",\n        \"valid_to\": \"1947-12-12T07:15:10.170Z\"\n      },\n      \"target_cups_uri\": \"string\",\n      \"target_cups_key\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"require_authenticated_connection\": true,\n      \"lrfhss\": {\n        \"supported\": false\n      },\n      \"disable_packet_broker_forwarding\": false\n    },\n    {\n      \"ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"1965-07-23T00:04:34.051Z\",\n      \"updated_at\": \"1994-03-29T21:16:51.491Z\",\n      \"deleted_at\": \"1960-07-05T07:55:52.903Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1991-08-09T20:12:34.066Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1952-10-16T00:52:38.396Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"runtime_version\": \"string\"\n      },\n      \"gateway_server_address\": \"string\",\n      \"auto_update\": true,\n      \"update_channel\": \"string\",\n      \"frequency_plan_id\": \"string\",\n      \"frequency_plan_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": 4052.500336014131,\n          \"location\": {\n            \"latitude\": 7299.439378113028,\n            \"longitude\": 4944.8314781561385,\n            \"altitude\": 1979,\n            \"accuracy\": 1565,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": 3608.3035564202705,\n          \"location\": {\n            \"latitude\": 948.3435401126428,\n            \"longitude\": 5000.180439629535,\n            \"altitude\": 4977,\n            \"accuracy\": 7249,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": true,\n      \"location_public\": true,\n      \"schedule_downlink_late\": true,\n      \"enforce_duty_cycle\": false,\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"string\",\n      \"update_location_from_status\": true,\n      \"lbs_lns_secret\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"string\",\n          \"value\": \"string\"\n        },\n        \"valid_from\": \"1987-10-21T04:17:02.659Z\",\n        \"valid_to\": \"1970-08-30T11:45:28.616Z\"\n      },\n      \"target_cups_uri\": \"string\",\n      \"target_cups_key\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"require_authenticated_connection\": true,\n      \"lrfhss\": {\n        \"supported\": true\n      },\n      \"disable_packet_broker_forwarding\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6253a2fa-0f80-4f32-9573-22447e93c8ca",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eui_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73447653-5097-4540-9328-2cde109fa1b3",
+          "name": "Search for organizations that match the conditions specified in the request.\nNon-admin users will only match organizations that they have rights on.",
+          "request": {
+            "name": "Search for organizations that match the conditions specified in the request.\nNon-admin users will only match organizations that they have rights on.",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Find organizations where the ID, name or description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "id_contains",
+                  "value": "<string>",
+                  "description": "Find organizations where the ID contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_contains",
+                  "value": "<string>",
+                  "description": "Find organizations where the name contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "description_contains",
+                  "value": "<string>",
+                  "description": "Find organizations where the description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes_contain[string]",
+                  "value": "<string>",
+                  "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18"
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted organizations."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4772a5f-fcdc-4172-9543-8120f95874ac",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"organizations\": [\n    {\n      \"ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"created_at\": \"1953-09-25T03:21:53.205Z\",\n      \"updated_at\": \"1972-12-16T21:24:48.666Z\",\n      \"deleted_at\": \"2008-08-16T17:44:49.934Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1955-11-16T09:16:26.485Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1972-03-29T22:25:04.318Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"fanout_notifications\": true\n    },\n    {\n      \"ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"created_at\": \"2010-01-31T04:11:12.759Z\",\n      \"updated_at\": \"1978-10-02T06:55:36.186Z\",\n      \"deleted_at\": \"1985-12-26T18:07:22.067Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1963-05-31T18:09:00.840Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1965-09-13T23:57:15.568Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"fanout_notifications\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfb10e92-9a46-40ce-a0d2-d95ce309637b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b0cc685-84d7-4603-8796-94469387ca2d",
+          "name": "Search for users that match the conditions specified in the request.\nThis is only available to admin users.",
+          "request": {
+            "name": "Search for users that match the conditions specified in the request.\nThis is only available to admin users.",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Find users where the ID, name or description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "id_contains",
+                  "value": "<string>",
+                  "description": "Find users where the ID contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_contains",
+                  "value": "<string>",
+                  "description": "Find users where the name contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "description_contains",
+                  "value": "<string>",
+                  "description": "Find users where the description contains this substring."
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes_contain[string]",
+                  "value": "<string>",
+                  "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Find users where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Find users where the state is any of these states.\n\n - STATE_REQUESTED: Denotes that the entity has been requested and is pending review by an admin.\n - STATE_APPROVED: Denotes that the entity has been reviewed and approved by an admin.\n - STATE_REJECTED: Denotes that the entity has been reviewed and rejected by an admin.\n - STATE_FLAGGED: Denotes that the entity has been flagged and is pending review by an admin.\n - STATE_SUSPENDED: Denotes that the entity has been reviewed and suspended by an admin."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted users."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2cf652ca-570f-4c1a-805e-0654f4d2958b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"users\": [\n    {\n      \"ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"2021-03-14T15:58:52.991Z\",\n      \"updated_at\": \"1966-11-16T11:05:35.874Z\",\n      \"deleted_at\": \"1995-02-19T18:40:45.548Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1978-07-09T10:42:02.463Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1961-06-11T16:09:42.064Z\"\n        }\n      ],\n      \"primary_email_address\": \"string\",\n      \"primary_email_address_validated_at\": \"2011-09-27T07:33:12.864Z\",\n      \"password\": \"string\",\n      \"password_updated_at\": \"1960-11-23T09:21:04.009Z\",\n      \"require_password_update\": false,\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"string\",\n      \"admin\": true,\n      \"temporary_password\": \"string\",\n      \"temporary_password_created_at\": \"1976-09-10T01:37:23.346Z\",\n      \"temporary_password_expires_at\": \"1954-05-08T15:08:02.782Z\",\n      \"profile_picture\": {\n        \"embedded\": {\n          \"mime_type\": \"string\",\n          \"data\": \"string\"\n        },\n        \"sizes\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"console_preferences\": {\n        \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n        \"dashboard_layouts\": {\n          \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n        },\n        \"sort_by\": {\n          \"api_key\": \"string\",\n          \"application\": \"string\",\n          \"collaborator\": \"string\",\n          \"end_device\": \"string\",\n          \"gateway\": \"string\",\n          \"organization\": \"string\",\n          \"user\": \"string\"\n        },\n        \"tutorials\": {\n          \"seen\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"email_notification_preferences\": {\n        \"types\": [\n          \"UNKNOWN\",\n          \"UNKNOWN\"\n        ]\n      },\n      \"universal_rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      },\n      \"created_at\": \"2009-01-14T13:03:11.757Z\",\n      \"updated_at\": \"2010-09-20T20:57:55.328Z\",\n      \"deleted_at\": \"1951-04-30T17:52:57.931Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"2017-03-23T06:06:18.434Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"2023-12-15T17:21:01.319Z\"\n        }\n      ],\n      \"primary_email_address\": \"string\",\n      \"primary_email_address_validated_at\": \"2018-06-28T17:34:12.830Z\",\n      \"password\": \"string\",\n      \"password_updated_at\": \"1959-08-21T06:16:29.143Z\",\n      \"require_password_update\": false,\n      \"state\": \"STATE_REQUESTED\",\n      \"state_description\": \"string\",\n      \"admin\": false,\n      \"temporary_password\": \"string\",\n      \"temporary_password_created_at\": \"1964-08-20T15:47:10.639Z\",\n      \"temporary_password_expires_at\": \"2013-06-13T17:52:03.105Z\",\n      \"profile_picture\": {\n        \"embedded\": {\n          \"mime_type\": \"string\",\n          \"data\": \"string\"\n        },\n        \"sizes\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"console_preferences\": {\n        \"console_theme\": \"CONSOLE_THEME_SYSTEM\",\n        \"dashboard_layouts\": {\n          \"api_key\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"application\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"collaborator\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"end_device\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"gateway\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"organization\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"overview\": \"DASHBOARD_LAYOUT_TABLE\",\n          \"user\": \"DASHBOARD_LAYOUT_TABLE\"\n        },\n        \"sort_by\": {\n          \"api_key\": \"string\",\n          \"application\": \"string\",\n          \"collaborator\": \"string\",\n          \"end_device\": \"string\",\n          \"gateway\": \"string\",\n          \"organization\": \"string\",\n          \"user\": \"string\"\n        },\n        \"tutorials\": {\n          \"seen\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"email_notification_preferences\": {\n        \"types\": [\n          \"UNKNOWN\",\n          \"UNKNOWN\"\n        ]\n      },\n      \"universal_rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14c8e828-fce3-4f43-8ed7-39ecabae1aa8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes_contain[string]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4659,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "497eb672-e7fd-45c0-9741-7999abb786f4",
+    "name": "The Things Stack — Application Server AppAs EntityRegistrySearch API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

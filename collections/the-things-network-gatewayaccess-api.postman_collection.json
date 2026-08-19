@@ -1,0 +1,2441 @@
+{
+  "item": [
+    {
+      "id": "5dcc0bb2-99bb-4605-ac84-a1d5ca6b40c3",
+      "name": "GatewayAccess",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5d1114b7-08b8-4f86-a014-e5e85ebf0bbf",
+          "name": "List the API keys for this gateway.",
+          "request": {
+            "name": "List the API keys for this gateway.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "api-keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path.\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6379a26-0b7d-4c1a-9b1b-61f5ed6f17e5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_keys\": [\n    {\n      \"id\": \"string\",\n      \"key\": \"string\",\n      \"name\": \"string\",\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ],\n      \"created_at\": \"1976-01-07T19:48:42.403Z\",\n      \"updated_at\": \"2016-07-20T21:41:35.179Z\",\n      \"expires_at\": \"1954-10-22T16:52:29.589Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"key\": \"string\",\n      \"name\": \"string\",\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ],\n      \"created_at\": \"1956-07-17T06:28:41.002Z\",\n      \"updated_at\": \"1966-10-06T11:23:51.184Z\",\n      \"expires_at\": \"2015-11-20T11:19:45.193Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0dc138ec-aee0-4338-bbed-a5e7b2db5e59",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3432,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00c38a37-2eb7-4d65-aaf7-6ee6b7611477",
+          "name": "Create an API key scoped to this gateway.",
+          "request": {
+            "name": "Create an API key scoped to this gateway.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "api-keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ],\n  \"expires_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9d18af5-2066-4ebe-bde1-b29468d12721",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"name\": \"<string>\",\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ],\n  \"expires_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"key\": \"string\",\n  \"name\": \"string\",\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ],\n  \"created_at\": \"1952-05-06T00:31:13.975Z\",\n  \"updated_at\": \"1962-08-23T17:45:19.728Z\",\n  \"expires_at\": \"1952-03-29T20:23:58.968Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a24b225b-fa9d-47ef-be7b-f7bd17c83cfc",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"name\": \"<string>\",\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ],\n  \"expires_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13e575c2-dbe4-4974-94b0-c7b78fefe0e9",
+          "name": "Update the rights of an API key of the gateway.\nThis method can also be used to delete the API key, by giving it no rights.\nThe caller is required to have all assigned or/and removed rights.",
+          "request": {
+            "name": "Update the rights of an API key of the gateway.\nThis method can also be used to delete the API key, by giving it no rights.\nThe caller is required to have all assigned or/and removed rights.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "api-keys",
+                ":api_key.id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_key.id",
+                  "description": "(Required) Immutable and unique public identifier for the API key.\nGenerated by the Access Server."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"<string>\"\n  },\n  \"api_key\": {\n    \"key\": \"<string>\",\n    \"name\": \"<string>\",\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ],\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"expires_at\": \"<dateTime>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3bf3e1d2-ecdb-43eb-b45d-579bf3602eda",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys",
+                    ":api_key.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_key.id",
+                      "description": "(Required) Immutable and unique public identifier for the API key.\nGenerated by the Access Server."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"api_key\": {\n    \"key\": \"<string>\",\n    \"name\": \"<string>\",\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ],\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"expires_at\": \"<dateTime>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"key\": \"string\",\n  \"name\": \"string\",\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ],\n  \"created_at\": \"1952-05-06T00:31:13.975Z\",\n  \"updated_at\": \"1962-08-23T17:45:19.728Z\",\n  \"expires_at\": \"1952-03-29T20:23:58.968Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "300a68b6-5eb1-47dc-a8e3-f39098d593a4",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys",
+                    ":api_key.id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_key.id",
+                      "description": "(Required) Immutable and unique public identifier for the API key.\nGenerated by the Access Server."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"api_key\": {\n    \"key\": \"<string>\",\n    \"name\": \"<string>\",\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ],\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"expires_at\": \"<dateTime>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "356646fa-e49f-4edf-af13-044c8dbbb96d",
+          "name": "Get a single API key of this gateway.",
+          "request": {
+            "name": "Get a single API key of this gateway.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "api-keys",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key_id",
+                  "description": "(Required) Unique public identifier for the API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c2fe3fd-8cdf-4f44-a3e8-92a1d5baad50",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key_id",
+                      "description": "(Required) Unique public identifier for the API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"key\": \"string\",\n  \"name\": \"string\",\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ],\n  \"created_at\": \"1952-05-06T00:31:13.975Z\",\n  \"updated_at\": \"1962-08-23T17:45:19.728Z\",\n  \"expires_at\": \"1952-03-29T20:23:58.968Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebec695f-40ac-499a-b9e8-ada0f64a2625",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key_id",
+                      "description": "(Required) Unique public identifier for the API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c910d6f-8e1a-4c77-a81c-0f84a3ff52b7",
+          "name": "Delete a single API key of this gateway.",
+          "request": {
+            "name": "Delete a single API key of this gateway.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "api-keys",
+                ":key_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1330e036-5821-4344-945c-c44c0e02abcc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98a7a3ee-9361-4c70-b54b-b0d9143db5cb",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "api-keys",
+                    ":key_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56971296-3007-4f9d-b18d-ec34dc2737da",
+          "name": "Get the rights of a collaborator (member) of the gateway.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+          "request": {
+            "name": "Get the rights of a collaborator (member) of the gateway.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "collaborator",
+                "organization",
+                ":collaborator.organization_ids.organization_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.user_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator.organization_ids.organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51d18085-e31f-4e45-9fb3-73873b879497",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborator",
+                    "organization",
+                    ":collaborator.organization_ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"organization_ids\": {\n      \"organization_id\": \"string\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"string\",\n      \"email\": \"string\"\n    }\n  },\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "233092f3-2e0c-43d6-a7a6-0fd9a3db405b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborator",
+                    "organization",
+                    ":collaborator.organization_ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9df65518-308a-426f-a429-13a1477e1e1d",
+          "name": "Get the rights of a collaborator (member) of the gateway.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+          "request": {
+            "name": "Get the rights of a collaborator (member) of the gateway.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "collaborator",
+                "user",
+                ":collaborator.user_ids.user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator.user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68f1cbce-838f-4c23-954e-8d41a13c4a4f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborator",
+                    "user",
+                    ":collaborator.user_ids.user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"organization_ids\": {\n      \"organization_id\": \"string\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"string\",\n      \"email\": \"string\"\n    }\n  },\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c0ef5c0-bd3f-474f-93ba-f9eb116878dd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborator",
+                    "user",
+                    ":collaborator.user_ids.user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79f9cd12-423b-4589-a965-1307a669a1b3",
+          "name": "List the collaborators on this gateway.",
+          "request": {
+            "name": "List the collaborators on this gateway.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "collaborators"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46f869be-52f3-477c-8b0e-a3a5c18e0369",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collaborators\": [\n    {\n      \"ids\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    {\n      \"ids\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7af7099b-4d2f-4f1d-be7b-e0db758f9bbc",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "477af32b-52c9-4dd9-9380-56ba52059159",
+          "name": "Set the rights of a collaborator (member) on the gateway.\nThis method can also be used to delete the collaborator, by giving them no rights.\nThe caller is required to have all assigned or/and removed rights.",
+          "request": {
+            "name": "Set the rights of a collaborator (member) on the gateway.\nThis method can also be used to delete the collaborator, by giving them no rights.\nThe caller is required to have all assigned or/and removed rights.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "collaborators"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"<string>\"\n  },\n  \"collaborator\": {\n    \"ids\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64b45846-37f7-4caf-9dff-e3debeb62c9c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"collaborator\": {\n    \"ids\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b83860f-23d5-4a6a-8c69-01f28976a1d5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway_ids\": {\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"collaborator\": {\n    \"ids\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25d7f104-9a53-4512-b584-ac7b03071cef",
+          "name": "DeleteCollaborator removes a collaborator from a gateway.",
+          "request": {
+            "name": "DeleteCollaborator removes a collaborator from a gateway.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "collaborators",
+                "organization",
+                ":collaborator_ids.organization_ids.organization_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator_ids.user_ids.user_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator_ids.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator_ids.organization_ids.organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88c40d47-39f4-4032-936e-0502987853b4",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators",
+                    "organization",
+                    ":collaborator_ids.organization_ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator_ids.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator_ids.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bae59b88-4fb6-4ce4-820c-45320f075775",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators",
+                    "organization",
+                    ":collaborator_ids.organization_ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator_ids.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator_ids.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5abc7551-9f00-430a-a155-628da664ad88",
+          "name": "DeleteCollaborator removes a collaborator from a gateway.",
+          "request": {
+            "name": "DeleteCollaborator removes a collaborator from a gateway.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id",
+                "collaborators",
+                "user",
+                ":collaborator_ids.user_ids.user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator_ids.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator_ids.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator_ids.user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bc2e4ec-6ac5-4c21-babf-ac9588b8146a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators",
+                    "user",
+                    ":collaborator_ids.user_ids.user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator_ids.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67d1158c-abb4-4e43-bb59-0accdc1b2f9d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id",
+                    "collaborators",
+                    "user",
+                    ":collaborator_ids.user_ids.user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator_ids.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e65223b-c57e-46ff-8eee-094ee60d23cd",
+          "name": "List the rights the caller has on this gateway.",
+          "request": {
+            "name": "List the rights the caller has on this gateway.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_id",
+                "rights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "603b8e86-e68f-4f8e-a3ea-b0c19c45eb61",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_id",
+                    "rights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rights\": [\n    \"right_invalid\",\n    \"right_invalid\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d9e9fde-7709-433a-93bd-0607dbf9dd63",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_id",
+                    "rights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7261,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c412057d-bdaf-439f-89a0-13b4f0120a0a",
+    "name": "The Things Stack — Application Server AppAs GatewayAccess API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

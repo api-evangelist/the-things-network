@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs Configuration API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Configuration_ListBands",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configuration/bands",
+            "params": [
+              {
+                "name": "band_id",
+                "value": "",
+                "type": "query",
+                "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+              },
+              {
+                "name": "phy_version",
+                "value": "",
+                "type": "query",
+                "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Configuration_ListBands2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configuration/bands/:band_id",
+            "params": [
+              {
+                "name": "band_id",
+                "value": "",
+                "type": "path",
+                "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+              },
+              {
+                "name": "phy_version",
+                "value": "",
+                "type": "query",
+                "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Configuration_ListBands3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configuration/bands/:band_id/:phy_version",
+            "params": [
+              {
+                "name": "band_id",
+                "value": "",
+                "type": "path",
+                "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands are returned."
+              },
+              {
+                "name": "phy_version",
+                "value": "",
+                "type": "path",
+                "description": "Optional PHY version to filter the results.\nIf unused, all supported versions are returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Configuration_ListFrequencyPlans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configuration/frequency-plans",
+            "params": [
+              {
+                "name": "base_frequency",
+                "value": "",
+                "type": "query",
+                "description": "Optional base frequency in MHz for hardware support (433, 470, 868 or 915)"
+              },
+              {
+                "name": "band_id",
+                "value": "",
+                "type": "query",
+                "description": "Optional Band ID to filter the results."
+              },
+              {
+                "name": "gateways_only",
+                "value": "",
+                "type": "query",
+                "description": "Optional field to include only gateway related results."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Returns a list of supported LoRaWAN PHY Versions for the given Band ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configuration/phy-versions",
+            "params": [
+              {
+                "name": "band_id",
+                "value": "",
+                "type": "query",
+                "description": "Optional Band ID to filter the results.\nIf unused, all supported Bands and their versions are returned."
+              }
+            ]
+          },
+          "docs": "Returns a list of supported LoRaWAN PHY Versions for the given Band ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

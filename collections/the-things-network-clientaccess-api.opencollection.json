@@ -1,0 +1,234 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs ClientAccess API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientAccess",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the rights of a collaborator (member) of the client.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/clients/:client_ids.client_id/collaborator/organization/:collaborator.organization_ids.organization_id",
+            "params": [
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get the rights of a collaborator (member) of the client.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded."
+        },
+        {
+          "info": {
+            "name": "Get the rights of a collaborator (member) of the client.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/clients/:client_ids.client_id/collaborator/user/:collaborator.user_ids.user_id",
+            "params": [
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get the rights of a collaborator (member) of the client.\nPseudo-rights in the response (such as the \"_ALL\" right) are not expanded."
+        },
+        {
+          "info": {
+            "name": "List the collaborators on this OAuth client.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/clients/:client_ids.client_id/collaborators",
+            "params": [
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              }
+            ]
+          },
+          "docs": "List the collaborators on this OAuth client."
+        },
+        {
+          "info": {
+            "name": "Set the rights of a collaborator (member) on the OAuth client.\nThis method can also be used to delete the collaborator, by giving them no rights.\nThe caller is required to have all assigned or/and removed rights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/clients/:client_ids.client_id/collaborators",
+            "params": [
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set the rights of a collaborator (member) on the OAuth client.\nThis method can also be used to delete the collaborator, by giving them no rights.\nThe caller is required to have all assigned or/and removed rights."
+        },
+        {
+          "info": {
+            "name": "DeleteCollaborator removes a collaborator from a client.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/organization/:collaborator_ids.organization_ids.organization_id",
+            "params": [
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator_ids.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator_ids.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator_ids.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "DeleteCollaborator removes a collaborator from a client."
+        },
+        {
+          "info": {
+            "name": "DeleteCollaborator removes a collaborator from a client.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/clients/:client_ids.client_id/collaborators/user/:collaborator_ids.user_ids.user_id",
+            "params": [
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "collaborator_ids.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator_ids.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator_ids.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "DeleteCollaborator removes a collaborator from a client."
+        },
+        {
+          "info": {
+            "name": "List the rights the caller has on this application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/clients/:client_id/rights",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List the rights the caller has on this application."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

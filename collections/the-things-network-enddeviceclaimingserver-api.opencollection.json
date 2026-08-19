@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs EndDeviceClaimingServer API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EndDeviceClaimingServer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authorize the End Device Claiming Server to claim devices registered in the given application. The application\nidentifiers are the source application, where the devices are registered before they are claimed.\nThe API key is used to access the application, find the device, verify the claim request and delete the end device\nfrom the source application.\nDEPRECATED: Device claiming that transfers devices between applications is no longer supported and will be removed\nin a future version of The Things Stack.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/edcs/applications/:application_ids.application_id/authorize",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Authorize the End Device Claiming Server to claim devices registered in the given application. The application\nidentifiers are the source application, where the devices are registered before they are claimed.\nThe API key is used to access the application, find the device, verify the claim request and delete the end device\nfrom the source application.\nDEPRECATED: Device claiming that transfers devices between applications is no longer supported and will be removed\nin a future version of The Thing"
+        },
+        {
+          "info": {
+            "name": "Unauthorize the End Device Claiming Server to claim devices in the given application.\nThis reverts the authorization given with rpc AuthorizeApplication.\nDEPRECATED: Device claiming that transfers devices between applications is no longer supported and will be removed\nin a future version of The Things Stack.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/edcs/applications/:application_id/authorize",
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Unauthorize the End Device Claiming Server to claim devices in the given application.\nThis reverts the authorization given with rpc AuthorizeApplication.\nDEPRECATED: Device claiming that transfers devices between applications is no longer supported and will be removed\nin a future version of The Things Stack."
+        },
+        {
+          "info": {
+            "name": "Claims the end device on a Join Server by claim authentication code or QR code.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/edcs/claim"
+          },
+          "docs": "Claims the end device on a Join Server by claim authentication code or QR code."
+        },
+        {
+          "info": {
+            "name": "Return whether claiming is available for a given JoinEUI.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/edcs/claim/info"
+          },
+          "docs": "Return whether claiming is available for a given JoinEUI."
+        },
+        {
+          "info": {
+            "name": "Gets the claim status of an end device.\nEUIs provided in the request are ignored and the end device is looked up by the given identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/edcs/claim/:application_ids.application_id/devices/:device_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              }
+            ]
+          },
+          "docs": "Gets the claim status of an end device.\nEUIs provided in the request are ignored and the end device is looked up by the given identifiers."
+        },
+        {
+          "info": {
+            "name": "Unclaims the end device on a Join Server.\nEUIs provided in the request are ignored and the end device is looked up by the given identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/edcs/claim/:application_ids.application_id/devices/:device_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              }
+            ]
+          },
+          "docs": "Unclaims the end device on a Join Server.\nEUIs provided in the request are ignored and the end device is looked up by the given identifiers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

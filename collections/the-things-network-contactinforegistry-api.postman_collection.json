@@ -1,0 +1,349 @@
+{
+  "item": [
+    {
+      "id": "bc596334-d654-4f9d-a666-3c6c8d77ddff",
+      "name": "ContactInfoRegistry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "63cb258c-f4c2-4c44-998c-7670f0791f4f",
+          "name": "Request validation for the non-validated contact info for the given entity.",
+          "request": {
+            "name": "Request validation for the non-validated contact info for the given entity.",
+            "description": {},
+            "url": {
+              "path": [
+                "contact_info",
+                "validation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"application_ids\": {\n    \"application_id\": \"<string>\"\n  },\n  \"client_ids\": {\n    \"client_id\": \"<string>\"\n  },\n  \"device_ids\": {\n    \"device_id\": \"<string>\",\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"dev_eui\": \"<string>\",\n    \"join_eui\": \"<string>\",\n    \"dev_addr\": \"<string>\"\n  },\n  \"gateway_ids\": {\n    \"gateway_id\": \"<string>\",\n    \"eui\": \"<string>\"\n  },\n  \"organization_ids\": {\n    \"organization_id\": \"<string>\"\n  },\n  \"user_ids\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c75f21b7-6ff3-4f84-84dc-919f7a3521bd",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact_info",
+                    "validation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"application_ids\": {\n    \"application_id\": \"<string>\"\n  },\n  \"client_ids\": {\n    \"client_id\": \"<string>\"\n  },\n  \"device_ids\": {\n    \"device_id\": \"<string>\",\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"dev_eui\": \"70B3D57ED000ABCD\",\n    \"join_eui\": \"70B3D57ED000ABCD\",\n    \"dev_addr\": \"2600ABCD\"\n  },\n  \"gateway_ids\": {\n    \"gateway_id\": \"<string>\",\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"organization_ids\": {\n    \"organization_id\": \"<string>\"\n  },\n  \"user_ids\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"token\": \"string\",\n  \"entity\": {\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"client_ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"70B3D57ED000ABCD\",\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"dev_addr\": \"2600ABCD\"\n    },\n    \"gateway_ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"string\",\n      \"public\": false,\n      \"validated_at\": \"1975-12-09T06:23:35.589Z\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"string\",\n      \"public\": true,\n      \"validated_at\": \"1975-11-28T19:48:04.319Z\"\n    }\n  ],\n  \"created_at\": \"1963-10-07T08:09:44.304Z\",\n  \"expires_at\": \"1995-04-15T09:02:52.133Z\",\n  \"updated_at\": \"1952-08-30T16:04:52.835Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c04db917-5b94-4e06-8a59-1458aaff36d0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact_info",
+                    "validation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"application_ids\": {\n    \"application_id\": \"<string>\"\n  },\n  \"client_ids\": {\n    \"client_id\": \"<string>\"\n  },\n  \"device_ids\": {\n    \"device_id\": \"<string>\",\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"dev_eui\": \"70B3D57ED000ABCD\",\n    \"join_eui\": \"70B3D57ED000ABCD\",\n    \"dev_addr\": \"2600ABCD\"\n  },\n  \"gateway_ids\": {\n    \"gateway_id\": \"<string>\",\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"organization_ids\": {\n    \"organization_id\": \"<string>\"\n  },\n  \"user_ids\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 596,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85c3a25c-f9af-4a6e-b011-605d9636ba87",
+          "name": "Validate confirms a contact info validation.",
+          "request": {
+            "name": "Validate confirms a contact info validation.",
+            "description": {},
+            "url": {
+              "path": [
+                "contact_info",
+                "validation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"token\": \"<string>\",\n  \"entity\": {\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"client_ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"<string>\",\n      \"join_eui\": \"<string>\",\n      \"dev_addr\": \"<string>\"\n    },\n    \"gateway_ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    },\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"expires_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eb2c5e85-e635-494b-9c46-3a4a51ed3fe3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact_info",
+                    "validation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"token\": \"<string>\",\n  \"entity\": {\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"client_ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"70B3D57ED000ABCD\",\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"dev_addr\": \"2600ABCD\"\n    },\n    \"gateway_ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"expires_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f51cc53-98ec-4b8a-8c06-31004c2357d1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contact_info",
+                    "validation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"token\": \"<string>\",\n  \"entity\": {\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"client_ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"70B3D57ED000ABCD\",\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"dev_addr\": \"2600ABCD\"\n    },\n    \"gateway_ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"expires_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8477,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d266de79-3852-4cc4-ad8a-7117c58caa66",
+    "name": "The Things Stack — Application Server AppAs ContactInfoRegistry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

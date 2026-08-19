@@ -1,0 +1,350 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs ApplicationUpStorage API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApplicationUpStorage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a stream of application messages that have been stored in the database.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/applications/:application_ids.application_id/packages/storage/:type",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of results."
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last."
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last."
+              },
+              {
+                "name": "f_port",
+                "value": "",
+                "type": "query",
+                "description": "Query uplinks on a specific FPort only."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order results."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message."
+              },
+              {
+                "name": "last",
+                "value": "",
+                "type": "query",
+                "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before."
+              },
+              {
+                "name": "continuation_token",
+                "value": "",
+                "type": "query",
+                "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored."
+              }
+            ]
+          },
+          "docs": "Returns a stream of application messages that have been stored in the database."
+        },
+        {
+          "info": {
+            "name": "Returns how many application messages have been stored in the database for an application or end device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/applications/:application_ids.application_id/packages/storage/:type/count",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last."
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last."
+              },
+              {
+                "name": "f_port",
+                "value": "",
+                "type": "query",
+                "description": "Count uplinks on a specific FPort only."
+              },
+              {
+                "name": "last",
+                "value": "",
+                "type": "query",
+                "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before."
+              }
+            ]
+          },
+          "docs": "Returns how many application messages have been stored in the database for an application or end device."
+        },
+        {
+          "info": {
+            "name": "Returns a stream of application messages that have been stored in the database.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/packages/storage/:type",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of results."
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last."
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last."
+              },
+              {
+                "name": "f_port",
+                "value": "",
+                "type": "query",
+                "description": "Query uplinks on a specific FPort only."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order results."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message."
+              },
+              {
+                "name": "last",
+                "value": "",
+                "type": "query",
+                "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before."
+              },
+              {
+                "name": "continuation_token",
+                "value": "",
+                "type": "query",
+                "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored."
+              }
+            ]
+          },
+          "docs": "Returns a stream of application messages that have been stored in the database."
+        },
+        {
+          "info": {
+            "name": "Returns how many application messages have been stored in the database for an application or end device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/packages/storage/:type/count",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last."
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last."
+              },
+              {
+                "name": "f_port",
+                "value": "",
+                "type": "query",
+                "description": "Count uplinks on a specific FPort only."
+              },
+              {
+                "name": "last",
+                "value": "",
+                "type": "query",
+                "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before."
+              }
+            ]
+          },
+          "docs": "Returns how many application messages have been stored in the database for an application or end device."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

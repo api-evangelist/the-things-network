@@ -1,0 +1,333 @@
+{
+  "item": [
+    {
+      "id": "52679818-c9ca-4330-8d95-360687fa4a3d",
+      "name": "Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f6834e1-f5a5-423d-a8ad-ba808b296d16",
+          "name": "Stream live events, optionally with a tail of historical events (depending on server support and retention policy).\nEvents may arrive out-of-order.",
+          "request": {
+            "name": "Stream live events, optionally with a tail of historical events (depending on server support and retention policy).\nEvents may arrive out-of-order.",
+            "description": {},
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifiers\": [\n    {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"device_ids\": {\n        \"device_id\": \"<string>\",\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"dev_eui\": \"<string>\",\n        \"join_eui\": \"<string>\",\n        \"dev_addr\": \"<string>\"\n      },\n      \"gateway_ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"<string>\"\n      },\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"device_ids\": {\n        \"device_id\": \"<string>\",\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"dev_eui\": \"<string>\",\n        \"join_eui\": \"<string>\",\n        \"dev_addr\": \"<string>\"\n      },\n      \"gateway_ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"<string>\"\n      },\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ],\n  \"tail\": \"<long>\",\n  \"after\": \"<dateTime>\",\n  \"names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3fe8f494-5564-4708-b178-8d27a4d6f637",
+              "name": "A successful response.(streaming responses)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identifiers\": [\n    {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"device_ids\": {\n        \"device_id\": \"<string>\",\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"dev_eui\": \"70B3D57ED000ABCD\",\n        \"join_eui\": \"70B3D57ED000ABCD\",\n        \"dev_addr\": \"2600ABCD\"\n      },\n      \"gateway_ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"device_ids\": {\n        \"device_id\": \"<string>\",\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"dev_eui\": \"70B3D57ED000ABCD\",\n        \"join_eui\": \"70B3D57ED000ABCD\",\n        \"dev_addr\": \"2600ABCD\"\n      },\n      \"gateway_ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ],\n  \"tail\": \"<long>\",\n  \"after\": \"<dateTime>\",\n  \"names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"name\": \"string\",\n    \"time\": \"2019-07-16T20:48:38.747Z\",\n    \"identifiers\": [\n      {\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"client_ids\": {\n          \"client_id\": \"<string>\"\n        },\n        \"device_ids\": {\n          \"device_id\": \"<string>\",\n          \"application_ids\": {\n            \"application_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dev_eui\": \"70B3D57ED000ABCD\",\n          \"join_eui\": \"70B3D57ED000ABCD\",\n          \"dev_addr\": \"2600ABCD\"\n        },\n        \"gateway_ids\": {\n          \"gateway_id\": \"<string>\",\n          \"eui\": \"70B3D57ED000ABCD\"\n        },\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      {\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"client_ids\": {\n          \"client_id\": \"<string>\"\n        },\n        \"device_ids\": {\n          \"device_id\": \"<string>\",\n          \"application_ids\": {\n            \"application_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dev_eui\": \"70B3D57ED000ABCD\",\n          \"join_eui\": \"70B3D57ED000ABCD\",\n          \"dev_addr\": \"2600ABCD\"\n        },\n        \"gateway_ids\": {\n          \"gateway_id\": \"<string>\",\n          \"eui\": \"70B3D57ED000ABCD\"\n        },\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      }\n    ],\n    \"data\": {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"correlation_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"origin\": \"string\",\n    \"context\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"visibility\": {\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ]\n    },\n    \"authentication\": {\n      \"type\": \"string\",\n      \"token_type\": \"string\",\n      \"token_id\": \"string\"\n    },\n    \"remote_ip\": \"string\",\n    \"user_agent\": \"string\",\n    \"unique_id\": \"string\"\n  },\n  \"error\": {\n    \"code\": 6000,\n    \"message\": \"string\",\n    \"details\": [\n      {\n        \"@type\": \"string\"\n      },\n      {\n        \"@type\": \"string\",\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6805cbd8-72b8-4fe8-b335-44055e870965",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identifiers\": [\n    {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"device_ids\": {\n        \"device_id\": \"<string>\",\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"dev_eui\": \"70B3D57ED000ABCD\",\n        \"join_eui\": \"70B3D57ED000ABCD\",\n        \"dev_addr\": \"2600ABCD\"\n      },\n      \"gateway_ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    {\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"<string>\"\n      },\n      \"device_ids\": {\n        \"device_id\": \"<string>\",\n        \"application_ids\": {\n          \"application_id\": \"<string>\"\n        },\n        \"dev_eui\": \"70B3D57ED000ABCD\",\n        \"join_eui\": \"70B3D57ED000ABCD\",\n        \"dev_addr\": \"2600ABCD\"\n      },\n      \"gateway_ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    }\n  ],\n  \"tail\": \"<long>\",\n  \"after\": \"<dateTime>\",\n  \"names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2265,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ca97d65-7b18-4da7-9043-8877e5ef1998",
+          "name": "Events Find Related",
+          "request": {
+            "name": "Events Find Related",
+            "description": {},
+            "url": {
+              "path": [
+                "events",
+                "related"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "correlation_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8715f0a6-5491-4997-a148-b52a53542832",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "correlation_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"name\": \"string\",\n      \"time\": \"1955-10-25T10:55:50.031Z\",\n      \"identifiers\": [\n        {\n          \"application_ids\": {\n            \"application_id\": \"<string>\"\n          },\n          \"client_ids\": {\n            \"client_id\": \"<string>\"\n          },\n          \"device_ids\": {\n            \"device_id\": \"<string>\",\n            \"application_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dev_eui\": \"70B3D57ED000ABCD\",\n            \"join_eui\": \"70B3D57ED000ABCD\",\n            \"dev_addr\": \"2600ABCD\"\n          },\n          \"gateway_ids\": {\n            \"gateway_id\": \"<string>\",\n            \"eui\": \"70B3D57ED000ABCD\"\n          },\n          \"organization_ids\": {\n            \"organization_id\": \"<string>\"\n          },\n          \"user_ids\": {\n            \"user_id\": \"<string>\",\n            \"email\": \"<string>\"\n          }\n        },\n        {\n          \"application_ids\": {\n            \"application_id\": \"<string>\"\n          },\n          \"client_ids\": {\n            \"client_id\": \"<string>\"\n          },\n          \"device_ids\": {\n            \"device_id\": \"<string>\",\n            \"application_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dev_eui\": \"70B3D57ED000ABCD\",\n            \"join_eui\": \"70B3D57ED000ABCD\",\n            \"dev_addr\": \"2600ABCD\"\n          },\n          \"gateway_ids\": {\n            \"gateway_id\": \"<string>\",\n            \"eui\": \"70B3D57ED000ABCD\"\n          },\n          \"organization_ids\": {\n            \"organization_id\": \"<string>\"\n          },\n          \"user_ids\": {\n            \"user_id\": \"<string>\",\n            \"email\": \"<string>\"\n          }\n        }\n      ],\n      \"data\": {\n        \"@type\": \"string\"\n      },\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"origin\": \"string\",\n      \"context\": {\n        \"key_0\": \"string\"\n      },\n      \"visibility\": {\n        \"rights\": [\n          \"right_invalid\",\n          \"right_invalid\"\n        ]\n      },\n      \"authentication\": {\n        \"type\": \"string\",\n        \"token_type\": \"string\",\n        \"token_id\": \"string\"\n      },\n      \"remote_ip\": \"string\",\n      \"user_agent\": \"string\",\n      \"unique_id\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"time\": \"1955-07-30T20:45:05.444Z\",\n      \"identifiers\": [\n        {\n          \"application_ids\": {\n            \"application_id\": \"<string>\"\n          },\n          \"client_ids\": {\n            \"client_id\": \"<string>\"\n          },\n          \"device_ids\": {\n            \"device_id\": \"<string>\",\n            \"application_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dev_eui\": \"70B3D57ED000ABCD\",\n            \"join_eui\": \"70B3D57ED000ABCD\",\n            \"dev_addr\": \"2600ABCD\"\n          },\n          \"gateway_ids\": {\n            \"gateway_id\": \"<string>\",\n            \"eui\": \"70B3D57ED000ABCD\"\n          },\n          \"organization_ids\": {\n            \"organization_id\": \"<string>\"\n          },\n          \"user_ids\": {\n            \"user_id\": \"<string>\",\n            \"email\": \"<string>\"\n          }\n        },\n        {\n          \"application_ids\": {\n            \"application_id\": \"<string>\"\n          },\n          \"client_ids\": {\n            \"client_id\": \"<string>\"\n          },\n          \"device_ids\": {\n            \"device_id\": \"<string>\",\n            \"application_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dev_eui\": \"70B3D57ED000ABCD\",\n            \"join_eui\": \"70B3D57ED000ABCD\",\n            \"dev_addr\": \"2600ABCD\"\n          },\n          \"gateway_ids\": {\n            \"gateway_id\": \"<string>\",\n            \"eui\": \"70B3D57ED000ABCD\"\n          },\n          \"organization_ids\": {\n            \"organization_id\": \"<string>\"\n          },\n          \"user_ids\": {\n            \"user_id\": \"<string>\",\n            \"email\": \"<string>\"\n          }\n        }\n      ],\n      \"data\": {\n        \"@type\": \"string\",\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"origin\": \"string\",\n      \"context\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"visibility\": {\n        \"rights\": [\n          \"right_invalid\",\n          \"right_invalid\"\n        ]\n      },\n      \"authentication\": {\n        \"type\": \"string\",\n        \"token_type\": \"string\",\n        \"token_id\": \"string\"\n      },\n      \"remote_ip\": \"string\",\n      \"user_agent\": \"string\",\n      \"unique_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "099d7dc0-ebdf-4e87-8009-d33ed2d786e0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "correlation_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2265,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f7f0416a-6e01-4506-af86-0dfcf6738360",
+    "name": "The Things Stack — Application Server AppAs Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

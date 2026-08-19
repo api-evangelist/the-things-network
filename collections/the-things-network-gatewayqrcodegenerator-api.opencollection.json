@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs GatewayQRCodeGenerator API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GatewayQRCodeGenerator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Parse QR Codes of known formats and return the information contained within.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/qr-codes/gateways/parse"
+          },
+          "docs": "Parse QR Codes of known formats and return the information contained within."
+        },
+        {
+          "info": {
+            "name": "Parse QR Codes of known formats and return the information contained within.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/qr-codes/gateways/:format_id/parse",
+            "params": [
+              {
+                "name": "format_id",
+                "value": "",
+                "type": "path",
+                "description": "QR code format identifier.\nIf this field is not specified, the server will default to ttigpro1."
+              }
+            ]
+          },
+          "docs": "Parse QR Codes of known formats and return the information contained within."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

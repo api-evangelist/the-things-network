@@ -1,0 +1,212 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AppAs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the items currently in the downlink queue.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/applications/:application_ids.application_id/devices/:device_id/down",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              }
+            ]
+          },
+          "docs": "List the items currently in the downlink queue."
+        },
+        {
+          "info": {
+            "name": "Get connection information to connect an MQTT client.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/applications/:application_id/mqtt-connection-info",
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get connection information to connect an MQTT client."
+        },
+        {
+          "info": {
+            "name": "AppAs_DecodeDownlink",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/down/decode",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "AppAs_EncodeDownlink",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/down/encode",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Push downlink messages to the end of the downlink queue.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/down/push",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Push downlink messages to the end of the downlink queue."
+        },
+        {
+          "info": {
+            "name": "Replace the entire downlink queue with the specified messages.\nThis can also be used to empty the queue by specifying no messages.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/down/replace",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Replace the entire downlink queue with the specified messages.\nThis can also be used to empty the queue by specifying no messages."
+        },
+        {
+          "info": {
+            "name": "AppAs_DecodeUplink",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/up/decode",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Simulate an upstream message. This can be used to test integrations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/as/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id/up/simulate",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Simulate an upstream message. This can be used to test integrations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

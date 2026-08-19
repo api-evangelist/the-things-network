@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs NotificationService API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NotificationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the notifications for a user or an organization.\nWhen called with user credentials and empty receiver_ids, this will list\nnotifications for the current user and its organizations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:receiver_ids.user_id/notifications",
+            "params": [
+              {
+                "name": "receiver_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "receiver_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Select notifications with these statuses.\nAn empty list is interpreted as \"all\"."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List the notifications for a user or an organization.\nWhen called with user credentials and empty receiver_ids, this will list\nnotifications for the current user and its organizations."
+        },
+        {
+          "info": {
+            "name": "Batch-update multiple notifications to the same status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/users/:receiver_ids.user_id/notifications",
+            "params": [
+              {
+                "name": "receiver_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              }
+            ]
+          },
+          "docs": "Batch-update multiple notifications to the same status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

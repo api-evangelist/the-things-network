@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs As API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "As",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a link configuration from the Application Server to Network Server.\nThis only contains the configuration. Use GetLinkStats to view statistics and any link errors.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/applications/:application_ids.application_id/link",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a link configuration from the Application Server to Network Server.\nThis only contains the configuration. Use GetLinkStats to view statistics and any link errors."
+        },
+        {
+          "info": {
+            "name": "Set a link configuration from the Application Server a Network Server.\nThis call returns immediately after setting the link configuration; it does not wait for a link to establish.\nTo get link statistics or errors, use GetLinkStats.\nNote that there can only be one Application Server instance linked to a Network Server for a given application at a time.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/as/applications/:application_ids.application_id/link",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set a link configuration from the Application Server a Network Server.\nThis call returns immediately after setting the link configuration; it does not wait for a link to establish.\nTo get link statistics or errors, use GetLinkStats.\nNote that there can only be one Application Server instance linked to a Network Server for a given application at a time."
+        },
+        {
+          "info": {
+            "name": "Delete the link between the Application Server and Network Server for the specified application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/as/applications/:application_id/link",
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the link between the Application Server and Network Server for the specified application."
+        },
+        {
+          "info": {
+            "name": "GetLinkStats returns the link statistics.\nThis call returns a NotFound error code if there is no link for the given application identifiers.\nThis call returns the error code of the link error if linking to a Network Server failed.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/applications/:application_id/link/stats",
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GetLinkStats returns the link statistics.\nThis call returns a NotFound error code if there is no link for the given application identifiers.\nThis call returns the error code of the link error if linking to a Network Server failed."
+        },
+        {
+          "info": {
+            "name": "As_GetConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/as/configuration"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

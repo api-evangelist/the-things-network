@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs GtwGs API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GtwGs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get connection information to connect an MQTT gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gs/gateways/:gateway_id/mqtt-connection-info",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get connection information to connect an MQTT gateway."
+        },
+        {
+          "info": {
+            "name": "Get legacy connection information to connect a The Things Network Stack V2 MQTT gateway.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gs/gateways/:gateway_id/mqttv2-connection-info",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get legacy connection information to connect a The Things Network Stack V2 MQTT gateway."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

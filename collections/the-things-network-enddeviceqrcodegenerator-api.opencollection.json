@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs EndDeviceQRCodeGenerator API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EndDeviceQRCodeGenerator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generates a QR code.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/qr-codes/end-devices"
+          },
+          "docs": "Generates a QR code."
+        },
+        {
+          "info": {
+            "name": "Returns the supported formats.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/qr-codes/end-devices/formats"
+          },
+          "docs": "Returns the supported formats."
+        },
+        {
+          "info": {
+            "name": "Return the QR code format.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/qr-codes/end-devices/formats/:format_id",
+            "params": [
+              {
+                "name": "format_id",
+                "value": "",
+                "type": "path",
+                "description": "QR code format identifier. Enumerate available formats with rpc ListFormats in the EndDeviceQRCodeGenerator service."
+              }
+            ]
+          },
+          "docs": "Return the QR code format."
+        },
+        {
+          "info": {
+            "name": "Parse QR Codes of known formats and return the information contained within.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/qr-codes/end-devices/parse"
+          },
+          "docs": "Parse QR Codes of known formats and return the information contained within."
+        },
+        {
+          "info": {
+            "name": "Parse QR Codes of known formats and return the information contained within.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/qr-codes/end-devices/:format_id/parse",
+            "params": [
+              {
+                "name": "format_id",
+                "value": "",
+                "type": "path",
+                "description": "QR code format identifier.\nEnumerate available formats with the rpc `ListFormats`.\nIf this field is not specified, the server will attempt to parse the data with each known format."
+              }
+            ]
+          },
+          "docs": "Parse QR Codes of known formats and return the information contained within."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

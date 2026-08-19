@@ -1,0 +1,388 @@
+{
+  "item": [
+    {
+      "id": "7be6531f-a272-4dab-aacd-ac32e59fa8ff",
+      "name": "EndDeviceBatchClaimingServer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2671cc75-3124-4ddf-861f-1a9a7b4fe600",
+          "name": "Return whether claiming is supported for each Join EUI in a given list.",
+          "request": {
+            "name": "Return whether claiming is supported for each Join EUI in a given list.",
+            "description": {},
+            "url": {
+              "path": [
+                "edcs",
+                "claim",
+                "info",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"join_eui\": \"<string>\"\n    },\n    {\n      \"join_eui\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a74e238f-3627-4b66-89e7-454c0f86c273",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edcs",
+                    "claim",
+                    "info",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"join_eui\": \"70B3D57ED000ABCD\"\n    },\n    {\n      \"join_eui\": \"70B3D57ED000ABCD\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"infos\": [\n    {\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"supports_claiming\": false\n    },\n    {\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"supports_claiming\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98c4b91f-dd53-4153-b0a6-9ce06126c7bb",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edcs",
+                    "claim",
+                    "info",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"join_eui\": \"70B3D57ED000ABCD\"\n    },\n    {\n      \"join_eui\": \"70B3D57ED000ABCD\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1127,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8ed4da4-b1fd-4159-bc2a-13a44a52e3a5",
+          "name": "Unclaims multiple end devices on an external Join Server.\nAll devices must have the same application ID.\nCheck the response for devices that could not be unclaimed.",
+          "request": {
+            "name": "Unclaims multiple end devices on an external Join Server.\nAll devices must have the same application ID.\nCheck the response for devices that could not be unclaimed.",
+            "description": {},
+            "url": {
+              "path": [
+                "edcs",
+                "claim",
+                ":application_ids.application_id",
+                "devices",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "device_ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "device_ids",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68cde803-d6c6-4915-98b6-f7d028582a97",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edcs",
+                    "claim",
+                    ":application_ids.application_id",
+                    "devices",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "device_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"application_ids\": {\n    \"application_id\": \"string\"\n  },\n  \"failed\": {\n    \"key_0\": {\n      \"namespace\": \"string\",\n      \"name\": \"string\",\n      \"message_format\": \"string\",\n      \"attributes\": {},\n      \"correlation_id\": \"string\",\n      \"cause\": {\n        \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n      },\n      \"code\": 7256,\n      \"details\": [\n        {\n          \"@type\": \"string\",\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"@type\": \"string\",\n          \"key_0\": {}\n        }\n      ]\n    },\n    \"key_1\": {\n      \"namespace\": \"string\",\n      \"name\": \"string\",\n      \"message_format\": \"string\",\n      \"attributes\": {},\n      \"correlation_id\": \"string\",\n      \"cause\": {\n        \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n      },\n      \"code\": 3468,\n      \"details\": [\n        {\n          \"@type\": \"string\"\n        },\n        {\n          \"@type\": \"string\",\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ]\n    },\n    \"key_2\": {\n      \"namespace\": \"string\",\n      \"name\": \"string\",\n      \"message_format\": \"string\",\n      \"attributes\": {},\n      \"correlation_id\": \"string\",\n      \"cause\": {\n        \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n      },\n      \"code\": 4006,\n      \"details\": [\n        {\n          \"@type\": \"string\",\n          \"key_0\": {}\n        },\n        {\n          \"@type\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26a494f3-d025-4534-b287-d9ab147fdbca",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edcs",
+                    "claim",
+                    ":application_ids.application_id",
+                    "devices",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "device_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "device_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2685,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e863e15e-83e2-4e34-836e-39d09deb6863",
+    "name": "The Things Stack — Application Server AppAs EndDeviceBatchClaimingServer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,2097 @@
+{
+  "item": [
+    {
+      "id": "0465579a-7034-4508-82d4-4dbc761a02af",
+      "name": "GatewayRegistry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3fddd68c-8151-448f-ab8d-8f3301719a6e",
+          "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+          "request": {
+            "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collaborator.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.user_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the gateway fields that should be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted gateways."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8a7cc14-9ba8-458c-b855-2d4062108dd6",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gateways\": [\n    {\n      \"ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"1997-03-26T10:54:44.610Z\",\n      \"updated_at\": \"2025-03-15T08:03:17.846Z\",\n      \"deleted_at\": \"2003-03-25T18:24:10.026Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1950-08-18T07:57:14.686Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"2005-10-02T16:19:45.659Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"runtime_version\": \"string\"\n      },\n      \"gateway_server_address\": \"string\",\n      \"auto_update\": true,\n      \"update_channel\": \"string\",\n      \"frequency_plan_id\": \"string\",\n      \"frequency_plan_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": 4245.504308132223,\n          \"location\": {\n            \"latitude\": 1570.0984487420433,\n            \"longitude\": 8600.366943815226,\n            \"altitude\": 4634,\n            \"accuracy\": 6370,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": 585.1810969876769,\n          \"location\": {\n            \"latitude\": 8891.781049765788,\n            \"longitude\": 6827.762332789599,\n            \"altitude\": 3008,\n            \"accuracy\": 2296,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": false,\n      \"location_public\": false,\n      \"schedule_downlink_late\": false,\n      \"enforce_duty_cycle\": false,\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"string\",\n      \"update_location_from_status\": true,\n      \"lbs_lns_secret\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"string\",\n          \"value\": \"string\"\n        },\n        \"valid_from\": \"1959-11-22T07:27:00.531Z\",\n        \"valid_to\": \"1985-02-16T18:45:07.777Z\"\n      },\n      \"target_cups_uri\": \"string\",\n      \"target_cups_key\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"require_authenticated_connection\": false,\n      \"lrfhss\": {\n        \"supported\": true\n      },\n      \"disable_packet_broker_forwarding\": false\n    },\n    {\n      \"ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"2009-09-30T08:57:25.373Z\",\n      \"updated_at\": \"1999-08-10T16:24:45.395Z\",\n      \"deleted_at\": \"1954-02-27T22:44:48.519Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"2020-12-07T18:47:41.712Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1973-12-16T10:33:38.326Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"runtime_version\": \"string\"\n      },\n      \"gateway_server_address\": \"string\",\n      \"auto_update\": false,\n      \"update_channel\": \"string\",\n      \"frequency_plan_id\": \"string\",\n      \"frequency_plan_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": 3103.0146304039718,\n          \"location\": {\n            \"latitude\": 1424.9762937820221,\n            \"longitude\": 5801.251418602881,\n            \"altitude\": 7812,\n            \"accuracy\": 2841,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": 810.5095900538795,\n          \"location\": {\n            \"latitude\": 7610.261272773129,\n            \"longitude\": 9489.829846355064,\n            \"altitude\": 3586,\n            \"accuracy\": 7258,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": true,\n      \"location_public\": true,\n      \"schedule_downlink_late\": false,\n      \"enforce_duty_cycle\": false,\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"string\",\n      \"update_location_from_status\": true,\n      \"lbs_lns_secret\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"string\",\n          \"value\": \"string\"\n        },\n        \"valid_from\": \"2025-12-31T00:40:10.231Z\",\n        \"valid_to\": \"2014-10-30T20:04:23.085Z\"\n      },\n      \"target_cups_uri\": \"string\",\n      \"target_cups_key\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"require_authenticated_connection\": true,\n      \"lrfhss\": {\n        \"supported\": true\n      },\n      \"disable_packet_broker_forwarding\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "382f2629-f057-4670-ad6c-2e81d22624e8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2281,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ccdead0f-4f4d-47da-ac34-fd99e3da6764",
+          "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+          "request": {
+            "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\",\n  \"order\": \"<string>\",\n  \"limit\": \"<long>\",\n  \"page\": \"<long>\",\n  \"deleted\": \"<boolean>\",\n  \"filters\": [\n    {\n      \"updated_since\": \"<dateTime>\"\n    },\n    {\n      \"updated_since\": \"<dateTime>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7499fc17-5ad7-43b3-87af-08eb40331e86",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\",\n  \"order\": \"<string>\",\n  \"limit\": \"<long>\",\n  \"page\": \"<long>\",\n  \"deleted\": \"<boolean>\",\n  \"filters\": [\n    {\n      \"updated_since\": \"<dateTime>\"\n    },\n    {\n      \"updated_since\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gateways\": [\n    {\n      \"ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"1977-05-13T21:30:26.175Z\",\n      \"updated_at\": \"2011-09-28T00:01:25.081Z\",\n      \"deleted_at\": \"1964-11-26T13:31:21.247Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1976-11-21T14:20:55.866Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1999-08-27T18:22:37.599Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"runtime_version\": \"string\"\n      },\n      \"gateway_server_address\": \"string\",\n      \"auto_update\": true,\n      \"update_channel\": \"string\",\n      \"frequency_plan_id\": \"string\",\n      \"frequency_plan_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": 9046.552843800466,\n          \"location\": {\n            \"latitude\": 5825.570216494003,\n            \"longitude\": 5402.255853629222,\n            \"altitude\": 2360,\n            \"accuracy\": 1996,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": 3130.803731233638,\n          \"location\": {\n            \"latitude\": 977.1382039935605,\n            \"longitude\": 8104.34797208762,\n            \"altitude\": 2520,\n            \"accuracy\": 5896,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": true,\n      \"location_public\": true,\n      \"schedule_downlink_late\": false,\n      \"enforce_duty_cycle\": false,\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"string\",\n      \"update_location_from_status\": false,\n      \"lbs_lns_secret\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"string\",\n          \"value\": \"string\"\n        },\n        \"valid_from\": \"1972-04-30T14:25:58.768Z\",\n        \"valid_to\": \"2001-09-06T22:24:40.826Z\"\n      },\n      \"target_cups_uri\": \"string\",\n      \"target_cups_key\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"require_authenticated_connection\": true,\n      \"lrfhss\": {\n        \"supported\": true\n      },\n      \"disable_packet_broker_forwarding\": true\n    },\n    {\n      \"ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"1954-07-12T07:11:33.454Z\",\n      \"updated_at\": \"2016-10-09T05:40:57.468Z\",\n      \"deleted_at\": \"1986-04-10T11:26:41.553Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"2003-03-10T15:16:55.357Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1966-05-30T12:21:56.048Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"runtime_version\": \"string\"\n      },\n      \"gateway_server_address\": \"string\",\n      \"auto_update\": true,\n      \"update_channel\": \"string\",\n      \"frequency_plan_id\": \"string\",\n      \"frequency_plan_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": 572.9168546131391,\n          \"location\": {\n            \"latitude\": 771.6718776763187,\n            \"longitude\": 4989.734952839576,\n            \"altitude\": 9409,\n            \"accuracy\": 149,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": 944.2415154105388,\n          \"location\": {\n            \"latitude\": 3214.948438600518,\n            \"longitude\": 7956.081932572529,\n            \"altitude\": 8343,\n            \"accuracy\": 9150,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": false,\n      \"location_public\": true,\n      \"schedule_downlink_late\": true,\n      \"enforce_duty_cycle\": true,\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"string\",\n      \"update_location_from_status\": true,\n      \"lbs_lns_secret\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"string\",\n          \"value\": \"string\"\n        },\n        \"valid_from\": \"1954-02-21T09:46:16.195Z\",\n        \"valid_to\": \"2005-08-21T05:13:14.764Z\"\n      },\n      \"target_cups_uri\": \"string\",\n      \"target_cups_key\": {\n        \"key_id\": \"string\",\n        \"value\": \"string\"\n      },\n      \"require_authenticated_connection\": false,\n      \"lrfhss\": {\n        \"supported\": true\n      },\n      \"disable_packet_broker_forwarding\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26fa4157-8154-4142-a790-fa3799dead63",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\",\n  \"order\": \"<string>\",\n  \"limit\": \"<long>\",\n  \"page\": \"<long>\",\n  \"deleted\": \"<boolean>\",\n  \"filters\": [\n    {\n      \"updated_since\": \"<dateTime>\"\n    },\n    {\n      \"updated_since\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "753f3e1a-78fa-4fc6-8de2-5dc7af46d82d",
+          "name": "Update the gateway, changing the fields specified by the field mask to the provided values.",
+          "request": {
+            "name": "Update the gateway, changing the fields specified by the field mask to the provided values.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway.ids.gateway_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway.ids.gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gateway\": {\n    \"ids\": {\n      \"eui\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"version_ids\": {\n      \"brand_id\": \"<string>\",\n      \"model_id\": \"<string>\",\n      \"hardware_version\": \"<string>\",\n      \"firmware_version\": \"<string>\",\n      \"runtime_version\": \"<string>\"\n    },\n    \"gateway_server_address\": \"<string>\",\n    \"auto_update\": \"<boolean>\",\n    \"update_channel\": \"<string>\",\n    \"frequency_plan_id\": \"<string>\",\n    \"frequency_plan_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"antennas\": [\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      },\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      }\n    ],\n    \"status_public\": \"<boolean>\",\n    \"location_public\": \"<boolean>\",\n    \"schedule_downlink_late\": \"<boolean>\",\n    \"enforce_duty_cycle\": \"<boolean>\",\n    \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n    \"schedule_anytime_delay\": \"<string>\",\n    \"update_location_from_status\": \"<boolean>\",\n    \"lbs_lns_secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"claim_authentication_code\": {\n      \"secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"valid_from\": \"<dateTime>\",\n      \"valid_to\": \"<dateTime>\"\n    },\n    \"target_cups_uri\": \"<string>\",\n    \"target_cups_key\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"require_authenticated_connection\": \"<boolean>\",\n    \"lrfhss\": {\n      \"supported\": \"<boolean>\"\n    },\n    \"disable_packet_broker_forwarding\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab6f7bcd-76aa-473d-9f91-451c5b1bbfd0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway.ids.gateway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway.ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway\": {\n    \"ids\": {\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"version_ids\": {\n      \"brand_id\": \"<string>\",\n      \"model_id\": \"<string>\",\n      \"hardware_version\": \"<string>\",\n      \"firmware_version\": \"<string>\",\n      \"runtime_version\": \"<string>\"\n    },\n    \"gateway_server_address\": \"<string>\",\n    \"auto_update\": \"<boolean>\",\n    \"update_channel\": \"<string>\",\n    \"frequency_plan_id\": \"<string>\",\n    \"frequency_plan_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"antennas\": [\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      },\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      }\n    ],\n    \"status_public\": \"<boolean>\",\n    \"location_public\": \"<boolean>\",\n    \"schedule_downlink_late\": \"<boolean>\",\n    \"enforce_duty_cycle\": \"<boolean>\",\n    \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n    \"schedule_anytime_delay\": \"<string>\",\n    \"update_location_from_status\": \"<boolean>\",\n    \"lbs_lns_secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"claim_authentication_code\": {\n      \"secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"valid_from\": \"<dateTime>\",\n      \"valid_to\": \"<dateTime>\"\n    },\n    \"target_cups_uri\": \"<string>\",\n    \"target_cups_key\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"require_authenticated_connection\": \"<boolean>\",\n    \"lrfhss\": {\n      \"supported\": \"<boolean>\"\n    },\n    \"disable_packet_broker_forwarding\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"gateway_id\": \"string\",\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"created_at\": \"1998-03-12T10:16:09.171Z\",\n  \"updated_at\": \"1980-09-03T05:38:10.226Z\",\n  \"deleted_at\": \"2010-03-26T09:35:39.381Z\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"version_ids\": {\n    \"brand_id\": \"<string>\",\n    \"model_id\": \"<string>\",\n    \"hardware_version\": \"<string>\",\n    \"firmware_version\": \"<string>\",\n    \"runtime_version\": \"<string>\"\n  },\n  \"gateway_server_address\": \"string\",\n  \"auto_update\": true,\n  \"update_channel\": \"string\",\n  \"frequency_plan_id\": \"string\",\n  \"frequency_plan_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"antennas\": [\n    {\n      \"gain\": \"<float>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"placement\": \"PLACEMENT_UNKNOWN\"\n    },\n    {\n      \"gain\": \"<float>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"placement\": \"PLACEMENT_UNKNOWN\"\n    }\n  ],\n  \"status_public\": true,\n  \"location_public\": false,\n  \"schedule_downlink_late\": false,\n  \"enforce_duty_cycle\": true,\n  \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n  \"schedule_anytime_delay\": \"string\",\n  \"update_location_from_status\": false,\n  \"lbs_lns_secret\": {\n    \"key_id\": \"<string>\",\n    \"value\": \"<byte>\"\n  },\n  \"claim_authentication_code\": {\n    \"secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"valid_from\": \"<dateTime>\",\n    \"valid_to\": \"<dateTime>\"\n  },\n  \"target_cups_uri\": \"string\",\n  \"target_cups_key\": {\n    \"key_id\": \"<string>\",\n    \"value\": \"<byte>\"\n  },\n  \"require_authenticated_connection\": true,\n  \"lrfhss\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"disable_packet_broker_forwarding\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31b2aa09-08e6-4adf-b696-4615358b1287",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway.ids.gateway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway.ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway\": {\n    \"ids\": {\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"version_ids\": {\n      \"brand_id\": \"<string>\",\n      \"model_id\": \"<string>\",\n      \"hardware_version\": \"<string>\",\n      \"firmware_version\": \"<string>\",\n      \"runtime_version\": \"<string>\"\n    },\n    \"gateway_server_address\": \"<string>\",\n    \"auto_update\": \"<boolean>\",\n    \"update_channel\": \"<string>\",\n    \"frequency_plan_id\": \"<string>\",\n    \"frequency_plan_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"antennas\": [\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      },\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      }\n    ],\n    \"status_public\": \"<boolean>\",\n    \"location_public\": \"<boolean>\",\n    \"schedule_downlink_late\": \"<boolean>\",\n    \"enforce_duty_cycle\": \"<boolean>\",\n    \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n    \"schedule_anytime_delay\": \"<string>\",\n    \"update_location_from_status\": \"<boolean>\",\n    \"lbs_lns_secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"claim_authentication_code\": {\n      \"secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"valid_from\": \"<dateTime>\",\n      \"valid_to\": \"<dateTime>\"\n    },\n    \"target_cups_uri\": \"<string>\",\n    \"target_cups_key\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"require_authenticated_connection\": \"<boolean>\",\n    \"lrfhss\": {\n      \"supported\": \"<boolean>\"\n    },\n    \"disable_packet_broker_forwarding\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24a31279-40c7-41c5-bc68-1b53b75dbf8e",
+          "name": "Get the gateway with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+          "request": {
+            "name": "Get the gateway with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_ids.gateway_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the gateway fields that should be returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_ids.gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d347e30-5ac5-4fdc-907c-6e262121faf3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"gateway_id\": \"string\",\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"created_at\": \"1998-03-12T10:16:09.171Z\",\n  \"updated_at\": \"1980-09-03T05:38:10.226Z\",\n  \"deleted_at\": \"2010-03-26T09:35:39.381Z\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"version_ids\": {\n    \"brand_id\": \"<string>\",\n    \"model_id\": \"<string>\",\n    \"hardware_version\": \"<string>\",\n    \"firmware_version\": \"<string>\",\n    \"runtime_version\": \"<string>\"\n  },\n  \"gateway_server_address\": \"string\",\n  \"auto_update\": true,\n  \"update_channel\": \"string\",\n  \"frequency_plan_id\": \"string\",\n  \"frequency_plan_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"antennas\": [\n    {\n      \"gain\": \"<float>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"placement\": \"PLACEMENT_UNKNOWN\"\n    },\n    {\n      \"gain\": \"<float>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"placement\": \"PLACEMENT_UNKNOWN\"\n    }\n  ],\n  \"status_public\": true,\n  \"location_public\": false,\n  \"schedule_downlink_late\": false,\n  \"enforce_duty_cycle\": true,\n  \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n  \"schedule_anytime_delay\": \"string\",\n  \"update_location_from_status\": false,\n  \"lbs_lns_secret\": {\n    \"key_id\": \"<string>\",\n    \"value\": \"<byte>\"\n  },\n  \"claim_authentication_code\": {\n    \"secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"valid_from\": \"<dateTime>\",\n    \"valid_to\": \"<dateTime>\"\n  },\n  \"target_cups_uri\": \"string\",\n  \"target_cups_key\": {\n    \"key_id\": \"<string>\",\n    \"value\": \"<byte>\"\n  },\n  \"require_authenticated_connection\": true,\n  \"lrfhss\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"disable_packet_broker_forwarding\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67935c0f-0e4b-409c-9314-a419edb698b4",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_ids.gateway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f71f93f-8a9e-44ca-8761-153df5c814c4",
+          "name": "Delete the gateway. This may not release the gateway ID for reuse, but it does release the EUI.",
+          "request": {
+            "name": "Delete the gateway. This may not release the gateway ID for reuse, but it does release the EUI.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "210228b5-d9c7-4eca-b666-bd232fec3d26",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "baba928e-5bb1-47d4-8afe-662350244447",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fbad6b9-f06f-447e-9b3b-3bd135796f8c",
+          "name": "Purge the gateway. This will release both gateway ID and EUI for reuse.\nThe gateway owner is responsible for clearing data from any (external) integrations\nthat may store and expose data by gateway ID.",
+          "request": {
+            "name": "Purge the gateway. This will release both gateway ID and EUI for reuse.\nThe gateway owner is responsible for clearing data from any (external) integrations\nthat may store and expose data by gateway ID.",
+            "description": {},
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_id",
+                "purge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e5ec33e4-5b62-4dcf-80f9-43de6e2e4a4d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_id",
+                    "purge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e71c73b-439f-4e0d-96bd-5d21a402c329",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_id",
+                    "purge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26eca865-adaa-4556-ad24-6241d8ff26dc",
+          "name": "Restore a recently deleted gateway. This does not restore the EUI,\nas that was released when deleting the gateway.",
+          "request": {
+            "name": "Restore a recently deleted gateway. This does not restore the EUI,\nas that was released when deleting the gateway.",
+            "description": {
+              "content": "Deployment configuration may specify if, and for how long after deletion,\nentities can be restored.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gateways",
+                ":gateway_id",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68d7bd01-ad03-4312-bff3-0e93caeefd66",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2dd5be87-637a-4c4c-b242-4cdd96f01834",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gateway_id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b612a11-f6dd-460d-a9c7-2cbaabbc9a33",
+          "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+          "request": {
+            "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":collaborator.organization_ids.organization_id",
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.user_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the gateway fields that should be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted gateways."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator.organization_ids.organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06e34c8b-227e-43a8-b5ad-2e9adc36d1ad",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":collaborator.organization_ids.organization_id",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gateways\": [\n    {\n      \"ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"2017-05-09T15:41:40.693Z\",\n      \"updated_at\": \"1962-02-24T03:47:20.262Z\",\n      \"deleted_at\": \"1955-09-23T16:12:19.347Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"runtime_version\": \"<string>\"\n      },\n      \"gateway_server_address\": \"string\",\n      \"auto_update\": true,\n      \"update_channel\": \"string\",\n      \"frequency_plan_id\": \"string\",\n      \"frequency_plan_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\",\n            \"key_3\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": true,\n      \"location_public\": true,\n      \"schedule_downlink_late\": true,\n      \"enforce_duty_cycle\": false,\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"string\",\n      \"update_location_from_status\": false,\n      \"lbs_lns_secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"<string>\",\n          \"value\": \"<byte>\"\n        },\n        \"valid_from\": \"<dateTime>\",\n        \"valid_to\": \"<dateTime>\"\n      },\n      \"target_cups_uri\": \"string\",\n      \"target_cups_key\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"require_authenticated_connection\": false,\n      \"lrfhss\": {\n        \"supported\": \"<boolean>\"\n      },\n      \"disable_packet_broker_forwarding\": true\n    },\n    {\n      \"ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"1965-02-05T04:22:29.396Z\",\n      \"updated_at\": \"1954-03-01T18:16:27.944Z\",\n      \"deleted_at\": \"2020-12-06T07:13:53.977Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"runtime_version\": \"<string>\"\n      },\n      \"gateway_server_address\": \"string\",\n      \"auto_update\": true,\n      \"update_channel\": \"string\",\n      \"frequency_plan_id\": \"string\",\n      \"frequency_plan_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": true,\n      \"location_public\": true,\n      \"schedule_downlink_late\": true,\n      \"enforce_duty_cycle\": false,\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"string\",\n      \"update_location_from_status\": true,\n      \"lbs_lns_secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"<string>\",\n          \"value\": \"<byte>\"\n        },\n        \"valid_from\": \"<dateTime>\",\n        \"valid_to\": \"<dateTime>\"\n      },\n      \"target_cups_uri\": \"string\",\n      \"target_cups_key\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"require_authenticated_connection\": false,\n      \"lrfhss\": {\n        \"supported\": \"<boolean>\"\n      },\n      \"disable_packet_broker_forwarding\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fa85803-9bcd-4289-8ae5-e495fb28bd23",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":collaborator.organization_ids.organization_id",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9eb0d30-c822-443d-8693-f927f8b7bba8",
+          "name": "Create a new gateway. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+          "request": {
+            "name": "Create a new gateway. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":collaborator.organization_ids.organization_id",
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator.organization_ids.organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gateway\": {\n    \"ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"version_ids\": {\n      \"brand_id\": \"<string>\",\n      \"model_id\": \"<string>\",\n      \"hardware_version\": \"<string>\",\n      \"firmware_version\": \"<string>\",\n      \"runtime_version\": \"<string>\"\n    },\n    \"gateway_server_address\": \"<string>\",\n    \"auto_update\": \"<boolean>\",\n    \"update_channel\": \"<string>\",\n    \"frequency_plan_id\": \"<string>\",\n    \"frequency_plan_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"antennas\": [\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      },\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      }\n    ],\n    \"status_public\": \"<boolean>\",\n    \"location_public\": \"<boolean>\",\n    \"schedule_downlink_late\": \"<boolean>\",\n    \"enforce_duty_cycle\": \"<boolean>\",\n    \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n    \"schedule_anytime_delay\": \"<string>\",\n    \"update_location_from_status\": \"<boolean>\",\n    \"lbs_lns_secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"claim_authentication_code\": {\n      \"secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"valid_from\": \"<dateTime>\",\n      \"valid_to\": \"<dateTime>\"\n    },\n    \"target_cups_uri\": \"<string>\",\n    \"target_cups_key\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"require_authenticated_connection\": \"<boolean>\",\n    \"lrfhss\": {\n      \"supported\": \"<boolean>\"\n    },\n    \"disable_packet_broker_forwarding\": \"<boolean>\"\n  },\n  \"collaborator\": {\n    \"organization_ids\": \"<object>\",\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e609f57f-ef06-4960-b84a-db3a01bbd5b5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":collaborator.organization_ids.organization_id",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"gateway_id\": \"<string>\",\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"version_ids\": {\n    \"brand_id\": \"<string>\",\n    \"model_id\": \"<string>\",\n    \"hardware_version\": \"<string>\",\n    \"firmware_version\": \"<string>\",\n    \"runtime_version\": \"<string>\"\n  },\n  \"gateway_server_address\": \"<string>\",\n  \"auto_update\": \"<boolean>\",\n  \"update_channel\": \"<string>\",\n  \"frequency_plan_id\": \"<string>\",\n  \"frequency_plan_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"antennas\": [\n    {\n      \"gain\": \"<float>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"placement\": \"PLACEMENT_UNKNOWN\"\n    },\n    {\n      \"gain\": \"<float>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"placement\": \"PLACEMENT_UNKNOWN\"\n    }\n  ],\n  \"status_public\": \"<boolean>\",\n  \"location_public\": \"<boolean>\",\n  \"schedule_downlink_late\": \"<boolean>\",\n  \"enforce_duty_cycle\": \"<boolean>\",\n  \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n  \"schedule_anytime_delay\": \"<string>\",\n  \"update_location_from_status\": \"<boolean>\",\n  \"lbs_lns_secret\": {\n    \"key_id\": \"<string>\",\n    \"value\": \"<byte>\"\n  },\n  \"claim_authentication_code\": {\n    \"secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"valid_from\": \"<dateTime>\",\n    \"valid_to\": \"<dateTime>\"\n  },\n  \"target_cups_uri\": \"<string>\",\n  \"target_cups_key\": {\n    \"key_id\": \"<string>\",\n    \"value\": \"<byte>\"\n  },\n  \"require_authenticated_connection\": \"<boolean>\",\n  \"lrfhss\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"disable_packet_broker_forwarding\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35278627-31c5-46cb-9d8a-cf078e2a9f09",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":collaborator.organization_ids.organization_id",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d85d2bdd-a69b-4e2e-a74c-48d4ca8de9d0",
+          "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+          "request": {
+            "name": "List gateways where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the gateways the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":collaborator.user_ids.user_id",
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collaborator.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the gateway fields that should be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted gateways."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator.user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f36be8e-ee70-44cb-8faa-8dd8305fd732",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":collaborator.user_ids.user_id",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gateways\": [\n    {\n      \"ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"runtime_version\": \"<string>\"\n      },\n      \"gateway_server_address\": \"<string>\",\n      \"auto_update\": \"<boolean>\",\n      \"update_channel\": \"<string>\",\n      \"frequency_plan_id\": \"<string>\",\n      \"frequency_plan_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\",\n            \"key_2\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": \"<boolean>\",\n      \"location_public\": \"<boolean>\",\n      \"schedule_downlink_late\": \"<boolean>\",\n      \"enforce_duty_cycle\": \"<boolean>\",\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"<string>\",\n      \"update_location_from_status\": \"<boolean>\",\n      \"lbs_lns_secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"<string>\",\n          \"value\": \"<byte>\"\n        },\n        \"valid_from\": \"<dateTime>\",\n        \"valid_to\": \"<dateTime>\"\n      },\n      \"target_cups_uri\": \"<string>\",\n      \"target_cups_key\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"require_authenticated_connection\": \"<boolean>\",\n      \"lrfhss\": {\n        \"supported\": \"<boolean>\"\n      },\n      \"disable_packet_broker_forwarding\": \"<boolean>\"\n    },\n    {\n      \"ids\": {\n        \"gateway_id\": \"<string>\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"<string>\",\n        \"model_id\": \"<string>\",\n        \"hardware_version\": \"<string>\",\n        \"firmware_version\": \"<string>\",\n        \"runtime_version\": \"<string>\"\n      },\n      \"gateway_server_address\": \"<string>\",\n      \"auto_update\": \"<boolean>\",\n      \"update_channel\": \"<string>\",\n      \"frequency_plan_id\": \"<string>\",\n      \"frequency_plan_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"antennas\": [\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"<string>\",\n            \"key_1\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        },\n        {\n          \"gain\": \"<float>\",\n          \"location\": {\n            \"latitude\": \"<double>\",\n            \"longitude\": \"<double>\",\n            \"altitude\": \"<integer>\",\n            \"accuracy\": \"<integer>\",\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"<string>\"\n          },\n          \"placement\": \"PLACEMENT_UNKNOWN\"\n        }\n      ],\n      \"status_public\": \"<boolean>\",\n      \"location_public\": \"<boolean>\",\n      \"schedule_downlink_late\": \"<boolean>\",\n      \"enforce_duty_cycle\": \"<boolean>\",\n      \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n      \"schedule_anytime_delay\": \"<string>\",\n      \"update_location_from_status\": \"<boolean>\",\n      \"lbs_lns_secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"claim_authentication_code\": {\n        \"secret\": {\n          \"key_id\": \"<string>\",\n          \"value\": \"<byte>\"\n        },\n        \"valid_from\": \"<dateTime>\",\n        \"valid_to\": \"<dateTime>\"\n      },\n      \"target_cups_uri\": \"<string>\",\n      \"target_cups_key\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"require_authenticated_connection\": \"<boolean>\",\n      \"lrfhss\": {\n        \"supported\": \"<boolean>\"\n      },\n      \"disable_packet_broker_forwarding\": \"<boolean>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7307d13-1949-4ffe-94f7-73ba51167be5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":collaborator.user_ids.user_id",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7da677f-1cc0-4d66-9628-d425e4f07826",
+          "name": "Create a new gateway. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+          "request": {
+            "name": "Create a new gateway. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":collaborator.user_ids.user_id",
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator.user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gateway\": {\n    \"ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"version_ids\": {\n      \"brand_id\": \"<string>\",\n      \"model_id\": \"<string>\",\n      \"hardware_version\": \"<string>\",\n      \"firmware_version\": \"<string>\",\n      \"runtime_version\": \"<string>\"\n    },\n    \"gateway_server_address\": \"<string>\",\n    \"auto_update\": \"<boolean>\",\n    \"update_channel\": \"<string>\",\n    \"frequency_plan_id\": \"<string>\",\n    \"frequency_plan_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"antennas\": [\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      },\n      {\n        \"gain\": \"<float>\",\n        \"location\": {\n          \"latitude\": \"<double>\",\n          \"longitude\": \"<double>\",\n          \"altitude\": \"<integer>\",\n          \"accuracy\": \"<integer>\",\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"attributes\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"placement\": \"PLACEMENT_UNKNOWN\"\n      }\n    ],\n    \"status_public\": \"<boolean>\",\n    \"location_public\": \"<boolean>\",\n    \"schedule_downlink_late\": \"<boolean>\",\n    \"enforce_duty_cycle\": \"<boolean>\",\n    \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n    \"schedule_anytime_delay\": \"<string>\",\n    \"update_location_from_status\": \"<boolean>\",\n    \"lbs_lns_secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"claim_authentication_code\": {\n      \"secret\": {\n        \"key_id\": \"<string>\",\n        \"value\": \"<byte>\"\n      },\n      \"valid_from\": \"<dateTime>\",\n      \"valid_to\": \"<dateTime>\"\n    },\n    \"target_cups_uri\": \"<string>\",\n    \"target_cups_key\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"require_authenticated_connection\": \"<boolean>\",\n    \"lrfhss\": {\n      \"supported\": \"<boolean>\"\n    },\n    \"disable_packet_broker_forwarding\": \"<boolean>\"\n  },\n  \"collaborator\": {\n    \"organization_ids\": \"<object>\",\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "26365119-3141-4d87-9779-8d7bccc7c795",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":collaborator.user_ids.user_id",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"gateway_id\": \"<string>\",\n    \"eui\": \"70B3D57ED000ABCD\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"version_ids\": {\n    \"brand_id\": \"<string>\",\n    \"model_id\": \"<string>\",\n    \"hardware_version\": \"<string>\",\n    \"firmware_version\": \"<string>\",\n    \"runtime_version\": \"<string>\"\n  },\n  \"gateway_server_address\": \"<string>\",\n  \"auto_update\": \"<boolean>\",\n  \"update_channel\": \"<string>\",\n  \"frequency_plan_id\": \"<string>\",\n  \"frequency_plan_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"antennas\": [\n    {\n      \"gain\": \"<float>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"placement\": \"PLACEMENT_UNKNOWN\"\n    },\n    {\n      \"gain\": \"<float>\",\n      \"location\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\",\n        \"altitude\": \"<integer>\",\n        \"accuracy\": \"<integer>\",\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"placement\": \"PLACEMENT_UNKNOWN\"\n    }\n  ],\n  \"status_public\": \"<boolean>\",\n  \"location_public\": \"<boolean>\",\n  \"schedule_downlink_late\": \"<boolean>\",\n  \"enforce_duty_cycle\": \"<boolean>\",\n  \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n  \"schedule_anytime_delay\": \"<string>\",\n  \"update_location_from_status\": \"<boolean>\",\n  \"lbs_lns_secret\": {\n    \"key_id\": \"<string>\",\n    \"value\": \"<byte>\"\n  },\n  \"claim_authentication_code\": {\n    \"secret\": {\n      \"key_id\": \"<string>\",\n      \"value\": \"<byte>\"\n    },\n    \"valid_from\": \"<dateTime>\",\n    \"valid_to\": \"<dateTime>\"\n  },\n  \"target_cups_uri\": \"<string>\",\n  \"target_cups_key\": {\n    \"key_id\": \"<string>\",\n    \"value\": \"<byte>\"\n  },\n  \"require_authenticated_connection\": \"<boolean>\",\n  \"lrfhss\": {\n    \"supported\": \"<boolean>\"\n  },\n  \"disable_packet_broker_forwarding\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bed083f9-e365-419b-9219-b180d2811b0e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":collaborator.user_ids.user_id",
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 64,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ed7a0e58-9b65-445d-b58d-9196a9be5434",
+    "name": "The Things Stack — Application Server AppAs GatewayRegistry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

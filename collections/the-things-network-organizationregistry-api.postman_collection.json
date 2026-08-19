@@ -1,0 +1,1488 @@
+{
+  "item": [
+    {
+      "id": "e587f0a5-b7e7-4edd-bd21-05e32bdd5112",
+      "name": "OrganizationRegistry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ee93a40-46b0-49f2-8867-8a1852b05c85",
+          "name": "List organizations where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the organizations the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+          "request": {
+            "name": "List organizations where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the organizations the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collaborator.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.user_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the organization fields that should be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted organizations."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fab71c6a-b6b6-4ba2-85fa-c21e7334a1fc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"organizations\": [\n    {\n      \"ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"created_at\": \"2018-05-09T18:40:24.760Z\",\n      \"updated_at\": \"1993-03-23T21:41:32.609Z\",\n      \"deleted_at\": \"2021-03-02T16:47:31.104Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"2004-12-26T22:22:42.104Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1976-07-05T16:11:27.263Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"fanout_notifications\": true\n    },\n    {\n      \"ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"created_at\": \"2011-04-27T18:22:04.786Z\",\n      \"updated_at\": \"1966-04-07T17:40:29.237Z\",\n      \"deleted_at\": \"1961-11-05T15:37:25.795Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"2024-08-16T14:47:46.794Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1959-01-03T03:11:56.143Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"fanout_notifications\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18b4fc12-7bd5-4c29-94d2-889ab7c45221",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5246,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c83010a-6ad7-4498-9699-092766630e78",
+          "name": "Update the organization, changing the fields specified by the field mask to the provided values.",
+          "request": {
+            "name": "Update the organization, changing the fields specified by the field mask to the provided values.",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":organization.ids.organization_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization.ids.organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organization\": {\n    \"ids\": \"<object>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"fanout_notifications\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f82c8e9-0b02-4f39-bbc8-03c52ac6f66e",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization.ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization.ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization\": {\n    \"ids\": \"<object>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"fanout_notifications\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"organization_id\": \"<string>\"\n  },\n  \"created_at\": \"1952-04-21T05:52:03.111Z\",\n  \"updated_at\": \"2015-12-13T06:19:21.112Z\",\n  \"deleted_at\": \"1952-05-18T22:06:07.989Z\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"fanout_notifications\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24c87dcd-ae3a-4658-a8bc-1516714e23fa",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization.ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization.ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization\": {\n    \"ids\": \"<object>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"fanout_notifications\": \"<boolean>\"\n  },\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 574,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d929a40-3322-4c32-8ec4-ae7a20b501f7",
+          "name": "Get the organization with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+          "request": {
+            "name": "Get the organization with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":organization_ids.organization_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the organization fields that should be returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization_ids.organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c612aa8f-4e3a-4b8a-8641-feadcab2728d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"organization_id\": \"<string>\"\n  },\n  \"created_at\": \"1952-04-21T05:52:03.111Z\",\n  \"updated_at\": \"2015-12-13T06:19:21.112Z\",\n  \"deleted_at\": \"1952-05-18T22:06:07.989Z\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"fanout_notifications\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fac23fa-9dcb-440e-b71f-6c2a9104a4fe",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 574,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b5c2588-aca3-48b4-8c4f-a10cbb71cf80",
+          "name": "Delete the organization. This may not release the organization ID for reuse.",
+          "request": {
+            "name": "Delete the organization. This may not release the organization ID for reuse.",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":organization_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd2be61d-a466-4362-a1f2-0874fa7f48c3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbc35b34-3c97-49e6-845d-ab01e393cfee",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 574,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8cc14596-e4b7-442e-9874-53b6c83acd06",
+          "name": "Purge the organization. This will release the organization ID for reuse.\nThe user is responsible for clearing data from any (external) integrations\nthat may store and expose data by user or organization ID.",
+          "request": {
+            "name": "Purge the organization. This will release the organization ID for reuse.\nThe user is responsible for clearing data from any (external) integrations\nthat may store and expose data by user or organization ID.",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":organization_id",
+                "purge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fdaa1d2-97bb-41c1-a63f-f24e32f9392f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id",
+                    "purge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15f2e0ab-2460-4a16-bf07-78bc04ba1c9b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id",
+                    "purge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 574,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c3603e3-bb90-4a12-8ad1-2b508ea4f0cc",
+          "name": "Restore a recently deleted organization.",
+          "request": {
+            "name": "Restore a recently deleted organization.",
+            "description": {
+              "content": "Deployment configuration may specify if, and for how long after deletion,\nentities can be restored.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organization_id",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "406ffba2-6a4a-4f8d-afa0-9e1271ce7d5b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "603a4a3e-0a6a-44dd-a026-f82aee8a681e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 574,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8657563-9ec1-48c8-9266-6ce0cf210932",
+          "name": "List organizations where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the organizations the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+          "request": {
+            "name": "List organizations where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the organizations the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":collaborator.user_ids.user_id",
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "collaborator.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "collaborator.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the organization fields that should be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted organizations."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator.user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd667a65-ddd8-4b63-a5db-74e3ec09290c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":collaborator.user_ids.user_id",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"organizations\": [\n    {\n      \"ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"created_at\": \"1989-04-17T09:16:13.770Z\",\n      \"updated_at\": \"1950-07-08T20:26:13.067Z\",\n      \"deleted_at\": \"1964-07-03T14:49:40.731Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"fanout_notifications\": false\n    },\n    {\n      \"ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"created_at\": \"2005-12-09T19:18:33.314Z\",\n      \"updated_at\": \"1994-10-15T09:49:30.643Z\",\n      \"deleted_at\": \"1953-04-28T21:20:40.686Z\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"<string>\",\n          \"public\": \"<boolean>\",\n          \"validated_at\": \"<dateTime>\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"technical_contact\": {\n        \"organization_ids\": {\n          \"organization_id\": \"<string>\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"<string>\",\n          \"email\": \"<string>\"\n        }\n      },\n      \"fanout_notifications\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1db8db76-60bc-4e1d-8927-9fa7e91e53ab",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":collaborator.user_ids.user_id",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "collaborator.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collaborator.user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 574,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c497691-0071-4c72-bea0-268a147f7340",
+          "name": "Create a new organization. This also sets the given user as\nfirst collaborator with all possible rights.",
+          "request": {
+            "name": "Create a new organization. This also sets the given user as\nfirst collaborator with all possible rights.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":collaborator.user_ids.user_id",
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collaborator.user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organization\": {\n    \"ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"fanout_notifications\": \"<boolean>\"\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b93f8ef3-8123-41e0-b341-395ca9d32e23",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":collaborator.user_ids.user_id",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization\": {\n    \"ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"fanout_notifications\": \"<boolean>\"\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"organization_id\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"attributes\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"<string>\",\n      \"public\": \"<boolean>\",\n      \"validated_at\": \"<dateTime>\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"technical_contact\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"fanout_notifications\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2895d5a5-0002-4916-8022-ee6359ad8d0f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":collaborator.user_ids.user_id",
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collaborator.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization\": {\n    \"ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"<string>\",\n        \"public\": \"<boolean>\",\n        \"validated_at\": \"<dateTime>\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"technical_contact\": {\n      \"organization_ids\": {\n        \"organization_id\": \"<string>\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"<string>\",\n        \"email\": \"<string>\"\n      }\n    },\n    \"fanout_notifications\": \"<boolean>\"\n  },\n  \"collaborator\": {\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 574,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "65ad5ce8-46a8-4d0f-928a-1fe82c1500e8",
+    "name": "The Things Stack — Application Server AppAs OrganizationRegistry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

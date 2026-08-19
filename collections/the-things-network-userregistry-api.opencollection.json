@@ -1,0 +1,241 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs UserRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List users of the network. This method is typically restricted to admins only.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users",
+            "params": [
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the user fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted users."
+              }
+            ]
+          },
+          "docs": "List users of the network. This method is typically restricted to admins only."
+        },
+        {
+          "info": {
+            "name": "Register a new user. This method may be restricted by network settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users"
+          },
+          "docs": "Register a new user. This method may be restricted by network settings."
+        },
+        {
+          "info": {
+            "name": "Update the user, changing the fields specified by the field mask to the provided values.\nThis method can not be used to change the password, see the UpdatePassword method for that.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/users/:user.ids.user_id",
+            "params": [
+              {
+                "name": "user.ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              }
+            ]
+          },
+          "docs": "Update the user, changing the fields specified by the field mask to the provided values.\nThis method can not be used to change the password, see the UpdatePassword method for that."
+        },
+        {
+          "info": {
+            "name": "Get the user with the given identifiers, selecting the fields given by the\nfield mask. The method may return more or less fields, depending on the rights\nof the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:user_ids.user_id",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the user fields that should be returned."
+              }
+            ]
+          },
+          "docs": "Get the user with the given identifiers, selecting the fields given by the\nfield mask. The method may return more or less fields, depending on the rights\nof the caller."
+        },
+        {
+          "info": {
+            "name": "Update the password of the user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/users/:user_ids.user_id/password",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              }
+            ]
+          },
+          "docs": "Update the password of the user."
+        },
+        {
+          "info": {
+            "name": "Create a temporary password that can be used for updating a forgotten password.\nThe generated password is sent to the user's email address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/:user_ids.user_id/temporary_password",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Create a temporary password that can be used for updating a forgotten password.\nThe generated password is sent to the user's email address."
+        },
+        {
+          "info": {
+            "name": "Delete the user. This may not release the user ID for reuse.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/users/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Delete the user. This may not release the user ID for reuse."
+        },
+        {
+          "info": {
+            "name": "Purge the user. This will release the user ID for reuse.\nThe user is responsible for clearing data from any (external) integrations\nthat may store and expose data by user or organization ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/users/:user_id/purge",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Purge the user. This will release the user ID for reuse.\nThe user is responsible for clearing data from any (external) integrations\nthat may store and expose data by user or organization ID."
+        },
+        {
+          "info": {
+            "name": "Restore a recently deleted user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/:user_id/restore",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Deployment configuration may specify if, and for how long after deletion,\nentities can be restored."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

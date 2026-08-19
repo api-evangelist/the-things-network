@@ -1,0 +1,956 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs DeviceRepository API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DeviceRepository",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "DeviceRepository_ListBrands2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/brands",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order (for pagination)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search for brands matching a query string."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetBrand2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/brands/:brand_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "brand_id",
+                "value": "",
+                "type": "path",
+                "description": "Brand identifier, as defined in the Device Repository."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_ListModels4",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/brands/:brand_id/models",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "brand_id",
+                "value": "",
+                "type": "path",
+                "description": "List end devices from a specific brand."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order end devices"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "List end devices matching a query string."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetModel2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/brands/:brand_id/models/:model_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "brand_id",
+                "value": "",
+                "type": "path",
+                "description": "Brand identifier, as defined in the Device Repository."
+              },
+              {
+                "name": "model_id",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier, as defined in the Device Repository."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetDownlinkDecoder2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/brands/:version_ids.brand_id/models/:version_ids.model_id/:version_ids.firmware_version/:version_ids.band_id/formatters/downlink/decoder",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetDownlinkEncoder2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/brands/:version_ids.brand_id/models/:version_ids.model_id/:version_ids.firmware_version/:version_ids.band_id/formatters/downlink/encoder",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetUplinkDecoder2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/brands/:version_ids.brand_id/models/:version_ids.model_id/:version_ids.firmware_version/:version_ids.band_id/formatters/uplink/decoder",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetTemplate3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/brands/:version_ids.brand_id/models/:version_ids.model_id/:version_ids.firmware_version/:version_ids.band_id/template",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_device_profile_ids.vendor_id",
+                "value": "",
+                "type": "query",
+                "description": "VendorID managed by the LoRa Alliance, as defined in TR005."
+              },
+              {
+                "name": "end_device_profile_ids.vendor_profile_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of the LoRaWAN end device profile assigned by the vendor."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_ListModels3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/models",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "brand_id",
+                "value": "",
+                "type": "query",
+                "description": "List end devices from a specific brand."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order end devices"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "List end devices matching a query string."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetTemplate4",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/applications/:application_ids.application_id/vendors/:end_device_profile_ids.vendor_id/profiles/:end_device_profile_ids.vendor_profile_id/template",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_profile_ids.vendor_id",
+                "value": "",
+                "type": "path",
+                "description": "VendorID managed by the LoRa Alliance, as defined in TR005."
+              },
+              {
+                "name": "end_device_profile_ids.vendor_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the LoRaWAN end device profile assigned by the vendor."
+              },
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_ListBrands",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/brands",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order (for pagination)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search for brands matching a query string."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetBrand",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/brands/:brand_id",
+            "params": [
+              {
+                "name": "brand_id",
+                "value": "",
+                "type": "path",
+                "description": "Brand identifier, as defined in the Device Repository."
+              },
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_ListModels2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/brands/:brand_id/models",
+            "params": [
+              {
+                "name": "brand_id",
+                "value": "",
+                "type": "path",
+                "description": "List end devices from a specific brand."
+              },
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order end devices"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "List end devices matching a query string."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetModel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/brands/:brand_id/models/:model_id",
+            "params": [
+              {
+                "name": "brand_id",
+                "value": "",
+                "type": "path",
+                "description": "Brand identifier, as defined in the Device Repository."
+              },
+              {
+                "name": "model_id",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier, as defined in the Device Repository."
+              },
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetDownlinkDecoder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/brands/:version_ids.brand_id/models/:version_ids.model_id/:version_ids.firmware_version/:version_ids.band_id/formatters/downlink/decoder",
+            "params": [
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetDownlinkEncoder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/brands/:version_ids.brand_id/models/:version_ids.model_id/:version_ids.firmware_version/:version_ids.band_id/formatters/downlink/encoder",
+            "params": [
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetUplinkDecoder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/brands/:version_ids.brand_id/models/:version_ids.model_id/:version_ids.firmware_version/:version_ids.band_id/formatters/uplink/decoder",
+            "params": [
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/brands/:version_ids.brand_id/models/:version_ids.model_id/:version_ids.firmware_version/:version_ids.band_id/template",
+            "params": [
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_device_profile_ids.vendor_id",
+                "value": "",
+                "type": "query",
+                "description": "VendorID managed by the LoRa Alliance, as defined in TR005."
+              },
+              {
+                "name": "end_device_profile_ids.vendor_profile_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of the LoRaWAN end device profile assigned by the vendor."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_ListModels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/models",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "brand_id",
+                "value": "",
+                "type": "query",
+                "description": "List end devices from a specific brand."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order end devices"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "List end devices matching a query string."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "Field mask paths."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "DeviceRepository_GetTemplate2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/dr/vendors/:end_device_profile_ids.vendor_id/profiles/:end_device_profile_ids.vendor_profile_id/template",
+            "params": [
+              {
+                "name": "end_device_profile_ids.vendor_id",
+                "value": "",
+                "type": "path",
+                "description": "VendorID managed by the LoRa Alliance, as defined in TR005."
+              },
+              {
+                "name": "end_device_profile_ids.vendor_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the LoRaWAN end device profile assigned by the vendor."
+              },
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.brand_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.model_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.hardware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.firmware_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version_ids.band_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

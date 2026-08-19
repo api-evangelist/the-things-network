@@ -1,0 +1,1363 @@
+{
+  "item": [
+    {
+      "id": "0fd031b2-a0d0-4365-9cef-21bb09daabd5",
+      "name": "ApplicationUpStorage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff0daf9a-f124-4076-b42c-22c307fc2243",
+          "name": "Returns a stream of application messages that have been stored in the database.",
+          "request": {
+            "name": "Returns a stream of application messages that have been stored in the database.",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "applications",
+                ":application_ids.application_id",
+                "packages",
+                "storage",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.device_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<dateTime>",
+                  "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<dateTime>",
+                  "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last."
+                },
+                {
+                  "disabled": false,
+                  "key": "f_port",
+                  "value": "<long>",
+                  "description": "Query uplinks on a specific FPort only."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order results."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message."
+                },
+                {
+                  "disabled": false,
+                  "key": "last",
+                  "value": "<string>",
+                  "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before."
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation_token",
+                  "value": "<string>",
+                  "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b755d2c2-fa4d-47b5-a25f-e3b0c0ad3748",
+              "name": "A successful response.(streaming responses)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "applications",
+                    ":application_ids.application_id",
+                    "packages",
+                    "storage",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "f_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continuation_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"end_device_ids\": {\n      \"device_id\": \"string\",\n      \"application_ids\": {\n        \"application_id\": \"string\"\n      },\n      \"dev_eui\": \"70B3D57ED000ABCD\",\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"dev_addr\": \"2600ABCD\"\n    },\n    \"correlation_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"received_at\": \"1956-02-06T16:46:03.672Z\",\n    \"uplink_message\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 9347,\n      \"f_cnt\": 323,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"normalized_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rx_metadata\": [\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packet_broker\": {\n            \"message_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relay\": {\n            \"device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"wor_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"antenna_index\": 553,\n          \"time\": \"2015-09-16T04:24:54.973Z\",\n          \"timestamp\": 3128,\n          \"fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp_key_id\": \"string\",\n          \"rssi\": 2884.928064979452,\n          \"signal_rssi\": 3490.867068990956,\n          \"channel_rssi\": 7432.210330449452,\n          \"rssi_standard_deviation\": 1451.2474979018875,\n          \"snr\": 6127.655752674898,\n          \"frequency_offset\": \"string\",\n          \"location\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"string\",\n          \"channel_index\": 5536,\n          \"hopping_width\": 3789,\n          \"frequency_drift\": 9455,\n          \"gps_time\": \"1947-10-23T09:46:24.266Z\",\n          \"received_at\": \"2013-05-18T12:39:02.208Z\",\n          \"advanced\": {}\n        },\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packet_broker\": {\n            \"message_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relay\": {\n            \"device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"wor_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"antenna_index\": 7504,\n          \"time\": \"2016-07-23T14:40:30.135Z\",\n          \"timestamp\": 9003,\n          \"fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp_key_id\": \"string\",\n          \"rssi\": 1364.7931790820155,\n          \"signal_rssi\": 2574.8490211190956,\n          \"channel_rssi\": 417.1781458131718,\n          \"rssi_standard_deviation\": 5898.186832490071,\n          \"snr\": 6275.507723146548,\n          \"frequency_offset\": \"string\",\n          \"location\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"string\",\n          \"channel_index\": 838,\n          \"hopping_width\": 1920,\n          \"frequency_drift\": 6655,\n          \"gps_time\": \"1972-07-30T06:50:54.384Z\",\n          \"received_at\": \"2015-03-14T16:27:45.118Z\",\n          \"advanced\": {}\n        }\n      ],\n      \"settings\": {\n        \"data_rate\": {\n          \"lora\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fsk\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lrfhss\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"frequency\": \"string\",\n        \"enable_crc\": true,\n        \"timestamp\": 9205,\n        \"time\": \"2022-09-18T17:10:27.021Z\",\n        \"downlink\": {\n          \"antenna_index\": 1938,\n          \"tx_power\": 2494.1552440276414,\n          \"invert_polarization\": false\n        },\n        \"concentrator_timestamp\": \"string\"\n      },\n      \"received_at\": \"1951-03-19T03:07:27.828Z\",\n      \"app_s_key\": {\n        \"key\": \"0123456789ABCDEF0123456789ABCDEF\",\n        \"kek_label\": \"string\",\n        \"encrypted_key\": \"string\"\n      },\n      \"last_a_f_cnt_down\": 8883,\n      \"confirmed\": true,\n      \"consumed_airtime\": \"string\",\n      \"packet_error_rate\": 6085.251586852048,\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 5319.43196194144,\n          \"longitude\": 2666.934858249399,\n          \"altitude\": 7413,\n          \"accuracy\": 4094,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 3506.244348017248,\n          \"longitude\": 9893.355478734884,\n          \"altitude\": 7389,\n          \"accuracy\": 3735,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"last_battery_percentage\": {\n        \"f_cnt\": 3435,\n        \"value\": 511.45476067490534,\n        \"received_at\": \"2001-01-22T21:08:53.355Z\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"uplink_normalized\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 4419,\n      \"f_cnt\": 598,\n      \"frm_payload\": \"string\",\n      \"normalized_payload\": {},\n      \"normalized_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rx_metadata\": [\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packet_broker\": {\n            \"message_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relay\": {\n            \"device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"wor_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"antenna_index\": 3414,\n          \"time\": \"2012-10-02T01:33:40.125Z\",\n          \"timestamp\": 6778,\n          \"fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp_key_id\": \"string\",\n          \"rssi\": 5734.677073224194,\n          \"signal_rssi\": 9603.094506032165,\n          \"channel_rssi\": 8668.953444565932,\n          \"rssi_standard_deviation\": 4231.101033034766,\n          \"snr\": 2536.9721005953215,\n          \"frequency_offset\": \"string\",\n          \"location\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"string\",\n          \"channel_index\": 9163,\n          \"hopping_width\": 942,\n          \"frequency_drift\": 2008,\n          \"gps_time\": \"1976-04-11T08:55:36.555Z\",\n          \"received_at\": \"2014-03-13T12:54:28.367Z\",\n          \"advanced\": {}\n        },\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packet_broker\": {\n            \"message_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relay\": {\n            \"device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"wor_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"antenna_index\": 5928,\n          \"time\": \"1961-09-20T13:57:07.307Z\",\n          \"timestamp\": 2467,\n          \"fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp_key_id\": \"string\",\n          \"rssi\": 2045.9117789368809,\n          \"signal_rssi\": 2307.579180809959,\n          \"channel_rssi\": 4046.8380654593016,\n          \"rssi_standard_deviation\": 9813.021636315532,\n          \"snr\": 4163.722336140341,\n          \"frequency_offset\": \"string\",\n          \"location\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"string\",\n          \"channel_index\": 9335,\n          \"hopping_width\": 563,\n          \"frequency_drift\": 9880,\n          \"gps_time\": \"1972-11-17T15:37:42.272Z\",\n          \"received_at\": \"2004-11-17T21:50:53.057Z\",\n          \"advanced\": {}\n        }\n      ],\n      \"settings\": {\n        \"data_rate\": {\n          \"lora\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fsk\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lrfhss\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"frequency\": \"string\",\n        \"enable_crc\": false,\n        \"timestamp\": 9000,\n        \"time\": \"1967-06-27T03:27:35.172Z\",\n        \"downlink\": {\n          \"antenna_index\": 8732,\n          \"tx_power\": 4124.001021470237,\n          \"invert_polarization\": false\n        },\n        \"concentrator_timestamp\": \"string\"\n      },\n      \"received_at\": \"2012-10-25T11:44:25.397Z\",\n      \"confirmed\": true,\n      \"consumed_airtime\": \"string\",\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 1876.2290706025997,\n          \"longitude\": 55.323879503345054,\n          \"altitude\": 8238,\n          \"accuracy\": 448,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 4833.643461409607,\n          \"longitude\": 1850.3804440898775,\n          \"altitude\": 4121,\n          \"accuracy\": 2388,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"join_accept\": {\n      \"session_key_id\": \"string\",\n      \"app_s_key\": {\n        \"key\": \"0123456789ABCDEF0123456789ABCDEF\",\n        \"kek_label\": \"string\",\n        \"encrypted_key\": \"string\"\n      },\n      \"invalidated_downlinks\": [\n        {\n          \"session_key_id\": \"string\",\n          \"f_port\": 4164,\n          \"f_cnt\": 8700,\n          \"frm_payload\": \"string\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed\": false,\n          \"class_b_c\": {\n            \"gateways\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"absolute_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_attempts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locations\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firmware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"band_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"network_ids\": {\n            \"net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ns_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"session_key_id\": \"string\",\n          \"f_port\": 1336,\n          \"f_cnt\": 4649,\n          \"frm_payload\": \"string\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed\": false,\n          \"class_b_c\": {\n            \"gateways\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"absolute_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_attempts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locations\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_3\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firmware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"band_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"network_ids\": {\n            \"net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ns_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ],\n      \"pending_session\": false,\n      \"received_at\": \"2005-07-19T11:40:45.069Z\",\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 87.81447600283876,\n          \"longitude\": 1889.7210597231872,\n          \"altitude\": 8739,\n          \"accuracy\": 727,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 7906.878449590412,\n          \"longitude\": 5988.172983413666,\n          \"altitude\": 6041,\n          \"accuracy\": 5296,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_2\": {\n          \"latitude\": 4076.127550708721,\n          \"longitude\": 4868.43622805421,\n          \"altitude\": 2650,\n          \"accuracy\": 5464,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"downlink_ack\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 7514,\n      \"f_cnt\": 5577,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed\": true,\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"absolute_time\": \"1972-11-16T18:02:46.616Z\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": 6702,\n        \"max_attempts\": 9952\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 4915.312052090769,\n          \"longitude\": 6563.22652051609,\n          \"altitude\": 7174,\n          \"accuracy\": 1782,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 7553.111172077424,\n          \"longitude\": 3575.879091487176,\n          \"altitude\": 8987,\n          \"accuracy\": 4907,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_2\": {\n          \"latitude\": 7582.340209100752,\n          \"longitude\": 3956.852853429266,\n          \"altitude\": 6810,\n          \"accuracy\": 7865,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"downlink_nack\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 6604,\n      \"f_cnt\": 4213,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed\": true,\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"absolute_time\": \"2014-09-23T15:23:30.980Z\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": 2227,\n        \"max_attempts\": 4073\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 6479.381708996151,\n          \"longitude\": 9039.430942078328,\n          \"altitude\": 7582,\n          \"accuracy\": 9027,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 7725.366510174669,\n          \"longitude\": 7241.511973436557,\n          \"altitude\": 6841,\n          \"accuracy\": 4644,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_2\": {\n          \"latitude\": 1490.187430981499,\n          \"longitude\": 9320.557119357723,\n          \"altitude\": 5109,\n          \"accuracy\": 9231,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"downlink_sent\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 9392,\n      \"f_cnt\": 3606,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed\": true,\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"absolute_time\": \"2010-09-16T06:28:24.447Z\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": 7201,\n        \"max_attempts\": 6947\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 8614.46968276584,\n          \"longitude\": 5265.514759020191,\n          \"altitude\": 891,\n          \"accuracy\": 7863,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 4772.6282063294775,\n          \"longitude\": 386.5534745202104,\n          \"altitude\": 6414,\n          \"accuracy\": 4592,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"downlink_failed\": {\n      \"downlink\": {\n        \"session_key_id\": \"string\",\n        \"f_port\": 1997,\n        \"f_cnt\": 6666,\n        \"frm_payload\": \"string\",\n        \"decoded_payload\": {},\n        \"decoded_payload_warnings\": [\n          \"string\",\n          \"string\"\n        ],\n        \"confirmed\": false,\n        \"class_b_c\": {\n          \"gateways\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"absolute_time\": \"1999-11-09T14:13:15.994Z\"\n        },\n        \"priority\": \"LOWEST\",\n        \"correlation_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"confirmed_retry\": {\n          \"attempt\": 3450,\n          \"max_attempts\": 5287\n        },\n        \"locations\": {\n          \"key_0\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_1\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_2\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"version_ids\": {\n          \"brand_id\": \"string\",\n          \"model_id\": \"string\",\n          \"hardware_version\": \"string\",\n          \"firmware_version\": \"string\",\n          \"band_id\": \"string\"\n        },\n        \"network_ids\": {\n          \"net_id\": \"000013\",\n          \"ns_id\": \"70B3D57ED000ABCD\",\n          \"tenant_id\": \"string\",\n          \"cluster_id\": \"string\",\n          \"cluster_address\": \"string\",\n          \"tenant_address\": \"string\"\n        },\n        \"attributes\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      },\n      \"error\": {\n        \"namespace\": \"string\",\n        \"name\": \"string\",\n        \"message_format\": \"string\",\n        \"attributes\": {},\n        \"correlation_id\": \"string\",\n        \"cause\": {\n          \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n        },\n        \"code\": 2179,\n        \"details\": [\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 7012.050968829189,\n          \"longitude\": 1825.891846061165,\n          \"altitude\": 7424,\n          \"accuracy\": 7501,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"downlink_queued\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 5108,\n      \"f_cnt\": 5757,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed\": false,\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"absolute_time\": \"1993-12-28T02:59:27.070Z\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": 8001,\n        \"max_attempts\": 9876\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 8985.285408150447,\n          \"longitude\": 9406.56464442263,\n          \"altitude\": 8335,\n          \"accuracy\": 3315,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 259.0113223568724,\n          \"longitude\": 3250.800260827554,\n          \"altitude\": 922,\n          \"accuracy\": 1134,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_2\": {\n          \"latitude\": 752.5386949459612,\n          \"longitude\": 5004.118762713555,\n          \"altitude\": 4624,\n          \"accuracy\": 2654,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_3\": {\n          \"latitude\": 4016.5796925212803,\n          \"longitude\": 7631.791543394406,\n          \"altitude\": 7273,\n          \"accuracy\": 5359,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_4\": {\n          \"latitude\": 7360.210792930687,\n          \"longitude\": 138.72097713719222,\n          \"altitude\": 4554,\n          \"accuracy\": 2708,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      }\n    },\n    \"downlink_queue_invalidated\": {\n      \"downlinks\": [\n        {\n          \"session_key_id\": \"string\",\n          \"f_port\": 4286,\n          \"f_cnt\": 738,\n          \"frm_payload\": \"string\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed\": false,\n          \"class_b_c\": {\n            \"gateways\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"absolute_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_attempts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locations\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firmware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"band_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"network_ids\": {\n            \"net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ns_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        },\n        {\n          \"session_key_id\": \"string\",\n          \"f_port\": 5371,\n          \"f_cnt\": 8578,\n          \"frm_payload\": \"string\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed\": false,\n          \"class_b_c\": {\n            \"gateways\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"absolute_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_attempts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locations\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firmware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"band_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"network_ids\": {\n            \"net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ns_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ],\n      \"last_f_cnt_down\": 6949,\n      \"session_key_id\": \"string\",\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 3850.9578821218547,\n          \"longitude\": 7373.399909519871,\n          \"altitude\": 779,\n          \"accuracy\": 6326,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 1717.4864592297745,\n          \"longitude\": 4626.255773091829,\n          \"altitude\": 7955,\n          \"accuracy\": 6611,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"location_solved\": {\n      \"service\": \"string\",\n      \"location\": {\n        \"latitude\": 7241.861863872864,\n        \"longitude\": 1534.8325034261989,\n        \"altitude\": 9005,\n        \"accuracy\": 673,\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"service_data\": {\n      \"service\": \"string\",\n      \"data\": {},\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 2215.9276581157883,\n          \"longitude\": 9758.226150720024,\n          \"altitude\": 1850,\n          \"accuracy\": 8685,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 9551.86124997795,\n          \"longitude\": 9397.874966770067,\n          \"altitude\": 4660,\n          \"accuracy\": 1164,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_2\": {\n          \"latitude\": 6963.6301336216075,\n          \"longitude\": 7625.907428334171,\n          \"altitude\": 2307,\n          \"accuracy\": 1936,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_3\": {\n          \"latitude\": 75.08329975473127,\n          \"longitude\": 2809.8645081452632,\n          \"altitude\": 8148,\n          \"accuracy\": 6876,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"simulated\": true\n  },\n  \"error\": {\n    \"code\": 5277,\n    \"message\": \"string\",\n    \"details\": [\n      {\n        \"@type\": \"string\",\n        \"key_0\": {}\n      },\n      {\n        \"@type\": \"string\",\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09096271-158b-47b5-8b41-d7938efa37ae",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "applications",
+                    ":application_ids.application_id",
+                    "packages",
+                    "storage",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "f_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continuation_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3545,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "648c6abc-2ed2-446a-8334-51353eadb5bd",
+          "name": "Returns how many application messages have been stored in the database for an application or end device.",
+          "request": {
+            "name": "Returns how many application messages have been stored in the database for an application or end device.",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "applications",
+                ":application_ids.application_id",
+                "packages",
+                "storage",
+                ":type",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.device_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<dateTime>",
+                  "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<dateTime>",
+                  "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last."
+                },
+                {
+                  "disabled": false,
+                  "key": "f_port",
+                  "value": "<long>",
+                  "description": "Count uplinks on a specific FPort only."
+                },
+                {
+                  "disabled": false,
+                  "key": "last",
+                  "value": "<string>",
+                  "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23312c2c-eb88-4513-b614-044fffb360cc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "applications",
+                    ":application_ids.application_id",
+                    "packages",
+                    "storage",
+                    ":type",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "f_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": {\n    \"key_0\": 1724,\n    \"key_1\": 5269\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad3ac367-da8a-4e99-811e-dfa9211448f4",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "applications",
+                    ":application_ids.application_id",
+                    "packages",
+                    "storage",
+                    ":type",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "f_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3545,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21d2ae82-0427-426f-8c02-e84ebcddfad9",
+          "name": "Returns a stream of application messages that have been stored in the database.",
+          "request": {
+            "name": "Returns a stream of application messages that have been stored in the database.",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "applications",
+                ":end_device_ids.application_ids.application_id",
+                "devices",
+                ":end_device_ids.device_id",
+                "packages",
+                "storage",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<dateTime>",
+                  "description": "Query upstream messages after this timestamp only. Cannot be used in conjunction with last."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<dateTime>",
+                  "description": "Query upstream messages before this timestamp only. Cannot be used in conjunction with last."
+                },
+                {
+                  "disabled": false,
+                  "key": "f_port",
+                  "value": "<long>",
+                  "description": "Query uplinks on a specific FPort only."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order results."
+                },
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>",
+                  "description": "The names of the upstream message fields that should be returned. See the API reference\nfor allowed field names for each type of upstream message."
+                },
+                {
+                  "disabled": false,
+                  "key": "last",
+                  "value": "<string>",
+                  "description": "Query upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before."
+                },
+                {
+                  "disabled": false,
+                  "key": "continuation_token",
+                  "value": "<string>",
+                  "description": "The continuation token, which is used to retrieve the next page. If provided, other fields are ignored."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "end_device_ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "end_device_ids.device_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c69fc22e-5ea9-4723-8572-d2fb60fba4f7",
+              "name": "A successful response.(streaming responses)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "applications",
+                    ":end_device_ids.application_ids.application_id",
+                    "devices",
+                    ":end_device_ids.device_id",
+                    "packages",
+                    "storage",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "f_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continuation_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_device_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_device_ids.device_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"end_device_ids\": {\n      \"device_id\": \"string\",\n      \"application_ids\": {\n        \"application_id\": \"string\"\n      },\n      \"dev_eui\": \"70B3D57ED000ABCD\",\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"dev_addr\": \"2600ABCD\"\n    },\n    \"correlation_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"received_at\": \"2024-02-04T18:05:06.198Z\",\n    \"uplink_message\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 8667,\n      \"f_cnt\": 1177,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"normalized_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rx_metadata\": [\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packet_broker\": {\n            \"message_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relay\": {\n            \"device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"wor_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"antenna_index\": 69,\n          \"time\": \"1959-11-13T22:12:25.376Z\",\n          \"timestamp\": 1588,\n          \"fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp_key_id\": \"string\",\n          \"rssi\": 322.12733641224344,\n          \"signal_rssi\": 5676.106107393374,\n          \"channel_rssi\": 6339.784039767875,\n          \"rssi_standard_deviation\": 8864.311724483478,\n          \"snr\": 7805.8286298376215,\n          \"frequency_offset\": \"string\",\n          \"location\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"string\",\n          \"channel_index\": 603,\n          \"hopping_width\": 4050,\n          \"frequency_drift\": 9040,\n          \"gps_time\": \"2005-07-11T20:22:58.477Z\",\n          \"received_at\": \"2010-12-27T13:12:57.223Z\",\n          \"advanced\": {}\n        },\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packet_broker\": {\n            \"message_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relay\": {\n            \"device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"wor_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"antenna_index\": 890,\n          \"time\": \"2025-08-03T09:20:43.166Z\",\n          \"timestamp\": 4844,\n          \"fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp_key_id\": \"string\",\n          \"rssi\": 2089.074075488866,\n          \"signal_rssi\": 606.436426791348,\n          \"channel_rssi\": 1867.9555936365423,\n          \"rssi_standard_deviation\": 9957.85269282363,\n          \"snr\": 609.0182376144948,\n          \"frequency_offset\": \"string\",\n          \"location\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"string\",\n          \"channel_index\": 2255,\n          \"hopping_width\": 7546,\n          \"frequency_drift\": 7273,\n          \"gps_time\": \"1962-02-22T00:09:40.763Z\",\n          \"received_at\": \"1959-10-29T13:08:41.838Z\",\n          \"advanced\": {}\n        }\n      ],\n      \"settings\": {\n        \"data_rate\": {\n          \"lora\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fsk\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lrfhss\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"frequency\": \"string\",\n        \"enable_crc\": false,\n        \"timestamp\": 4041,\n        \"time\": \"1967-04-04T02:44:58.752Z\",\n        \"downlink\": {\n          \"antenna_index\": 940,\n          \"tx_power\": 7679.327528622319,\n          \"invert_polarization\": true\n        },\n        \"concentrator_timestamp\": \"string\"\n      },\n      \"received_at\": \"2000-03-22T15:26:11.127Z\",\n      \"app_s_key\": {\n        \"key\": \"0123456789ABCDEF0123456789ABCDEF\",\n        \"kek_label\": \"string\",\n        \"encrypted_key\": \"string\"\n      },\n      \"last_a_f_cnt_down\": 8861,\n      \"confirmed\": true,\n      \"consumed_airtime\": \"string\",\n      \"packet_error_rate\": 8076.432777737344,\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 539.0818892178572,\n          \"longitude\": 7089.509107221975,\n          \"altitude\": 1514,\n          \"accuracy\": 4235,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"last_battery_percentage\": {\n        \"f_cnt\": 7418,\n        \"value\": 2477.7040658194537,\n        \"received_at\": \"2026-03-09T09:03:22.852Z\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"uplink_normalized\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 4982,\n      \"f_cnt\": 1408,\n      \"frm_payload\": \"string\",\n      \"normalized_payload\": {},\n      \"normalized_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rx_metadata\": [\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packet_broker\": {\n            \"message_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relay\": {\n            \"device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"wor_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"antenna_index\": 2213,\n          \"time\": \"1994-05-12T06:55:58.491Z\",\n          \"timestamp\": 931,\n          \"fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp_key_id\": \"string\",\n          \"rssi\": 4582.684520959092,\n          \"signal_rssi\": 1807.7961857795833,\n          \"channel_rssi\": 2536.278249868584,\n          \"rssi_standard_deviation\": 3615.6910021274102,\n          \"snr\": 3137.2855831360603,\n          \"frequency_offset\": \"string\",\n          \"location\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"string\",\n          \"channel_index\": 3161,\n          \"hopping_width\": 861,\n          \"frequency_drift\": 1684,\n          \"gps_time\": \"1975-10-18T18:34:43.480Z\",\n          \"received_at\": \"1984-11-09T06:51:23.356Z\",\n          \"advanced\": {}\n        },\n        {\n          \"gateway_ids\": {\n            \"gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"packet_broker\": {\n            \"message_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_eui\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"forwarder_gateway_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"home_network_cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hops\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"relay\": {\n            \"device_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"wor_channel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"antenna_index\": 6568,\n          \"time\": \"1999-11-09T22:49:39.606Z\",\n          \"timestamp\": 2441,\n          \"fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp\": \"string\",\n          \"encrypted_fine_timestamp_key_id\": \"string\",\n          \"rssi\": 2466.571918727737,\n          \"signal_rssi\": 6717.685901428212,\n          \"channel_rssi\": 102.63541930686016,\n          \"rssi_standard_deviation\": 7084.937636387185,\n          \"snr\": 52.994170460356486,\n          \"frequency_offset\": \"string\",\n          \"location\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"downlink_path_constraint\": \"DOWNLINK_PATH_CONSTRAINT_NONE\",\n          \"uplink_token\": \"string\",\n          \"channel_index\": 5709,\n          \"hopping_width\": 9201,\n          \"frequency_drift\": 6140,\n          \"gps_time\": \"2000-04-22T15:49:53.167Z\",\n          \"received_at\": \"1959-06-02T07:45:43.383Z\",\n          \"advanced\": {}\n        }\n      ],\n      \"settings\": {\n        \"data_rate\": {\n          \"lora\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fsk\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lrfhss\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"frequency\": \"string\",\n        \"enable_crc\": false,\n        \"timestamp\": 3649,\n        \"time\": \"2003-03-18T17:12:50.291Z\",\n        \"downlink\": {\n          \"antenna_index\": 3864,\n          \"tx_power\": 5231.618616274974,\n          \"invert_polarization\": false\n        },\n        \"concentrator_timestamp\": \"string\"\n      },\n      \"received_at\": \"1964-06-27T21:25:12.278Z\",\n      \"confirmed\": false,\n      \"consumed_airtime\": \"string\",\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 5969.119605863132,\n          \"longitude\": 483.9129677452891,\n          \"altitude\": 3897,\n          \"accuracy\": 9961,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 3051.2831805190667,\n          \"longitude\": 9111.71629250117,\n          \"altitude\": 6328,\n          \"accuracy\": 1495,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"join_accept\": {\n      \"session_key_id\": \"string\",\n      \"app_s_key\": {\n        \"key\": \"0123456789ABCDEF0123456789ABCDEF\",\n        \"kek_label\": \"string\",\n        \"encrypted_key\": \"string\"\n      },\n      \"invalidated_downlinks\": [\n        {\n          \"session_key_id\": \"string\",\n          \"f_port\": 6055,\n          \"f_cnt\": 7366,\n          \"frm_payload\": \"string\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed\": false,\n          \"class_b_c\": {\n            \"gateways\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"absolute_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_attempts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locations\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firmware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"band_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"network_ids\": {\n            \"net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ns_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"session_key_id\": \"string\",\n          \"f_port\": 297,\n          \"f_cnt\": 6080,\n          \"frm_payload\": \"string\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed\": false,\n          \"class_b_c\": {\n            \"gateways\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"absolute_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_attempts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locations\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firmware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"band_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"network_ids\": {\n            \"net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ns_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ],\n      \"pending_session\": false,\n      \"received_at\": \"1975-02-19T11:42:00.522Z\",\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 7371.387036418314,\n          \"longitude\": 8409.952762121327,\n          \"altitude\": 9043,\n          \"accuracy\": 1224,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 3094.4344008697312,\n          \"longitude\": 9443.397333792327,\n          \"altitude\": 5734,\n          \"accuracy\": 6397,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_2\": {\n          \"latitude\": 1337.6896621417222,\n          \"longitude\": 2932.5261316215124,\n          \"altitude\": 3156,\n          \"accuracy\": 4234,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"downlink_ack\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 8404,\n      \"f_cnt\": 351,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed\": false,\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"absolute_time\": \"1959-09-27T22:01:36.431Z\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": 7796,\n        \"max_attempts\": 6056\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 6946.113055438764,\n          \"longitude\": 7913.173350225207,\n          \"altitude\": 192,\n          \"accuracy\": 8991,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 5609.157727257031,\n          \"longitude\": 9578.204089822742,\n          \"altitude\": 3845,\n          \"accuracy\": 5327,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"downlink_nack\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 5264,\n      \"f_cnt\": 5966,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed\": false,\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"absolute_time\": \"2020-01-21T21:55:00.643Z\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": 9697,\n        \"max_attempts\": 8073\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 1586.2337630169854,\n          \"longitude\": 1661.2377513462318,\n          \"altitude\": 2797,\n          \"accuracy\": 5464,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"downlink_sent\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 1750,\n      \"f_cnt\": 2347,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed\": false,\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"absolute_time\": \"1976-07-15T12:13:40.877Z\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": 2453,\n        \"max_attempts\": 7850\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 2594.898548861615,\n          \"longitude\": 6267.117831706916,\n          \"altitude\": 2633,\n          \"accuracy\": 5649,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 2799.5048056823025,\n          \"longitude\": 1747.6598048142146,\n          \"altitude\": 5612,\n          \"accuracy\": 7223,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      }\n    },\n    \"downlink_failed\": {\n      \"downlink\": {\n        \"session_key_id\": \"string\",\n        \"f_port\": 8154,\n        \"f_cnt\": 908,\n        \"frm_payload\": \"string\",\n        \"decoded_payload\": {},\n        \"decoded_payload_warnings\": [\n          \"string\",\n          \"string\"\n        ],\n        \"confirmed\": true,\n        \"class_b_c\": {\n          \"gateways\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"absolute_time\": \"1976-06-01T15:54:07.064Z\"\n        },\n        \"priority\": \"LOWEST\",\n        \"correlation_ids\": [\n          \"string\",\n          \"string\"\n        ],\n        \"confirmed_retry\": {\n          \"attempt\": 3192,\n          \"max_attempts\": 9588\n        },\n        \"locations\": {\n          \"key_0\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_1\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_2\": {\n            \"latitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"longitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"altitude\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accuracy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"version_ids\": {\n          \"brand_id\": \"string\",\n          \"model_id\": \"string\",\n          \"hardware_version\": \"string\",\n          \"firmware_version\": \"string\",\n          \"band_id\": \"string\"\n        },\n        \"network_ids\": {\n          \"net_id\": \"000013\",\n          \"ns_id\": \"70B3D57ED000ABCD\",\n          \"tenant_id\": \"string\",\n          \"cluster_id\": \"string\",\n          \"cluster_address\": \"string\",\n          \"tenant_address\": \"string\"\n        },\n        \"attributes\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"error\": {\n        \"namespace\": \"string\",\n        \"name\": \"string\",\n        \"message_format\": \"string\",\n        \"attributes\": {},\n        \"correlation_id\": \"string\",\n        \"cause\": {\n          \"value\": \"<Circular reference to #/components/schemas/v3ErrorDetails detected>\"\n        },\n        \"code\": 3439,\n        \"details\": [\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"@type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 4259.173028541099,\n          \"longitude\": 3330.6331118337584,\n          \"altitude\": 5902,\n          \"accuracy\": 7301,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 9264.392070576105,\n          \"longitude\": 8682.49636254918,\n          \"altitude\": 1158,\n          \"accuracy\": 4149,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"downlink_queued\": {\n      \"session_key_id\": \"string\",\n      \"f_port\": 1712,\n      \"f_cnt\": 6934,\n      \"frm_payload\": \"string\",\n      \"decoded_payload\": {},\n      \"decoded_payload_warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed\": true,\n      \"class_b_c\": {\n        \"gateways\": [\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"gateway_ids\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"antenna_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"group_index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"absolute_time\": \"1995-02-27T16:08:50.150Z\"\n      },\n      \"priority\": \"LOWEST\",\n      \"correlation_ids\": [\n        \"string\",\n        \"string\"\n      ],\n      \"confirmed_retry\": {\n        \"attempt\": 4888,\n        \"max_attempts\": 2404\n      },\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 2790.4447875909577,\n          \"longitude\": 5215.606453705026,\n          \"altitude\": 1766,\n          \"accuracy\": 6698,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 3941.391809419675,\n          \"longitude\": 7548.764520770964,\n          \"altitude\": 9925,\n          \"accuracy\": 4989,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"downlink_queue_invalidated\": {\n      \"downlinks\": [\n        {\n          \"session_key_id\": \"string\",\n          \"f_port\": 664,\n          \"f_cnt\": 6464,\n          \"frm_payload\": \"string\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed\": true,\n          \"class_b_c\": {\n            \"gateways\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"absolute_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_attempts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locations\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_1\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"key_2\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firmware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"band_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"network_ids\": {\n            \"net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ns_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        },\n        {\n          \"session_key_id\": \"string\",\n          \"f_port\": 7262,\n          \"f_cnt\": 3930,\n          \"frm_payload\": \"string\",\n          \"decoded_payload\": {},\n          \"decoded_payload_warnings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed\": false,\n          \"class_b_c\": {\n            \"gateways\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"absolute_time\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"priority\": \"LOWEST\",\n          \"correlation_ids\": [\n            \"string\",\n            \"string\"\n          ],\n          \"confirmed_retry\": {\n            \"attempt\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max_attempts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locations\": {\n            \"key_0\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"version_ids\": {\n            \"brand_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"model_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hardware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"firmware_version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"band_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"network_ids\": {\n            \"net_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ns_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cluster_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tenant_address\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          }\n        }\n      ],\n      \"last_f_cnt_down\": 1529,\n      \"session_key_id\": \"string\",\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 1206.2673101687703,\n          \"longitude\": 3581.3355780138445,\n          \"altitude\": 438,\n          \"accuracy\": 103,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 9244.89672344901,\n          \"longitude\": 8816.313419905207,\n          \"altitude\": 8505,\n          \"accuracy\": 6243,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"location_solved\": {\n      \"service\": \"string\",\n      \"location\": {\n        \"latitude\": 8173.165816527341,\n        \"longitude\": 6594.266926087161,\n        \"altitude\": 6167,\n        \"accuracy\": 8920,\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"service_data\": {\n      \"service\": \"string\",\n      \"data\": {},\n      \"locations\": {\n        \"key_0\": {\n          \"latitude\": 9677.715539066654,\n          \"longitude\": 8058.07323963988,\n          \"altitude\": 4165,\n          \"accuracy\": 4728,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_1\": {\n          \"latitude\": 9702.944613416841,\n          \"longitude\": 984.8743698417039,\n          \"altitude\": 2371,\n          \"accuracy\": 70,\n          \"source\": \"SOURCE_UNKNOWN\"\n        },\n        \"key_2\": {\n          \"latitude\": 5851.355232285088,\n          \"longitude\": 901.1618678192101,\n          \"altitude\": 165,\n          \"accuracy\": 6089,\n          \"source\": \"SOURCE_UNKNOWN\"\n        }\n      },\n      \"version_ids\": {\n        \"brand_id\": \"string\",\n        \"model_id\": \"string\",\n        \"hardware_version\": \"string\",\n        \"firmware_version\": \"string\",\n        \"band_id\": \"string\"\n      },\n      \"network_ids\": {\n        \"net_id\": \"000013\",\n        \"ns_id\": \"70B3D57ED000ABCD\",\n        \"tenant_id\": \"string\",\n        \"cluster_id\": \"string\",\n        \"cluster_address\": \"string\",\n        \"tenant_address\": \"string\"\n      },\n      \"attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    },\n    \"simulated\": false\n  },\n  \"error\": {\n    \"code\": 7924,\n    \"message\": \"string\",\n    \"details\": [\n      {\n        \"@type\": \"string\",\n        \"key_0\": {}\n      },\n      {\n        \"@type\": \"string\",\n        \"key_0\": {}\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6beef31a-c659-4842-b4c6-e7a5939fad6a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "applications",
+                    ":end_device_ids.application_ids.application_id",
+                    "devices",
+                    ":end_device_ids.device_id",
+                    "packages",
+                    "storage",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "f_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "continuation_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_device_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_device_ids.device_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Query upstream messages of a specific type. If not set, then all upstream messages are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3545,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fab863a3-0da7-4d44-a568-ac8e89362f7d",
+          "name": "Returns how many application messages have been stored in the database for an application or end device.",
+          "request": {
+            "name": "Returns how many application messages have been stored in the database for an application or end device.",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "applications",
+                ":end_device_ids.application_ids.application_id",
+                "devices",
+                ":end_device_ids.device_id",
+                "packages",
+                "storage",
+                ":type",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<dateTime>",
+                  "description": "Count upstream messages after this timestamp only. Cannot be used in conjunction with last."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<dateTime>",
+                  "description": "Count upstream messages before this timestamp only. Cannot be used in conjunction with last."
+                },
+                {
+                  "disabled": false,
+                  "key": "f_port",
+                  "value": "<long>",
+                  "description": "Count uplinks on a specific FPort only."
+                },
+                {
+                  "disabled": false,
+                  "key": "last",
+                  "value": "<string>",
+                  "description": "Count upstream messages that have arrived in the last minutes or hours. Cannot be used in conjunction with after and before."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "end_device_ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "end_device_ids.device_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "147a7825-dd7b-4278-80c4-8d49313feec1",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "applications",
+                    ":end_device_ids.application_ids.application_id",
+                    "devices",
+                    ":end_device_ids.device_id",
+                    "packages",
+                    "storage",
+                    ":type",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "f_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_device_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_device_ids.device_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": {\n    \"key_0\": 1724,\n    \"key_1\": 5269\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78e2a895-86fc-40be-ac44-bc04b72524ad",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "applications",
+                    ":end_device_ids.application_ids.application_id",
+                    "devices",
+                    ":end_device_ids.device_id",
+                    "packages",
+                    "storage",
+                    ":type",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "f_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "last",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_device_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_device_ids.device_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Count upstream messages of a specific type. If not set, then all upstream messages are returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3545,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b77a1db5-7f08-49c6-8a43-bd74b7b65780",
+    "name": "The Things Stack — Application Server AppAs ApplicationUpStorage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

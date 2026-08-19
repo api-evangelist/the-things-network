@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs ManagedGatewayConfigurationService API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ManagedGatewayConfigurationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ManagedGatewayConfigurationService_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/gcs/gateways/managed/:gateway.ids.gateway_id",
+            "params": [
+              {
+                "name": "gateway.ids.gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayConfigurationService_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/managed/:gateway_ids.gateway_id",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the gateway fields that should be returned."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayConfigurationService_StreamEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/events",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ManagedGatewayConfigurationService_ScanWiFiAccessPoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gcs/gateways/managed/:gateway_id/wifi/scan",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2611 @@
+{
+  "item": [
+    {
+      "id": "7035972f-3574-4242-869f-da9a4f3be0b8",
+      "name": "UserBookmarkRegistry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "518e2b8d-1554-4d4a-86a7-aa3835cb589f",
+          "name": "List the bookmarks for the given user.",
+          "request": {
+            "name": "List the bookmarks for the given user.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order the results by this field path.\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<boolean>",
+                  "description": "Only return recently deleted bookmarks."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_types",
+                  "value": "<string>",
+                  "description": "Specifies that only bookmarks that reference the given entity type should be returned. If empty the filter is not\napplied."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_types",
+                  "value": "<string>",
+                  "description": "Specifies that only bookmarks that reference the given entity type should be returned. If empty the filter is not\napplied."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d02979f-2f25-4a9b-9f61-60eeddf9eaa0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "entity_types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bookmarks\": [\n    {\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      },\n      \"entity_ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"client_ids\": {\n          \"client_id\": \"string\"\n        },\n        \"device_ids\": {\n          \"device_id\": \"string\",\n          \"application_ids\": {\n            \"application_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dev_eui\": \"70B3D57ED000ABCD\",\n          \"join_eui\": \"70B3D57ED000ABCD\",\n          \"dev_addr\": \"2600ABCD\"\n        },\n        \"gateway_ids\": {\n          \"gateway_id\": \"string\",\n          \"eui\": \"70B3D57ED000ABCD\"\n        },\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"created_at\": \"2018-01-17T01:16:29.308Z\"\n    },\n    {\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      },\n      \"entity_ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"client_ids\": {\n          \"client_id\": \"string\"\n        },\n        \"device_ids\": {\n          \"device_id\": \"string\",\n          \"application_ids\": {\n            \"application_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dev_eui\": \"70B3D57ED000ABCD\",\n          \"join_eui\": \"70B3D57ED000ABCD\",\n          \"dev_addr\": \"2600ABCD\"\n        },\n        \"gateway_ids\": {\n          \"gateway_id\": \"string\",\n          \"eui\": \"70B3D57ED000ABCD\"\n        },\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"created_at\": \"1985-11-01T10:05:20.578Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1066cea-d26b-4e42-a103-c6dee2bf05fd",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "entity_types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_types",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1954,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9521b5d6-2782-4f79-bac6-741b43bce911",
+          "name": "Create a bookmark for the given user.",
+          "request": {
+            "name": "Create a bookmark for the given user.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"entity_ids\": {\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"client_ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"<string>\",\n      \"join_eui\": \"<string>\",\n      \"dev_addr\": \"<string>\"\n    },\n    \"gateway_ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    },\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2deb9fc3-039a-47c8-a537-b7b4ff2752c8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"entity_ids\": {\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"client_ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"70B3D57ED000ABCD\",\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"dev_addr\": \"2600ABCD\"\n    },\n    \"gateway_ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_ids\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"entity_ids\": {\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"client_ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"70B3D57ED000ABCD\",\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"dev_addr\": \"2600ABCD\"\n    },\n    \"gateway_ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  },\n  \"created_at\": \"1995-10-13T15:59:41.732Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f3b8b94-5819-485d-87ab-951b281c044c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"entity_ids\": {\n    \"application_ids\": {\n      \"application_id\": \"<string>\"\n    },\n    \"client_ids\": {\n      \"client_id\": \"<string>\"\n    },\n    \"device_ids\": {\n      \"device_id\": \"<string>\",\n      \"application_ids\": {\n        \"application_id\": \"<string>\"\n      },\n      \"dev_eui\": \"70B3D57ED000ABCD\",\n      \"join_eui\": \"70B3D57ED000ABCD\",\n      \"dev_addr\": \"2600ABCD\"\n    },\n    \"gateway_ids\": {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"organization_ids\": {\n      \"organization_id\": \"<string>\"\n    },\n    \"user_ids\": {\n      \"user_id\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6362,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f1a7601-6868-438b-bac6-c552167f41ff",
+          "name": "Delete the given user's bookmark.",
+          "request": {
+            "name": "Delete the given user's bookmark.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks",
+                "applications",
+                ":entity_ids.application_ids.application_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.device_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_ids.application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf59520b-c387-4491-a7da-a10f3be4a758",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "applications",
+                    ":entity_ids.application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4711e84-468f-415b-a93a-a415171a1911",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "applications",
+                    ":entity_ids.application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6362,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "435c8262-661e-4791-b077-e241c3842dd1",
+          "name": "Delete the given user's bookmark.",
+          "request": {
+            "name": "Delete the given user's bookmark.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks",
+                "applications",
+                ":entity_ids.device_ids.application_ids.application_id",
+                "devices",
+                ":entity_ids.device_ids.device_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_ids.device_ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_ids.device_ids.device_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b32caabb-2b74-47e6-b168-1b4dee14bf52",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "applications",
+                    ":entity_ids.device_ids.application_ids.application_id",
+                    "devices",
+                    ":entity_ids.device_ids.device_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.device_ids.device_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bce536f0-9cf1-406a-942e-0edbae72c25d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "applications",
+                    ":entity_ids.device_ids.application_ids.application_id",
+                    "devices",
+                    ":entity_ids.device_ids.device_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.device_ids.device_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6362,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "237b569b-5a56-4452-a862-dd68d87ef00b",
+          "name": "Delete a list of bookmarks of the given user.\nThis operation is atomic; either all bookmarks are deleted or none.\nBookmarks not found are skipped and no error is returned.",
+          "request": {
+            "name": "Delete a list of bookmarks of the given user.\nThis operation is atomic; either all bookmarks are deleted or none.\nBookmarks not found are skipped and no error is returned.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28fecb4d-9ec9-4a79-af5e-36acae772d6b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e61f4dbd-29cf-467f-bdc2-47cda1c7c490",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6362,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c019dbf6-048c-4849-8e34-f65f3f8df71b",
+          "name": "Delete the given user's bookmark.",
+          "request": {
+            "name": "Delete the given user's bookmark.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks",
+                "clients",
+                ":entity_ids.client_ids.client_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.device_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_ids.client_ids.client_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f09d4444-b3e9-4aec-802b-3c01ca069774",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "clients",
+                    ":entity_ids.client_ids.client_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.client_ids.client_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a33dae66-368d-46ca-b9ec-8490d9284748",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "clients",
+                    ":entity_ids.client_ids.client_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.client_ids.client_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6362,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "055e5002-0977-48fa-8db2-0f3b0a2530f9",
+          "name": "Delete the given user's bookmark.",
+          "request": {
+            "name": "Delete the given user's bookmark.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks",
+                "gateways",
+                ":entity_ids.gateway_ids.gateway_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.device_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_ids.gateway_ids.gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00e56d9e-fb99-4a56-9742-2621fd21400b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "gateways",
+                    ":entity_ids.gateway_ids.gateway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed0eb7d9-0dc1-4b0d-a8c9-ab8ebfd66941",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "gateways",
+                    ":entity_ids.gateway_ids.gateway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6362,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "188dfee1-af37-4574-8771-67720c14dcc0",
+          "name": "Delete the given user's bookmark.",
+          "request": {
+            "name": "Delete the given user's bookmark.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks",
+                "organizations",
+                ":entity_ids.organization_ids.organization_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.device_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_ids.organization_ids.organization_id",
+                  "description": "(Required) This ID shares namespace with user IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6ff46d7-fd0e-4079-9971-1b1620f6078c",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "organizations",
+                    ":entity_ids.organization_ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4221a6ba-97d6-4580-90bf-0e4e287a947b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "organizations",
+                    ":entity_ids.organization_ids.organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "description": "(Required) This ID shares namespace with user IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6362,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8177348-5ca0-4291-856b-6fd6627c1274",
+          "name": "Delete the given user's bookmark.",
+          "request": {
+            "name": "Delete the given user's bookmark.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user_ids.user_id",
+                "bookmarks",
+                "users",
+                ":entity_ids.user_ids.user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.client_ids.client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.device_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.application_ids.application_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevEUI."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.join_eui",
+                  "value": "<string>",
+                  "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.device_ids.dev_addr",
+                  "value": "<string>",
+                  "description": "The LoRaWAN DevAddr."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.gateway_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.gateway_ids.eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.organization_ids.organization_id",
+                  "value": "<string>",
+                  "description": "This ID shares namespace with user IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_ids.user_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity_ids.user_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cf99755-3755-405c-9c06-a3fd3a89dea5",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "users",
+                    ":entity_ids.user_ids.user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8534c722-50e5-4593-93d0-63e319f25e7a",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_ids.user_id",
+                    "bookmarks",
+                    "users",
+                    ":entity_ids.user_ids.user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.client_ids.client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.application_ids.application_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.join_eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.device_ids.dev_addr",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.gateway_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.gateway_ids.eui",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.organization_ids.organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_ids.user_ids.email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity_ids.user_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6362,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c784ee20-f690-4cb1-b280-883cc2f7d453",
+    "name": "The Things Stack — Application Server AppAs UserBookmarkRegistry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

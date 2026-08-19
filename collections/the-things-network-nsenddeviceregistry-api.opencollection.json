@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs NsEndDeviceRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NsEndDeviceRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete deletes the device that matches the given identifiers.\nIf there are multiple matches, an error will be returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ns/applications/:application_ids.application_id/devices/:device_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              }
+            ]
+          },
+          "docs": "Delete deletes the device that matches the given identifiers.\nIf there are multiple matches, an error will be returned."
+        },
+        {
+          "info": {
+            "name": "Set creates or updates the device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ns/applications/:end_device.ids.application_ids.application_id/devices",
+            "params": [
+              {
+                "name": "end_device.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set creates or updates the device."
+        },
+        {
+          "info": {
+            "name": "Set creates or updates the device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ns/applications/:end_device.ids.application_ids.application_id/devices/:end_device.ids.device_id",
+            "params": [
+              {
+                "name": "end_device.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device.ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set creates or updates the device."
+        },
+        {
+          "info": {
+            "name": "Get returns the device that matches the given identifiers.\nIf there are multiple matches, an error will be returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.dev_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevEUI."
+              },
+              {
+                "name": "end_device_ids.join_eui",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices)."
+              },
+              {
+                "name": "end_device_ids.dev_addr",
+                "value": "",
+                "type": "query",
+                "description": "The LoRaWAN DevAddr."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the end device fields that should be returned.\nSee the API reference for which fields can be returned by the different services."
+              }
+            ]
+          },
+          "docs": "Get returns the device that matches the given identifiers.\nIf there are multiple matches, an error will be returned."
+        },
+        {
+          "info": {
+            "name": "ResetFactoryDefaults resets device state to factory defaults.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/ns/applications/:end_device_ids.application_ids.application_id/devices/:end_device_ids.device_id",
+            "params": [
+              {
+                "name": "end_device_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "end_device_ids.device_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "ResetFactoryDefaults resets device state to factory defaults."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

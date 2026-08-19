@@ -1,0 +1,447 @@
+{
+  "item": [
+    {
+      "id": "c01bbb3f-65ad-4e82-891a-b2e084787fff",
+      "name": "NotificationService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "655256d8-5a41-4887-a3d3-48f0b6962d56",
+          "name": "List the notifications for a user or an organization.\nWhen called with user credentials and empty receiver_ids, this will list\nnotifications for the current user and its organizations.",
+          "request": {
+            "name": "List the notifications for a user or an organization.\nWhen called with user credentials and empty receiver_ids, this will list\nnotifications for the current user and its organizations.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":receiver_ids.user_id",
+                "notifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "receiver_ids.email",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Select notifications with these statuses.\nAn empty list is interpreted as \"all\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Select notifications with these statuses.\nAn empty list is interpreted as \"all\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "receiver_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60cf17c2-c270-4aa5-bbeb-57751cf6c9a0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":receiver_ids.user_id",
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "receiver_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "receiver_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notifications\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"2007-08-08T06:44:36.644Z\",\n      \"entity_ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"client_ids\": {\n          \"client_id\": \"string\"\n        },\n        \"device_ids\": {\n          \"device_id\": \"string\",\n          \"application_ids\": {\n            \"application_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dev_eui\": \"70B3D57ED000ABCD\",\n          \"join_eui\": \"70B3D57ED000ABCD\",\n          \"dev_addr\": \"2600ABCD\"\n        },\n        \"gateway_ids\": {\n          \"gateway_id\": \"string\",\n          \"eui\": \"70B3D57ED000ABCD\"\n        },\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"notification_type\": \"string\",\n      \"data\": {\n        \"@type\": \"string\",\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"sender_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      },\n      \"receivers\": [\n        \"NOTIFICATION_RECEIVER_UNKNOWN\",\n        \"NOTIFICATION_RECEIVER_UNKNOWN\"\n      ],\n      \"email\": false,\n      \"status\": \"NOTIFICATION_STATUS_UNSEEN\",\n      \"status_updated_at\": \"2002-06-17T08:27:29.894Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1990-11-09T21:29:16.824Z\",\n      \"entity_ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"client_ids\": {\n          \"client_id\": \"string\"\n        },\n        \"device_ids\": {\n          \"device_id\": \"string\",\n          \"application_ids\": {\n            \"application_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"dev_eui\": \"70B3D57ED000ABCD\",\n          \"join_eui\": \"70B3D57ED000ABCD\",\n          \"dev_addr\": \"2600ABCD\"\n        },\n        \"gateway_ids\": {\n          \"gateway_id\": \"string\",\n          \"eui\": \"70B3D57ED000ABCD\"\n        },\n        \"organization_ids\": {\n          \"organization_id\": \"string\"\n        },\n        \"user_ids\": {\n          \"user_id\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"notification_type\": \"string\",\n      \"data\": {\n        \"@type\": \"string\",\n        \"key_0\": {}\n      },\n      \"sender_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      },\n      \"receivers\": [\n        \"NOTIFICATION_RECEIVER_UNKNOWN\",\n        \"NOTIFICATION_RECEIVER_UNKNOWN\"\n      ],\n      \"email\": false,\n      \"status\": \"NOTIFICATION_STATUS_UNSEEN\",\n      \"status_updated_at\": \"2002-04-10T04:34:11.051Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18e62f83-2a24-4e90-be26-3efa8c583577",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":receiver_ids.user_id",
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "receiver_ids.email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "receiver_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9786,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1cd11a7-fcc4-4780-a538-86ee9fd107c4",
+          "name": "Batch-update multiple notifications to the same status.",
+          "request": {
+            "name": "Batch-update multiple notifications to the same status.",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":receiver_ids.user_id",
+                "notifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "receiver_ids.user_id",
+                  "description": "(Required) This ID shares namespace with organization IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receiver_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"NOTIFICATION_STATUS_UNSEEN\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4634e54d-f44f-4260-acdd-f42b81dbef02",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":receiver_ids.user_id",
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "receiver_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"receiver_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"NOTIFICATION_STATUS_UNSEEN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b81352cc-1c56-4a59-936a-327aea8f0e14",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":receiver_ids.user_id",
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "receiver_ids.user_id",
+                      "description": "(Required) This ID shares namespace with organization IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"receiver_ids\": {\n    \"email\": \"<string>\"\n  },\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"NOTIFICATION_STATUS_UNSEEN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 958,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d53c664b-268b-4eba-b086-12bcd2caec76",
+    "name": "The Things Stack — Application Server AppAs NotificationService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

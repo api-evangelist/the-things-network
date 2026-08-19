@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs OAuthAuthorizationRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAuthAuthorizationRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List OAuth clients that are authorized by the user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:user_ids.user_id/authorizations",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List OAuth clients that are authorized by the user."
+        },
+        {
+          "info": {
+            "name": "Delete (de-authorize) an OAuth client for the user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Delete (de-authorize) an OAuth client for the user."
+        },
+        {
+          "info": {
+            "name": "List OAuth access tokens issued to the OAuth client on behalf of the user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id/tokens",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List OAuth access tokens issued to the OAuth client on behalf of the user."
+        },
+        {
+          "info": {
+            "name": "Delete (invalidate) an OAuth access token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/users/:user_ids.user_id/authorizations/:client_ids.client_id/tokens/:id",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "client_ids.client_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Delete (invalidate) an OAuth access token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

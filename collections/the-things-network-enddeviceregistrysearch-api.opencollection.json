@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs EndDeviceRegistrySearch API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EndDeviceRegistrySearch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for end devices in the given application that match the conditions specified in the request.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/search/applications/:application_ids.application_id/devices",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Find end devices where the ID, name, description or EUI contains this substring."
+              },
+              {
+                "name": "id_contains",
+                "value": "",
+                "type": "query",
+                "description": "Find end devices where the ID contains this substring."
+              },
+              {
+                "name": "name_contains",
+                "value": "",
+                "type": "query",
+                "description": "Find end devices where the name contains this substring."
+              },
+              {
+                "name": "description_contains",
+                "value": "",
+                "type": "query",
+                "description": "Find end devices where the description contains this substring."
+              },
+              {
+                "name": "attributes_contain[string]",
+                "value": "",
+                "type": "query",
+                "description": "This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18"
+              },
+              {
+                "name": "dev_eui_contains",
+                "value": "",
+                "type": "query",
+                "description": "Find end devices where the (hexadecimal) DevEUI contains this substring."
+              },
+              {
+                "name": "join_eui_contains",
+                "value": "",
+                "type": "query",
+                "description": "Find end devices where the (hexadecimal) JoinEUI contains this substring."
+              },
+              {
+                "name": "dev_addr_contains",
+                "value": "",
+                "type": "query",
+                "description": "Find end devices where the (hexadecimal) DevAddr contains this substring."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "Search for end devices in the given application that match the conditions specified in the request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

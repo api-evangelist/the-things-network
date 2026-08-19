@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs Gs API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get statistics about gateway connections to the Gateway Server of a batch of gateways.\n- Statistics are not persisted between reconnects.\n- Gateways that are not connected or are part of a different cluster are ignored.\n- The client should ensure that the requested gateways are in the requested cluster.\n- The client should have the right to get the gateway connection stats on all requested gateways.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gs/gateways/connection/stats"
+          },
+          "docs": "Get statistics about gateway connections to the Gateway Server of a batch of gateways.\n- Statistics are not persisted between reconnects.\n- Gateways that are not connected or are part of a different cluster are ignored.\n- The client should ensure that the requested gateways are in the requested cluster.\n- The client should have the right to get the gateway connection stats on all requested gateways."
+        },
+        {
+          "info": {
+            "name": "Get statistics about the current gateway connection to the Gateway Server.\nThis is not persisted between reconnects.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gs/gateways/:gateway_id/connection/stats",
+            "params": [
+              {
+                "name": "gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Get statistics about the current gateway connection to the Gateway Server.\nThis is not persisted between reconnects."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

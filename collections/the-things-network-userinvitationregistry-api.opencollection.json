@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs UserInvitationRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserInvitationRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the invitations the caller has sent.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/invitations",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List the invitations the caller has sent."
+        },
+        {
+          "info": {
+            "name": "Invite a user to join the network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/invitations"
+          },
+          "docs": "Invite a user to join the network."
+        },
+        {
+          "info": {
+            "name": "Delete (revoke) a user invitation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/invitations",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete (revoke) a user invitation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

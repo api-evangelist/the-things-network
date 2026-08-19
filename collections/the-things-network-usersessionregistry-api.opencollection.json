@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs UserSessionRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserSessionRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the active sessions for the given user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:user_ids.user_id/sessions",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List the active sessions for the given user."
+        },
+        {
+          "info": {
+            "name": "Delete (revoke) the given user session.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/users/:user_ids.user_id/sessions/:session_id",
+            "params": [
+              {
+                "name": "user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          },
+          "docs": "Delete (revoke) the given user session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

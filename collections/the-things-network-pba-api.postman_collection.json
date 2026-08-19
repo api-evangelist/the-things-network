@@ -1,0 +1,3729 @@
+{
+  "item": [
+    {
+      "id": "23445735-7413-48eb-aa7a-fc9c1e882cc1",
+      "name": "Pba",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd472c1a-f281-4559-9d02-c36958db825b",
+          "name": "List the routing policies that Forwarders configured with Packet Broker Agent as Home Network.\nListing routing policies requires administrative access.",
+          "request": {
+            "name": "List the routing policies that Forwarders configured with Packet Broker Agent as Home Network.\nListing routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "forwarders",
+                "policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "home_network_id.net_id",
+                  "value": "<long>",
+                  "description": "LoRa Alliance NetID."
+                },
+                {
+                  "disabled": false,
+                  "key": "home_network_id.tenant_id",
+                  "value": "<string>",
+                  "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f01ea1e0-5755-49a3-86a4-4fe18f349135",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "forwarders",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "home_network_id.net_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "home_network_id.tenant_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"forwarder_id\": {\n        \"net_id\": 6071,\n        \"tenant_id\": \"string\"\n      },\n      \"home_network_id\": {\n        \"net_id\": 6212,\n        \"tenant_id\": \"string\"\n      },\n      \"updated_at\": \"2009-07-09T22:16:30.950Z\",\n      \"uplink\": {\n        \"join_request\": false,\n        \"mac_data\": true,\n        \"application_data\": true,\n        \"signal_quality\": false,\n        \"localization\": false\n      },\n      \"downlink\": {\n        \"join_accept\": false,\n        \"mac_data\": false,\n        \"application_data\": true\n      }\n    },\n    {\n      \"forwarder_id\": {\n        \"net_id\": 7857,\n        \"tenant_id\": \"string\"\n      },\n      \"home_network_id\": {\n        \"net_id\": 794,\n        \"tenant_id\": \"string\"\n      },\n      \"updated_at\": \"2002-07-30T21:15:54.316Z\",\n      \"uplink\": {\n        \"join_request\": false,\n        \"mac_data\": false,\n        \"application_data\": true,\n        \"signal_quality\": true,\n        \"localization\": true\n      },\n      \"downlink\": {\n        \"join_accept\": false,\n        \"mac_data\": false,\n        \"application_data\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46db579d-2b61-45cf-bc37-e89cc32655d3",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "forwarders",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "home_network_id.net_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "home_network_id.tenant_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8125,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7dd2bfda-2078-4204-8e1a-2620f4370159",
+          "name": "List the listed home networks for which routing policies can be configured.\nListing home networks requires administrative access.",
+          "request": {
+            "name": "List the listed home networks for which routing policies can be configured.\nListing home networks requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant_id_contains",
+                  "value": "<string>",
+                  "description": "Filter by tenant ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_contains",
+                  "value": "<string>",
+                  "description": "Filter by name."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d65eacfc-85e1-482c-bf89-0e6a32a364b0",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tenant_id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"networks\": [\n    {\n      \"id\": {\n        \"net_id\": 220,\n        \"tenant_id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"dev_addr_blocks\": [\n        {\n          \"dev_addr_prefix\": {\n            \"dev_addr\": \"2600ABCD\",\n            \"length\": 342\n          },\n          \"home_network_cluster_id\": \"string\"\n        },\n        {\n          \"dev_addr_prefix\": {\n            \"dev_addr\": \"2600ABCD\",\n            \"length\": 4845\n          },\n          \"home_network_cluster_id\": \"string\"\n        }\n      ],\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1981-09-04T20:13:14.401Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1983-01-09T19:27:15.020Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": true,\n        \"validated_at\": \"1959-03-25T05:44:45.227Z\"\n      },\n      \"technical_contact\": {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": false,\n        \"validated_at\": \"2006-07-23T17:30:48.054Z\"\n      },\n      \"listed\": true\n    },\n    {\n      \"id\": {\n        \"net_id\": 7189,\n        \"tenant_id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"dev_addr_blocks\": [\n        {\n          \"dev_addr_prefix\": {\n            \"dev_addr\": \"2600ABCD\",\n            \"length\": 9851\n          },\n          \"home_network_cluster_id\": \"string\"\n        },\n        {\n          \"dev_addr_prefix\": {\n            \"dev_addr\": \"2600ABCD\",\n            \"length\": 3232\n          },\n          \"home_network_cluster_id\": \"string\"\n        }\n      ],\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1960-10-06T00:40:08.409Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"2022-06-04T13:15:42.713Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": true,\n        \"validated_at\": \"1987-07-10T18:42:55.372Z\"\n      },\n      \"technical_contact\": {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": false,\n        \"validated_at\": \"1983-05-27T23:53:52.639Z\"\n      },\n      \"listed\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9caaa61-827f-4725-b444-0b121d428646",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "tenant_id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8be4076c-d4af-488e-82aa-a37c5483d8ea",
+          "name": "Get the default gateway visibility.\nGetting gateway visibilities requires administrative access.",
+          "request": {
+            "name": "Get the default gateway visibility.\nGetting gateway visibilities requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "gateway-visibilities",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ef6656b-bbf8-4a8a-991b-e5f262ccfdea",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "gateway-visibilities",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updated_at\": \"1961-12-30T01:24:56.879Z\",\n  \"visibility\": {\n    \"location\": true,\n    \"antenna_placement\": true,\n    \"antenna_count\": false,\n    \"fine_timestamps\": true,\n    \"contact_info\": true,\n    \"status\": true,\n    \"frequency_plan\": false,\n    \"packet_rates\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "239da346-b998-4ce6-827e-e37fcb30d2ce",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "gateway-visibilities",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50b6562b-ef73-4113-8f58-d307fa76018e",
+          "name": "Deletes the default gateway visibility.\nDeleting gateway visibilities requires administrative access.",
+          "request": {
+            "name": "Deletes the default gateway visibility.\nDeleting gateway visibilities requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "gateway-visibilities",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3edcde2-3eff-472a-9727-bc66fa5b4b69",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "gateway-visibilities",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c4d64de-ffe1-4257-a63c-3925c9260293",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "gateway-visibilities",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "316302fe-5ab9-47ba-970d-1185c34d26d9",
+          "name": "Set the default gateway visibility.\nSetting gateway visibilities requires administrative access.",
+          "request": {
+            "name": "Set the default gateway visibility.\nSetting gateway visibilities requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "gateway-visibilities",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"visibility\": {\n    \"location\": \"<boolean>\",\n    \"antenna_placement\": \"<boolean>\",\n    \"antenna_count\": \"<boolean>\",\n    \"fine_timestamps\": \"<boolean>\",\n    \"contact_info\": \"<boolean>\",\n    \"status\": \"<boolean>\",\n    \"frequency_plan\": \"<boolean>\",\n    \"packet_rates\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b0182722-c165-40b8-b34a-f9d868c18b9f",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "gateway-visibilities",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38971e31-826e-489f-9271-ddbbc6f28129",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "gateway-visibilities",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e51fc723-5a5c-49ca-a57f-a6e7e2a110ff",
+          "name": "Set the default gateway visibility.\nSetting gateway visibilities requires administrative access.",
+          "request": {
+            "name": "Set the default gateway visibility.\nSetting gateway visibilities requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "gateway-visibilities",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"visibility\": {\n    \"location\": \"<boolean>\",\n    \"antenna_placement\": \"<boolean>\",\n    \"antenna_count\": \"<boolean>\",\n    \"fine_timestamps\": \"<boolean>\",\n    \"contact_info\": \"<boolean>\",\n    \"status\": \"<boolean>\",\n    \"frequency_plan\": \"<boolean>\",\n    \"packet_rates\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "07fdb57a-246f-4087-84d7-797ba557f1b8",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "gateway-visibilities",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68020e34-3236-4650-99da-2f03bbb1a2d8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "gateway-visibilities",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7dba9a85-1c4d-47c2-bc1e-8ee0dea1a17c",
+          "name": "List the routing policies that Packet Broker Agent as Forwarder configured with Home Networks.\nListing routing policies requires administrative access.",
+          "request": {
+            "name": "List the routing policies that Packet Broker Agent as Forwarder configured with Home Networks.\nListing routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b845be54-6e13-4bd2-b0ac-66e90ec5a3c9",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"forwarder_id\": {\n        \"net_id\": 2684,\n        \"tenant_id\": \"string\"\n      },\n      \"home_network_id\": {\n        \"net_id\": 2722,\n        \"tenant_id\": \"string\"\n      },\n      \"updated_at\": \"1992-08-07T07:50:13.058Z\",\n      \"uplink\": {\n        \"join_request\": true,\n        \"mac_data\": true,\n        \"application_data\": false,\n        \"signal_quality\": true,\n        \"localization\": true\n      },\n      \"downlink\": {\n        \"join_accept\": false,\n        \"mac_data\": true,\n        \"application_data\": true\n      }\n    },\n    {\n      \"forwarder_id\": {\n        \"net_id\": 7940,\n        \"tenant_id\": \"string\"\n      },\n      \"home_network_id\": {\n        \"net_id\": 4612,\n        \"tenant_id\": \"string\"\n      },\n      \"updated_at\": \"1963-04-09T14:59:27.029Z\",\n      \"uplink\": {\n        \"join_request\": false,\n        \"mac_data\": false,\n        \"application_data\": true,\n        \"signal_quality\": true,\n        \"localization\": false\n      },\n      \"downlink\": {\n        \"join_accept\": false,\n        \"mac_data\": false,\n        \"application_data\": false\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c455ba3b-2892-4345-8b3b-33cfd955d8b5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ea59639-cb12-460b-bcf5-f86401ae22c0",
+          "name": "Get the default routing policy.\nGetting routing policies requires administrative access.",
+          "request": {
+            "name": "Get the default routing policy.\nGetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "307e723e-1915-4aac-8a5b-54a3355413b3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updated_at\": \"1956-07-18T04:30:37.412Z\",\n  \"uplink\": {\n    \"join_request\": true,\n    \"mac_data\": true,\n    \"application_data\": false,\n    \"signal_quality\": false,\n    \"localization\": false\n  },\n  \"downlink\": {\n    \"join_accept\": false,\n    \"mac_data\": false,\n    \"application_data\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1253adb4-be2c-4cb7-a903-ae5ab335c0a2",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbad8243-4254-47c4-91d9-63bbb3505a57",
+          "name": "Deletes the default routing policy.\nDeleting routing policies requires administrative access.",
+          "request": {
+            "name": "Deletes the default routing policy.\nDeleting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27c58393-b537-47cc-9168-714d32f13c48",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "661e0b34-d514-4e5d-b6b5-adaf8aa50f01",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "516d6aee-980e-415b-89a0-0bfa210f8c31",
+          "name": "Set the default routing policy.\nSetting routing policies requires administrative access.",
+          "request": {
+            "name": "Set the default routing policy.\nSetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uplink\": {\n    \"join_request\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\",\n    \"signal_quality\": \"<boolean>\",\n    \"localization\": \"<boolean>\"\n  },\n  \"downlink\": {\n    \"join_accept\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6f08b975-8d77-4630-a497-3f7e1217b357",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86d34b96-794e-4e8a-8713-85faafe3ee01",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a20a8c55-0a3b-4195-9137-a016f369145d",
+          "name": "Set the default routing policy.\nSetting routing policies requires administrative access.",
+          "request": {
+            "name": "Set the default routing policy.\nSetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uplink\": {\n    \"join_request\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\",\n    \"signal_quality\": \"<boolean>\",\n    \"localization\": \"<boolean>\"\n  },\n  \"downlink\": {\n    \"join_accept\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7f262faf-44fc-4ea2-89a4-3de6207a591d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d26ad5c-e211-48c4-980b-20bf57db9fb5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5aa4d7be-c7fa-417a-b42f-d8b00cb24057",
+          "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+          "request": {
+            "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                ":home_network_id.net_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "home_network_id.net_id",
+                  "description": "(Required) LoRa Alliance NetID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"home_network_id\": \"<object>\",\n  \"uplink\": {\n    \"join_request\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\",\n    \"signal_quality\": \"<boolean>\",\n    \"localization\": \"<boolean>\"\n  },\n  \"downlink\": {\n    \"join_accept\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8ae106a-1851-4fb3-86a0-043244dd68f2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":home_network_id.net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "home_network_id.net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8d32d72-802c-4659-a317-f448f12a535b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":home_network_id.net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "home_network_id.net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "143e9ed0-0ed8-4889-9347-5782f09be09a",
+          "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+          "request": {
+            "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                ":home_network_id.net_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "home_network_id.net_id",
+                  "description": "(Required) LoRa Alliance NetID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"home_network_id\": \"<object>\",\n  \"uplink\": {\n    \"join_request\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\",\n    \"signal_quality\": \"<boolean>\",\n    \"localization\": \"<boolean>\"\n  },\n  \"downlink\": {\n    \"join_accept\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "11906337-8e51-44c2-8f33-dfca78acd557",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":home_network_id.net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "home_network_id.net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cba82c7b-9e28-42cd-b3d0-c9db609138eb",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":home_network_id.net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "home_network_id.net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdb8acd8-c5df-4a93-8a74-871519a1cebc",
+          "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+          "request": {
+            "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                ":home_network_id.net_id",
+                ":home_network_id.tenant_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "home_network_id.net_id",
+                  "description": "(Required) LoRa Alliance NetID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "home_network_id.tenant_id",
+                  "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"home_network_id\": \"<object>\",\n  \"uplink\": {\n    \"join_request\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\",\n    \"signal_quality\": \"<boolean>\",\n    \"localization\": \"<boolean>\"\n  },\n  \"downlink\": {\n    \"join_accept\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "512c2790-c655-4646-9e89-00fd5667bb85",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":home_network_id.net_id",
+                    ":home_network_id.tenant_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "home_network_id.net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "home_network_id.tenant_id",
+                      "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b603b426-77f4-43fb-a164-87781f2141f5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":home_network_id.net_id",
+                    ":home_network_id.tenant_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "home_network_id.net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "home_network_id.tenant_id",
+                      "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e87aa7d9-7896-4593-a61f-fd3e0fc0d847",
+          "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+          "request": {
+            "name": "Set the routing policy for the given Home Network.\nSetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                ":home_network_id.net_id",
+                ":home_network_id.tenant_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "home_network_id.net_id",
+                  "description": "(Required) LoRa Alliance NetID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "home_network_id.tenant_id",
+                  "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"home_network_id\": \"<object>\",\n  \"uplink\": {\n    \"join_request\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\",\n    \"signal_quality\": \"<boolean>\",\n    \"localization\": \"<boolean>\"\n  },\n  \"downlink\": {\n    \"join_accept\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00ac80cd-a3db-49ca-b700-c77b47870922",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":home_network_id.net_id",
+                    ":home_network_id.tenant_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "home_network_id.net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "home_network_id.tenant_id",
+                      "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a2ac0da-9abb-4a96-93f4-8b5592c381af",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":home_network_id.net_id",
+                    ":home_network_id.tenant_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "home_network_id.net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "home_network_id.tenant_id",
+                      "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4c13a2c-0828-450e-8711-6df719a2e8bb",
+          "name": "Get the routing policy for the given Home Network.\nGetting routing policies requires administrative access.",
+          "request": {
+            "name": "Get the routing policy for the given Home Network.\nGetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                ":net_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant_id",
+                  "value": "<string>",
+                  "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "net_id",
+                  "description": "(Required) LoRa Alliance NetID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8537cc65-81b9-43d4-9815-d788552f0e24",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"forwarder_id\": {\n    \"net_id\": 7022,\n    \"tenant_id\": \"string\"\n  },\n  \"home_network_id\": {\n    \"net_id\": 8128,\n    \"tenant_id\": \"string\"\n  },\n  \"updated_at\": \"1975-01-15T09:58:14.575Z\",\n  \"uplink\": {\n    \"join_request\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\",\n    \"signal_quality\": \"<boolean>\",\n    \"localization\": \"<boolean>\"\n  },\n  \"downlink\": {\n    \"join_accept\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa8e02f2-0d38-4f1d-9bd3-81a5aac07f8b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0907a090-baa1-4987-bb5d-2730055536da",
+          "name": "Delete the routing policy for the given Home Network.\nDeleting routing policies requires administrative access.",
+          "request": {
+            "name": "Delete the routing policy for the given Home Network.\nDeleting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                ":net_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenant_id",
+                  "value": "<string>",
+                  "description": "Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "net_id",
+                  "description": "(Required) LoRa Alliance NetID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0941832a-6da4-4232-b846-675297ed5654",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de3aeac8-a6d1-434d-9b4a-adb4d3036126",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenant_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8e8780e-857d-4f4a-8251-1ff7e2db1ff5",
+          "name": "Get the routing policy for the given Home Network.\nGetting routing policies requires administrative access.",
+          "request": {
+            "name": "Get the routing policy for the given Home Network.\nGetting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                ":net_id",
+                ":tenant_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "net_id",
+                  "description": "(Required) LoRa Alliance NetID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tenant_id",
+                  "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d7309f6-2ac4-4642-bade-404dca01a31a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":net_id",
+                    ":tenant_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tenant_id",
+                      "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"forwarder_id\": {\n    \"net_id\": 7022,\n    \"tenant_id\": \"string\"\n  },\n  \"home_network_id\": {\n    \"net_id\": 8128,\n    \"tenant_id\": \"string\"\n  },\n  \"updated_at\": \"1975-01-15T09:58:14.575Z\",\n  \"uplink\": {\n    \"join_request\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\",\n    \"signal_quality\": \"<boolean>\",\n    \"localization\": \"<boolean>\"\n  },\n  \"downlink\": {\n    \"join_accept\": \"<boolean>\",\n    \"mac_data\": \"<boolean>\",\n    \"application_data\": \"<boolean>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d9947a2-c2a0-4b28-a2a8-dcf0a51166ba",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":net_id",
+                    ":tenant_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tenant_id",
+                      "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5658596e-f298-4973-9fbe-c21ea3da9375",
+          "name": "Delete the routing policy for the given Home Network.\nDeleting routing policies requires administrative access.",
+          "request": {
+            "name": "Delete the routing policy for the given Home Network.\nDeleting routing policies requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "home-networks",
+                "policies",
+                ":net_id",
+                ":tenant_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "net_id",
+                  "description": "(Required) LoRa Alliance NetID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tenant_id",
+                  "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c719b2b2-c180-425e-9705-e4cb270a79fc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":net_id",
+                    ":tenant_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tenant_id",
+                      "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa95db09-ad3d-4bf8-ab76-dbae0cf6d137",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "home-networks",
+                    "policies",
+                    ":net_id",
+                    ":tenant_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "net_id",
+                      "description": "(Required) LoRa Alliance NetID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tenant_id",
+                      "description": "(Required) Tenant identifier if the registration leases DevAddr blocks from a NetID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "679b02b2-9384-4b62-ac09-743ec732cbd0",
+          "name": "Get information about the Packet Broker registration.\nViewing Packet Packet information requires administrative access.",
+          "request": {
+            "name": "Get information about the Packet Broker registration.\nViewing Packet Packet information requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32bfa354-51e2-44be-a087-9270108023cc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"registration\": {\n    \"id\": {\n      \"net_id\": 2084,\n      \"tenant_id\": \"string\"\n    },\n    \"name\": \"string\",\n    \"dev_addr_blocks\": [\n      {\n        \"dev_addr_prefix\": {\n          \"dev_addr\": \"2600ABCD\",\n          \"length\": 4565\n        },\n        \"home_network_cluster_id\": \"string\"\n      },\n      {\n        \"dev_addr_prefix\": {\n          \"dev_addr\": \"2600ABCD\",\n          \"length\": 535\n        },\n        \"home_network_cluster_id\": \"string\"\n      }\n    ],\n    \"contact_info\": [\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": false,\n        \"validated_at\": \"2023-12-24T14:21:06.209Z\"\n      },\n      {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": false,\n        \"validated_at\": \"1955-10-26T11:56:38.388Z\"\n      }\n    ],\n    \"administrative_contact\": {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"string\",\n      \"public\": false,\n      \"validated_at\": \"1987-06-14T13:25:14.240Z\"\n    },\n    \"technical_contact\": {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"string\",\n      \"public\": true,\n      \"validated_at\": \"1965-03-22T21:03:10.389Z\"\n    },\n    \"listed\": true\n  },\n  \"forwarder_enabled\": false,\n  \"home_network_enabled\": false,\n  \"register_enabled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b595750d-a8a0-4bb4-8fd6-e799589e7853",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ede32dae-3997-4070-8eca-baa36af2af70",
+          "name": "List all listed networks.\nListing networks requires administrative access.",
+          "request": {
+            "name": "List all listed networks.\nListing networks requires administrative access.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "networks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "Limit the number of results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>",
+                  "description": "Page number for pagination. 0 is interpreted as 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_routing_policy",
+                  "value": "<boolean>",
+                  "description": "If true, list only the Forwarders and Home Networks with whom a routing policy has been defined in either direction."
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant_id_contains",
+                  "value": "<string>",
+                  "description": "Filter by tenant ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_contains",
+                  "value": "<string>",
+                  "description": "Filter by name."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc653fe2-9ebe-46d9-96d6-4d341f92782a",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "with_routing_policy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "tenant_id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"networks\": [\n    {\n      \"id\": {\n        \"net_id\": 7657,\n        \"tenant_id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"dev_addr_blocks\": [\n        {\n          \"dev_addr_prefix\": {\n            \"dev_addr\": \"2600ABCD\",\n            \"length\": 6897\n          },\n          \"home_network_cluster_id\": \"string\"\n        },\n        {\n          \"dev_addr_prefix\": {\n            \"dev_addr\": \"2600ABCD\",\n            \"length\": 2067\n          },\n          \"home_network_cluster_id\": \"string\"\n        }\n      ],\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": true,\n          \"validated_at\": \"1966-01-28T13:22:58.777Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"2024-02-02T09:55:44.241Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": false,\n        \"validated_at\": \"1976-12-31T14:11:07.370Z\"\n      },\n      \"technical_contact\": {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": false,\n        \"validated_at\": \"1964-10-06T05:30:01.870Z\"\n      },\n      \"listed\": true\n    },\n    {\n      \"id\": {\n        \"net_id\": 8374,\n        \"tenant_id\": \"string\"\n      },\n      \"name\": \"string\",\n      \"dev_addr_blocks\": [\n        {\n          \"dev_addr_prefix\": {\n            \"dev_addr\": \"2600ABCD\",\n            \"length\": 4189\n          },\n          \"home_network_cluster_id\": \"string\"\n        },\n        {\n          \"dev_addr_prefix\": {\n            \"dev_addr\": \"2600ABCD\",\n            \"length\": 605\n          },\n          \"home_network_cluster_id\": \"string\"\n        }\n      ],\n      \"contact_info\": [\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"2010-07-02T15:18:11.761Z\"\n        },\n        {\n          \"contact_type\": \"CONTACT_TYPE_OTHER\",\n          \"contact_method\": \"CONTACT_METHOD_OTHER\",\n          \"value\": \"string\",\n          \"public\": false,\n          \"validated_at\": \"1968-12-09T19:11:28.505Z\"\n        }\n      ],\n      \"administrative_contact\": {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": true,\n        \"validated_at\": \"2015-06-01T00:37:27.440Z\"\n      },\n      \"technical_contact\": {\n        \"contact_type\": \"CONTACT_TYPE_OTHER\",\n        \"contact_method\": \"CONTACT_METHOD_OTHER\",\n        \"value\": \"string\",\n        \"public\": false,\n        \"validated_at\": \"2023-09-17T11:00:10.054Z\"\n      },\n      \"listed\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80696908-cb15-4b39-b404-71c87a58e978",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "with_routing_policy",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "tenant_id_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44a1b01c-b4fa-4001-a94a-4845aa6e8d81",
+          "name": "Deregister from Packet Broker.\nPacket Broker deregistration requires administrative access.\nPacket Broker deregistration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+          "request": {
+            "name": "Deregister from Packet Broker.\nPacket Broker deregistration requires administrative access.\nPacket Broker deregistration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "registration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1129c3d-fd04-4452-9f81-6b9d9025abee",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d51adf5f-b6ca-43f7-824d-1739980772d0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5597eefe-34d9-47f8-bb48-3fe2b08abb22",
+          "name": "Register with Packet Broker. If no registration exists, it will be created. Any existing registration will be updated.\nRegistration settings not in the request message are taken from Packet Broker Agent configuration and caller context.\nPacket Broker registration requires administrative access.\nPacket Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+          "request": {
+            "name": "Register with Packet Broker. If no registration exists, it will be created. Any existing registration will be updated.\nRegistration settings not in the request message are taken from Packet Broker Agent configuration and caller context.\nPacket Broker registration requires administrative access.\nPacket Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "registration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"listed\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "154d1134-fd26-435c-bddb-3edfbed4f449",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": {\n    \"net_id\": 4177,\n    \"tenant_id\": \"string\"\n  },\n  \"name\": \"string\",\n  \"dev_addr_blocks\": [\n    {\n      \"dev_addr_prefix\": {\n        \"dev_addr\": \"2600ABCD\",\n        \"length\": 7866\n      },\n      \"home_network_cluster_id\": \"string\"\n    },\n    {\n      \"dev_addr_prefix\": {\n        \"dev_addr\": \"2600ABCD\",\n        \"length\": 8888\n      },\n      \"home_network_cluster_id\": \"string\"\n    }\n  ],\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"string\",\n      \"public\": true,\n      \"validated_at\": \"1962-12-08T16:33:44.036Z\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"string\",\n      \"public\": false,\n      \"validated_at\": \"1975-05-14T08:56:20.956Z\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"contact_type\": \"CONTACT_TYPE_OTHER\",\n    \"contact_method\": \"CONTACT_METHOD_OTHER\",\n    \"value\": \"string\",\n    \"public\": false,\n    \"validated_at\": \"2002-03-31T16:25:12.239Z\"\n  },\n  \"technical_contact\": {\n    \"contact_type\": \"CONTACT_TYPE_OTHER\",\n    \"contact_method\": \"CONTACT_METHOD_OTHER\",\n    \"value\": \"string\",\n    \"public\": true,\n    \"validated_at\": \"1969-10-06T15:26:32.865Z\"\n  },\n  \"listed\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2413528-c580-404f-bd97-e8e4783c0bef",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ab2659f-e47d-43a9-9e18-b36daf9d0b53",
+          "name": "Register with Packet Broker. If no registration exists, it will be created. Any existing registration will be updated.\nRegistration settings not in the request message are taken from Packet Broker Agent configuration and caller context.\nPacket Broker registration requires administrative access.\nPacket Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+          "request": {
+            "name": "Register with Packet Broker. If no registration exists, it will be created. Any existing registration will be updated.\nRegistration settings not in the request message are taken from Packet Broker Agent configuration and caller context.\nPacket Broker registration requires administrative access.\nPacket Broker registration is only supported for tenants and requires Packet Broker Agent to be configured with\nNetID level authentication. Use rpc GetInfo and check register_enabled to check whether this rpc is enabled.",
+            "description": {},
+            "url": {
+              "path": [
+                "pba",
+                "registration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"listed\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d750417-3439-4ccd-a9c1-26925851fa35",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": {\n    \"net_id\": 4177,\n    \"tenant_id\": \"string\"\n  },\n  \"name\": \"string\",\n  \"dev_addr_blocks\": [\n    {\n      \"dev_addr_prefix\": {\n        \"dev_addr\": \"2600ABCD\",\n        \"length\": 7866\n      },\n      \"home_network_cluster_id\": \"string\"\n    },\n    {\n      \"dev_addr_prefix\": {\n        \"dev_addr\": \"2600ABCD\",\n        \"length\": 8888\n      },\n      \"home_network_cluster_id\": \"string\"\n    }\n  ],\n  \"contact_info\": [\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"string\",\n      \"public\": true,\n      \"validated_at\": \"1962-12-08T16:33:44.036Z\"\n    },\n    {\n      \"contact_type\": \"CONTACT_TYPE_OTHER\",\n      \"contact_method\": \"CONTACT_METHOD_OTHER\",\n      \"value\": \"string\",\n      \"public\": false,\n      \"validated_at\": \"1975-05-14T08:56:20.956Z\"\n    }\n  ],\n  \"administrative_contact\": {\n    \"contact_type\": \"CONTACT_TYPE_OTHER\",\n    \"contact_method\": \"CONTACT_METHOD_OTHER\",\n    \"value\": \"string\",\n    \"public\": false,\n    \"validated_at\": \"2002-03-31T16:25:12.239Z\"\n  },\n  \"technical_contact\": {\n    \"contact_type\": \"CONTACT_TYPE_OTHER\",\n    \"contact_method\": \"CONTACT_METHOD_OTHER\",\n    \"value\": \"string\",\n    \"public\": true,\n    \"validated_at\": \"1969-10-06T15:26:32.865Z\"\n  },\n  \"listed\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3c44c1c-2344-4531-9b24-84958b831c96",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pba",
+                    "registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3614,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "54915a54-b39b-401b-8e08-03b706f1fc96",
+    "name": "The Things Stack — Application Server AppAs Pba API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

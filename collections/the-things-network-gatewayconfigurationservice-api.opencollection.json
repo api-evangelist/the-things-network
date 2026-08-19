@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs GatewayConfigurationService API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GatewayConfigurationService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GatewayConfigurationService_GetGatewayConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:filename",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GatewayConfigurationService_GetGatewayConfiguration2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gcs/gateways/configuration/:gateway_ids.gateway_id/:format/:type/:filename",
+            "params": [
+              {
+                "name": "gateway_ids.gateway_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "gateway_ids.eui",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

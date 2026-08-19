@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs NsEndDeviceBatchRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NsEndDeviceBatchRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete a list of devices within the same application.\nThis operation is atomic; either all devices are deleted or none.\nDevices not found are skipped and no error is returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ns/applications/:application_ids.application_id/devices/batch",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete a list of devices within the same application.\nThis operation is atomic; either all devices are deleted or none.\nDevices not found are skipped and no error is returned."
+        },
+        {
+          "info": {
+            "name": "Set the MAC settings profile for a batch of end devices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ns/applications/:application_ids.application_id/devices/mac_settings_profile/batch",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set the MAC settings profile for a batch of end devices."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

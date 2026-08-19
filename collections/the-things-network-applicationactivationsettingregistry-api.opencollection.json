@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs ApplicationActivationSettingRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApplicationActivationSettingRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get returns application activation settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get returns application activation settings."
+        },
+        {
+          "info": {
+            "name": "Set creates or updates application activation settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Set creates or updates application activation settings."
+        },
+        {
+          "info": {
+            "name": "Delete deletes application activation settings.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/js/applications/:application_ids.application_id/settings",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete deletes application activation settings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

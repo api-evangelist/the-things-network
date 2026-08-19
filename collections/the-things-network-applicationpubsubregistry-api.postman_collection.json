@@ -1,0 +1,1066 @@
+{
+  "item": [
+    {
+      "id": "7e46aa26-f8da-447b-bcd1-248bf58275d4",
+      "name": "ApplicationPubSubRegistry",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6074d4b9-a7ff-461b-8981-ed4efc95980d",
+          "name": "Application Pub Sub Registry Get Formats",
+          "request": {
+            "name": "Application Pub Sub Registry Get Formats",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub-formats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20d2e6e0-56d1-4373-8dfe-48ab8bd8bda1",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub-formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"formats\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a182e85-1a33-41c7-b927-0a29d98e4018",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub-formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2213,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fba789b-d5a3-47ed-8f2f-0be982dd4672",
+          "name": "Application Pub Sub Registry List",
+          "request": {
+            "name": "Application Pub Sub Registry List",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":application_ids.application_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<long>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "652b2b78-cd77-4519-b369-162aa9405823",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pubsubs\": [\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"pub_sub_id\": \"string\"\n      },\n      \"created_at\": \"1976-12-29T13:50:03.405Z\",\n      \"updated_at\": \"2017-12-13T22:44:51.263Z\",\n      \"format\": \"string\",\n      \"nats\": {\n        \"server_url\": \"string\"\n      },\n      \"mqtt\": {\n        \"server_url\": \"string\",\n        \"client_id\": \"string\",\n        \"username\": \"string\",\n        \"password\": \"string\",\n        \"subscribe_qos\": \"AT_MOST_ONCE\",\n        \"publish_qos\": \"AT_MOST_ONCE\",\n        \"use_tls\": false,\n        \"tls_ca\": \"string\",\n        \"tls_client_cert\": \"string\",\n        \"tls_client_key\": \"string\",\n        \"headers\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"aws_iot\": {\n        \"region\": \"string\",\n        \"access_key\": {\n          \"access_key_id\": \"string\",\n          \"secret_access_key\": \"string\",\n          \"session_token\": \"string\"\n        },\n        \"assume_role\": {\n          \"arn\": \"string\",\n          \"external_id\": \"string\",\n          \"session_duration\": \"string\"\n        },\n        \"endpoint_address\": \"string\",\n        \"default\": {\n          \"stack_name\": \"string\"\n        }\n      },\n      \"base_topic\": \"string\",\n      \"downlink_push\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_replace\": {\n        \"topic\": \"string\"\n      },\n      \"uplink_message\": {\n        \"topic\": \"string\"\n      },\n      \"uplink_normalized\": {\n        \"topic\": \"string\"\n      },\n      \"join_accept\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_ack\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_nack\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_sent\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_failed\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_queued\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_queue_invalidated\": {\n        \"topic\": \"string\"\n      },\n      \"location_solved\": {\n        \"topic\": \"string\"\n      },\n      \"service_data\": {\n        \"topic\": \"string\"\n      }\n    },\n    {\n      \"ids\": {\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"pub_sub_id\": \"string\"\n      },\n      \"created_at\": \"1976-08-28T19:42:12.828Z\",\n      \"updated_at\": \"2003-09-30T13:26:05.397Z\",\n      \"format\": \"string\",\n      \"nats\": {\n        \"server_url\": \"string\"\n      },\n      \"mqtt\": {\n        \"server_url\": \"string\",\n        \"client_id\": \"string\",\n        \"username\": \"string\",\n        \"password\": \"string\",\n        \"subscribe_qos\": \"AT_MOST_ONCE\",\n        \"publish_qos\": \"AT_MOST_ONCE\",\n        \"use_tls\": false,\n        \"tls_ca\": \"string\",\n        \"tls_client_cert\": \"string\",\n        \"tls_client_key\": \"string\",\n        \"headers\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      },\n      \"aws_iot\": {\n        \"region\": \"string\",\n        \"access_key\": {\n          \"access_key_id\": \"string\",\n          \"secret_access_key\": \"string\",\n          \"session_token\": \"string\"\n        },\n        \"assume_role\": {\n          \"arn\": \"string\",\n          \"external_id\": \"string\",\n          \"session_duration\": \"string\"\n        },\n        \"endpoint_address\": \"string\",\n        \"default\": {\n          \"stack_name\": \"string\"\n        }\n      },\n      \"base_topic\": \"string\",\n      \"downlink_push\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_replace\": {\n        \"topic\": \"string\"\n      },\n      \"uplink_message\": {\n        \"topic\": \"string\"\n      },\n      \"uplink_normalized\": {\n        \"topic\": \"string\"\n      },\n      \"join_accept\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_ack\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_nack\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_sent\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_failed\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_queued\": {\n        \"topic\": \"string\"\n      },\n      \"downlink_queue_invalidated\": {\n        \"topic\": \"string\"\n      },\n      \"location_solved\": {\n        \"topic\": \"string\"\n      },\n      \"service_data\": {\n        \"topic\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f655772-68be-491e-8ccb-eee3b5d4a4c5",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2036,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dda512ca-3700-4580-9948-284c44c6bb4c",
+          "name": "Application Pub Sub Registry Delete",
+          "request": {
+            "name": "Application Pub Sub Registry Delete",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":application_ids.application_id",
+                ":pub_sub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pub_sub_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7da55b42-4d4c-45a9-afc0-feae20a24b65",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":application_ids.application_id",
+                    ":pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20af9329-967d-4938-9f2b-984d2ff8cd44",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":application_ids.application_id",
+                    ":pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2036,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a6f020f-ad73-4e5f-8758-0a205420ddcd",
+          "name": "Application Pub Sub Registry Get",
+          "request": {
+            "name": "Application Pub Sub Registry Get",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":ids.application_ids.application_id",
+                ":ids.pub_sub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_mask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids.pub_sub_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80557ce8-e290-4aa6-a96e-43fa304b09f3",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":ids.application_ids.application_id",
+                    ":ids.pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"pub_sub_id\": \"string\"\n  },\n  \"created_at\": \"1964-03-20T06:27:46.168Z\",\n  \"updated_at\": \"1998-03-01T11:13:06.204Z\",\n  \"format\": \"string\",\n  \"nats\": {\n    \"server_url\": \"string\"\n  },\n  \"mqtt\": {\n    \"server_url\": \"string\",\n    \"client_id\": \"string\",\n    \"username\": \"string\",\n    \"password\": \"string\",\n    \"subscribe_qos\": \"AT_MOST_ONCE\",\n    \"publish_qos\": \"AT_MOST_ONCE\",\n    \"use_tls\": false,\n    \"tls_ca\": \"string\",\n    \"tls_client_cert\": \"string\",\n    \"tls_client_key\": \"string\",\n    \"headers\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  },\n  \"aws_iot\": {\n    \"region\": \"string\",\n    \"access_key\": {\n      \"access_key_id\": \"string\",\n      \"secret_access_key\": \"string\",\n      \"session_token\": \"string\"\n    },\n    \"assume_role\": {\n      \"arn\": \"string\",\n      \"external_id\": \"string\",\n      \"session_duration\": \"string\"\n    },\n    \"endpoint_address\": \"string\",\n    \"default\": {\n      \"stack_name\": \"string\"\n    }\n  },\n  \"base_topic\": \"string\",\n  \"downlink_push\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_replace\": {\n    \"topic\": \"string\"\n  },\n  \"uplink_message\": {\n    \"topic\": \"string\"\n  },\n  \"uplink_normalized\": {\n    \"topic\": \"string\"\n  },\n  \"join_accept\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_ack\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_nack\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_sent\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_failed\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_queued\": {\n    \"topic\": \"string\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"topic\": \"string\"\n  },\n  \"location_solved\": {\n    \"topic\": \"string\"\n  },\n  \"service_data\": {\n    \"topic\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67536f4a-b06b-41c3-87c6-9878370e1c3f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":ids.application_ids.application_id",
+                    ":ids.pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_mask",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids.pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2036,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb87f731-f4e0-487e-bf58-6fdcd5a54343",
+          "name": "Application Pub Sub Registry Set2",
+          "request": {
+            "name": "Application Pub Sub Registry Set2",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":pubsub.ids.application_ids.application_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pubsub.ids.application_ids.application_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pubsub\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"pub_sub_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"format\": \"<string>\",\n    \"nats\": {\n      \"server_url\": \"<string>\"\n    },\n    \"mqtt\": {\n      \"server_url\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"password\": \"<string>\",\n      \"subscribe_qos\": \"AT_MOST_ONCE\",\n      \"publish_qos\": \"AT_MOST_ONCE\",\n      \"use_tls\": \"<boolean>\",\n      \"tls_ca\": \"<byte>\",\n      \"tls_client_cert\": \"<byte>\",\n      \"tls_client_key\": \"<byte>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"aws_iot\": {\n      \"region\": \"<string>\",\n      \"access_key\": {\n        \"access_key_id\": \"<string>\",\n        \"secret_access_key\": \"<string>\",\n        \"session_token\": \"<string>\"\n      },\n      \"assume_role\": {\n        \"arn\": \"<string>\",\n        \"external_id\": \"<string>\",\n        \"session_duration\": \"<string>\"\n      },\n      \"endpoint_address\": \"<string>\",\n      \"default\": {\n        \"stack_name\": \"<string>\"\n      }\n    },\n    \"base_topic\": \"<string>\",\n    \"downlink_push\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_replace\": {\n      \"topic\": \"<string>\"\n    },\n    \"uplink_message\": {\n      \"topic\": \"<string>\"\n    },\n    \"uplink_normalized\": {\n      \"topic\": \"<string>\"\n    },\n    \"join_accept\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_ack\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_nack\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_sent\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_failed\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_queued\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_queue_invalidated\": {\n      \"topic\": \"<string>\"\n    },\n    \"location_solved\": {\n      \"topic\": \"<string>\"\n    },\n    \"service_data\": {\n      \"topic\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8767b946-adcc-4616-9a69-afa5206a1dd2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":pubsub.ids.application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"pub_sub_id\": \"string\"\n  },\n  \"created_at\": \"1969-06-02T18:36:34.108Z\",\n  \"updated_at\": \"1972-07-18T06:44:55.263Z\",\n  \"format\": \"string\",\n  \"nats\": {\n    \"server_url\": \"<string>\"\n  },\n  \"mqtt\": {\n    \"server_url\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"subscribe_qos\": \"AT_MOST_ONCE\",\n    \"publish_qos\": \"AT_MOST_ONCE\",\n    \"use_tls\": \"<boolean>\",\n    \"tls_ca\": \"<byte>\",\n    \"tls_client_cert\": \"<byte>\",\n    \"tls_client_key\": \"<byte>\",\n    \"headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  \"aws_iot\": {\n    \"region\": \"<string>\",\n    \"access_key\": {\n      \"access_key_id\": \"<string>\",\n      \"secret_access_key\": \"<string>\",\n      \"session_token\": \"<string>\"\n    },\n    \"assume_role\": {\n      \"arn\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"session_duration\": \"<string>\"\n    },\n    \"endpoint_address\": \"<string>\",\n    \"default\": {\n      \"stack_name\": \"<string>\"\n    }\n  },\n  \"base_topic\": \"string\",\n  \"downlink_push\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_replace\": {\n    \"topic\": \"<string>\"\n  },\n  \"uplink_message\": {\n    \"topic\": \"<string>\"\n  },\n  \"uplink_normalized\": {\n    \"topic\": \"<string>\"\n  },\n  \"join_accept\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_ack\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_nack\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_sent\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_failed\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_queued\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"topic\": \"<string>\"\n  },\n  \"location_solved\": {\n    \"topic\": \"<string>\"\n  },\n  \"service_data\": {\n    \"topic\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2589d5ac-ee01-4313-8b65-89fc58336ac1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":pubsub.ids.application_ids.application_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2036,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5cf5d32-c234-4452-8d5a-1e2b6c5192c0",
+          "name": "Application Pub Sub Registry Set",
+          "request": {
+            "name": "Application Pub Sub Registry Set",
+            "description": {},
+            "url": {
+              "path": [
+                "as",
+                "pubsub",
+                ":pubsub.ids.application_ids.application_id",
+                ":pubsub.ids.pub_sub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pubsub.ids.application_ids.application_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pubsub.ids.pub_sub_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pubsub\": {\n    \"ids\": {\n      \"application_ids\": \"<object>\",\n      \"pub_sub_id\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"format\": \"<string>\",\n    \"nats\": {\n      \"server_url\": \"<string>\"\n    },\n    \"mqtt\": {\n      \"server_url\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"password\": \"<string>\",\n      \"subscribe_qos\": \"AT_MOST_ONCE\",\n      \"publish_qos\": \"AT_MOST_ONCE\",\n      \"use_tls\": \"<boolean>\",\n      \"tls_ca\": \"<byte>\",\n      \"tls_client_cert\": \"<byte>\",\n      \"tls_client_key\": \"<byte>\",\n      \"headers\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"aws_iot\": {\n      \"region\": \"<string>\",\n      \"access_key\": {\n        \"access_key_id\": \"<string>\",\n        \"secret_access_key\": \"<string>\",\n        \"session_token\": \"<string>\"\n      },\n      \"assume_role\": {\n        \"arn\": \"<string>\",\n        \"external_id\": \"<string>\",\n        \"session_duration\": \"<string>\"\n      },\n      \"endpoint_address\": \"<string>\",\n      \"default\": {\n        \"stack_name\": \"<string>\"\n      }\n    },\n    \"base_topic\": \"<string>\",\n    \"downlink_push\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_replace\": {\n      \"topic\": \"<string>\"\n    },\n    \"uplink_message\": {\n      \"topic\": \"<string>\"\n    },\n    \"uplink_normalized\": {\n      \"topic\": \"<string>\"\n    },\n    \"join_accept\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_ack\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_nack\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_sent\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_failed\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_queued\": {\n      \"topic\": \"<string>\"\n    },\n    \"downlink_queue_invalidated\": {\n      \"topic\": \"<string>\"\n    },\n    \"location_solved\": {\n      \"topic\": \"<string>\"\n    },\n    \"service_data\": {\n      \"topic\": \"<string>\"\n    }\n  },\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d3a960be-d456-4e0f-a034-846854b5a1c2",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":pubsub.ids.application_ids.application_id",
+                    ":pubsub.ids.pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ids\": {\n    \"application_ids\": {\n      \"application_id\": \"string\"\n    },\n    \"pub_sub_id\": \"string\"\n  },\n  \"created_at\": \"1969-06-02T18:36:34.108Z\",\n  \"updated_at\": \"1972-07-18T06:44:55.263Z\",\n  \"format\": \"string\",\n  \"nats\": {\n    \"server_url\": \"<string>\"\n  },\n  \"mqtt\": {\n    \"server_url\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"password\": \"<string>\",\n    \"subscribe_qos\": \"AT_MOST_ONCE\",\n    \"publish_qos\": \"AT_MOST_ONCE\",\n    \"use_tls\": \"<boolean>\",\n    \"tls_ca\": \"<byte>\",\n    \"tls_client_cert\": \"<byte>\",\n    \"tls_client_key\": \"<byte>\",\n    \"headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  \"aws_iot\": {\n    \"region\": \"<string>\",\n    \"access_key\": {\n      \"access_key_id\": \"<string>\",\n      \"secret_access_key\": \"<string>\",\n      \"session_token\": \"<string>\"\n    },\n    \"assume_role\": {\n      \"arn\": \"<string>\",\n      \"external_id\": \"<string>\",\n      \"session_duration\": \"<string>\"\n    },\n    \"endpoint_address\": \"<string>\",\n    \"default\": {\n      \"stack_name\": \"<string>\"\n    }\n  },\n  \"base_topic\": \"string\",\n  \"downlink_push\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_replace\": {\n    \"topic\": \"<string>\"\n  },\n  \"uplink_message\": {\n    \"topic\": \"<string>\"\n  },\n  \"uplink_normalized\": {\n    \"topic\": \"<string>\"\n  },\n  \"join_accept\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_ack\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_nack\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_sent\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_failed\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_queued\": {\n    \"topic\": \"<string>\"\n  },\n  \"downlink_queue_invalidated\": {\n    \"topic\": \"<string>\"\n  },\n  \"location_solved\": {\n    \"topic\": \"<string>\"\n  },\n  \"service_data\": {\n    \"topic\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4d0b493-a41f-408f-8696-21d4a83b8362",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "as",
+                    "pubsub",
+                    ":pubsub.ids.application_ids.application_id",
+                    ":pubsub.ids.pub_sub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.application_ids.application_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pubsub.ids.pub_sub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2036,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6cbf0421-a947-40e8-ac03-d0f5730953e1",
+    "name": "The Things Stack — Application Server AppAs ApplicationPubSubRegistry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

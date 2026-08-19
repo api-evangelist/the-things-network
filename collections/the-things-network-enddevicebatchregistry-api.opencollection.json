@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs EndDeviceBatchRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EndDeviceBatchRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a batch of end devices with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.\nDevices not found are skipped and no error is returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/applications/:application_ids.application_id/devices/batch",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_ids",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the end device fields that should be returned.\nThis mask is applied on all the end devices in the result.\nSee the API reference for which fields can be returned by the different services."
+              }
+            ]
+          },
+          "docs": "Get a batch of end devices with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.\nDevices not found are skipped and no error is returned."
+        },
+        {
+          "info": {
+            "name": "Delete a batch of end devices with the given IDs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/applications/:application_ids.application_id/devices/batch",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "device_ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This operation is atomic; either all devices are deleted or none.\nDevices not found are skipped and no error is returned.\nBefore calling this RPC, use the corresponding BatchDelete RPCs\nof NsEndDeviceRegistry, AsEndDeviceRegistry and\noptionally the JsEndDeviceRegistry to delete the end devices.\nIf the devices were claimed on a Join Server, use the BatchUnclaim RPC\nof the DeviceClaimingServer.\nThis is NOT done automatically."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

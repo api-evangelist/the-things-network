@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs Ns API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetDefaultMACSettings retrieves the default MAC settings for a frequency plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/default_mac_settings/:frequency_plan_id/:lorawan_phy_version",
+            "params": [
+              {
+                "name": "frequency_plan_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lorawan_phy_version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GetDefaultMACSettings retrieves the default MAC settings for a frequency plan."
+        },
+        {
+          "info": {
+            "name": "GenerateDevAddr requests a device address assignment from the Network Server.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/dev_addr"
+          },
+          "docs": "GenerateDevAddr requests a device address assignment from the Network Server."
+        },
+        {
+          "info": {
+            "name": "Ns_GetDeviceAddressPrefixes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/dev_addr_prefixes"
+          }
+        },
+        {
+          "info": {
+            "name": "Ns_GetNetID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/net_id"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

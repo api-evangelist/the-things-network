@@ -1,0 +1,376 @@
+{
+  "item": [
+    {
+      "id": "548c8438-bc27-45b9-a545-b45c18d86a81",
+      "name": "Gs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8b2a576-0649-4c5f-9062-2bfa7cb9a23b",
+          "name": "Get statistics about gateway connections to the Gateway Server of a batch of gateways.\n- Statistics are not persisted between reconnects.\n- Gateways that are not connected or are part of a different cluster are ignored.\n- The client should ensure that the requested gateways are in the requested cluster.\n- The client should have the right to get the gateway connection stats on all requested gateways.",
+          "request": {
+            "name": "Get statistics about gateway connections to the Gateway Server of a batch of gateways.\n- Statistics are not persisted between reconnects.\n- Gateways that are not connected or are part of a different cluster are ignored.\n- The client should ensure that the requested gateways are in the requested cluster.\n- The client should have the right to get the gateway connection stats on all requested gateways.",
+            "description": {},
+            "url": {
+              "path": [
+                "gs",
+                "gateways",
+                "connection",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gateway_ids\": [\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    },\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"<string>\"\n    }\n  ],\n  \"field_mask\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5da124e-fbfc-4f92-833a-bffabe7d7ec7",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gs",
+                    "gateways",
+                    "connection",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway_ids\": [\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    }\n  ],\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entries\": {\n    \"key_0\": {\n      \"connected_at\": \"1963-07-01T20:22:11.745Z\",\n      \"disconnected_at\": \"2018-01-15T01:56:55.154Z\",\n      \"protocol\": \"string\",\n      \"last_status_received_at\": \"1991-02-14T03:29:18.425Z\",\n      \"last_status\": {\n        \"time\": \"2001-06-03T01:05:55.814Z\",\n        \"boot_time\": \"2008-09-30T00:54:54.394Z\",\n        \"versions\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"antenna_locations\": [\n          {\n            \"latitude\": 6417.083061817569,\n            \"longitude\": 8568.590304334288,\n            \"altitude\": 1202,\n            \"accuracy\": 8159,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"latitude\": 7441.567646080773,\n            \"longitude\": 4969.809793260734,\n            \"altitude\": 7127,\n            \"accuracy\": 3851,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"ip\": [\n          \"string\",\n          \"string\"\n        ],\n        \"metrics\": {\n          \"key_0\": 6285.98120832437\n        },\n        \"advanced\": {}\n      },\n      \"last_uplink_received_at\": \"2003-01-24T13:01:48.787Z\",\n      \"uplink_count\": \"string\",\n      \"last_downlink_received_at\": \"1981-03-09T23:30:35.403Z\",\n      \"downlink_count\": \"string\",\n      \"last_tx_acknowledgment_received_at\": \"2012-12-23T21:25:58.287Z\",\n      \"tx_acknowledgment_count\": \"string\",\n      \"round_trip_times\": {\n        \"min\": \"string\",\n        \"max\": \"string\",\n        \"median\": \"string\",\n        \"count\": 461\n      },\n      \"sub_bands\": [\n        {\n          \"min_frequency\": \"string\",\n          \"max_frequency\": \"string\",\n          \"downlink_utilization_limit\": 1274.7511278862744,\n          \"downlink_utilization\": 9276.217116625041\n        },\n        {\n          \"min_frequency\": \"string\",\n          \"max_frequency\": \"string\",\n          \"downlink_utilization_limit\": 7614.517901929077,\n          \"downlink_utilization\": 9607.659446848125\n        }\n      ],\n      \"gateway_remote_address\": {\n        \"ip\": \"string\"\n      }\n    },\n    \"key_1\": {\n      \"connected_at\": \"1957-10-17T11:38:31.907Z\",\n      \"disconnected_at\": \"1957-07-11T09:05:57.808Z\",\n      \"protocol\": \"string\",\n      \"last_status_received_at\": \"1982-01-29T15:34:35.244Z\",\n      \"last_status\": {\n        \"time\": \"1991-05-25T05:50:43.985Z\",\n        \"boot_time\": \"2016-03-08T15:24:06.279Z\",\n        \"versions\": {\n          \"key_0\": \"string\"\n        },\n        \"antenna_locations\": [\n          {\n            \"latitude\": 1878.9157611306207,\n            \"longitude\": 6143.344045237266,\n            \"altitude\": 4254,\n            \"accuracy\": 6552,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"latitude\": 4636.672136175939,\n            \"longitude\": 1295.6582597903787,\n            \"altitude\": 6925,\n            \"accuracy\": 8620,\n            \"source\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"ip\": [\n          \"string\",\n          \"string\"\n        ],\n        \"metrics\": {\n          \"key_0\": 9165.445272775658,\n          \"key_1\": 2085.9406060258743,\n          \"key_2\": 6354.981619877842\n        },\n        \"advanced\": {}\n      },\n      \"last_uplink_received_at\": \"2004-07-25T00:44:21.801Z\",\n      \"uplink_count\": \"string\",\n      \"last_downlink_received_at\": \"1950-07-17T15:52:45.691Z\",\n      \"downlink_count\": \"string\",\n      \"last_tx_acknowledgment_received_at\": \"1985-02-17T05:27:56.494Z\",\n      \"tx_acknowledgment_count\": \"string\",\n      \"round_trip_times\": {\n        \"min\": \"string\",\n        \"max\": \"string\",\n        \"median\": \"string\",\n        \"count\": 3749\n      },\n      \"sub_bands\": [\n        {\n          \"min_frequency\": \"string\",\n          \"max_frequency\": \"string\",\n          \"downlink_utilization_limit\": 889.7701095720367,\n          \"downlink_utilization\": 1584.7520218441425\n        },\n        {\n          \"min_frequency\": \"string\",\n          \"max_frequency\": \"string\",\n          \"downlink_utilization_limit\": 6388.711969397827,\n          \"downlink_utilization\": 5661.4925419162355\n        }\n      ],\n      \"gateway_remote_address\": {\n        \"ip\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "500ddd24-9e74-483c-8add-d80ba1686cd0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gs",
+                    "gateways",
+                    "connection",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gateway_ids\": [\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    {\n      \"gateway_id\": \"<string>\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    }\n  ],\n  \"field_mask\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9910,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a4b421b-9e70-4cdc-9199-406590f6b6a6",
+          "name": "Get statistics about the current gateway connection to the Gateway Server.\nThis is not persisted between reconnects.",
+          "request": {
+            "name": "Get statistics about the current gateway connection to the Gateway Server.\nThis is not persisted between reconnects.",
+            "description": {},
+            "url": {
+              "path": [
+                "gs",
+                "gateways",
+                ":gateway_id",
+                "connection",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eui",
+                  "value": "<string>",
+                  "description": "Secondary identifier, which can only be used in specific requests."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gateway_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63a7d707-366b-4598-9be4-0b213bfed466",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gs",
+                    "gateways",
+                    ":gateway_id",
+                    "connection",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"connected_at\": \"2006-08-20T14:59:33.100Z\",\n  \"disconnected_at\": \"1950-07-01T10:01:58.846Z\",\n  \"protocol\": \"string\",\n  \"last_status_received_at\": \"2003-11-14T01:49:30.975Z\",\n  \"last_status\": {\n    \"time\": \"1977-01-26T15:32:42.439Z\",\n    \"boot_time\": \"2013-11-23T07:15:01.644Z\",\n    \"versions\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"antenna_locations\": [\n      {\n        \"latitude\": 9399.874114660242,\n        \"longitude\": 4694.160786260698,\n        \"altitude\": 2663,\n        \"accuracy\": 605,\n        \"source\": \"SOURCE_UNKNOWN\"\n      },\n      {\n        \"latitude\": 6271.911570248378,\n        \"longitude\": 7289.599645104076,\n        \"altitude\": 1933,\n        \"accuracy\": 4808,\n        \"source\": \"SOURCE_UNKNOWN\"\n      }\n    ],\n    \"ip\": [\n      \"string\",\n      \"string\"\n    ],\n    \"metrics\": {\n      \"key_0\": 4882.949550924599\n    },\n    \"advanced\": {}\n  },\n  \"last_uplink_received_at\": \"2025-12-20T02:21:48.281Z\",\n  \"uplink_count\": \"string\",\n  \"last_downlink_received_at\": \"1987-12-24T08:05:02.077Z\",\n  \"downlink_count\": \"string\",\n  \"last_tx_acknowledgment_received_at\": \"2020-09-07T15:59:35.486Z\",\n  \"tx_acknowledgment_count\": \"string\",\n  \"round_trip_times\": {\n    \"min\": \"string\",\n    \"max\": \"string\",\n    \"median\": \"string\",\n    \"count\": 5057\n  },\n  \"sub_bands\": [\n    {\n      \"min_frequency\": \"string\",\n      \"max_frequency\": \"string\",\n      \"downlink_utilization_limit\": 3719.152518349005,\n      \"downlink_utilization\": 7873.961181994472\n    },\n    {\n      \"min_frequency\": \"string\",\n      \"max_frequency\": \"string\",\n      \"downlink_utilization_limit\": 6629.548977856972,\n      \"downlink_utilization\": 4381.145768280647\n    }\n  ],\n  \"gateway_remote_address\": {\n    \"ip\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a2407d8-f469-4072-b00c-5ef1d64da7fa",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gs",
+                    "gateways",
+                    ":gateway_id",
+                    "connection",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eui",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gateway_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 195,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "41ba6792-9073-4893-902f-0248065f8601",
+    "name": "The Things Stack — Application Server AppAs Gs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

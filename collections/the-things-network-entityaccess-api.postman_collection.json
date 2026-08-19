@@ -1,0 +1,167 @@
+{
+  "item": [
+    {
+      "id": "97095a86-26c9-48e2-acc4-269cecddee81",
+      "name": "EntityAccess",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2841ad5e-60c9-4a1a-b189-df8b97aad4e8",
+          "name": "AuthInfo returns information about the authentication that is used on the request.",
+          "request": {
+            "name": "AuthInfo returns information about the authentication that is used on the request.",
+            "description": {},
+            "url": {
+              "path": [
+                "auth_info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1a69739-e398-40a3-b7fa-efd45539a49d",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_key\": {\n    \"api_key\": {\n      \"id\": \"string\",\n      \"key\": \"string\",\n      \"name\": \"string\",\n      \"rights\": [\n        \"right_invalid\",\n        \"right_invalid\"\n      ],\n      \"created_at\": \"1946-10-11T19:25:59.917Z\",\n      \"updated_at\": \"1982-01-04T22:47:01.772Z\",\n      \"expires_at\": \"1975-09-16T20:21:01.869Z\"\n    },\n    \"entity_ids\": {\n      \"application_ids\": {\n        \"application_id\": \"string\"\n      },\n      \"client_ids\": {\n        \"client_id\": \"string\"\n      },\n      \"device_ids\": {\n        \"device_id\": \"string\",\n        \"application_ids\": {\n          \"application_id\": \"string\"\n        },\n        \"dev_eui\": \"70B3D57ED000ABCD\",\n        \"join_eui\": \"70B3D57ED000ABCD\",\n        \"dev_addr\": \"2600ABCD\"\n      },\n      \"gateway_ids\": {\n        \"gateway_id\": \"string\",\n        \"eui\": \"70B3D57ED000ABCD\"\n      },\n      \"organization_ids\": {\n        \"organization_id\": \"string\"\n      },\n      \"user_ids\": {\n        \"user_id\": \"string\",\n        \"email\": \"string\"\n      }\n    }\n  },\n  \"oauth_access_token\": {\n    \"user_ids\": {\n      \"user_id\": \"string\",\n      \"email\": \"string\"\n    },\n    \"user_session_id\": \"string\",\n    \"client_ids\": {\n      \"client_id\": \"string\"\n    },\n    \"id\": \"string\",\n    \"access_token\": \"string\",\n    \"refresh_token\": \"string\",\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ],\n    \"created_at\": \"1976-12-24T04:27:52.912Z\",\n    \"expires_at\": \"2011-01-10T12:06:02.082Z\"\n  },\n  \"user_session\": {\n    \"user_ids\": {\n      \"user_id\": \"string\",\n      \"email\": \"string\"\n    },\n    \"session_id\": \"string\",\n    \"created_at\": \"2019-12-28T04:27:34.643Z\",\n    \"updated_at\": \"2001-06-17T20:32:08.868Z\",\n    \"expires_at\": \"2010-12-09T01:00:28.664Z\",\n    \"session_secret\": \"string\"\n  },\n  \"gateway_token\": {\n    \"gateway_ids\": {\n      \"gateway_id\": \"string\",\n      \"eui\": \"70B3D57ED000ABCD\"\n    },\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"universal_rights\": {\n    \"rights\": [\n      \"right_invalid\",\n      \"right_invalid\"\n    ]\n  },\n  \"is_admin\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32e53ee8-8564-4daf-b992-83da955be11f",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1609,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a021408e-acb2-44c9-9638-8b90adac7695",
+    "name": "The Things Stack — Application Server AppAs EntityAccess API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}

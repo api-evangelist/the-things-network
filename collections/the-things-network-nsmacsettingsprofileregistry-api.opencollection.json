@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs NsMACSettingsProfileRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NsMACSettingsProfileRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List lists the MAC settings profiles.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:application_ids.application_id/mac_settings_profiles",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              }
+            ]
+          },
+          "docs": "List lists the MAC settings profiles."
+        },
+        {
+          "info": {
+            "name": "Create creates a new MAC settings profile.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ns/applications/:mac_settings_profile.ids.application_ids.application_id/mac_settings_profiles",
+            "params": [
+              {
+                "name": "mac_settings_profile.ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create creates a new MAC settings profile."
+        },
+        {
+          "info": {
+            "name": "Get returns the MAC settings profile that matches the given identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+            "params": [
+              {
+                "name": "mac_settings_profile_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mac_settings_profile_ids.profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the fields that should be returned."
+              }
+            ]
+          },
+          "docs": "Get returns the MAC settings profile that matches the given identifiers."
+        },
+        {
+          "info": {
+            "name": "Update updates the MAC settings profile that matches the given identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+            "params": [
+              {
+                "name": "mac_settings_profile_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mac_settings_profile_ids.profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID."
+              }
+            ]
+          },
+          "docs": "Update updates the MAC settings profile that matches the given identifiers."
+        },
+        {
+          "info": {
+            "name": "Delete deletes the MAC settings profile that matches the given identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/ns/applications/:mac_settings_profile_ids.application_ids.application_id/mac_settings_profiles/:mac_settings_profile_ids.profile_id",
+            "params": [
+              {
+                "name": "mac_settings_profile_ids.application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mac_settings_profile_ids.profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID."
+              }
+            ]
+          },
+          "docs": "Delete deletes the MAC settings profile that matches the given identifiers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

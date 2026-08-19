@@ -1,0 +1,353 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs ApplicationRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApplicationRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List applications where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the applications the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/applications",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the application fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted applications."
+              }
+            ]
+          },
+          "docs": "List applications where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the applications the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Update the application, changing the fields specified by the field mask to the provided values.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/applications/:application.ids.application_id",
+            "params": [
+              {
+                "name": "application.ids.application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update the application, changing the fields specified by the field mask to the provided values."
+        },
+        {
+          "info": {
+            "name": "Get the application with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/applications/:application_ids.application_id",
+            "params": [
+              {
+                "name": "application_ids.application_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the application fields that should be returned."
+              }
+            ]
+          },
+          "docs": "Get the application with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Delete the application. This may not release the application ID for reuse.\nAll end devices must be deleted from the application before it can be deleted.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/applications/:application_id",
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the application. This may not release the application ID for reuse.\nAll end devices must be deleted from the application before it can be deleted."
+        },
+        {
+          "info": {
+            "name": "Request DevEUI from the configured address block for a device inside the application.\nThe maximum number of DevEUI's issued per application can be configured.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/applications/:application_id/dev-eui",
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request DevEUI from the configured address block for a device inside the application.\nThe maximum number of DevEUI's issued per application can be configured."
+        },
+        {
+          "info": {
+            "name": "Purge the application. This will release the application ID for reuse.\nAll end devices must be deleted from the application before it can be deleted.\nThe application owner is responsible for clearing data from any (external) integrations\nthat may store and expose data by application ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/applications/:application_id/purge",
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Purge the application. This will release the application ID for reuse.\nAll end devices must be deleted from the application before it can be deleted.\nThe application owner is responsible for clearing data from any (external) integrations\nthat may store and expose data by application ID"
+        },
+        {
+          "info": {
+            "name": "Restore a recently deleted application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/applications/:application_id/restore",
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deployment configuration may specify if, and for how long after deletion,\nentities can be restored."
+        },
+        {
+          "info": {
+            "name": "List applications where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the applications the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/applications",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the application fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted applications."
+              }
+            ]
+          },
+          "docs": "List applications where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the applications the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Create a new application. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/organizations/:collaborator.organization_ids.organization_id/applications",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              }
+            ]
+          },
+          "docs": "Create a new application. This also sets the given organization or user as\nfirst collaborator with all possible rights."
+        },
+        {
+          "info": {
+            "name": "List applications where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the applications the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:collaborator.user_ids.user_id/applications",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the application fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted applications."
+              }
+            ]
+          },
+          "docs": "List applications where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the applications the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Create a new application. This also sets the given organization or user as\nfirst collaborator with all possible rights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/:collaborator.user_ids.user_id/applications",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              }
+            ]
+          },
+          "docs": "Create a new application. This also sets the given organization or user as\nfirst collaborator with all possible rights."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

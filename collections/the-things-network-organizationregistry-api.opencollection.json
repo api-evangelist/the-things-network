@@ -1,0 +1,260 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Things Stack — Application Server AppAs OrganizationRegistry API",
+    "version": "v3.36"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OrganizationRegistry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List organizations where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the organizations the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/organizations",
+            "params": [
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the organization fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted organizations."
+              }
+            ]
+          },
+          "docs": "List organizations where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the organizations the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Update the organization, changing the fields specified by the field mask to the provided values.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/organizations/:organization.ids.organization_id",
+            "params": [
+              {
+                "name": "organization.ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              }
+            ]
+          },
+          "docs": "Update the organization, changing the fields specified by the field mask to the provided values."
+        },
+        {
+          "info": {
+            "name": "Get the organization with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/organizations/:organization_ids.organization_id",
+            "params": [
+              {
+                "name": "organization_ids.organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the organization fields that should be returned."
+              }
+            ]
+          },
+          "docs": "Get the organization with the given identifiers, selecting the fields specified\nin the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Delete the organization. This may not release the organization ID for reuse.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/organizations/:organization_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              }
+            ]
+          },
+          "docs": "Delete the organization. This may not release the organization ID for reuse."
+        },
+        {
+          "info": {
+            "name": "Purge the organization. This will release the organization ID for reuse.\nThe user is responsible for clearing data from any (external) integrations\nthat may store and expose data by user or organization ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/organizations/:organization_id/purge",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              }
+            ]
+          },
+          "docs": "Purge the organization. This will release the organization ID for reuse.\nThe user is responsible for clearing data from any (external) integrations\nthat may store and expose data by user or organization ID."
+        },
+        {
+          "info": {
+            "name": "Restore a recently deleted organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/organizations/:organization_id/restore",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with user IDs."
+              }
+            ]
+          },
+          "docs": "Deployment configuration may specify if, and for how long after deletion,\nentities can be restored."
+        },
+        {
+          "info": {
+            "name": "List organizations where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the organizations the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/:collaborator.user_ids.user_id/organizations",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              },
+              {
+                "name": "collaborator.organization_ids.organization_id",
+                "value": "",
+                "type": "query",
+                "description": "This ID shares namespace with user IDs."
+              },
+              {
+                "name": "collaborator.user_ids.email",
+                "value": "",
+                "type": "query",
+                "description": "Secondary identifier, which can only be used in specific requests."
+              },
+              {
+                "name": "field_mask",
+                "value": "",
+                "type": "query",
+                "description": "The names of the organization fields that should be returned."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order the results by this field path (must be present in the field mask).\nDefault ordering is by ID. Prepend with a minus (-) to reverse the order."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. 0 is interpreted as 1."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Only return recently deleted organizations."
+              }
+            ]
+          },
+          "docs": "List organizations where the given user or organization is a direct collaborator.\nIf no user or organization is given, this returns the organizations the caller\nhas access to.\nSimilar to Get, this selects the fields given by the field mask.\nMore or less fields may be returned, depending on the rights of the caller."
+        },
+        {
+          "info": {
+            "name": "Create a new organization. This also sets the given user as\nfirst collaborator with all possible rights.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/:collaborator.user_ids.user_id/organizations",
+            "params": [
+              {
+                "name": "collaborator.user_ids.user_id",
+                "value": "",
+                "type": "path",
+                "description": "This ID shares namespace with organization IDs."
+              }
+            ]
+          },
+          "docs": "Create a new organization. This also sets the given user as\nfirst collaborator with all possible rights."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,584 @@
+{
+  "item": [
+    {
+      "id": "4cb29384-33d3-4546-a9b2-b87f0574f27e",
+      "name": "Ns",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2d6b61af-b150-42ee-b941-be4fda83f46b",
+          "name": "GetDefaultMACSettings retrieves the default MAC settings for a frequency plan.",
+          "request": {
+            "name": "GetDefaultMACSettings retrieves the default MAC settings for a frequency plan.",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "default_mac_settings",
+                ":frequency_plan_id",
+                ":lorawan_phy_version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "frequency_plan_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lorawan_phy_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db6ffc71-cb9a-4f8c-86e2-9454c40b2b7b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "default_mac_settings",
+                    ":frequency_plan_id",
+                    ":lorawan_phy_version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "frequency_plan_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lorawan_phy_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"class_b_timeout\": \"string\",\n  \"ping_slot_periodicity\": {\n    \"value\": \"PING_EVERY_1S\"\n  },\n  \"ping_slot_data_rate_index\": {\n    \"value\": \"DATA_RATE_0\"\n  },\n  \"ping_slot_frequency\": {\n    \"value\": \"string\"\n  },\n  \"beacon_frequency\": {\n    \"value\": \"string\"\n  },\n  \"class_c_timeout\": \"string\",\n  \"rx1_delay\": {\n    \"value\": \"RX_DELAY_0\"\n  },\n  \"rx1_data_rate_offset\": {\n    \"value\": \"DATA_RATE_OFFSET_0\"\n  },\n  \"rx2_data_rate_index\": {\n    \"value\": \"DATA_RATE_0\"\n  },\n  \"rx2_frequency\": {\n    \"value\": \"string\"\n  },\n  \"factory_preset_frequencies\": [\n    \"string\",\n    \"string\"\n  ],\n  \"max_duty_cycle\": {\n    \"value\": \"DUTY_CYCLE_1\"\n  },\n  \"supports_32_bit_f_cnt\": {\n    \"value\": false\n  },\n  \"use_adr\": {\n    \"value\": false\n  },\n  \"adr_margin\": 5575.21941580003,\n  \"resets_f_cnt\": {\n    \"value\": true\n  },\n  \"status_time_periodicity\": \"string\",\n  \"status_count_periodicity\": 217,\n  \"desired_rx1_delay\": {\n    \"value\": \"RX_DELAY_0\"\n  },\n  \"desired_rx1_data_rate_offset\": {\n    \"value\": \"DATA_RATE_OFFSET_0\"\n  },\n  \"desired_rx2_data_rate_index\": {\n    \"value\": \"DATA_RATE_0\"\n  },\n  \"desired_rx2_frequency\": {\n    \"value\": \"string\"\n  },\n  \"desired_max_duty_cycle\": {\n    \"value\": \"DUTY_CYCLE_1\"\n  },\n  \"desired_adr_ack_limit_exponent\": {\n    \"value\": \"ADR_ACK_LIMIT_1\"\n  },\n  \"desired_adr_ack_delay_exponent\": {\n    \"value\": \"ADR_ACK_DELAY_1\"\n  },\n  \"desired_ping_slot_data_rate_index\": {\n    \"value\": \"DATA_RATE_0\"\n  },\n  \"desired_ping_slot_frequency\": {\n    \"value\": \"string\"\n  },\n  \"desired_beacon_frequency\": {\n    \"value\": \"string\"\n  },\n  \"desired_max_eirp\": {\n    \"value\": \"DEVICE_EIRP_8\"\n  },\n  \"class_b_c_downlink_interval\": \"string\",\n  \"uplink_dwell_time\": {\n    \"value\": false\n  },\n  \"downlink_dwell_time\": {\n    \"value\": false\n  },\n  \"adr\": {\n    \"static\": {\n      \"data_rate_index\": \"DATA_RATE_0\",\n      \"tx_power_index\": 5726,\n      \"nb_trans\": 2243\n    },\n    \"dynamic\": {\n      \"margin\": 6837.9702461981215,\n      \"min_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"max_data_rate_index\": {\n        \"value\": \"DATA_RATE_0\"\n      },\n      \"min_tx_power_index\": 5566,\n      \"max_tx_power_index\": 5914,\n      \"min_nb_trans\": 8984,\n      \"max_nb_trans\": 9405,\n      \"channel_steering\": {\n        \"lora_narrow\": {},\n        \"disabled\": {}\n      },\n      \"overrides\": {\n        \"data_rate_0\": {\n          \"min_nb_trans\": 7852,\n          \"max_nb_trans\": 3448\n        },\n        \"data_rate_1\": {\n          \"min_nb_trans\": 3850,\n          \"max_nb_trans\": 1607\n        },\n        \"data_rate_2\": {\n          \"min_nb_trans\": 5581,\n          \"max_nb_trans\": 1791\n        },\n        \"data_rate_3\": {\n          \"min_nb_trans\": 3171,\n          \"max_nb_trans\": 6629\n        },\n        \"data_rate_4\": {\n          \"min_nb_trans\": 4769,\n          \"max_nb_trans\": 4531\n        },\n        \"data_rate_5\": {\n          \"min_nb_trans\": 5368,\n          \"max_nb_trans\": 5895\n        },\n        \"data_rate_6\": {\n          \"min_nb_trans\": 2260,\n          \"max_nb_trans\": 6857\n        },\n        \"data_rate_7\": {\n          \"min_nb_trans\": 7988,\n          \"max_nb_trans\": 2570\n        },\n        \"data_rate_8\": {\n          \"min_nb_trans\": 3855,\n          \"max_nb_trans\": 2453\n        },\n        \"data_rate_9\": {\n          \"min_nb_trans\": 269,\n          \"max_nb_trans\": 5395\n        },\n        \"data_rate_10\": {\n          \"min_nb_trans\": 2704,\n          \"max_nb_trans\": 1162\n        },\n        \"data_rate_11\": {\n          \"min_nb_trans\": 3987,\n          \"max_nb_trans\": 5667\n        },\n        \"data_rate_12\": {\n          \"min_nb_trans\": 5793,\n          \"max_nb_trans\": 2752\n        },\n        \"data_rate_13\": {\n          \"min_nb_trans\": 8731,\n          \"max_nb_trans\": 3503\n        },\n        \"data_rate_14\": {\n          \"min_nb_trans\": 1087,\n          \"max_nb_trans\": 6494\n        },\n        \"data_rate_15\": {\n          \"min_nb_trans\": 3940,\n          \"max_nb_trans\": 3231\n        }\n      }\n    },\n    \"disabled\": {}\n  },\n  \"schedule_downlinks\": {\n    \"value\": true\n  },\n  \"relay\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"string\"\n      },\n      \"default_channel_index\": 7371,\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reload_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"last_w_f_cnt\": 9558,\n          \"device_id\": \"string\",\n          \"session_key_id\": \"string\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reload_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"last_w_f_cnt\": 9762,\n          \"device_id\": \"string\",\n          \"session_key_id\": \"string\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reload_rate\": 5537\n        },\n        \"notifications\": {\n          \"bucket_size\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reload_rate\": 3845\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reload_rate\": 1186\n        },\n        \"overall\": {\n          \"bucket_size\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reload_rate\": 6979\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": 2457,\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"string\"\n      },\n      \"serving_device_id\": \"string\"\n    }\n  },\n  \"desired_relay\": {\n    \"serving\": {\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"string\"\n      },\n      \"default_channel_index\": 5142,\n      \"cad_periodicity\": \"RELAY_CAD_PERIODICITY_1_SECOND\",\n      \"uplink_forwarding_rules\": [\n        {\n          \"limits\": {\n            \"bucket_size\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reload_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"last_w_f_cnt\": 2388,\n          \"device_id\": \"string\",\n          \"session_key_id\": \"string\"\n        },\n        {\n          \"limits\": {\n            \"bucket_size\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reload_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"last_w_f_cnt\": 5684,\n          \"device_id\": \"string\",\n          \"session_key_id\": \"string\"\n        }\n      ],\n      \"limits\": {\n        \"reset_behavior\": \"RELAY_RESET_LIMIT_COUNTER_ZERO\",\n        \"join_requests\": {\n          \"bucket_size\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reload_rate\": 8846\n        },\n        \"notifications\": {\n          \"bucket_size\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reload_rate\": 4463\n        },\n        \"uplink_messages\": {\n          \"bucket_size\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reload_rate\": 8793\n        },\n        \"overall\": {\n          \"bucket_size\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reload_rate\": 6301\n        }\n      }\n    },\n    \"served\": {\n      \"always\": {},\n      \"dynamic\": {\n        \"smart_enable_level\": \"RELAY_SMART_ENABLE_LEVEL_8\"\n      },\n      \"end_device_controlled\": {},\n      \"backoff\": 7379,\n      \"second_channel\": {\n        \"ack_offset\": \"RELAY_SECOND_CH_ACK_OFFSET_0\",\n        \"data_rate_index\": \"DATA_RATE_0\",\n        \"frequency\": \"string\"\n      },\n      \"serving_device_id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fc8f699-e995-4ccf-b9e6-fde310f19e23",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "default_mac_settings",
+                    ":frequency_plan_id",
+                    ":lorawan_phy_version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "frequency_plan_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lorawan_phy_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9622,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\",\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cceb291-73c6-45a2-89a2-4ded0232a449",
+          "name": "GenerateDevAddr requests a device address assignment from the Network Server.",
+          "request": {
+            "name": "GenerateDevAddr requests a device address assignment from the Network Server.",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "dev_addr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3b23584-0c36-4979-b0e2-a2fd9f270049",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "dev_addr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dev_addr\": \"2600ABCD\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f39fe0d-5c35-4a3f-9505-989d74d5c17c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "dev_addr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 222,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b70969b-d23c-4d13-ab14-fe9b39e6a4a0",
+          "name": "Ns Get Device Address Prefixes",
+          "request": {
+            "name": "Ns Get Device Address Prefixes",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "dev_addr_prefixes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e8dada6-37ee-4a96-af55-5a98e56a107b",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "dev_addr_prefixes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dev_addr_prefixes\": [\n    \"2600AB00/24\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62861081-4cb8-4468-9d45-344e1681fb45",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "dev_addr_prefixes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 222,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63a468a1-d45e-4293-a4b9-f15c72325f57",
+          "name": "Ns Get Net ID",
+          "request": {
+            "name": "Ns Get Net ID",
+            "description": {},
+            "url": {
+              "path": [
+                "ns",
+                "net_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e7f6f39-d012-47f9-a1db-ec3f7da7fa92",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"net_id\": \"000013\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aec13227-0561-4736-96b0-dc6a4ac9c33b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ns",
+                    "net_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 222,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eu1.cloud.thethings.industries/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "303c31e3-1dca-45b3-9b15-808c64d003a8",
+    "name": "The Things Stack — Application Server AppAs Ns API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.\n\nContact Support:\n Name: The Things Industries",
+      "type": "text/plain"
+    }
+  }
+}
