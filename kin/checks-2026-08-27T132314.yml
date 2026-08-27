@@ -3,21 +3,19 @@ kin_checks:
   slug: the-things-network
   schema_version: 0.15.1
   scored_at: '2026-08-27'
-  run_ts: 2026-08-27T103455
+  run_ts: 2026-08-27T132314
   note: Actionable checks only (missed + partial). earned/na are every other check
     in rubric/scoring-0.15.1.yml; counts below let you verify that.
   counts:
     total: 130
-    earned: 46
-    partial: 12
-    missed: 48
+    earned: 50
+    partial: 13
+    missed: 43
     na: 24
   checks:
   - id: maintainer_present
     status: missed
   - id: base_url_per_api
-    status: missed
-  - id: well_known_published
     status: missed
   - id: llms_txt_published
     status: missed
@@ -46,10 +44,6 @@ kin_checks:
   - id: json_ld_property_depth
     status: missed
   - id: domain_standard_conformance
-    status: missed
-  - id: conformance_declared
-    status: missed
-  - id: overlay_published
     status: missed
   - id: deprecation_policy
     status: missed
@@ -89,8 +83,6 @@ kin_checks:
     status: missed
   - id: reg_compliance_published
     status: missed
-  - id: mcp_server
-    status: missed
   - id: idempotency
     status: missed
   - id: error_semantics
@@ -98,8 +90,6 @@ kin_checks:
   - id: event_surface_described
     status: missed
   - id: agent_skills
-    status: missed
-  - id: well_known_catalog
     status: missed
   - id: consent_identity
     status: missed
@@ -145,6 +135,10 @@ kin_checks:
   - id: reversibility_documented
     status: partial
     earned: 2.4
+    detail: 'grade: documented'
+  - id: mcp_server
+    status: partial
+    earned: 4.8
     detail: 'grade: documented'
   - id: auth_clarity
     status: partial
