@@ -1,0 +1,59 @@
+generated: '2026-08-27'
+method: generated
+source: >-
+  openapi/ (every operationId in every skill was verified to exist in the harvested contract),
+  conventions/the-things-network-conventions.yml, errors/the-things-network-problem-types.yml,
+  scopes/the-things-network-scopes.yml, asyncapi/the-things-network-webhooks.yml
+aid: the-things-network
+name: The Things Stack — Agent Skills
+description: >-
+  Packaged operating instructions for the four flows that account for almost all real integration
+  work against The Things Stack: getting a device onto the network, sending it something, getting
+  its data out, and scoping the credential that does all three. Every operationId referenced is
+  present in the harvested OpenAPI; none is invented. Provider-published skills or an AGENTS.md
+  were searched for on both GitHub organizations and the docs site and do not exist.
+provider_published: false
+skills:
+  - name: the-things-network-register-end-device
+    file: the-things-network-register-end-device.md
+    summary: Register a LoRaWAN end device, using the Device Repository template where the hardware is known.
+    consequence: write
+    key_caution: >-
+      The Identity Server create is not the whole job — the Join/Network/Application Server
+      registries have their own Set operations. Device deletes are irreversible.
+  - name: the-things-network-schedule-downlink
+    file: the-things-network-schedule-downlink.md
+    summary: Send a downlink, and cancel one that has not yet been transmitted.
+    consequence: physical
+    key_caution: >-
+      Push is not idempotent and there is no idempotency key. Use DownlinkQueueReplace when a
+      retry is possible. Once transmitted, a downlink cannot be recalled.
+  - name: the-things-network-stream-application-data
+    file: the-things-network-stream-application-data.md
+    summary: Choose and wire up webhooks, MQTT, Pub/Sub or the Storage Integration.
+    consequence: read
+    key_caution: >-
+      Webhooks are NOT signed. Authenticate the sender with the webhook's Basic credentials or a
+      secret path segment.
+  - name: the-things-network-manage-access
+    file: the-things-network-manage-access.md
+    summary: Mint, scope and revoke API keys against the 70-value Rights vocabulary.
+    consequence: write
+    key_caution: >-
+      RIGHT_*_ALL pseudo-rights cover all FUTURE rights too, and API keys have no expiry unless
+      one is set. Enumerate rights explicitly for machine credentials.
+shared_rules:
+  base_url: https://eu1.cloud.thethings.network/api/v3
+  auth_header: 'Authorization: Bearer NNSXS.<token-id>.<token-secret>'
+  cluster_rule: >-
+    Identity Server APIs are served only from eu1 on The Things Stack Sandbox; Application,
+    Network and Join Server APIs are available on every regional cluster.
+  field_mask: >-
+    Reads use field_mask to select; UPDATES use field_mask to name what is written. An update
+    without a field_mask writes nothing and still returns success.
+  error_matching: 'Match on details[].namespace + details[].name, never on the message string.'
+  rate_limits: 'X-Rate-Limit-Limit / -Available / -Reset / -Retry; 429 on exhaustion.'
+  idempotency: >-
+    None. There is no idempotency-key header anywhere in this API. Rely on natural idempotency
+    (Create fails with already_exists, PUT+field_mask converges, Delete is idempotent) and prefer
+    DownlinkQueueReplace over DownlinkQueuePush.

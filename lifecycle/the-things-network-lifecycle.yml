@@ -1,0 +1,83 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://github.com/TheThingsNetwork/lorawan-stack/blob/v3.36.2/SECURITY.md ,
+  https://www.thethingsindustries.com/docs/api/concepts/errors/ ,
+  https://www.thethingsindustries.com/docs/concepts/advanced/purge/ ,
+  https://status.thethings.industries/ ,
+  https://github.com/TheThingsNetwork/lorawan-stack/releases ,
+  https://www.thethingsindustries.com/stack/plans/
+aid: the-things-network
+name: The Things Stack — Lifecycle, Versioning and Support
+versioning:
+  scheme: semver
+  api_version: v3
+  strategy: path
+  note: >-
+    The API major version is carried in the path (/api/v3) and in every gRPC package name
+    (ttn.lorawan.v3). Minor and patch versions of the server change behaviour additively; the
+    v3 path has been stable since 2019. Protobuf field numbers are never reused, which is what
+    gives v3 its backward compatibility guarantee.
+  current: v3.36.2
+  current_date: '2026-08-17'
+support_policy:
+  statement: Security fixes are provided for the two most recent minor versions of the v3 major.
+  source: https://github.com/TheThingsNetwork/lorawan-stack/blob/v3.36.2/SECURITY.md
+  currently_supported: [v3.36.x, v3.35.x]
+deprecation:
+  policy_published: true
+  mechanism: X-Warning response header
+  statement: >-
+    The Things Stack signals deprecations and soon-to-be-errors at runtime with an X-Warning
+    response header. The API concepts documentation instructs clients to "Mind the X-Warning
+    headers. The Things Stack sends responses containing this header to warn about issues that
+    may become errors in the future."
+  source: https://www.thethingsindustries.com/docs/api/concepts/errors/
+  rfc8594_sunset_header: false
+  rfc8594_note: >-
+    No Sunset or Deprecation header (RFC 8594) was observed on a live response from
+    https://eu1.cloud.thethings.network/api/v3. X-Warning is the provider's own mechanism and
+    predates the RFC; recorded as-is rather than claimed as RFC 8594 compliance.
+  deprecated_operations_in_spec: 0
+  deprecated_operations_note: >-
+    No operation in the 58 harvested OpenAPI documents carries deprecated: true. Deprecation is
+    communicated in release notes and at runtime, not in the contract.
+  major_version_history:
+    - version: v2
+      status: retired
+      note: >-
+        The Things Network v2 network and its API (lorawan-stack-legacy) are retired. The v2
+        JavaScript and Python application SDKs on npm/PyPI still exist but no longer work
+        against a live network.
+    - version: v3
+      status: current
+      since: '2019'
+status_page:
+  url: https://status.thethings.industries/
+  provider: Atlassian Statuspage
+  verified: '2026-08-27'
+  http_status: 200
+  covers: The Things Stack Cloud and The Things Stack Sandbox (The Things Network community network).
+  note: >-
+    The previously recorded https://status.thethingsindustries.com/ no longer resolves in DNS.
+    The live status page is on the thethings.industries apex; the apis.yml pointer was corrected
+    in this pass.
+sla:
+  community_network:
+    offered: false
+    note: >-
+      The Things Network community network (The Things Stack Sandbox) is fair-use and carries no
+      SLA. Uplink airtime is limited to roughly 30 seconds per device per 24 hours.
+  cloud:
+    offered: true
+    source: https://www.thethingsindustries.com/stack/plans/
+    note: Uptime SLA on The Things Stack Cloud and Enterprise tiers; terms are per-plan.
+data_lifecycle:
+  soft_delete: true
+  restore_window: 24h
+  restore_window_configurable: true
+  restore_window_configurable_note: Configurable on The Things Stack Enterprise via Identity Server options.
+  restorable_entities: [applications, gateways, clients, users, organizations]
+  non_restorable_entities: [end-devices]
+  purge: irreversible
+  source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/

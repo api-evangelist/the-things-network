@@ -1,0 +1,123 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://www.thethingsindustries.com/docs/ttn-lw-cli/ ,
+  https://github.com/TheThingsNetwork/lorawan-stack/tree/v3.36.2/cmd/ttn-lw-cli/commands ,
+  https://raw.githubusercontent.com/TheThingsNetwork/homebrew-lorawan-stack/master/ttn-lw-cli.rb
+aid: the-things-network
+name: ttn-lw-cli — The Things Stack Command-line Interface
+description: >-
+  ttn-lw-cli is the first-party CLI for The Things Stack. It speaks the same gRPC API the
+  Console uses, authenticates with OAuth (interactive login) or an API key, and covers the full
+  entity surface — applications, end devices, gateways, users, organizations, OAuth clients,
+  API keys and collaborators — plus live event streaming, downlink scheduling, uplink
+  simulation, Packet Broker administration and bulk/CSV device import.
+version: 3.36.2
+released: '2026-08-17'
+binary: ttn-lw-cli
+docs: https://www.thethingsindustries.com/docs/ttn-lw-cli/
+source: https://github.com/TheThingsNetwork/lorawan-stack/tree/v3.36.2/cmd/ttn-lw-cli
+install:
+  - method: homebrew
+    command: brew install TheThingsNetwork/lorawan-stack/ttn-lw-cli
+    tap: https://github.com/TheThingsNetwork/homebrew-lorawan-stack
+  - method: snap
+    command: snap install ttn-lw-stack
+    note: Ships the server binaries and the CLI together.
+    url: https://snapcraft.io/ttn-lw-stack
+  - method: binary
+    command: >-
+      curl -L https://github.com/TheThingsNetwork/lorawan-stack/releases/download/v3.36.2/lorawan-stack-cli_3.36.2_linux_amd64.tar.gz | tar xz
+    note: GoReleaser archives for darwin/linux/windows on amd64 and arm64.
+    url: https://github.com/TheThingsNetwork/lorawan-stack/releases
+  - method: source
+    command: go install go.thethings.network/lorawan-stack/v3/cmd/ttn-lw-cli@v3.36.2
+configuration:
+  file: .ttn-lw-cli.yml
+  keys:
+    - oauth-server-address
+    - identity-server-grpc-address
+    - gateway-server-grpc-address
+    - network-server-grpc-address
+    - application-server-grpc-address
+    - join-server-grpc-address
+    - device-claiming-server-grpc-address
+    - device-template-converter-grpc-address
+    - qr-code-generator-grpc-address
+  sandbox_example:
+    oauth-server-address: https://eu1.cloud.thethings.network/oauth
+    identity-server-grpc-address: eu1.cloud.thethings.network:8884
+    application-server-grpc-address: eu1.cloud.thethings.network:8884
+  source: https://www.thethingsindustries.com/docs/concepts/ttn/addresses/
+auth:
+  - method: oauth
+    command: ttn-lw-cli login
+    note: Interactive browser OAuth against the Identity Server; tokens cached locally.
+  - method: api-key
+    command: ttn-lw-cli login --api-key
+    note: 'Non-interactive. Key format NNSXS.<token-id>.<token-secret>.'
+command_groups:
+  - group: applications
+    description: Create, list, get, update, delete, restore and purge applications.
+    subcommands: [access, activation-settings, claim, downlink, link, packages, pubsub, subscribe, webhooks]
+  - group: end-devices
+    description: Register, list, get, update and delete end devices; batch and template operations.
+    subcommands: [batch-delete, batch-update, create, list, set, template]
+  - group: gateways
+    description: Manage gateways, gateway collaborators, API keys and claiming.
+    subcommands: [access, claim]
+  - group: users
+    description: User accounts, API keys, invitations, OAuth authorizations, sessions, bookmarks.
+    subcommands: [access, bookmarks, email-validation, invitations, oauth, sessions]
+  - group: organizations
+    description: Organizations and organization collaborators/API keys.
+    subcommands: [access]
+  - group: clients
+    description: OAuth client registration and collaborators.
+    subcommands: [access]
+  - group: events
+    description: Subscribe to the live event stream for any entity.
+  - group: simulate
+    description: Simulate uplink and join messages for integration testing.
+  - group: lorawan
+    description: LoRaWAN helpers — DevAddr/EUI generation and message encoding/decoding.
+  - group: packetbroker
+    description: Packet Broker roaming registration, routing policies and network listing.
+  - group: relays
+    description: LoRaWAN relay configuration on the Network Server.
+  - group: storage
+    description: Query the Storage Integration for historical uplinks.
+  - group: notifications
+    description: Read and mark notifications.
+  - group: contact-info
+    description: Manage and validate entity contact information.
+  - group: bulk
+    description: Bulk/CSV creation of entities from a file.
+  - group: use
+    description: Generate a CLI configuration file for a given cluster address.
+  - group: config
+    description: Print the resolved CLI configuration.
+key_flows:
+  - name: Log in and register a device
+    steps:
+      - ttn-lw-cli use eu1.cloud.thethings.network --overwrite
+      - ttn-lw-cli login
+      - ttn-lw-cli applications create my-app --user-id my-user
+      - ttn-lw-cli end-devices create my-app my-device --dev-eui ... --join-eui ... --app-key ...
+  - name: Watch live traffic
+    steps:
+      - ttn-lw-cli events subscribe --application-id my-app
+  - name: Schedule a downlink
+    steps:
+      - ttn-lw-cli end-devices downlink push my-app my-device --frm-payload BEEF --f-port 15
+  - name: Undo a delete inside the restore window
+    steps:
+      - ttn-lw-cli applications delete --application-id my-app
+      - ttn-lw-cli applications restore --application-id my-app
+    note: 24h restore window on The Things Stack Cloud; end devices cannot be restored.
+telemetry:
+  collected: true
+  note: >-
+    Since v3.35.0 the CLI collects which commands and aliases are used. Recorded from the
+    v3.35.0 release notes, not from a marketing claim.
+  source: https://github.com/TheThingsNetwork/lorawan-stack/releases/tag/v3.35.0

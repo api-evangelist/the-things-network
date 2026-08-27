@@ -1,0 +1,337 @@
+generated: '2026-08-27'
+method: searched
+source: https://github.com/TheThingsNetwork/lorawan-stack/blob/v3.36.2/api/ttn/lorawan/v3/rights.proto
+docs: https://www.thethingsindustries.com/docs/api/concepts/auth/
+aid: the-things-network
+name: The Things Stack — OAuth 2.0 Rights (scopes)
+description: 'The Things Stack Identity Server is a full OAuth 2.0 authorization server. Its scope surface
+  is the "Rights" enum: every OAuth access token and every API key carries an explicit list of Rights,
+  and the server checks the requested RPC against that list. The 70 Rights below are transcribed verbatim
+  (name + doc comment) from rights.proto at tag v3.36.2 — they are the contract, not a reading of a marketing
+  page. The harvested OpenAPI documents declare only the ApiKeyAuth scheme because the gRPC-gateway generator
+  does not emit oauth2 securitySchemes; the OAuth flow is real and documented, and derive-oauth-scopes.py
+  therefore found nothing to derive.'
+authorization_server:
+  issuer: https://eu1.cloud.thethings.network/oauth
+  authorization_endpoint: https://eu1.cloud.thethings.network/oauth/authorize
+  token_endpoint: https://eu1.cloud.thethings.network/oauth/token
+  note: Endpoint paths are those of The Things Stack OAuth server as documented for the Sandbox cluster
+    addresses page. There is no RFC 8414 /.well-known/oauth-authorization-server document — that path
+    404s (see well-known/). Self-hosted and Cloud tenants use their own host with the same paths.
+  source: https://www.thethingsindustries.com/docs/concepts/ttn/addresses/
+  probed:
+    date: '2026-08-27'
+    evidence:
+    - url: https://eu1.cloud.thethings.network/oauth
+      status: 308
+      note: redirects to /oauth/
+    - url: https://eu1.cloud.thethings.network/oauth/authorize
+      status: 302
+      note: redirects to /oauth/login?n=%2Foauth%2Fauthorize — live authorization endpoint
+    - url: https://eu1.cloud.thethings.network/oauth/token
+      status: 200
+      note: GET returns the Account app HTML shell; the token endpoint is POST-only, so a GET probe cannot
+        confirm it beyond the path existing
+    - url: https://eu1.cloud.thethings.network/.well-known/oauth-authorization-server
+      status: 404
+      note: no RFC 8414 metadata document is served
+grant_types:
+- authorization_code
+- refresh_token
+scope_model: rights-list
+scope_count: 70
+notes:
+- Rights ending in _ALL are pseudo-rights that expand to all current AND FUTURE rights on that entity.
+  Granting RIGHT_APPLICATION_ALL to an agent silently widens as The Things Stack adds rights; prefer explicit
+  rights for machine credentials.
+- RIGHT_APPLICATION_LINK and RIGHT_GATEWAY_LINK are API-key-only and are the credentials a gateway or
+  an application-link integration uses, not a user OAuth scope.
+- API keys carry the same Rights vocabulary as OAuth tokens, which is why this file is the permission
+  reference for both auth styles.
+scopes:
+- name: RIGHT_USER_INFO
+  entity: user
+  description: The right to view user information.
+  pseudo: false
+- name: RIGHT_USER_SETTINGS_BASIC
+  entity: user
+  description: The right to edit basic user settings.
+  pseudo: false
+- name: RIGHT_USER_LIST
+  entity: user
+  description: The right to list users accounts.
+  pseudo: false
+- name: RIGHT_USER_CREATE
+  entity: user
+  description: The right to create an user account.
+  pseudo: false
+- name: RIGHT_USER_SETTINGS_API_KEYS
+  entity: user
+  description: The right to view and edit user API keys.
+  pseudo: false
+- name: RIGHT_USER_DELETE
+  entity: user
+  description: The right to delete user account.
+  pseudo: false
+- name: RIGHT_USER_PURGE
+  entity: user
+  description: The right to delete user account.
+  pseudo: false
+- name: RIGHT_USER_AUTHORIZED_CLIENTS
+  entity: user
+  description: The right to view and edit authorized OAuth clients of the user.
+  pseudo: false
+- name: RIGHT_USER_APPLICATIONS_LIST
+  entity: user
+  description: The right to list applications the user is a collaborator of.
+  pseudo: false
+- name: RIGHT_USER_APPLICATIONS_CREATE
+  entity: user
+  description: The right to create an application under the user account.
+  pseudo: false
+- name: RIGHT_USER_GATEWAYS_LIST
+  entity: user
+  description: The right to list gateways the user is a collaborator of.
+  pseudo: false
+- name: RIGHT_USER_GATEWAYS_CREATE
+  entity: user
+  description: The right to create a gateway under the account of the user.
+  pseudo: false
+- name: RIGHT_USER_CLIENTS_LIST
+  entity: user
+  description: The right to list OAuth clients the user is a collaborator of.
+  pseudo: false
+- name: RIGHT_USER_CLIENTS_CREATE
+  entity: user
+  description: The right to create an OAuth client under the account of the user.
+  pseudo: false
+- name: RIGHT_USER_ORGANIZATIONS_LIST
+  entity: user
+  description: The right to list organizations the user is a member of.
+  pseudo: false
+- name: RIGHT_USER_ORGANIZATIONS_CREATE
+  entity: user
+  description: The right to create an organization under the user account.
+  pseudo: false
+- name: RIGHT_USER_NOTIFICATIONS_READ
+  entity: user
+  description: The right to read notifications sent to the user.
+  pseudo: false
+- name: RIGHT_USER_ALL
+  entity: user
+  description: The pseudo-right for all (current and future) user rights.
+  pseudo: true
+- name: RIGHT_APPLICATION_INFO
+  entity: application
+  description: The right to view application information.
+  pseudo: false
+- name: RIGHT_APPLICATION_SETTINGS_BASIC
+  entity: application
+  description: The right to edit basic application settings.
+  pseudo: false
+- name: RIGHT_APPLICATION_SETTINGS_API_KEYS
+  entity: application
+  description: The right to view and edit application API keys.
+  pseudo: false
+- name: RIGHT_APPLICATION_SETTINGS_COLLABORATORS
+  entity: application
+  description: The right to view and edit application collaborators.
+  pseudo: false
+- name: RIGHT_APPLICATION_SETTINGS_PACKAGES
+  entity: application
+  description: The right to view and edit application packages and associations.
+  pseudo: false
+- name: RIGHT_APPLICATION_DELETE
+  entity: application
+  description: The right to delete application.
+  pseudo: false
+- name: RIGHT_APPLICATION_PURGE
+  entity: application
+  description: The right to purge application.
+  pseudo: false
+- name: RIGHT_APPLICATION_DEVICES_READ
+  entity: application
+  description: The right to view devices in application.
+  pseudo: false
+- name: RIGHT_APPLICATION_DEVICES_WRITE
+  entity: application
+  description: The right to create devices in application.
+  pseudo: false
+- name: RIGHT_APPLICATION_DEVICES_READ_KEYS
+  entity: application
+  description: The right to view device keys in application. Note that keys may not be stored in a way
+    that supports viewing them.
+  pseudo: false
+- name: RIGHT_APPLICATION_DEVICES_WRITE_KEYS
+  entity: application
+  description: The right to edit device keys in application.
+  pseudo: false
+- name: RIGHT_APPLICATION_TRAFFIC_READ
+  entity: application
+  description: The right to read application traffic (uplink and downlink).
+  pseudo: false
+- name: RIGHT_APPLICATION_TRAFFIC_UP_WRITE
+  entity: application
+  description: The right to write uplink application traffic.
+  pseudo: false
+- name: RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE
+  entity: application
+  description: The right to write downlink application traffic.
+  pseudo: false
+- name: RIGHT_APPLICATION_LINK
+  entity: application
+  description: The right to link as Application to a Network Server for traffic exchange, i.e. read uplink
+    and write downlink (API keys only). This right is typically only given to an Application Server. This
+    right implies RIGHT_APPLICATION_INFO, RIGHT_APPLICATION_TRAFFIC_READ, and RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE.
+  pseudo: false
+- name: RIGHT_APPLICATION_ALL
+  entity: application
+  description: The pseudo-right for all (current and future) application rights.
+  pseudo: true
+- name: RIGHT_CLIENT_ALL
+  entity: client
+  description: The pseudo-right for all (current and future) OAuth client rights.
+  pseudo: true
+- name: RIGHT_CLIENT_INFO
+  entity: client
+  description: The right to read client information.
+  pseudo: false
+- name: RIGHT_CLIENT_SETTINGS_BASIC
+  entity: client
+  description: The right to edit basic client settings.
+  pseudo: false
+- name: RIGHT_CLIENT_SETTINGS_COLLABORATORS
+  entity: client
+  description: The right to view and edit client collaborators.
+  pseudo: false
+- name: RIGHT_CLIENT_DELETE
+  entity: client
+  description: The right to delete a client.
+  pseudo: false
+- name: RIGHT_CLIENT_PURGE
+  entity: client
+  description: The right to purge a client.
+  pseudo: false
+- name: RIGHT_GATEWAY_INFO
+  entity: gateway
+  description: The right to view gateway information.
+  pseudo: false
+- name: RIGHT_GATEWAY_SETTINGS_BASIC
+  entity: gateway
+  description: The right to edit basic gateway settings.
+  pseudo: false
+- name: RIGHT_GATEWAY_SETTINGS_API_KEYS
+  entity: gateway
+  description: The right to view and edit gateway API keys.
+  pseudo: false
+- name: RIGHT_GATEWAY_SETTINGS_COLLABORATORS
+  entity: gateway
+  description: The right to view and edit gateway collaborators.
+  pseudo: false
+- name: RIGHT_GATEWAY_DELETE
+  entity: gateway
+  description: The right to delete gateway.
+  pseudo: false
+- name: RIGHT_GATEWAY_PURGE
+  entity: gateway
+  description: The right to purge gateway.
+  pseudo: false
+- name: RIGHT_GATEWAY_TRAFFIC_READ
+  entity: gateway
+  description: The right to read gateway traffic.
+  pseudo: false
+- name: RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE
+  entity: gateway
+  description: The right to write downlink gateway traffic.
+  pseudo: false
+- name: RIGHT_GATEWAY_LINK
+  entity: gateway
+  description: The right to link as Gateway to a Gateway Server for traffic exchange, i.e. write uplink
+    and read downlink (API keys only) This right is typically only given to a gateway. This right implies
+    RIGHT_GATEWAY_INFO.
+  pseudo: false
+- name: RIGHT_GATEWAY_STATUS_READ
+  entity: gateway
+  description: The right to view gateway status.
+  pseudo: false
+- name: RIGHT_GATEWAY_LOCATION_READ
+  entity: gateway
+  description: The right to view view gateway location.
+  pseudo: false
+- name: RIGHT_GATEWAY_WRITE_SECRETS
+  entity: gateway
+  description: The right to store secrets associated with this gateway.
+  pseudo: false
+- name: RIGHT_GATEWAY_READ_SECRETS
+  entity: gateway
+  description: The right to retrieve secrets associated with this gateway.
+  pseudo: false
+- name: RIGHT_GATEWAY_ALL
+  entity: gateway
+  description: The pseudo-right for all (current and future) gateway rights.
+  pseudo: true
+- name: RIGHT_ORGANIZATION_INFO
+  entity: organization
+  description: The right to view organization information.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_SETTINGS_BASIC
+  entity: organization
+  description: The right to edit basic organization settings.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_SETTINGS_API_KEYS
+  entity: organization
+  description: The right to view and edit organization API keys.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_SETTINGS_MEMBERS
+  entity: organization
+  description: The right to view and edit organization members.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_DELETE
+  entity: organization
+  description: The right to delete organization.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_PURGE
+  entity: organization
+  description: The right to purge organization.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_APPLICATIONS_LIST
+  entity: organization
+  description: The right to list the applications the organization is a collaborator of.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_APPLICATIONS_CREATE
+  entity: organization
+  description: The right to create an application under the organization.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_GATEWAYS_LIST
+  entity: organization
+  description: The right to list the gateways the organization is a collaborator of.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_GATEWAYS_CREATE
+  entity: organization
+  description: The right to create a gateway under the organization.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_CLIENTS_LIST
+  entity: organization
+  description: The right to list the OAuth clients the organization is a collaborator of.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_CLIENTS_CREATE
+  entity: organization
+  description: The right to create an OAuth client under the organization.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR
+  entity: organization
+  description: The right to add the organization as a collaborator on an existing entity.
+  pseudo: false
+- name: RIGHT_ORGANIZATION_ALL
+  entity: organization
+  description: The pseudo-right for all (current and future) organization rights.
+  pseudo: true
+- name: RIGHT_SEND_INVITES
+  entity: global
+  description: The right to send invites to new users. Note that this is not prefixed with "USER_"; it
+    is not a right on the user entity.
+  pseudo: false
+- name: RIGHT_ALL
+  entity: global
+  description: The pseudo-right for all (current and future) possible rights.
+  pseudo: true

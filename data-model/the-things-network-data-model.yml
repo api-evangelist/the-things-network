@@ -1,0 +1,199 @@
+generated: '2026-08-27'
+method: derived
+source: >-
+  openapi/ (58 documents, 514 definitions, 329 operations) — entities and relationships read from
+  $ref links and identifier-bearing fields; enriched from
+  https://www.thethingsindustries.com/docs/concepts/architecture/ and
+  https://www.thethingsindustries.com/docs/concepts/architecture/id-eui-constraints/
+aid: the-things-network
+name: The Things Stack — Data Model
+description: >-
+  The entity graph behind The Things Stack. Everything hangs off two roots: an ACCOUNT root
+  (User or Organization) that owns things and holds rights, and an APPLICATION root that groups
+  end devices and their integrations. Gateways sit outside the application tree — they belong to
+  an account, not to an application, which is the single most commonly misunderstood part of this
+  model: gateway coverage is shared across all applications on the network.
+identifier_style:
+  form: composite-identifier-objects
+  note: >-
+    Entities are addressed by a nested `ids` object, not a flat opaque id. An end device is
+    identified by EndDeviceIdentifiers { device_id, application_ids { application_id }, dev_eui,
+    join_eui, dev_addr }. This is why REST paths look like
+    /applications/{end_device_ids.application_ids.application_id}/devices/{end_device_ids.device_id}.
+  human_ids: >-
+    IDs are user-chosen lowercase strings, unique within their scope and NOT reused after a
+    delete unless an administrator purges the entity.
+  euis:
+    dev_eui: 64-bit device identifier (LoRa Alliance)
+    join_eui: 64-bit join server identifier (called AppEUI up to LoRaWAN 1.0.3)
+    gateway_eui: 64-bit gateway identifier
+    dev_addr: 32-bit network-assigned session address
+entities:
+  - name: User
+    definition: v3User
+    root: true
+    description: An account. Owns applications, gateways, organizations and OAuth clients; holds Rights.
+  - name: Organization
+    definition: v3Organization
+    root: true
+    description: A shared account. Can be a collaborator on any entity and can own applications and gateways.
+  - name: Application
+    definition: v3Application
+    root: true
+    description: >-
+      The container for end devices and their integrations. Carries administrative_contact and
+      technical_contact, a dev_eui_counter for DevEUIs issued from The Things Stack's block, and
+      the addresses of the Application/Network/Join Servers it is bound to.
+    soft_delete_field: deleted_at
+  - name: EndDevice
+    definition: v3EndDevice
+    description: >-
+      A LoRaWAN device. The richest entity in the model: LoRaWAN version (lorawan_version) and
+      regional parameters (lorawan_phy_version), frequency_plan_id, root_keys, session and
+      pending_session, mac_settings and mac_state, class B/C support flags, payload formatters,
+      queued_application_downlinks, locations and version_ids.
+  - name: Gateway
+    definition: v3Gateway
+    description: >-
+      A LoRaWAN gateway. Owned by an account, NOT by an application. Carries antennas,
+      frequency_plan_ids, duty-cycle and scheduling policy, LBS/CUPS secrets and a
+      claim_authentication_code.
+    soft_delete_field: deleted_at
+  - name: Client
+    definition: v3Client
+    description: A registered OAuth client.
+  - name: APIKey
+    definition: v3APIKey
+    description: >-
+      A credential scoped to exactly one parent entity (user, application, gateway or
+      organization) with an explicit Rights list and an optional expiry.
+  - name: Collaborator
+    definition: v3Collaborator
+    description: >-
+      The join between an account (user or organization) and an owned entity, carrying the Rights
+      that account has on it. This is the authorization edge of the whole model.
+  - name: ApplicationWebhook
+    definition: v3ApplicationWebhook
+    description: An HTTP webhook integration belonging to an application.
+  - name: ApplicationPubSub
+    definition: v3ApplicationPubSub
+    description: A NATS or MQTT Pub/Sub bridge belonging to an application.
+  - name: ApplicationPackageAssociation
+    definition: v3ApplicationPackageAssociation
+    description: A binding of an application package (e.g. geolocation, ALCsync) to a device or application.
+  - name: MACSettingsProfile
+    definition: v3MACSettingsProfile
+    description: >-
+      Reusable MAC settings applied to one or many end devices. Introduced in v3.34.x; applying a
+      profile mutates a device's MAC state at join or factory reset (v3.36.2 fix).
+  - name: ApplicationUp
+    definition: v3ApplicationUp
+    description: >-
+      The upstream message envelope — a oneof carrying uplink_message, join_accept,
+      downlink_ack/nack/sent/queued/failed, location_solved or service_data. This is the payload
+      of every webhook and every MQTT message.
+  - name: DeviceModel
+    definition: v3EndDeviceModel
+    description: A LoRaWAN device known to the Device Repository (brand, model, firmware, band).
+relationships:
+  - from: User
+    to: Application
+    type: has_many
+    via: collaborator (RIGHT_USER_APPLICATIONS_LIST / _CREATE)
+  - from: Organization
+    to: Application
+    type: has_many
+    via: collaborator (RIGHT_ORGANIZATION_APPLICATIONS_LIST / _CREATE)
+  - from: User
+    to: Gateway
+    type: has_many
+    via: collaborator
+  - from: Organization
+    to: Gateway
+    type: has_many
+    via: collaborator
+  - from: User
+    to: Organization
+    type: has_many
+    via: membership
+  - from: Application
+    to: EndDevice
+    type: has_many
+    via: end_device.ids.application_ids.application_id
+  - from: EndDevice
+    to: Application
+    type: belongs_to
+    via: ids.application_ids
+  - from: Application
+    to: ApplicationWebhook
+    type: has_many
+    via: webhook.ids.application_ids.application_id
+  - from: Application
+    to: ApplicationPubSub
+    type: has_many
+    via: pubsub.ids.application_ids.application_id
+  - from: Application
+    to: ApplicationPackageAssociation
+    type: has_many
+    via: ids.end_device_ids.application_ids.application_id
+  - from: Application
+    to: APIKey
+    type: has_many
+    via: ApplicationAccess_CreateAPIKey / _ListAPIKeys
+  - from: Gateway
+    to: APIKey
+    type: has_many
+    via: GatewayAccess_CreateAPIKey / _ListAPIKeys
+  - from: User
+    to: APIKey
+    type: has_many
+    via: UserAccess_CreateAPIKey
+  - from: Organization
+    to: APIKey
+    type: has_many
+    via: OrganizationAccess_CreateAPIKey
+  - from: Application
+    to: Collaborator
+    type: has_many
+    via: ApplicationAccess_SetCollaborator
+  - from: Gateway
+    to: Collaborator
+    type: has_many
+    via: GatewayAccess_SetCollaborator
+  - from: EndDevice
+    to: MACSettingsProfile
+    type: belongs_to
+    via: mac_settings_profile_ids
+  - from: EndDevice
+    to: DeviceModel
+    type: belongs_to
+    via: version_ids (brand_id, model_id, firmware_version, band_id)
+  - from: EndDevice
+    to: ApplicationUp
+    type: has_many
+    via: end_device_ids on every upstream message
+  - from: User
+    to: Client
+    type: has_many
+    via: RIGHT_USER_CLIENTS_LIST / _CREATE
+  - from: Gateway
+    to: Application
+    type: none
+    via: null
+    note: >-
+      Deliberate non-edge. Gateways are NOT owned by applications; any gateway on the network may
+      receive any device's uplink. Modelling a gateway as a child of an application is the most
+      common data-model mistake made against this API.
+lifecycle_fields:
+  - field: created_at
+    entities: [Application, EndDevice, Gateway, User, Organization, Client, APIKey]
+  - field: updated_at
+    entities: [Application, EndDevice, Gateway, User, Organization, Client, APIKey]
+  - field: deleted_at
+    entities: [Application, Gateway, User, Organization, Client]
+    note: >-
+      Soft-delete marker. End devices have NO deleted_at — they are hard-deleted and cannot be
+      restored (see conventions/ reversibility).
+render:
+  subway: null
+  note: No subway/ diagram exists in this repo yet.

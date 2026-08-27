@@ -1,0 +1,157 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://www.thethingsindustries.com/docs/integrations/webhooks/ ,
+  https://www.thethingsindustries.com/docs/integrations/webhooks/creating-webhooks/ ,
+  https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/ ,
+  https://www.thethingsindustries.com/docs/integrations/other-integrations/pubsub/ ,
+  https://www.thethingsindustries.com/docs/integrations/storage/ ,
+  https://www.thethingsindustries.com/docs/concepts/features/events/ ,
+  https://github.com/TheThingsNetwork/lorawan-webhook-templates ,
+  openapi/the-things-network-applicationwebhookregistry-api-openapi.yml ,
+  openapi/the-things-network-events-api-openapi.yml
+aid: the-things-network
+name: The Things Stack — Event, Webhook and Streaming Surface
+asyncapi_published: false
+asyncapi_note: >-
+  The Things Industries publishes NO AsyncAPI document. Searched the documentation site, both
+  GitHub organizations, and /asyncapi.yaml on every host. The event surface below is real,
+  large, and fully documented in prose and in protobuf — it simply has no AsyncAPI projection.
+  Nothing here is fabricated: every topic string, message type and filter path is transcribed
+  from the provider's own documentation or from the harvested contract.
+description: >-
+  The Things Stack is an event-driven system with FOUR distinct streaming surfaces: HTTP webhooks
+  from the Application Server, an MQTT broker, Pub/Sub bridges (NATS and MQTT), and a live event
+  stream (Events_Stream) over gRPC/HTTP. Application data flows on the first three; the fourth
+  carries operational events for every entity.
+surfaces:
+  - id: webhooks
+    kind: http-webhook
+    direction: outbound
+    protocol: HTTPS POST
+    format: JSON
+    docs: https://www.thethingsindustries.com/docs/integrations/webhooks/
+    management_operations:
+      - ApplicationWebhookRegistry_List
+      - ApplicationWebhookRegistry_Get
+      - ApplicationWebhookRegistry_Set
+      - ApplicationWebhookRegistry_Delete
+      - ApplicationWebhookRegistry_GetFormats
+      - ApplicationWebhookRegistry_ListTemplates
+      - ApplicationWebhookRegistry_GetTemplate
+    configuration:
+      base_url: Endpoint the Application Server POSTs to; per-message-type paths are appended to it.
+      format: JSON
+      downlink_api_key: >-
+        Optional key sent with every message so the receiver can schedule downlinks without
+        holding a full API key.
+      request_authentication: Optional HTTP Basic credentials attached to every webhook request.
+      field_mask_filter: >-
+        "Filter event data" — a list of filter paths (e.g. up.uplink_message) restricting the
+        payload to the fields the receiver actually needs.
+      retries: Webhook retries with enqueueing, added in v3.30.1.
+    requirement: The endpoint must answer HTTP 200 OK for the integration to be considered successful.
+    templates:
+      repository: https://github.com/TheThingsNetwork/lorawan-webhook-templates
+      note: >-
+        Pre-configured webhook definitions for third-party services, contributed as a public repo
+        so a provider can ship a one-click integration into The Things Stack.
+  - id: mqtt
+    kind: mqtt
+    direction: bidirectional
+    protocol: MQTT
+    docs: https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/
+    username: '{application id}@{tenant id}  (open-source deployments use {application id} alone)'
+    password: An API key with the appropriate rights.
+    topic_namespace: 'v3/{application id}@{tenant id}/devices/{device id}/...'
+  - id: pubsub
+    kind: pubsub-bridge
+    direction: bidirectional
+    protocol: [NATS, MQTT]
+    docs: https://www.thethingsindustries.com/docs/integrations/other-integrations/pubsub/
+    management_operations:
+      - ApplicationPubSubRegistry_Get
+      - ApplicationPubSubRegistry_Set
+      - ApplicationPubSubRegistry_List
+      - ApplicationPubSubRegistry_Delete
+      - ApplicationPubSubRegistry_GetFormats
+    note: Server-side bridge that republishes application traffic onto a customer-owned broker.
+  - id: events
+    kind: server-stream
+    direction: outbound
+    protocol: gRPC server stream / HTTP
+    docs: https://www.thethingsindustries.com/docs/concepts/features/events/
+    operations: [Events_Stream, Events_FindRelated]
+    note: >-
+      Operational event stream for any entity (application, gateway, end device, user,
+      organization, client) — not just application data. Optionally replays a tail of historical
+      events where the deployment supports it.
+  - id: storage
+    kind: pull
+    direction: outbound
+    protocol: HTTPS
+    docs: https://www.thethingsindustries.com/docs/integrations/storage/
+    operations: [ApplicationUpStorage_GetStoredApplicationUp, ApplicationUpStorage_GetStoredApplicationUpCount]
+    note: >-
+      The catch-up surface — a receiver that was down can pull the uplinks it missed rather than
+      losing them. This is what makes the webhook surface recoverable.
+message_types:
+  - id: join
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/join'
+    webhook_path_key: join-accept
+    description: A device completed an OTAA join and received a Join Accept.
+  - id: up
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/up'
+    webhook_path_key: uplink-message
+    description: >-
+      An uplink message from a device. Carries frm_payload, decoded_payload (when a payload
+      formatter is configured), rx_metadata per receiving gateway (rssi, channel_rssi, snr,
+      gateway_ids, location) and settings (data_rate, frequency).
+  - id: down/queued
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/down/queued'
+    description: A downlink was accepted into the device's queue.
+  - id: down/sent
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/down/sent'
+    description: A queued downlink was handed to a gateway for transmission.
+  - id: down/ack
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/down/ack'
+    description: A confirmed downlink was acknowledged by the device.
+  - id: down/nack
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/down/nack'
+    description: A confirmed downlink was negatively acknowledged.
+  - id: down/failed
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/down/failed'
+    description: A downlink could not be transmitted.
+  - id: service/data
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/service/data'
+    description: Data produced by an application package/service (e.g. an application package association).
+  - id: location/solved
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/location/solved'
+    description: A location was resolved for the device (e.g. by a geolocation package).
+  - id: down/push
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/down/push'
+    direction: inbound
+    description: >-
+      PUBLISH topic — scheduling a downlink by appending it to the device's queue. The MQTT
+      equivalent of AppAs_DownlinkQueuePush.
+  - id: down/replace
+    topic: 'v3/{application id}@{tenant id}/devices/{device id}/down/replace'
+    direction: inbound
+    description: >-
+      PUBLISH topic — replacing the whole downlink queue. The cancel path: publishing an empty
+      list discards everything queued but not yet transmitted.
+security:
+  webhook_signature: none
+  webhook_signature_note: >-
+    The Things Stack does NOT sign webhook payloads (no HMAC signature header). Receivers
+    authenticate the sender using the optional HTTP Basic credentials configured on the webhook,
+    or by embedding a secret in the base URL path. Recorded because an unsigned webhook is a
+    meaningful difference from providers that sign, and a receiver must be built accordingly.
+  transport: HTTPS
+  mqtt_auth: API key as MQTT password, application id as username.
+delivery_semantics:
+  ordering: not guaranteed
+  retries: >-
+    Webhook retries added in v3.30.1 — messages are enqueued and retried when the endpoint is
+    temporarily unavailable.
+  replay: Via the Storage Integration (ApplicationUpStorage_GetStoredApplicationUp).

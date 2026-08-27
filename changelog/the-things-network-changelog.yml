@@ -1,0 +1,85 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://api.github.com/repos/TheThingsNetwork/lorawan-stack/releases ,
+  https://github.com/TheThingsNetwork/lorawan-stack/releases ,
+  https://www.thethingsindustries.com/docs/whats-new/
+aid: the-things-network
+name: The Things Stack — Change Log
+description: >-
+  The Things Stack keeps two dated change surfaces: GitHub Releases on the lorawan-stack
+  repository (Keep-a-Changelog sections — Added / Changed / Fixed / Removed — per tag) and a
+  "What's New" section in the documentation with one page per minor version. Both are public
+  and neither is gated.
+scheme: semver
+current_version: v3.36.2
+current_version_date: '2026-08-17'
+api_version_path: /api/v3
+cadence: >-
+  Minor releases roughly quarterly, patch releases as needed. Security fixes are provided for
+  the two most recent minor versions of the v3 major (SECURITY.md).
+urls:
+  releases: https://github.com/TheThingsNetwork/lorawan-stack/releases
+  whats_new: https://www.thethingsindustries.com/docs/whats-new/
+  changelog_file: https://github.com/TheThingsNetwork/lorawan-stack/blob/v3.36.2/CHANGELOG.md
+entries:
+  - version: v3.36.2
+    date: '2026-08-17'
+    breaking: false
+    highlights:
+      - Fixed applying MAC settings profile values to a device's MAC state during OTAA join and ABP factory reset.
+  - version: v3.36.1
+    date: '2026-06-22'
+    breaking: false
+    additions:
+      - Count RPC on EndDeviceRegistry to get the number of end devices in an application without paging.
+      - Tracing for the LBS LNS and TTIGW gateway protocol handlers.
+      - TTGC LBS Root CUPS claiming support.
+      - Configurable Identity Server user login session TTL (is.user-login.session-ttl).
+  - version: v3.36.0
+    date: '2026-04-03'
+    breaking: false
+    highlights:
+      - Fixed UDP packet timestamps when "Schedule downlink late" is enabled and scheduling hits the duty-cycle limit.
+  - version: v3.35.2
+    date: '2026-01-30'
+    breaking: false
+    behavioural_change: true
+    highlights:
+      - >-
+        Rate limiting for downlink queue operations (DownlinkQueuePush, DownlinkQueueReplace) moved
+        from per-device to per-application. Callers with many devices under one application may now
+        see more ResourceExhausted / HTTP 429 responses.
+  - version: v3.35.1
+    date: '2025-12-19'
+    breaking: false
+  - version: v3.35.0
+    date: '2025-11-19'
+    breaking: false
+    additions:
+      - Network Server resends class C confirmed downlinks after mac_settings.class_c_timeout.
+      - CLI now collects telemetry on which commands and aliases are used.
+  - version: v3.34.3
+    date: '2025-10-14'
+    breaking: false
+    additions:
+      - Parsers for newly added normalized payload fields.
+  - version: v3.34.2
+    date: '2025-07-24'
+    breaking: false
+    additions:
+      - Associate/disassociate MAC settings profiles for a batch of end devices (experimental).
+      - Normalized payload shown in the Console.
+  - version: v3.34.1
+    date: '2025-04-28'
+    breaking: false
+    additions:
+      - Associate/disassociate MAC settings profiles for individual end devices (experimental).
+    changes:
+      - Wildcard support in TLS ACME supported hosts.
+      - Increased downlink capacity by raising duty-cycle headroom.
+  - version: v3.34.0
+    date: '2025-03-18'
+    breaking: false
+    additions:
+      - End-device attributes (locations, version_ids, network_ids) added to ApplicationUp messages.

@@ -1,28 +1,105 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/the-things-stack-application-server-openapi.yml, openapi/the-things-stack-end-device-registry-openapi.yml,
-  openapi/the-things-stack-events-openapi.yml, openapi/the-things-stack-gateway-server-openapi.yml,
-  openapi/the-things-stack-identity-server-openapi.yml, openapi/the-things-stack-integrations-openapi.yml,
-  openapi/the-things-stack-join-server-openapi.yml, openapi/the-things-stack-network-server-openapi.yml,
-  openapi/the-things-stack-packet-broker-agent-openapi.yml
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://www.thethingsindustries.com/docs/api/concepts/auth/ ,
+  https://www.thethingsindustries.com/docs/concepts/ttn/addresses/ ,
+  https://github.com/TheThingsNetwork/lorawan-stack/blob/v3.36.2/api/ttn/lorawan/v3/rights.proto ,
+  live probe of https://eu1.cloud.thethings.network/api/v3/users/me ,
+  openapi/ (58 documents, ApiKeyAuth securityScheme)
+docs: https://www.thethingsindustries.com/docs/api/concepts/auth/
+aid: the-things-network
+name: The Things Stack — Authentication
+description: >-
+  The Things Stack supports three caller identities — API keys, OAuth 2.0 access tokens, and
+  browser session cookies — plus two link credentials used by infrastructure rather than by
+  people. All of them resolve to the same authorization model: a list of Rights (see
+  scopes/the-things-network-scopes.yml) checked per RPC. The harvested OpenAPI declares only
+  ApiKeyAuth because the gRPC-gateway generator does not emit the OAuth flows; this file is the
+  searched superset.
 summary:
-  types:
-  - apiKey
-  api_key_in:
-  - header
+  types: [apiKey, oauth2, http]
+  api_key_in: [header]
+  primary: apiKey
+base_urls:
+  - https://eu1.cloud.thethings.network/api/v3
+  - https://nam1.cloud.thethings.network/api/v3
+  - https://au1.cloud.thethings.network/api/v3
+  - note: >-
+      Identity Server APIs (users, applications, gateways, organizations, API keys) are served
+      ONLY from eu1 on The Things Stack Sandbox. Requests to nam1/au1 for those services fail.
+      Application/Network/Join Server APIs are available on every regional cluster. The Things
+      Stack Cloud tenants use https://<tenant-id>.<cluster>.cloud.thethings.industries/api/v3.
+    source: https://www.thethingsindustries.com/docs/concepts/ttn/addresses/
 schemes:
-- name: ApiKeyAuth
-  type: apiKey
-  in: header
-  parameter: Authorization
-  description: 'Bearer API key. Set Authorization: Bearer NNSXS.xxxxxxxxxx.'
-  sources:
-  - openapi/the-things-stack-application-server-openapi.yml
-  - openapi/the-things-stack-end-device-registry-openapi.yml
-  - openapi/the-things-stack-events-openapi.yml
-  - openapi/the-things-stack-gateway-server-openapi.yml
-  - openapi/the-things-stack-identity-server-openapi.yml
-  - openapi/the-things-stack-integrations-openapi.yml
-  - openapi/the-things-stack-join-server-openapi.yml
-  - openapi/the-things-stack-network-server-openapi.yml
-  - openapi/the-things-stack-packet-broker-agent-openapi.yml
+  - name: ApiKeyAuth
+    type: apiKey
+    in: header
+    parameter: Authorization
+    format: 'Bearer NNSXS.<token-id>.<token-secret>'
+    description: >-
+      The most common method. An API key is a three-part dotted string — token-type (5 chars,
+      fixed "NNSXS", base32 for "key"), token-id (39 chars), token-secret (52 chars). Keys carry
+      an explicit Rights list and, by default, NO expiry — an expiry must be set explicitly at
+      create or update time. Keys are revoked by deleting them. Scoped variants exist per entity:
+      user, application, gateway and organization API keys.
+    expiry_default: none
+    revocation: delete the key
+    rights_model: explicit Rights list per key
+    sources: [openapi/, https://www.thethingsindustries.com/docs/api/concepts/auth/]
+  - name: OAuth2
+    type: oauth2
+    flow: authorization_code
+    authorization_endpoint: https://eu1.cloud.thethings.network/oauth/authorize
+    token_endpoint: https://eu1.cloud.thethings.network/oauth/token
+    description: >-
+      The Things Stack Identity Server is an OAuth 2.0 authorization server. Third-party
+      applications register as OAuth clients (ClientRegistry) and receive access tokens scoped
+      to a Rights list. Used by the Console, the CLI (ttn-lw-cli login) and third-party
+      integrations. User accounts live in the eu1 cluster, so all OAuth flows go through eu1.
+    scopes_artifact: scopes/the-things-network-scopes.yml
+    probe:
+      url: https://eu1.cloud.thethings.network/oauth/authorize
+      status: 302
+      note: redirects to /oauth/login — endpoint is live
+  - name: SessionCookie
+    type: http
+    in: cookie
+    description: >-
+      Browser session cookies issued by the Account app, used by the Console. Session TTL is
+      configurable since v3.36.1 (is.user-login.session-ttl). Not intended for machine callers.
+  - name: ApplicationLink
+    type: apiKey
+    in: header
+    parameter: Authorization
+    right: RIGHT_APPLICATION_LINK
+    description: >-
+      An API-key-only credential that lets an application link to the Network Server for traffic
+      exchange (read uplink, write downlink). Not grantable to an OAuth token.
+  - name: GatewayLink
+    type: apiKey
+    in: header
+    parameter: Authorization
+    right: RIGHT_GATEWAY_LINK
+    description: >-
+      An API-key-only credential a gateway uses to link to the Gateway Server (write uplink, read
+      downlink). Gateways may also authenticate with gateway tokens or, for BasicStation, via
+      CUPS/LNS credentials.
+mfa:
+  documented: false
+  note: No multi-factor requirement is documented for the API surface itself.
+observed_response:
+  url: https://eu1.cloud.thethings.network/api/v3/users/me
+  status: 401
+  www_authenticate: 'error:pkg/identityserver:unauthenticated (unauthenticated)'
+  note: >-
+    Anonymous request returns HTTP 401 with a ttn.lorawan.v3.ErrorDetails body and a correlation
+    id. The WWW-Authenticate header carries the namespaced error name rather than an RFC 7235
+    challenge scheme.
+security_notes:
+  - API keys have no expiry unless one is set — the docs say so explicitly.
+  - >-
+    Pseudo-rights (RIGHT_*_ALL) expand to all future rights on that entity, so a key granted
+    RIGHT_APPLICATION_ALL widens automatically as the API grows.
+  - >-
+    The webhook surface can carry a "Downlink API key" and optional HTTP Basic credentials so a
+    third-party endpoint can schedule downlinks without embedding a full key.

@@ -1,0 +1,128 @@
+# The Things Network / The Things Stack
+
+> The Things Network is a free, community-operated global LoRaWAN network with over 280,000
+> members and 21,000 gateways across 153 countries. It runs on The Things Stack, the open-source
+> (Apache-2.0) LoRaWAN Network Server built by The Things Industries. The Things Stack v3
+> implements the full LoRaWAN Network Reference Model — Identity Server, Application Server,
+> Network Server, Gateway Server, Join Server, Device Repository, Packet Broker Agent — and
+> exposes one contract in three projections: gRPC (the primary), HTTP REST (transcoded via
+> grpc-gateway), and MQTT. The same software powers self-hosted deployments, the free community
+> network (branded "The Things Stack Sandbox"), The Things Stack Cloud, and Enterprise.
+
+Generated 2026-08-27 by the API Evangelist enrichment pipeline from this repository's harvested
+artifacts. The Things Industries does not publish an llms.txt of its own — /llms.txt returns 404
+on www.thethingsindustries.com and a soft-404 HTML shell on www.thethingsnetwork.org.
+
+## Contract at a glance
+
+- Primary contract: gRPC / Protocol Buffers 3, package `ttn.lorawan.v3`, port 8884
+- HTTP REST base URL: https://eu1.cloud.thethings.network/api/v3 (also nam1, au1)
+- Identity Server APIs are served ONLY from eu1 on the community network
+- The Things Stack Cloud: https://<tenant-id>.<cluster>.cloud.thethings.industries/api/v3
+- OAuth 2.0: https://eu1.cloud.thethings.network/oauth
+- Current version: v3.36.2 (2026-08-17); API path version /api/v3 stable since 2019
+- 329 REST operations across 58 refined OpenAPI documents
+- License: Apache-2.0 — the whole server, contract and CLI are readable and forkable
+
+## How to call it
+
+- Auth: `Authorization: Bearer NNSXS.<token-id>.<token-secret>`
+- Also supported: OAuth 2.0 authorization code, browser session cookies
+- Permissions: a 70-value `Rights` enum, the same vocabulary for API keys and OAuth tokens
+- Pagination: `limit` + `page` query params; `X-Total-Count` response header; past the last page
+  the server returns `{}`
+- Partial updates: there is no PATCH. Send PUT with `field_mask` naming exactly the fields being
+  written. An update without a `field_mask` writes nothing and still succeeds.
+- Errors: google.rpc.Status + `ttn.lorawan.v3.ErrorDetails`, NOT RFC 9457. Match on
+  `details[].namespace` + `details[].name` (e.g. `pkg/auth/rights` / `no_user_rights`).
+- Rate limits: `X-Rate-Limit-Limit`, `-Available`, `-Reset`, `-Retry`; HTTP 429 / gRPC
+  ResourceExhausted on exhaustion
+- Deprecation signal: the `X-Warning` response header (not RFC 8594 Sunset/Deprecation)
+- Idempotency: NOT SUPPORTED. No idempotency-key header exists. `AppAs_DownlinkQueuePush` is the
+  dangerous non-idempotent write — prefer `AppAs_DownlinkQueueReplace` when a retry is possible.
+
+## Reversibility
+
+- Applications, gateways, users, organizations and OAuth clients are soft-deleted and restorable
+  for **24 hours** on The Things Stack Cloud (configurable on Enterprise). Past that the server
+  returns `error:pkg/identityserver:restore_window_expired`.
+- **End devices cannot be restored.** A delete is permanent.
+- Purge is permanent and releases the entity ID for reuse.
+- A queued downlink can be discarded by replacing the queue with an empty list; once transmitted
+  it is on the air and cannot be recalled.
+
+## Documentation
+
+- [Documentation home](https://www.thethingsindustries.com/docs/)
+- [API concepts](https://www.thethingsindustries.com/docs/api/concepts/)
+- [Authentication](https://www.thethingsindustries.com/docs/api/concepts/auth/)
+- [Pagination](https://www.thethingsindustries.com/docs/api/concepts/pagination/)
+- [Errors](https://www.thethingsindustries.com/docs/api/concepts/errors/)
+- [HTTP (REST) reference](https://www.thethingsindustries.com/docs/api/reference/http/)
+- [gRPC reference](https://www.thethingsindustries.com/docs/api/reference/grpc/)
+- [Rate limiting](https://www.thethingsindustries.com/docs/enterprise/management/rate-limiting/)
+- [Deleting, restoring and purging entities](https://www.thethingsindustries.com/docs/concepts/advanced/purge/)
+- [Cluster addresses](https://www.thethingsindustries.com/docs/concepts/ttn/addresses/)
+- [Command-line interface](https://www.thethingsindustries.com/docs/ttn-lw-cli/)
+- [Integrations](https://www.thethingsindustries.com/docs/integrations/)
+- [Webhooks](https://www.thethingsindustries.com/docs/integrations/webhooks/)
+- [MQTT](https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/)
+- [Storage Integration](https://www.thethingsindustries.com/docs/integrations/storage/)
+- [Events](https://www.thethingsindustries.com/docs/concepts/features/events/)
+- [What's new](https://www.thethingsindustries.com/docs/whats-new/)
+
+## Source and distribution
+
+- [lorawan-stack (Apache-2.0)](https://github.com/TheThingsNetwork/lorawan-stack)
+- [Protobuf contract](https://github.com/TheThingsNetwork/lorawan-stack/tree/v3.36.2/api/ttn/lorawan/v3)
+- [Releases / changelog](https://github.com/TheThingsNetwork/lorawan-stack/releases)
+- [Go module](https://pkg.go.dev/go.thethings.network/lorawan-stack/v3) — v3.36.2
+- [Homebrew tap](https://github.com/TheThingsNetwork/homebrew-lorawan-stack) — ttn-lw-cli 3.36.2
+- [Snap](https://snapcraft.io/ttn-lw-stack) — 3.36.2
+- [LoRaWAN device repository](https://github.com/TheThingsNetwork/lorawan-devices)
+- [Frequency plans](https://github.com/TheThingsNetwork/lorawan-frequency-plans)
+- [Webhook templates](https://github.com/TheThingsNetwork/lorawan-webhook-templates)
+
+## Event surface
+
+Webhooks (HTTP POST, JSON, unsigned), MQTT, Pub/Sub bridges (NATS/MQTT), a live gRPC event
+stream, and the Storage Integration for backfill. MQTT topics:
+`v3/{application id}@{tenant id}/devices/{device id}/{join|up|down/queued|down/sent|down/ack|down/nack|down/failed|service/data|location/solved}`.
+Publish to `.../down/push` and `.../down/replace`.
+
+## Standards
+
+- LoRa Alliance LoRaWAN L2 TS001 1.0 through 1.0.4 and 1.1 — an enumerated required field on
+  every end device (`lorawan_version`)
+- LoRa Alliance Regional Parameters TS002/RP002 — `lorawan_phy_version`
+- LoRaWAN Backend Interfaces (Join Server / Interop Server)
+- Semtech BasicStation LNS + CUPS, and the legacy UDP packet forwarder
+- OAuth 2.0 authorization code
+- gRPC / Protobuf 3, google.api.http transcoding, MQTT 3.1.1
+
+Not supported: RFC 9457 problem+json, RFC 8414 OAuth metadata, OpenID Connect discovery, RFC 9116
+security.txt, RFC 8594 Sunset headers, idempotency keys, GraphQL, SOAP/WSDL.
+
+## Agent surfaces
+
+- MCP server: NONE published. No hosted endpoint, no stdio package.
+- A2A agent card: NONE. /.well-known/agent-card.json and /.well-known/agent.json miss on every
+  host (soft-404 HTML on the two SPA hosts, real 404 on the API host).
+- /.well-known/: nothing is served on any host.
+- Agent skills in this repository are generated by API Evangelist, not published by the provider.
+
+## Support and community
+
+- [Community forum](https://www.thethingsnetwork.org/forum/)
+- [Local communities](https://www.thethingsnetwork.org/community)
+- [Support](https://www.thethingsindustries.com/support/)
+- [Status](https://status.thethings.industries/)
+- [Responsible disclosure](https://www.thethingsnetwork.org/responsible-disclosure)
+
+## Commercial
+
+- [Plans](https://www.thethingsindustries.com/stack/plans/) — Sandbox (free, fair-use, no SLA),
+  Cloud Discovery (free, 10 devices / 10 gateways), Cloud, Cloud Plus, Enterprise
+- [Console signup](https://console.cloud.thethings.network)
+- [EULA](https://www.thethingsindustries.com/document/eula/)
+- [Privacy policy](https://www.thethingsindustries.com/document/privacypolicy/)

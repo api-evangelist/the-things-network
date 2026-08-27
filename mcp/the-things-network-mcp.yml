@@ -1,0 +1,135 @@
+generated: '2026-08-27'
+method: derived
+source: >-
+  openapi/ (329 verified operations across 58 refined specs); web search for a first-party or
+  community MCP server for The Things Stack returned none as of 2026-08-27.
+aid: the-things-network
+name: The Things Stack — MCP Server (candidate)
+status: candidate
+description: >-
+  The Things Industries publishes NO Model Context Protocol server for The Things Stack, hosted
+  or local. Searched the TheThingsNetwork and TheThingsIndustries GitHub organizations (24 and
+  28 public repositories respectively), the documentation site, and the open web. The tool list
+  below is DERIVED from operations that exist in the harvested OpenAPI — it is a design proposal
+  for a server that does not exist, not a description of one that does.
+deployment:
+  mode: none
+  auth: api-key
+  verified: derived
+  note: >-
+    No endpoint and no package exist. Any agent reaching The Things Stack today does so through
+    the HTTP REST API at https://<cluster>.cloud.thethings.network/api/v3 with an
+    "Authorization: Bearer NNSXS.<id>.<secret>" API key, through gRPC on port 8884, or through
+    the MQTT server. auth is recorded as api-key because that is what the underlying API
+    requires, not because any MCP server implements it.
+transport_if_built: streamable-http
+tools:
+  - name: list_end_devices
+    description: List the end devices registered in an application.
+    rest: [EndDeviceRegistry_List]
+    consequence: read
+  - name: get_end_device
+    description: Fetch one end device, selecting fields with a field mask.
+    rest: [EndDeviceRegistry_Get]
+    consequence: read
+  - name: count_end_devices
+    description: Count end devices in an application without paging through them.
+    rest: [EndDeviceRegistry_Count]
+    consequence: read
+  - name: create_end_device
+    description: Register a new end device in an application (OTAA or ABP).
+    rest: [EndDeviceRegistry_Create]
+    consequence: write
+  - name: update_end_device
+    description: Update an end device, changing only the fields named in the field mask.
+    rest: [EndDeviceRegistry_Update]
+    consequence: write
+  - name: delete_end_device
+    description: Delete an end device. NOT reversible — end devices cannot be restored.
+    rest: [EndDeviceRegistry_Delete]
+    consequence: write
+    human_in_the_loop: true
+  - name: search_end_devices
+    description: Search end devices in an application by attribute conditions.
+    rest: [EndDeviceRegistrySearch_SearchEndDevices]
+    consequence: read
+  - name: list_applications
+    description: List applications the caller collaborates on.
+    rest: [ApplicationRegistry_List]
+    consequence: read
+  - name: create_application
+    description: Create an application under a user or organization.
+    rest: [ApplicationRegistry_Create]
+    consequence: write
+  - name: restore_application
+    description: Restore a recently deleted application (24h window on The Things Stack Cloud).
+    rest: [ApplicationRegistry_Restore]
+    consequence: write
+  - name: list_gateways
+    description: List gateways the caller collaborates on.
+    rest: [GatewayRegistry_List]
+    consequence: read
+  - name: get_gateway_connection_stats
+    description: Read live connection statistics for a gateway from the Gateway Server.
+    rest: [Gs_GetGatewayConnectionStats]
+    consequence: read
+  - name: list_webhooks
+    description: List the Application Server webhooks configured for an application.
+    rest: [ApplicationWebhookRegistry_List]
+    consequence: read
+  - name: set_webhook
+    description: Create or replace an Application Server webhook.
+    rest: [ApplicationWebhookRegistry_Set]
+    consequence: write
+  - name: list_webhook_templates
+    description: List the pre-configured third-party webhook templates The Things Stack ships.
+    rest: [ApplicationWebhookRegistry_ListTemplates]
+    consequence: read
+  - name: get_stored_uplinks
+    description: Read historical uplink messages from the Storage Integration.
+    rest: [ApplicationUpStorage_GetStoredApplicationUp]
+    consequence: read
+  - name: push_downlink
+    description: Append downlink messages to a device's downlink queue. Transmits over the air.
+    rest: [AppAs_DownlinkQueuePush]
+    consequence: physical
+    human_in_the_loop: true
+  - name: replace_downlink_queue
+    description: >-
+      Replace the entire downlink queue for a device. This is also the cancel path — replacing
+      with an empty list discards everything queued but not yet sent.
+    rest: [AppAs_DownlinkQueueReplace]
+    consequence: physical
+    human_in_the_loop: true
+  - name: list_downlink_queue
+    description: List the downlink messages currently queued for a device.
+    rest: [AppAs_DownlinkQueueList]
+    consequence: read
+  - name: simulate_uplink
+    description: Inject a simulated uplink to test an integration without a real device.
+    rest: [AppAs_SimulateUplink]
+    consequence: write
+  - name: stream_events
+    description: Stream live events for applications, gateways, devices, users or organizations.
+    rest: [Events_Stream]
+    consequence: read
+  - name: list_device_brands
+    description: List LoRaWAN device brands in the Device Repository.
+    rest: [DeviceRepository_ListBrands]
+    consequence: read
+  - name: get_device_template
+    description: Fetch the registration template for a known device model/firmware/band.
+    rest: [DeviceRepository_GetTemplate]
+    consequence: read
+  - name: create_application_api_key
+    description: Mint an API key scoped to an application with an explicit rights list.
+    rest: [ApplicationAccess_CreateAPIKey]
+    consequence: write
+    human_in_the_loop: true
+coverage:
+  openapi_operations: 329
+  tools_proposed: 24
+  note: >-
+    Deliberately a curated subset. A one-tool-per-operation mapping of 329 gRPC-gateway
+    operations would exceed practical MCP tool budgets; the selection covers device lifecycle,
+    application/gateway management, downlink control, event streaming and the Device Repository.

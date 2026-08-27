@@ -1,0 +1,88 @@
+overlay: 1.0.0
+info:
+  title: The Things Stack — Network Server enhancements
+  version: 1.0.0
+extends: ./../openapi/_original/the-things-stack-network-server-openapi.yml
+x-generated: '2026-08-27'
+x-method: generated
+x-source: API Evangelist enrichment pipeline. Every action below records a fact established from the provider's
+  own documentation or from a live probe on 2026-08-27; the underlying OpenAPI is never mutated.
+actions:
+- target: $.info
+  description: Record the real base URLs and the cluster routing rule the harvested Swagger host field does not
+    carry.
+  update:
+    x-api-evangelist-base-urls:
+    - https://eu1.cloud.thethings.network/api/v3
+    - https://nam1.cloud.thethings.network/api/v3
+    - https://au1.cloud.thethings.network/api/v3
+    - https://<tenant-id>.<cluster>.cloud.thethings.industries/api/v3
+    x-api-evangelist-cluster-rule: Identity Server APIs (users, applications, gateways, organizations, API keys,
+      OAuth clients) are served ONLY from eu1 on The Things Stack Sandbox. Application, Network and Join Server
+      APIs are available on every regional cluster.
+    x-api-evangelist-source: https://www.thethingsindustries.com/docs/concepts/ttn/addresses/
+- target: $.info
+  description: Record the runtime conventions an OpenAPI document cannot express.
+  update:
+    x-api-evangelist-conventions:
+      partial_update: PUT + field_mask. There is no PATCH. An update without a field_mask writes nothing and still
+        returns success.
+      pagination: limit + page query params; X-Total-Count response header; past the last page the server returns
+        {}.
+      error_envelope: google.rpc.Status + ttn.lorawan.v3.ErrorDetails. NOT RFC 9457. Match on details[].namespace
+        + details[].name.
+      rate_limit_headers:
+      - X-Rate-Limit-Limit
+      - X-Rate-Limit-Available
+      - X-Rate-Limit-Reset
+      - X-Rate-Limit-Retry
+      deprecation_signal: X-Warning response header (not RFC 8594 Sunset/Deprecation).
+      request_tracing: X-Request-Id response header; correlation_id inside every error body.
+      idempotency: Not supported. No idempotency-key header exists anywhere in this API.
+      json_naming: protobuf JSON — snake_case fields, enum values as protobuf constant strings.
+    x-api-evangelist-artifacts:
+      conventions: conventions/the-things-network-conventions.yml
+      errors: errors/the-things-network-problem-types.yml
+      authentication: authentication/the-things-network-authentication.yml
+      scopes: scopes/the-things-network-scopes.yml
+      rate_limits: rate-limits/the-things-network-rate-limits.yml
+      data_model: data-model/the-things-network-data-model.yml
+      events: asyncapi/the-things-network-webhooks.yml
+      grpc: grpc/
+- target: $.info
+  description: Record the OAuth 2.0 surface the grpc-gateway generator omits from securityDefinitions.
+  update:
+    x-api-evangelist-oauth2:
+      authorization_endpoint: https://eu1.cloud.thethings.network/oauth/authorize
+      token_endpoint: https://eu1.cloud.thethings.network/oauth/token
+      flow: authorization_code
+      scope_model: Rights enum (70 values) — see scopes/the-things-network-scopes.yml
+      discovery_document: none — /.well-known/oauth-authorization-server returns 404
+      probed: 2026-08-27, /oauth/authorize returned 302 to /oauth/login
+- target: $.info
+  description: Record reversibility, which no OpenAPI field expresses and which an agent must know before it writes.
+  update:
+    x-api-evangelist-reversibility:
+      grade: verified
+      restore_window: 24h on The Things Stack Cloud; configurable on Enterprise
+      restorable:
+      - applications
+      - gateways
+      - users
+      - organizations
+      - oauth-clients
+      irreversible:
+      - end-device deletes
+      - purges
+      - transmitted downlinks
+      expired_error: error:pkg/identityserver:restore_window_expired
+      source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/
+- target: $.securityDefinitions.ApiKeyAuth
+  description: Describe the real API key format and its expiry default.
+  update:
+    x-api-evangelist-key-format: NNSXS.<token-id>.<token-secret> — token-type is the fixed 5-char string NNSXS (base32
+      for "key"), token-id 39 chars, token-secret 52 chars.
+    x-api-evangelist-expiry-default: none — an expiry must be set explicitly at create or update time
+    x-api-evangelist-test-mode-prefix: none — there is no test/live key prefix pair; only the host decides which
+      network a key addresses
+    x-api-evangelist-source: https://www.thethingsindustries.com/docs/api/concepts/auth/

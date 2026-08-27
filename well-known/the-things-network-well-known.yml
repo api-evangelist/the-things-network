@@ -1,0 +1,143 @@
+generated: '2026-08-27'
+method: probed
+source: live HTTPS probes of every apis.yml host and every OpenAPI host
+description: >-
+  Probe of the RFC 8615 /.well-known/ discovery surface on every host The Things Network /
+  The Things Stack publishes. NOTHING IS SERVED. Two of the four hosts are single-page /
+  marketing apps that answer HTTP 200 with the same HTML shell for every /.well-known/ path,
+  which is a catch-all, not a document. The real API host (eu1.cloud.thethings.network) answers
+  a genuine ttn.lorawan.v3.ErrorDetails 404 JSON on every path, which is an honest negative.
+hit_count: 0
+hosts:
+  - host: https://eu1.cloud.thethings.network
+    note: >-
+      The Things Stack Sandbox API host. Returns a real proxy 404 (298-byte
+      ttn.lorawan.v3.ErrorDetails JSON) for every /.well-known/ path — a true negative.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://www.thethingsindustries.com
+    note: Marketing site. Genuine 404s (Webflow 404 page) on every path — a true negative.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://www.thethingsnetwork.org
+    note: >-
+      CATCH-ALL. Answers HTTP 200 with the site's own HTML shell (~6.3 KB, byte length varies
+      only with the echoed path) for every /.well-known/ path. No document is served; every row
+      below is a soft-404 and none is counted.
+    soft_404_control:
+      path: /.well-known/this-path-does-not-exist-control
+      status: 200
+      bytes: 6346
+      content_type: text/html
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        soft_404: true
+        bytes: 6326
+      - path: /.well-known/openid-configuration
+        status: 200
+        soft_404: true
+        bytes: 6334
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        soft_404: true
+        bytes: 6340
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        soft_404: true
+        bytes: 6338
+      - path: /.well-known/api-catalog
+        status: 200
+        soft_404: true
+        bytes: 6325
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        soft_404: true
+        bytes: 6328
+      - path: /.well-known/agent-card.json
+        status: 200
+        soft_404: true
+        bytes: 6329
+      - path: /.well-known/agent.json
+        status: 200
+        soft_404: true
+        bytes: 6324
+  - host: https://console.cloud.thethings.network
+    note: >-
+      CATCH-ALL. The Console single-page app returns its 3321-byte HTML shell with HTTP 200 for
+      every /.well-known/ path. No document is served.
+    soft_404_control:
+      path: /.well-known/this-path-does-not-exist-control
+      status: 200
+      bytes: 3321
+      content_type: text/html
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        soft_404: true
+        bytes: 3321
+      - path: /.well-known/openid-configuration
+        status: 200
+        soft_404: true
+        bytes: 3321
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        soft_404: true
+        bytes: 3321
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        soft_404: true
+        bytes: 3321
+      - path: /.well-known/api-catalog
+        status: 200
+        soft_404: true
+        bytes: 3321
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        soft_404: true
+        bytes: 3321
+      - path: /.well-known/agent-card.json
+        status: 200
+        soft_404: true
+        bytes: 3321
+      - path: /.well-known/agent.json
+        status: 200
+        soft_404: true
+        bytes: 3321
+pointer_policy: >-
+  No WellKnown and no SecurityTxt pointer is emitted for this provider. Zero paths returned a
+  real document, so a pointer would assert a surface The Things Network does not serve. The
+  vulnerability-disclosure surface is real but lives at
+  https://www.thethingsnetwork.org/responsible-disclosure, not at /.well-known/security.txt —
+  publishing an RFC 9116 security.txt pointing at that page is the single cheapest fix available
+  to this provider.

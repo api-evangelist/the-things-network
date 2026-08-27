@@ -1,0 +1,249 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  openapi/ (58 documents), grpc/ (15 verbatim .proto files from lorawan-stack v3.36.2),
+  https://www.thethingsindustries.com/docs/api/concepts/ ,
+  https://www.thethingsindustries.com/docs/integrations/ ,
+  https://www.lora-alliance.org/
+aid: the-things-network
+name: The Things Stack — Standards Conformance
+description: >-
+  Which cross-cutting and domain standards The Things Stack actually conforms to, judged from the
+  contract (protobuf definitions, OpenAPI, live responses) rather than from marketing copy.
+  Negative entries are kept: an honest "does not conform" is as useful as a yes.
+domain_standards:
+  - id: lorawan-l2-1.0.4
+    body: LoRa Alliance
+    standard: LoRaWAN L2 1.0.4 Specification (TS001)
+    conforms: true
+    evidence:
+      type: contract-enum
+      location: >-
+        ttn.lorawan.v3.MACVersion in
+        grpc/the-things-network-... (lorawan.proto) and definitions/v3MACVersion in
+        openapi/the-things-network-enddeviceregistry-api-openapi.yml
+      values: [MAC_V1_0, MAC_V1_0_1, MAC_V1_0_2, MAC_V1_0_3, MAC_V1_0_4, MAC_V1_1]
+      note: >-
+        The contract does not merely mention LoRaWAN — it makes the LoRa Alliance MAC version an
+        enumerated, required field on every end device. A client that already speaks LoRaWAN
+        registers a device by naming its TS001 version; no bespoke mapping is needed.
+  - id: lorawan-l2-1.1
+    body: LoRa Alliance
+    standard: LoRaWAN L2 1.1 Specification (TS001)
+    conforms: true
+    evidence:
+      type: contract-enum
+      location: ttn.lorawan.v3.MACVersion value MAC_V1_1
+      note: >-
+        1.1 join/rejoin and dual root-key (NwkKey + AppKey) handling is modelled in
+        joinserver.proto; the Join Server implements the 1.1 session key derivation.
+  - id: lorawan-regional-parameters
+    body: LoRa Alliance
+    standard: LoRaWAN Regional Parameters (TS002 / RP002)
+    conforms: true
+    evidence:
+      type: contract-enum
+      location: ttn.lorawan.v3.PHYVersion / definitions/v3PHYVersion
+      values: [TS001_V1_0, TS001_V1_0_1, PHY_V1_0_2_REV_A, PHY_V1_0_2_REV_B, PHY_V1_1_REV_A, PHY_V1_1_REV_B, PHY_V1_0_3_REV_A]
+      note: >-
+        Regional parameter revision is a first-class enumerated field, and frequency plans are
+        published as a separate versioned repository (TheThingsNetwork/lorawan-frequency-plans).
+  - id: lorawan-backend-interfaces
+    body: LoRa Alliance
+    standard: LoRaWAN Backend Interfaces 1.0/1.1
+    conforms: true
+    evidence:
+      type: component
+      location: >-
+        The Things Stack Interop Server and Join Server; joinserver.proto models JoinEUI-keyed
+        provisioning and the deviceclaimingserver.proto surface implements LoRaWAN device
+        claiming across networks.
+      note: >-
+        Recorded as conforming on the basis of the shipped Join Server / Interop Server
+        components. No conformance certificate URL was found, so this is a contract-shape
+        judgement, not a certification claim.
+  - id: semtech-basicstation
+    body: Semtech
+    standard: BasicStation LNS + CUPS protocol
+    conforms: true
+    evidence:
+      type: contract
+      location: >-
+        Gateway Server frontends 'semtechws/lbslns' and the BasicStation CUPS rate-limiting class
+        'http:gcs:cups' documented at
+        https://www.thethingsindustries.com/docs/enterprise/management/rate-limiting/ ;
+        gatewayserver.proto and gateway_configuration.proto.
+  - id: semtech-udp-packet-forwarder
+    body: Semtech
+    standard: Legacy UDP Packet Forwarder protocol
+    conforms: true
+    evidence:
+      type: contract
+      location: Gateway Server 'gs:up:udp' rate-limiting class; UDP frontend documented in the rate-limiting reference.
+  - id: packet-broker
+    body: The Things Industries / Packet Broker
+    standard: Packet Broker peering and roaming
+    conforms: true
+    evidence:
+      type: contract
+      location: grpc/the-things-network-packetbrokeragent.proto (24 REST operations under the Pba tag)
+      url: https://packetbroker.net/
+standards:
+  - id: oauth2
+    name: OAuth 2.0 (RFC 6749) — Authorization Code
+    conforms: true
+    evidence:
+      type: live-probe
+      url: https://eu1.cloud.thethings.network/oauth/authorize
+      status: 302
+      note: >-
+        The Identity Server is a full OAuth 2.0 authorization server with its own OAuth client
+        registry (ClientRegistry, oauth_services.proto) and a 70-value Rights scope vocabulary.
+    artifact: scopes/the-things-network-scopes.yml
+  - id: rfc8414
+    name: OAuth 2.0 Authorization Server Metadata (RFC 8414)
+    conforms: false
+    evidence:
+      type: live-probe
+      url: https://eu1.cloud.thethings.network/.well-known/oauth-authorization-server
+      status: 404
+      note: >-
+        No discovery document. A client must be told the OAuth endpoints out of band. This is a
+        cheap, high-value gap for the provider to close.
+  - id: oidc
+    name: OpenID Connect Discovery
+    conforms: false
+    evidence:
+      type: live-probe
+      url: https://eu1.cloud.thethings.network/.well-known/openid-configuration
+      status: 404
+  - id: rfc9457
+    name: Problem Details for HTTP APIs (RFC 9457)
+    conforms: false
+    evidence:
+      type: contract
+      location: 'All 329 operations bind their default response to definitions/rpcStatus (google.rpc.Status), media type application/json.'
+      note: >-
+        The Things Stack uses google.rpc.Status + ttn.lorawan.v3.ErrorDetails. The error model is
+        rich and machine-matchable — namespace + name is a stable key — it is simply not RFC 9457.
+    artifact: errors/the-things-network-problem-types.yml
+  - id: grpc
+    name: gRPC / Protocol Buffers 3
+    conforms: true
+    evidence:
+      type: contract
+      location: 'grpc/ — 15 verbatim .proto files from lorawan-stack v3.36.2; gRPC served on port 8884.'
+      note: >-
+        gRPC is the PRIMARY contract. The HTTP REST surface is a grpc-gateway projection of it,
+        which is why the OpenAPI documents are Swagger 2.0 and carry field_mask instead of PATCH.
+  - id: grpc-gateway-transcoding
+    name: gRPC HTTP transcoding (google.api.http)
+    conforms: true
+    evidence:
+      type: contract
+      location: api/ttn/lorawan/v3/*_services.proto google.api.http annotations; api.swagger.json is generated from them.
+  - id: mqtt
+    name: MQTT 3.1.1
+    conforms: true
+    evidence:
+      type: docs
+      url: https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/
+      note: >-
+        Application Server exposes an MQTT broker with a documented topic namespace
+        (v3/{application id}@{tenant id}/devices/{device id}/...).
+    artifact: asyncapi/the-things-network-webhooks.yml
+  - id: pagination
+    name: Documented pagination
+    conforms: true
+    evidence:
+      type: docs
+      url: https://www.thethingsindustries.com/docs/api/concepts/pagination/
+      note: 'limit + page query params; X-Total-Count response header.'
+  - id: idempotency
+    name: Idempotency keys
+    conforms: false
+    evidence:
+      type: contract
+      location: 'No Idempotency-Key (or equivalent) parameter in any of the 329 operations; no documentation of one.'
+    artifact: conventions/the-things-network-conventions.yml
+  - id: rate-limit-headers
+    name: IETF RateLimit header fields (draft)
+    conforms: partial
+    evidence:
+      type: live-probe
+      url: https://eu1.cloud.thethings.network/api/v3/users/me
+      status: 401
+      observed_headers: [x-rate-limit-limit, x-rate-limit-available, x-rate-limit-reset, x-rate-limit-retry]
+      note: >-
+        The docs say the headers follow "the IETF draft spec". They use the X-Rate-Limit-* spelling
+        rather than the draft's RateLimit-Limit / RateLimit-Remaining / RateLimit-Reset, so this is
+        the same idea under different names — partial, not conformant.
+  - id: rfc8594
+    name: Sunset / Deprecation HTTP headers (RFC 8594)
+    conforms: false
+    evidence:
+      type: live-probe
+      url: https://eu1.cloud.thethings.network/api/v3/users/me
+      note: >-
+        No Sunset or Deprecation header observed. The Things Stack signals future breakage with
+        its own X-Warning header instead.
+  - id: rfc9116
+    name: security.txt (RFC 9116)
+    conforms: false
+    evidence:
+      type: live-probe
+      url: https://www.thethingsnetwork.org/.well-known/security.txt
+      status: 200
+      note: >-
+        Soft-404 — the host answers 200 with its HTML shell for every /.well-known/ path. No
+        security.txt is served, even though a responsible-disclosure page exists at
+        https://www.thethingsnetwork.org/responsible-disclosure.
+    artifact: well-known/the-things-network-well-known.yml
+  - id: soap-wsdl
+    name: SOAP / WSDL
+    conforms: false
+    evidence:
+      type: live-probe
+      probes:
+        - url: https://eu1.cloud.thethings.network/api/v3?wsdl
+          status: 404
+        - url: https://www.thethingsindustries.com/services?singleWsdl
+          status: 404
+      note: >-
+        No SOAP surface. ?wsdl and ?singleWsdl return 404 on the API host and the marketing host,
+        and neither GitHub organization publishes a WSDL. Recorded so the absence is a measured
+        negative rather than an unchecked gap.
+  - id: graphql
+    name: GraphQL
+    conforms: false
+    evidence:
+      type: live-probe
+      probes:
+        - url: https://eu1.cloud.thethings.network/graphql
+          method: POST
+          status: 404
+          body: 'ttn.lorawan.v3.ErrorDetails 404_route_not_found'
+        - url: https://eu1.cloud.thethings.network/api/v3/graphql
+          method: POST
+          status: 404
+      note: >-
+        No GraphQL endpoint. Introspection POSTs return the cluster proxy's route-not-found error.
+        The contract surfaces are gRPC, HTTP REST (transcoded), and MQTT.
+  - id: apache-2.0
+    name: Apache License 2.0 open-source distribution
+    conforms: true
+    evidence:
+      type: repository
+      url: https://github.com/TheThingsNetwork/lorawan-stack/blob/v3.36/LICENSE
+      note: >-
+        The entire Network Server, its protobuf contract, and the CLI are Apache-2.0. A buyer can
+        read, fork and self-host the implementation of every operation in this catalog — a
+        materially different integration risk profile from a closed SaaS API.
+compliance_certifications:
+  published: false
+  note: >-
+    No trust centre, SOC 2, ISO 27001 or comparable certification page was found on
+    thethingsindustries.com or thethingsnetwork.org, and trust.thethingsindustries.com does not
+    resolve. No Compliance pointer is emitted for this provider. The GDPR-relevant surface is the
+    privacy policy at https://www.thethingsindustries.com/document/privacypolicy/ , which is a
+    legal document rather than a compliance programme.

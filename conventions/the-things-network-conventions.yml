@@ -1,0 +1,213 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://www.thethingsindustries.com/docs/api/concepts/auth/ ,
+  https://www.thethingsindustries.com/docs/api/concepts/pagination/ ,
+  https://www.thethingsindustries.com/docs/api/concepts/errors/ ,
+  https://www.thethingsindustries.com/docs/enterprise/management/rate-limiting/ ,
+  https://www.thethingsindustries.com/docs/concepts/advanced/purge/ ,
+  live probe of https://eu1.cloud.thethings.network/api/v3/users/me ,
+  openapi/ (58 documents, 329 operations)
+aid: the-things-network
+name: The Things Stack — API Conventions and Runtime Semantics
+description: >-
+  Cross-cutting semantics for The Things Stack HTTP (REST) API. The REST surface is a
+  gRPC-gateway projection of the ttn.lorawan.v3 protobuf services, and almost every convention
+  below is inherited from that: field masks instead of PATCH, google.rpc.Status error envelopes,
+  protobuf enum names as strings, and package-level versioning.
+auth:
+  style: bearer-api-key
+  header: 'Authorization: Bearer NNSXS.<token-id>.<token-secret>'
+  alternatives: [oauth2-authorization-code, session-cookie]
+  artifact: authentication/the-things-network-authentication.yml
+  scopes_artifact: scopes/the-things-network-scopes.yml
+versioning:
+  style: path
+  value: /api/v3
+  grpc_package: ttn.lorawan.v3
+  artifact: lifecycle/the-things-network-lifecycle.yml
+pagination:
+  style: page-number
+  request_params:
+    - name: limit
+      in: query
+      description: Objects returned per page. Omitting it uses the per-RPC default.
+    - name: page
+      in: query
+      description: Page number. 0 is interpreted as the first page.
+  response_headers:
+    - name: X-Total-Count
+      description: Total objects accessible to this caller for this collection.
+  behaviour: >-
+    Page numbers past the last page return an empty JSON object ({}), not an error and not an
+    empty array. Clients compute page count as ceil(X-Total-Count / limit).
+  source: https://www.thethingsindustries.com/docs/api/concepts/pagination/
+field_selection:
+  style: field-mask
+  param: field_mask
+  applies_to: [read, update]
+  description: >-
+    THE defining convention of this API. Reads take a field_mask to select which fields come
+    back — "more or less fields may be returned, depending on the rights of the caller". Updates
+    take a field_mask to name exactly which fields are being written; fields not in the mask are
+    left untouched. There is no PATCH verb: PUT + field_mask is the partial-update mechanism.
+    31 of the 58 harvested specs reference field_mask.
+  source: https://www.thethingsindustries.com/docs/api/concepts/auth/
+  caution: >-
+    An update that omits field_mask writes nothing. This is the most common integration mistake
+    against The Things Stack and the single most important thing for an agent to get right.
+request_tracing:
+  request_id_header: X-Request-Id
+  correlation_id_field: details[].correlation_id
+  description: >-
+    Every response carries an X-Request-Id header, and every error body carries a
+    correlation_id inside ttn.lorawan.v3.ErrorDetails. The correlation id is what The Things
+    Stack traces an RPC by internally and is the value to quote in a support request.
+  observed: '2026-08-27 on https://eu1.cloud.thethings.network/api/v3/users/me'
+error_envelope:
+  format: google.rpc.Status
+  rfc9457: false
+  content_type: application/json
+  shape:
+    code: gRPC status code (integer). Ignorable for HTTP callers — read the HTTP status instead.
+    message: Human-readable, of the form 'error:<namespace>:<name> (<rendered message>)'.
+    details:
+      - '@type': type.googleapis.com/ttn.lorawan.v3.ErrorDetails
+        namespace: The Things Stack component/package that raised it (e.g. pkg/auth/rights).
+        name: lowercase_with_underscores error name (e.g. no_user_rights).
+        message_format: Template with {placeholders}.
+        attributes: Values substituted into message_format.
+        correlation_id: Trace id for this RPC.
+        code: gRPC status code.
+  artifact: errors/the-things-network-problem-types.yml
+  source: https://www.thethingsindustries.com/docs/api/concepts/errors/
+warning_signalling:
+  header: X-Warning
+  description: >-
+    The Things Stack sends X-Warning on successful responses to flag conditions that may become
+    errors in a future version. Clients are told explicitly to mind it. This is the provider's
+    deprecation/soft-failure channel.
+  source: https://www.thethingsindustries.com/docs/api/concepts/errors/
+rate_limit_signalling:
+  headers:
+    - name: X-Rate-Limit-Limit
+      description: Requests allowed in the current window for this resource key.
+    - name: X-Rate-Limit-Available
+      description: Requests remaining in the current window.
+    - name: X-Rate-Limit-Reset
+      description: Seconds until the window resets.
+    - name: X-Rate-Limit-Retry
+      description: Seconds the client should wait before retrying.
+  exhaustion_status: 429
+  grpc_exhaustion_code: ResourceExhausted
+  observed: '2026-08-27 — x-rate-limit-limit: 100, x-rate-limit-available: 99 on an anonymous request'
+  artifact: rate-limits/the-things-network-rate-limits.yml
+  source: https://www.thethingsindustries.com/docs/enterprise/management/rate-limiting/
+idempotency:
+  supported: false
+  idempotency_key_header: null
+  note: >-
+    The Things Stack publishes NO idempotency-key mechanism. No operation in the 58 harvested
+    OpenAPI documents accepts an Idempotency-Key (or equivalent) header, and the documentation
+    does not describe one. Safe retries rely on the natural idempotency of the entity model:
+    Create fails with already_exists on a duplicate ID, PUT/Set with a field_mask converges, and
+    Delete is idempotent. DownlinkQueuePush is the notable NON-idempotent write — a retried push
+    enqueues the message twice and it will be transmitted twice over the air. Use
+    DownlinkQueueReplace, which is idempotent by construction, when a retry is possible.
+  no_pointer_reason: >-
+    No Idempotency pointer is emitted in apis.yml. The provider does not support it, and
+    claiming otherwise would credit a capability that does not exist.
+dry_run_mode:
+  supported: partial
+  mechanism: AppAs_SimulateUplink
+  note: >-
+    There is no generic dry-run flag. The Application Server does expose
+    POST /as/applications/{app}/devices/{device}/up/simulate (AppAs_SimulateUplink), which
+    injects a synthetic uplink through the whole pipeline — payload formatters, storage,
+    webhooks, MQTT — without a real device transmitting. That rehearses the READ/integration
+    path, not the write path.
+reversibility:
+  grade: verified
+  summary: >-
+    Entity deletes are soft and reversible for a stated window; downlink sends are cancellable
+    while queued and irreversible once transmitted; purges and end-device deletes are
+    irreversible by design.
+  source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/
+  surfaces:
+    - write_operation: ApplicationRegistry_Delete
+      reversal_operation: ApplicationRegistry_Restore
+      reversal_path: POST /applications/{application_id}/restore
+      window: 24h
+      window_source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/
+      window_note: >-
+        Default on The Things Stack Cloud. Configurable on Enterprise via Identity Server options.
+        Past the window the server returns error:pkg/identityserver:restore_window_expired.
+      grade: verified
+    - write_operation: GatewayRegistry_Delete
+      reversal_operation: GatewayRegistry_Restore
+      reversal_path: POST /gateways/{gateway_id}/restore
+      window: 24h
+      window_source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/
+      caveat: >-
+        Restoring a gateway does NOT restore its EUI — the operation summary in the contract says
+        so. The EUI must be set again.
+      grade: verified
+    - write_operation: OrganizationRegistry_Delete
+      reversal_operation: OrganizationRegistry_Restore
+      window: 24h
+      window_source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/
+      grade: verified
+    - write_operation: ClientRegistry_Delete
+      reversal_operation: ClientRegistry_Restore
+      window: 24h
+      window_source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/
+      grade: verified
+    - write_operation: UserRegistry_Delete
+      reversal_operation: UserRegistry_Restore
+      window: 24h
+      window_source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/
+      grade: verified
+    - write_operation: EndDeviceRegistry_Delete
+      reversal_operation: null
+      window: null
+      grade: irreversible
+      note: >-
+        "End devices cannot be soft deleted, i.e. once they are deleted, they cannot be restored
+        anymore." Quoted verbatim from the purge reference. This is the highest-consequence
+        irreversible operation in the API and the one an agent must confirm before calling.
+    - write_operation: AppAs_DownlinkQueuePush
+      reversal_operation: AppAs_DownlinkQueueReplace
+      window: while queued
+      grade: documented
+      note: >-
+        A queued downlink can be discarded by replacing the queue (send an empty list). Once the
+        Network Server has scheduled and the gateway has transmitted it, it is on the air and
+        cannot be recalled. No documented time bound — the window is "before transmission", which
+        depends on the device class (A/B/C) and its next receive window, so this grades as
+        documented rather than verified.
+    - write_operation: ApplicationRegistry_Purge
+      reversal_operation: null
+      grade: irreversible
+      note: >-
+        "Purging entities deletes them permanently and is irreversible!" — verbatim warning in the
+        reference. Purge also releases the entity ID for reuse, which can expose historical event
+        data to whoever registers the ID next.
+metadata_and_attributes:
+  entity_attributes: true
+  note: >-
+    Applications, gateways and end devices carry a free-form attributes map, and end devices
+    additionally carry version_ids/network_ids/locations that ride along on ApplicationUp
+    messages since v3.34.0.
+content_negotiation:
+  consumes: [application/json]
+  produces: [application/json]
+  note: >-
+    JSON field naming follows protobuf JSON: snake_case field names and enum values as their
+    protobuf constant strings (e.g. "MAC_V1_0_3", "RIGHT_APPLICATION_INFO"), not camelCase.
+cross_links:
+  errors: errors/the-things-network-problem-types.yml
+  lifecycle: lifecycle/the-things-network-lifecycle.yml
+  authentication: authentication/the-things-network-authentication.yml
+  scopes: scopes/the-things-network-scopes.yml
+  rate_limits: rate-limits/the-things-network-rate-limits.yml
+  data_model: data-model/the-things-network-data-model.yml

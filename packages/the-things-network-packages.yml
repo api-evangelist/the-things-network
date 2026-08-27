@@ -1,0 +1,131 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, proxy.golang.org, api.snapcraft.io,
+  github.com/TheThingsNetwork/homebrew-lorawan-stack,
+  https://www.thethingsindustries.com/docs/api/reference/
+aid: the-things-network
+name: The Things Stack — Client Libraries, Binaries and Distributions
+description: >-
+  First-party distributions of The Things Stack (Apache-2.0) and its client tooling. The Things
+  Stack itself is a Go module; the CLI (ttn-lw-cli) is distributed as Homebrew formulae, a Snap,
+  and GoReleaser binaries attached to each GitHub release. The historic v2 JavaScript and Python
+  application SDKs are published on npm and PyPI but have not been released since 2019 and target
+  the retired v2 network — recorded here because a stale first-party SDK is itself a signal.
+notes:
+  - >-
+    There is no first-party v3 JavaScript or Python SDK on a public registry. The v3 JS client used
+    by the Console lives inside the lorawan-stack monorepo (sdk/js) and is not published to npm
+    under a TheThingsNetwork-owned name. Integrators are directed at the HTTP/gRPC contract, the CLI,
+    or MQTT.
+  - >-
+    npm "ttn-lw" is NOT first-party. Its sole registry maintainer is an unrelated account and the
+    package carries no repository/homepage metadata; it is recorded with official:false so the
+    absence of a first-party v3 JS SDK is not mistaken for a presence.
+packages:
+  - language: go
+    registry: go-modules
+    name: go.thethings.network/lorawan-stack/v3
+    url: https://pkg.go.dev/go.thethings.network/lorawan-stack/v3
+    install: go get go.thethings.network/lorawan-stack/v3
+    official: true
+    version: v3.36.2
+    published: '2026-08-17'
+    source: https://proxy.golang.org/go.thethings.network/lorawan-stack/v3/@latest
+    note: >-
+      The Things Stack itself, plus the generated gRPC/protobuf client packages under
+      pkg/ttnpb. This is the canonical first-party client surface for v3.
+  - language: go
+    registry: go-modules
+    name: go.thethings.network/lorawan-stack-migrate
+    url: https://pkg.go.dev/go.thethings.network/lorawan-stack-migrate
+    install: go get go.thethings.network/lorawan-stack-migrate
+    official: true
+    version: v0.12.1
+    published: '2026-04-30'
+    source: https://proxy.golang.org/go.thethings.network/lorawan-stack-migrate/@latest
+    note: Migration tool for importing devices from other LoRaWAN Network Servers.
+  - language: binary
+    registry: snap
+    name: ttn-lw-stack
+    url: https://snapcraft.io/ttn-lw-stack
+    install: snap install ttn-lw-stack
+    official: true
+    version: '3.36.2'
+    published: '2026-08-17'
+    source: https://api.snapcraft.io/v2/snaps/info/ttn-lw-stack
+    note: Published by the "The Things Network" Snap Store publisher; tracks the stable release line.
+  - language: binary
+    registry: homebrew
+    name: thethingsnetwork/lorawan-stack/ttn-lw-cli
+    url: https://github.com/TheThingsNetwork/homebrew-lorawan-stack
+    install: brew install TheThingsNetwork/lorawan-stack/ttn-lw-cli
+    official: true
+    version: '3.36.2'
+    published: '2026-08-17'
+    source: https://raw.githubusercontent.com/TheThingsNetwork/homebrew-lorawan-stack/master/ttn-lw-cli.rb
+    note: GoReleaser-generated tap. Sibling formulae ttn-lw-stack and ttn-lw-migrate live in the same tap.
+  - language: binary
+    registry: github-releases
+    name: lorawan-stack-cli
+    url: https://github.com/TheThingsNetwork/lorawan-stack/releases
+    install: >-
+      curl -L https://github.com/TheThingsNetwork/lorawan-stack/releases/download/v3.36.2/lorawan-stack-cli_3.36.2_darwin_amd64.tar.gz
+    official: true
+    version: v3.36.2
+    published: '2026-08-17'
+    source: https://api.github.com/repos/TheThingsNetwork/lorawan-stack/releases
+    note: darwin/linux/windows amd64+arm64 archives attached to every tagged release.
+  - language: javascript
+    registry: npm
+    name: ttn
+    url: https://www.npmjs.com/package/ttn
+    install: npm install ttn
+    official: true
+    version: 2.3.3
+    published: '2019-07-15'
+    source: https://registry.npmjs.org/ttn
+    repository: https://github.com/TheThingsNetwork/node-app-sdk
+    status: legacy
+    note: >-
+      First-party (published by The Things Network staff maintainers) but targets the retired v2
+      network. Last release 2019-07-15, seven years before the current v3.36.2 API. Not usable
+      against The Things Stack v3.
+  - language: python
+    registry: pypi
+    name: ttn
+    url: https://pypi.org/project/ttn/
+    install: pip install ttn
+    official: true
+    version: 2.1.5
+    published: '2019-01-14'
+    source: https://pypi.org/pypi/ttn/json
+    repository: https://github.com/TheThingsNetwork/python-app-sdk
+    status: legacy
+    note: >-
+      First-party v2 Python application SDK. Last release 2019-01-14; targets the retired v2
+      network and does not speak the v3 HTTP/gRPC API.
+  - language: javascript
+    registry: npm
+    name: ttn-lw
+    url: https://www.npmjs.com/package/ttn-lw
+    install: npm install ttn-lw
+    official: false
+    version: 3.8.1-beta.1
+    published: '2020-05-26'
+    source: https://registry.npmjs.org/ttn-lw
+    note: >-
+      Named "The Things Stack for LoRaWAN JavaScript SDK" but the registry maintainer is an
+      unaffiliated account with no repository or homepage metadata. Recorded as unofficial.
+  - language: c
+    registry: cdn
+    name: TheThingsNetwork Arduino Device Library
+    url: https://github.com/TheThingsNetwork/arduino-device-lib
+    install: Arduino Library Manager — "TheThingsNetwork"
+    official: true
+    version: null
+    published: null
+    note: >-
+      Distributed through the Arduino Library Manager index, which exposes no per-package metadata
+      endpoint comparable to npm/PyPI; version and release date left null rather than guessed.
+      Device-side (node) library, not an API client.

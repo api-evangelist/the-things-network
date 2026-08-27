@@ -1,0 +1,89 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://www.thethingsindustries.com/docs/concepts/ttn/ ,
+  https://www.thethingsindustries.com/docs/concepts/ttn/addresses/ ,
+  https://www.thethingsindustries.com/stack/plans/ ,
+  https://www.thethingsindustries.com/docs/integrations/webhooks/creating-webhooks/ ,
+  openapi/ (AppAs_SimulateUplink, EndDeviceRegistry_*), grpc/ (simulate.proto)
+aid: the-things-network
+name: The Things Stack — Sandbox and Test Surface
+description: >-
+  The Things Stack has an unusually literal sandbox: The Things Network community network is
+  officially branded "The Things Stack Sandbox" and runs the same software, the same API and the
+  same contract as the paid Cloud, free of charge under a fair-use policy. That means there is no
+  separate test-mode key format and no test/live key prefix pair — a sandbox key is a real key on
+  a real network, and traffic on it goes over the air.
+modes:
+  - id: sandbox
+    name: The Things Stack Sandbox (The Things Network community network)
+    price: free
+    signup: https://console.cloud.thethings.network
+    api_base: https://eu1.cloud.thethings.network/api/v3
+    console: https://<cluster>.cloud.thethings.network/console
+    oauth: https://eu1.cloud.thethings.network/oauth
+    clusters: [eu1, nam1, au1]
+    constraints:
+      - Identity Server APIs (users, applications, gateways, organizations, API keys) are served ONLY from eu1.
+      - Fair-use policy — roughly 30 seconds of uplink airtime per end device per 24 hours.
+      - No SLA and no support commitment.
+    note: >-
+      Same feature set and same contract as The Things Stack Cloud, which is what makes it a real
+      integration sandbox rather than a toy.
+    source: https://www.thethingsindustries.com/docs/concepts/ttn/
+  - id: cloud-discovery
+    name: The Things Stack Cloud — Discovery
+    price: free
+    limits: Up to 10 end devices and 10 gateways.
+    api_base: https://<tenant-id>.<cluster>.cloud.thethings.industries/api/v3
+    note: Free production-grade tenant with an uptime SLA; the commercial on-ramp rather than a sandbox.
+    source: https://www.thethingsindustries.com/stack/plans/
+  - id: self-hosted
+    name: Self-hosted open source
+    price: free
+    note: >-
+      docker compose or Kubernetes/Helm deployment of the Apache-2.0 stack. This is the only mode
+      that gives an integrator an isolated network with no fair-use ceiling and no shared spectrum.
+key_format:
+  test_vs_live_prefixes: false
+  format: 'NNSXS.<token-id>.<token-secret>'
+  note: >-
+    There is NO test-mode key prefix. Every API key on every deployment starts with the fixed
+    token-type "NNSXS" (base32 for "key"). A caller cannot tell from a key whether it points at
+    the free Sandbox or at a paid production tenant — only the host it is sent to decides that.
+    This is a real integration hazard worth stating plainly.
+  source: https://www.thethingsindustries.com/docs/api/concepts/auth/
+simulation:
+  - id: simulate-uplink
+    name: Simulate an uplink
+    operation: AppAs_SimulateUplink
+    path: POST /as/applications/{application_id}/devices/{device_id}/up/simulate
+    description: >-
+      Injects a synthetic uplink into the Application Server as though a device had transmitted it.
+      Runs the full downstream pipeline — payload formatters, storage integration, webhooks, MQTT —
+      so an integration can be exercised end to end with no hardware and no radio.
+    rate_limited: true
+    rate_limit_note: >-
+      The rate-limiting reference ships an explicit example profile overriding the rate for
+      /ttn.lorawan.v3.AppAs/SimulateUplink at 5 per minute, because simulation is expected to be
+      driven by tooling.
+  - id: cli-simulate
+    name: ttn-lw-cli simulate
+    description: CLI equivalent for uplink and join simulation (cmd/ttn-lw-cli/commands/simulate.go).
+  - id: console-payload-formatter-test
+    name: Console payload formatter tester
+    description: The Console lets a payload formatter be run against a sample payload before it is saved.
+webhook_testing:
+  recommended_endpoint: https://webhook.site
+  note: >-
+    The Things Stack's own webhook guide tells integrators to test against a free third-party
+    endpoint such as webhook.site; there is no first-party webhook echo/receiver.
+  requirement: The endpoint must return HTTP 200 OK for the webhook integration to be considered successful.
+  source: https://www.thethingsindustries.com/docs/integrations/webhooks/creating-webhooks/
+test_data:
+  fixtures_published: false
+  note: >-
+    No published test DevEUIs, test AppKeys or magic identifiers. Devices need real (or
+    self-assigned) EUIs; ApplicationRegistry_IssueDevEUI will allocate a DevEUI from The Things
+    Stack's own block for applications that have no EUI range of their own.
+  issue_dev_eui_operation: ApplicationRegistry_IssueDevEUI

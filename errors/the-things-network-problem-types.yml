@@ -1,0 +1,151 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://www.thethingsindustries.com/docs/api/concepts/errors/ ,
+  https://github.com/TheThingsNetwork/lorawan-stack/blob/v3.36.2/api/ttn/lorawan/v3/error.proto ,
+  live probes of https://eu1.cloud.thethings.network/api/v3 ,
+  openapi/ (329 operations, each declaring a `default` error response)
+aid: the-things-network
+name: The Things Stack — Error Catalog
+format: google.rpc.Status
+rfc9457: false
+description: >-
+  The Things Stack does NOT use RFC 9457 application/problem+json. Every error — HTTP and gRPC
+  alike — is a google.rpc.Status carrying one or more ttn.lorawan.v3.ErrorDetails messages. The
+  identity of an error is the pair (namespace, name), rendered in the message field as
+  "error:<namespace>:<name>". That pair is the stable, machine-matchable key: HTTP status codes
+  and human message text are not. Every one of the 329 harvested operations declares exactly one
+  `default` error response bound to the rpcStatus schema, so the contract itself does not
+  enumerate per-operation failures — the registry below is drawn from the documentation and from
+  live responses instead.
+envelope:
+  media_type: application/json
+  schema_ref: '#/definitions/rpcStatus'
+  fields:
+    code: gRPC status code (int32). HTTP callers should read the HTTP status instead.
+    message: 'error:<namespace>:<name> (<rendered message>)'
+    details[]:
+      '@type': type.googleapis.com/ttn.lorawan.v3.ErrorDetails
+      namespace: The Things Stack package that raised the error (e.g. pkg/auth/rights)
+      name: lowercase_with_underscores error name (e.g. no_user_rights)
+      message_format: Message template with {placeholders}
+      attributes: Values substituted into message_format
+      correlation_id: Trace identifier for this RPC
+      cause: Nested ErrorDetails for the underlying error
+      code: gRPC status code
+matching_guidance: >-
+  Match on details[].namespace + details[].name. Do NOT match on message, which is translated and
+  interpolated, and do not match on code alone, which collapses many distinct failures.
+status_mapping:
+  - http: 400
+    grpc_code: 3
+    grpc: InvalidArgument
+  - http: 401
+    grpc_code: 16
+    grpc: Unauthenticated
+  - http: 403
+    grpc_code: 7
+    grpc: PermissionDenied
+  - http: 404
+    grpc_code: 5
+    grpc: NotFound
+  - http: 409
+    grpc_code: 6
+    grpc: AlreadyExists
+  - http: 429
+    grpc_code: 8
+    grpc: ResourceExhausted
+  - http: 499
+    grpc_code: 1
+    grpc: Canceled
+  - http: 500
+    grpc_code: 13
+    grpc: Internal
+  - http: 501
+    grpc_code: 12
+    grpc: Unimplemented
+  - http: 503
+    grpc_code: 14
+    grpc: Unavailable
+problem_types:
+  - namespace: pkg/identityserver
+    name: unauthenticated
+    http: 401
+    grpc_code: 16
+    title: No valid credentials presented
+    detail: The request carried no Authorization header, or the key/token was invalid or expired.
+    remediation: >-
+      Send 'Authorization: Bearer NNSXS.<token-id>.<token-secret>'. API keys have no expiry unless
+      one was set explicitly; a deleted key is revoked immediately.
+    evidence:
+      observed: '2026-08-27'
+      url: https://eu1.cloud.thethings.network/api/v3/users/me
+      status: 401
+      body_message: 'error:pkg/identityserver:unauthenticated (unauthenticated)'
+  - namespace: pkg/auth/rights
+    name: no_user_rights
+    http: 403
+    grpc_code: 7
+    title: Caller authenticated but lacks the required Rights
+    detail: >-
+      The credential is valid but its Rights list does not include the right this RPC requires.
+      message_format is 'no rights for user `{uid}`'.
+    remediation: >-
+      Add the specific RIGHT_* the operation needs to the API key or OAuth token — see
+      scopes/the-things-network-scopes.yml. Prefer explicit rights over the RIGHT_*_ALL
+      pseudo-rights, which silently widen over time.
+    source: https://www.thethingsindustries.com/docs/api/concepts/errors/
+  - namespace: pkg/ratelimit
+    name: rate_limit_exceeded
+    http: 429
+    grpc_code: 8
+    title: Rate limit exceeded for this resource key
+    detail: >-
+      message_format is 'rate limit of `{rate}` accesses per minute exceeded for resource `{key}`'.
+      The resource key identifies the rate-limiting class that tripped (e.g. as:down:web, gs:up,
+      grpc:method:<FullMethod>).
+    remediation: >-
+      Back off using X-Rate-Limit-Retry, then retry. X-Rate-Limit-Limit and X-Rate-Limit-Available
+      let a client pace itself before tripping the limit at all.
+    response_headers: [X-Rate-Limit-Limit, X-Rate-Limit-Available, X-Rate-Limit-Reset, X-Rate-Limit-Retry]
+    source: https://www.thethingsindustries.com/docs/enterprise/management/rate-limiting/
+  - namespace: pkg/identityserver
+    name: restore_window_expired
+    http: 400
+    grpc_code: 3
+    title: Entity can no longer be restored
+    detail: >-
+      A Restore was attempted more than 24h after the Delete (default on The Things Stack Cloud).
+      message text is 'this entity can no longer be restored'.
+    remediation: >-
+      The entity can now only be purged by an administrator and recreated. On Enterprise the
+      restore window is configurable via Identity Server options.
+    source: https://www.thethingsindustries.com/docs/concepts/advanced/purge/
+  - namespace: proxy
+    name: 404_route_not_found
+    http: 404
+    grpc_code: 5
+    title: No route matched
+    detail: >-
+      The cluster proxy has no route for the requested path. Returned with attributes.cluster
+      naming the cluster that answered.
+    remediation: >-
+      Check the path includes /api/v3, and check the cluster — Identity Server APIs are served
+      only from eu1 on The Things Stack Sandbox.
+    evidence:
+      observed: '2026-08-27'
+      url: https://eu1.cloud.thethings.network/openapi.json
+      status: 404
+warning_channel:
+  header: X-Warning
+  note: >-
+    Successful responses may carry X-Warning describing a condition that will become an error in
+    a future version. It is the closest thing The Things Stack has to a deprecation signal and
+    should be logged, not ignored.
+  source: https://www.thethingsindustries.com/docs/api/concepts/errors/
+coverage_note: >-
+  This registry is deliberately partial. The Things Stack raises errors from dozens of packages
+  (pkg/auth, pkg/identityserver, pkg/networkserver, pkg/gatewayserver, pkg/ratelimit, pkg/web...)
+  and does not publish a consolidated error reference; the full list exists only as
+  errors.Define(...) declarations in the Go source. Only errors that are documented or that were
+  observed live are recorded here — none are invented.
