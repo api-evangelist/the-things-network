@@ -1,0 +1,115 @@
+slug: the-things-network
+provider: The Things Network / The Things Stack
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 10
+edges:
+- tag: GatewayRegistry
+  spec_file: the-things-network-gatewayregistry-api-openapi.yml
+  capability_id: BC-2600.40
+  capability_id_l1: BC-2600
+  capability_name: Network Inventory Management
+  confidence: 0.8
+  evidence: '"Purge the gateway. This will release both gateway ID and EUI for reuse." with schemas v3GatewayAntenna,
+    lorawanv3Location'
+  reason: Full CRUD over the authoritative record of gateway network resources including EUIs, antennas
+    and locations — the inventory/registry of physical access network elements.
+- tag: ManagedGatewayConfigurationService
+  spec_file: the-things-network-managedgatewayconfigurationservice-api-openapi.yml
+  capability_id: BC-2600.20
+  capability_id_l1: BC-2600
+  capability_name: Network Configuration Management
+  confidence: 0.8
+  evidence: PUT /gcs/gateways/managed/{gateway.ids.gateway_id}  ManagedGatewayConfigurationService_Update;
+    POST /gcs/gateways/managed/{gateway_id}/wifi/scan  ScanWiFiAccessPoints; schema v3ManagedGatewayCellularBackhaul
+  reason: Operations read and update configuration of managed LoRaWAN gateways (network elements) including
+    backhaul interfaces and Wi-Fi scanning — network element configuration management.
+- tag: ManagedGatewayEthernetProfileConfigurationService
+  spec_file: the-things-network-managedgatewayethernetprofileconfigurationservice-api-openapi.yml
+  capability_id: BC-2600.20
+  capability_id_l1: BC-2600
+  capability_name: Network Configuration Management
+  confidence: 0.78
+  evidence: POST /gcs/gateways/profiles/ethernet/organizations/{...}  ManagedGatewayEthernetProfileConfigurationService_Create;
+    schema v3ManagedGatewayEthernetProfile
+  reason: CRUD over Ethernet configuration profiles applied to managed gateways — definition and controlled
+    deployment of network element configuration standards.
+- tag: ManagedGatewayWiFiProfileConfigurationService
+  spec_file: the-things-network-managedgatewaywifiprofileconfigurationservice-api-openapi.yml
+  capability_id: BC-2600.20
+  capability_id_l1: BC-2600
+  capability_name: Network Configuration Management
+  confidence: 0.78
+  evidence: POST /gcs/gateways/profiles/wifi/users/{collaborator.user_ids.user_id}  ManagedGatewayWiFiProfileConfigurationService_Create2;
+    schema v3ManagedGatewayWiFiProfile
+  reason: CRUD over Wi-Fi backhaul configuration profiles for managed gateways — network element configuration
+    standards management.
+- tag: ApplicationAccess
+  spec_file: the-things-network-applicationaccess-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: ApplicationAccess_CreateAPIKey 'Create an API key scoped to this application.'; ApplicationAccess_SetCollaborator
+    'Set the rights of a collaborator (member) on the application.'; schemas v3APIKey, v3Rights, v3Collaborator
+  reason: Operations issue and revoke API keys and grant/revoke collaborator rights on an application
+    — access control and credential lifecycle, i.e. Identity & Access Management.
+- tag: GatewayAccess
+  spec_file: the-things-network-gatewayaccess-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: '"Create an API key scoped to this gateway." / "Set the rights of a collaborator (member)
+    on the gateway."'
+  reason: Operations manage API keys, collaborators and rights on gateway resources — credential issuance
+    and access-rights administration, i.e. identity & access management, not a telecom network capability.
+- tag: NsMACSettingsProfileRegistry
+  spec_file: the-things-network-nsmacsettingsprofileregistry-api-openapi.yml
+  capability_id: BC-2600.20
+  capability_id_l1: BC-2600
+  capability_name: Network Configuration Management
+  confidence: 0.72
+  evidence: POST /ns/applications/{...}/mac_settings_profiles  NsMACSettingsProfileRegistry_Create  Create
+    creates a new MAC settings profile; NsMACSettingsProfileRegistry_Update  Update updates the MAC settings
+    profile
+  reason: Registry of reusable MAC-layer settings profiles (ADR, RX delay, ping slot, relay settings)
+    applied to network devices — definition and management of network configuration standards.
+- tag: NsRelayConfigurationService
+  spec_file: the-things-network-nsrelayconfigurationservice-api-openapi.yml
+  capability_id: BC-2600.20
+  capability_id_l1: BC-2600
+  capability_name: Network Configuration Management
+  confidence: 0.72
+  evidence: NsRelayConfigurationService_CreateRelay  Create a relay; NsRelayConfigurationService_UpdateRelayUplinkForwardingRule  Update
+    an uplink forwarding rule
+  reason: Configuration of LoRaWAN relay nodes and their uplink forwarding rules in the Network Server
+    — configuration of live network elements and traffic forwarding behaviour.
+- tag: GatewayConfigurationService
+  spec_file: the-things-network-gatewayconfigurationservice-api-openapi.yml
+  capability_id: BC-2600.20
+  capability_id_l1: BC-2600
+  capability_name: Network Configuration Management
+  confidence: 0.7
+  evidence: GET /gcs/gateways/configuration/{gateway_ids.gateway_id}/{format}/{filename}  GatewayConfigurationService_GetGatewayConfiguration
+  reason: Serves configuration files for gateway network elements, i.e. distribution of network element
+    configuration; summaries are empty so confidence is moderate.
+- tag: UserRegistry
+  spec_file: the-things-network-userregistry-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: '"Register a new user"; "Update the password of the user"; "Create a temporary password that
+    can be used for updating a forgotten password"'
+  reason: 'User account lifecycle plus credential/password management in the Identity Server — squarely
+    Identity & Access Management. Not HR employee records: these are platform user accounts.'
