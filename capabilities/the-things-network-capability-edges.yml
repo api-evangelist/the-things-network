@@ -11,8 +11,31 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 10
+edge_count: 14
 edges:
+- tag: OrganizationAccess
+  spec_file: the-things-network-organization-access-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: OrganizationAccess_CreateAPIKey  Create an API key scoped to this organization ... OrganizationAccess_SetCollaborator  Set
+    the rights of a collaborator (member) on the organization
+  reason: Operations manage API keys, collaborators and rights — access control / identity and access
+    management for a platform, not a business-domain capability.
+  recovered_from: sweep-20260829T005356Z-edges.json
+  reanchored_from: the-things-network-organizationaccess-api-openapi.yml
+- tag: UserAccess
+  spec_file: the-things-network-user-access-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: UserAccess_CreateAPIKey  Create an API key scoped to this user ... UserAccess_CreateLoginToken  Create
+    a login token that can be used for a one-time login as a user.
+  reason: Issuance and management of user API keys, login tokens and rights — identity and access management.
+  recovered_from: sweep-20260829T005356Z-edges.json
+  reanchored_from: the-things-network-useraccess-api-openapi.yml
 - tag: GatewayRegistry
   spec_file: the-things-network-gatewayregistry-api-openapi.yml
   capability_id: BC-2600.40
@@ -73,6 +96,27 @@ edges:
     on the gateway."'
   reason: Operations manage API keys, collaborators and rights on gateway resources — credential issuance
     and access-rights administration, i.e. identity & access management, not a telecom network capability.
+- tag: UserSessionRegistry
+  spec_file: the-things-network-usersessionregistry-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: UserSessionRegistry_Delete  Delete (revoke) the given user session.
+  reason: Listing and revoking active user sessions is session/access control administration under identity
+    and access management.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: ApplicationWebhookRegistry
+  spec_file: the-things-network-applicationwebhookregistry-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.72
+  evidence: GET /as/webhook-templates ... v3ApplicationWebhook, v3ApplicationWebhookHealth, v3ApplicationWebhookFormats
+  reason: Full lifecycle of outbound webhook subscriptions including templates, formats and delivery health
+    status, matching Webhook & Event Subscription Management. Held below 0.8 because webhook plumbing
+    may legitimately be treated as non-business infrastructure.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: NsMACSettingsProfileRegistry
   spec_file: the-things-network-nsmacsettingsprofileregistry-api-openapi.yml
   capability_id: BC-2600.20
