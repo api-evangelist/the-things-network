@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Things Stack Events API
+  title: Things Stack — Identity Server User Access API
   version: v3.36
   description: The Things Stack is an open-source LoRaWAN Network Server implementation. This OpenAPI was derived from the upstream gRPC-Gateway generated api.swagger.json published by TheThingsNetwork/lorawan-stack v3.36.
   license:
@@ -14,49 +14,19 @@ servers:
 security:
 - ApiKeyAuth: []
 tags:
-- name: Events
+- name: User Access
 paths:
-  /events:
-    post:
-      summary: Stream live events, optionally with a tail of historical events (depending on…
-      operationId: Events_Stream
-      responses:
-        '200':
-          description: A successful response.(streaming responses)
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  result:
-                    $ref: '#/components/schemas/v3Event'
-                  error:
-                    $ref: '#/components/schemas/googlerpcStatus'
-                title: Stream result of v3Event
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/googlerpcStatus'
-      tags:
-      - Events
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v3StreamEventsRequest'
-        required: true
-  /events/related:
+  /users/{user_ids.user_id}/api-keys:
     get:
-      operationId: Events_FindRelated
+      summary: List the API keys for this user
+      operationId: UserAccess_ListAPIKeys
       responses:
         '200':
           description: A successful response.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/v3FindRelatedEventsResponse'
+                $ref: '#/components/schemas/v3APIKeys'
         default:
           description: An unexpected error response.
           content:
@@ -64,65 +34,262 @@ paths:
               schema:
                 $ref: '#/components/schemas/googlerpcStatus'
       parameters:
-      - name: correlation_id
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: order
+        description: 'Order the results by this field path.
+
+          Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        description: Limit the number of results per page.
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: page
+        description: Page number for pagination. 0 is interpreted as 1.
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      tags:
+      - User Access
+    post:
+      summary: Create an API key scoped to this user.
+      operationId: UserAccess_CreateAPIKey
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v3APIKey'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - User Access
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v3UserAccessCreateAPIKeyBody'
+        required: true
+  /users/{user_ids.user_id}/api-keys/{api_key.id}:
+    put:
+      summary: Update the rights of an API key of the user.
+      operationId: UserAccess_UpdateAPIKey
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v3APIKey'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api_key.id
+        description: 'Immutable and unique public identifier for the API key.
+
+          Generated by the Access Server.'
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - User Access
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v3UserAccessUpdateAPIKeyBody'
+        required: true
+  /users/{user_ids.user_id}/api-keys/{key_id}:
+    get:
+      summary: Get a single API key of this user
+      operationId: UserAccess_GetAPIKey
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v3APIKey'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: key_id
+        description: Unique public identifier for the API key.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
         in: query
         required: false
         schema:
           type: string
       tags:
-      - Events
-      summary: Events find related
-      x-summary-source: derived
+      - User Access
+    delete:
+      summary: Delete a single API key of this user
+      operationId: UserAccess_DeleteAPIKey
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: key_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        schema:
+          type: string
+      tags:
+      - User Access
+  /users/{user_ids.user_id}/login-tokens:
+    post:
+      summary: Create a login token that can be used for a one-time login as a user
+      operationId: UserAccess_CreateLoginToken
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v3CreateLoginTokenResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+      parameters:
+      - name: user_ids.user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_ids.email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: skip_email
+        description: 'Skip sending the login token to the user by email.
+
+          This field is only effective when the login token is created by an admin user.'
+        in: query
+        required: false
+        schema:
+          type: boolean
+      tags:
+      - User Access
+  /users/{user_id}/rights:
+    get:
+      summary: List the rights the caller has on this user
+      operationId: UserAccess_ListRights
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v3Rights'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+      parameters:
+      - name: user_id
+        description: This ID shares namespace with organization IDs.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: email
+        description: Secondary identifier, which can only be used in specific requests.
+        in: query
+        required: false
+        schema:
+          type: string
+      tags:
+      - User Access
 components:
   schemas:
-    v3Event:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the event. This can be used to find the (localized) event description.
-        time:
-          type: string
-          format: date-time
-          description: Time at which the event was triggered.
-        identifiers:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3EntityIdentifiers'
-          description: Identifiers of the entity (or entities) involved.
-        data:
-          $ref: '#/components/schemas/protobufAny'
-          description: Optional data attached to the event.
-        correlation_ids:
-          type: array
-          items:
-            type: string
-          description: Correlation IDs can be used to find related events and actions such as API calls.
-        origin:
-          type: string
-          description: The origin of the event. Typically the hostname of the server that created it.
-        context:
-          type: object
-          additionalProperties:
-            type: string
-            format: byte
-          description: Event context, internal use only.
-        visibility:
-          $ref: '#/components/schemas/v3Rights'
-          description: The event will be visible to a caller that has any of these rights.
-        authentication:
-          $ref: '#/components/schemas/EventAuthentication'
-          description: Details on the authentication provided by the caller that triggered this event.
-        remote_ip:
-          type: string
-          description: The IP address of the caller that triggered this event.
-        user_agent:
-          type: string
-          description: The IP address of the caller that triggered this event.
-        unique_id:
-          type: string
-          description: The unique identifier of the event, assigned on creation.
     v3Right:
       type: string
       enum:
@@ -199,60 +366,6 @@ components:
       - RIGHT_ALL
       default: right_invalid
       description: "Right is the enum that defines all the different rights to do something in the network.\n\n - RIGHT_USER_INFO: The right to view user information.\n - RIGHT_USER_SETTINGS_BASIC: The right to edit basic user settings.\n - RIGHT_USER_LIST: The right to list users accounts.\n - RIGHT_USER_CREATE: The right to create an user account.\n - RIGHT_USER_SETTINGS_API_KEYS: The right to view and edit user API keys.\n - RIGHT_USER_DELETE: The right to delete user account.\n - RIGHT_USER_PURGE: The right to delete user account.\n - RIGHT_USER_AUTHORIZED_CLIENTS: The right to view and edit authorized OAuth clients of the user.\n - RIGHT_USER_APPLICATIONS_LIST: The right to list applications the user is a collaborator of.\n - RIGHT_USER_APPLICATIONS_CREATE: The right to create an application under the user account.\n - RIGHT_USER_GATEWAYS_LIST: The right to list gateways the user is a collaborator of.\n - RIGHT_USER_GATEWAYS_CREATE: The right to create a gateway under the account of the user.\n - RIGHT_USER_CLIENTS_LIST: The right to list OAuth clients the user is a collaborator of.\n - RIGHT_USER_CLIENTS_CREATE: The right to create an OAuth client under the account of the user.\n - RIGHT_USER_ORGANIZATIONS_LIST: The right to list organizations the user is a member of.\n - RIGHT_USER_ORGANIZATIONS_CREATE: The right to create an organization under the user account.\n - RIGHT_USER_NOTIFICATIONS_READ: The right to read notifications sent to the user.\n - RIGHT_USER_ALL: The pseudo-right for all (current and future) user rights.\n - RIGHT_APPLICATION_INFO: The right to view application information.\n - RIGHT_APPLICATION_SETTINGS_BASIC: The right to edit basic application settings.\n - RIGHT_APPLICATION_SETTINGS_API_KEYS: The right to view and edit application API keys.\n - RIGHT_APPLICATION_SETTINGS_COLLABORATORS: The right to view and edit application collaborators.\n - RIGHT_APPLICATION_SETTINGS_PACKAGES: The right to view and edit application packages and associations.\n - RIGHT_APPLICATION_DELETE: The right to delete application.\n - RIGHT_APPLICATION_PURGE: The right to purge application.\n - RIGHT_APPLICATION_DEVICES_READ: The right to view devices in application.\n - RIGHT_APPLICATION_DEVICES_WRITE: The right to create devices in application.\n - RIGHT_APPLICATION_DEVICES_READ_KEYS: The right to view device keys in application.\nNote that keys may not be stored in a way that supports viewing them.\n - RIGHT_APPLICATION_DEVICES_WRITE_KEYS: The right to edit device keys in application.\n - RIGHT_APPLICATION_TRAFFIC_READ: The right to read application traffic (uplink and downlink).\n - RIGHT_APPLICATION_TRAFFIC_UP_WRITE: The right to write uplink application traffic.\n - RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE: The right to write downlink application traffic.\n - RIGHT_APPLICATION_LINK: The right to link as Application to a Network Server for traffic exchange,\ni.e. read uplink and write downlink (API keys only).\nThis right is typically only given to an Application Server.\nThis right implies RIGHT_APPLICATION_INFO, RIGHT_APPLICATION_TRAFFIC_READ,\nand RIGHT_APPLICATION_TRAFFIC_DOWN_WRITE.\n - RIGHT_APPLICATION_ALL: The pseudo-right for all (current and future) application rights.\n - RIGHT_CLIENT_ALL: The pseudo-right for all (current and future) OAuth client rights.\n - RIGHT_CLIENT_INFO: The right to read client information.\n - RIGHT_CLIENT_SETTINGS_BASIC: The right to edit basic client settings.\n - RIGHT_CLIENT_SETTINGS_COLLABORATORS: The right to view and edit client collaborators.\n - RIGHT_CLIENT_DELETE: The right to delete a client.\n - RIGHT_CLIENT_PURGE: The right to purge a client.\n - RIGHT_GATEWAY_INFO: The right to view gateway information.\n - RIGHT_GATEWAY_SETTINGS_BASIC: The right to edit basic gateway settings.\n - RIGHT_GATEWAY_SETTINGS_API_KEYS: The right to view and edit gateway API keys.\n - RIGHT_GATEWAY_SETTINGS_COLLABORATORS: The right to view and edit gateway collaborators.\n - RIGHT_GATEWAY_DELETE: The right to delete gateway.\n - RIGHT_GATEWAY_PURGE: The right to purge gateway.\n - RIGHT_GATEWAY_TRAFFIC_READ: The right to read gateway traffic.\n - RIGHT_GATEWAY_TRAFFIC_DOWN_WRITE: The right to write downlink gateway traffic.\n - RIGHT_GATEWAY_LINK: The right to link as Gateway to a Gateway Server for traffic exchange,\ni.e. write uplink and read downlink (API keys only)\nThis right is typically only given to a gateway.\nThis right implies RIGHT_GATEWAY_INFO.\n - RIGHT_GATEWAY_STATUS_READ: The right to view gateway status.\n - RIGHT_GATEWAY_LOCATION_READ: The right to view view gateway location.\n - RIGHT_GATEWAY_WRITE_SECRETS: The right to store secrets associated with this gateway.\n - RIGHT_GATEWAY_READ_SECRETS: The right to retrieve secrets associated with this gateway.\n - RIGHT_GATEWAY_ALL: The pseudo-right for all (current and future) gateway rights.\n - RIGHT_ORGANIZATION_INFO: The right to view organization information.\n - RIGHT_ORGANIZATION_SETTINGS_BASIC: The right to edit basic organization settings.\n - RIGHT_ORGANIZATION_SETTINGS_API_KEYS: The right to view and edit organization API keys.\n - RIGHT_ORGANIZATION_SETTINGS_MEMBERS: The right to view and edit organization members.\n - RIGHT_ORGANIZATION_DELETE: The right to delete organization.\n - RIGHT_ORGANIZATION_PURGE: The right to purge organization.\n - RIGHT_ORGANIZATION_APPLICATIONS_LIST: The right to list the applications the organization is a collaborator of.\n - RIGHT_ORGANIZATION_APPLICATIONS_CREATE: The right to create an application under the organization.\n - RIGHT_ORGANIZATION_GATEWAYS_LIST: The right to list the gateways the organization is a collaborator of.\n - RIGHT_ORGANIZATION_GATEWAYS_CREATE: The right to create a gateway under the organization.\n - RIGHT_ORGANIZATION_CLIENTS_LIST: The right to list the OAuth clients the organization is a collaborator of.\n - RIGHT_ORGANIZATION_CLIENTS_CREATE: The right to create an OAuth client under the organization.\n - RIGHT_ORGANIZATION_ADD_AS_COLLABORATOR: The right to add the organization as a collaborator on an existing entity.\n - RIGHT_ORGANIZATION_ALL: The pseudo-right for all (current and future) organization rights.\n - RIGHT_SEND_INVITES: The right to send invites to new users.\nNote that this is not prefixed with \"USER_\"; it is not a right on the user entity.\n - RIGHT_ALL: The pseudo-right for all (current and future) possible rights."
-    v3ApplicationIdentifiers:
-      type: object
-      properties:
-        application_id:
-          type: string
-    v3EndDeviceIdentifiers:
-      type: object
-      properties:
-        device_id:
-          type: string
-        application_ids:
-          $ref: '#/components/schemas/v3ApplicationIdentifiers'
-        dev_eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
-          description: The LoRaWAN DevEUI.
-        join_eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
-          description: The LoRaWAN JoinEUI (AppEUI until LoRaWAN 1.0.3 end devices).
-        dev_addr:
-          type: string
-          format: string
-          example: 2600ABCD
-          description: The LoRaWAN DevAddr.
-    v3UserIdentifiers:
-      type: object
-      properties:
-        user_id:
-          type: string
-          description: This ID shares namespace with organization IDs.
-        email:
-          type: string
-          description: Secondary identifier, which can only be used in specific requests.
-    lorawanv3GatewayIdentifiers:
-      type: object
-      properties:
-        gateway_id:
-          type: string
-        eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
-          description: Secondary identifier, which can only be used in specific requests.
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
-      additionalProperties: {}
-      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
     googlerpcStatus:
       type: object
       properties:
@@ -266,6 +379,22 @@ components:
           items:
             type: object
             $ref: '#/components/schemas/protobufAny'
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+      additionalProperties: {}
+      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    v3APIKeys:
+      type: object
+      properties:
+        api_keys:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3APIKey'
     v3Rights:
       type: object
       properties:
@@ -273,86 +402,99 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/v3Right'
-    v3ClientIdentifiers:
+    v3UserAccessCreateAPIKeyBody:
       type: object
       properties:
-        client_id:
+        user_ids:
+          type: object
+          properties:
+            email:
+              type: string
+              description: Secondary identifier, which can only be used in specific requests.
+        name:
           type: string
-    EventAuthentication:
-      type: object
-      properties:
-        type:
-          type: string
-          description: The type of authentication that was used. This is typically a bearer token.
-        token_type:
-          type: string
-          description: The type of token that was used. Common types are APIKey, AccessToken and SessionToken.
-        token_id:
-          type: string
-          description: The ID of the token that was used.
-    v3StreamEventsRequest:
-      type: object
-      properties:
-        identifiers:
+        rights:
           type: array
           items:
-            type: object
-            $ref: '#/components/schemas/v3EntityIdentifiers'
-        tail:
-          type: integer
-          format: int64
-          description: 'If greater than zero, this will return historical events, up to this maximum when the stream starts.
-
-            If used in combination with "after", the limit that is reached first, is used.
-
-            The availability of historical events depends on server support and retention policy.'
-        after:
+            $ref: '#/components/schemas/v3Right'
+        expires_at:
           type: string
           format: date-time
-          description: 'If not empty, this will return historical events after the given time when the stream starts.
-
-            If used in combination with "tail", the limit that is reached first, is used.
-
-            The availability of historical events depends on server support and retention policy.'
-        names:
-          type: array
-          items:
-            type: string
-          description: 'If provided, this will filter events, so that only events with the given names are returned.
-
-            Names can be provided as either exact event names (e.g. ''gs.up.receive''),
-
-            or as regular expressions (e.g. ''/^gs\..+/'').'
-    v3OrganizationIdentifiers:
+    v3APIKey:
       type: object
       properties:
-        organization_id:
+        id:
           type: string
-          description: This ID shares namespace with user IDs.
-    v3EntityIdentifiers:
-      type: object
-      properties:
-        application_ids:
-          $ref: '#/components/schemas/v3ApplicationIdentifiers'
-        client_ids:
-          $ref: '#/components/schemas/v3ClientIdentifiers'
-        device_ids:
-          $ref: '#/components/schemas/v3EndDeviceIdentifiers'
-        gateway_ids:
-          $ref: '#/components/schemas/lorawanv3GatewayIdentifiers'
-        organization_ids:
-          $ref: '#/components/schemas/v3OrganizationIdentifiers'
-        user_ids:
-          $ref: '#/components/schemas/v3UserIdentifiers'
-      description: EntityIdentifiers contains one of the possible entity identifiers.
-    v3FindRelatedEventsResponse:
-      type: object
-      properties:
-        events:
+          description: 'Immutable and unique public identifier for the API key.
+
+            Generated by the Access Server.'
+        key:
+          type: string
+          description: 'Immutable and unique secret value of the API key.
+
+            Generated by the Access Server.'
+        name:
+          type: string
+          description: User-defined (friendly) name for the API key.
+        rights:
           type: array
           items:
-            type: object
-            $ref: '#/components/schemas/v3Event'
+            $ref: '#/components/schemas/v3Right'
+          description: Rights that are granted to this API key.
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+    v3CreateLoginTokenResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: 'The token that can be used for logging in as the user.
+
+            This field is only present if a token was created by an admin user for a non-admin user.'
+    v3UserAccessUpdateAPIKeyBody:
+      type: object
+      properties:
+        user_ids:
+          type: object
+          properties:
+            email:
+              type: string
+              description: Secondary identifier, which can only be used in specific requests.
+        api_key:
+          type: object
+          properties:
+            key:
+              type: string
+              description: 'Immutable and unique secret value of the API key.
+
+                Generated by the Access Server.'
+            name:
+              type: string
+              description: User-defined (friendly) name for the API key.
+            rights:
+              type: array
+              items:
+                $ref: '#/components/schemas/v3Right'
+              description: Rights that are granted to this API key.
+            created_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+            expires_at:
+              type: string
+              format: date-time
+        field_mask:
+          type: string
+          description: The names of the api key fields that should be updated.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
