@@ -492,157 +492,39 @@ paths:
         required: true
 components:
   schemas:
-    v3GatewayVersionIdentifiers:
+    v3Gateways:
       type: object
       properties:
-        brand_id:
-          type: string
-        model_id:
-          type: string
-        hardware_version:
-          type: string
-        firmware_version:
-          type: string
-        runtime_version:
-          type: string
-      description: Identifies an end device model with version information.
-    v3GatewayRegistryCreateBody:
-      type: object
-      properties:
-        gateway:
-          $ref: '#/components/schemas/v3Gateway'
-        collaborator:
-          type: object
-          properties:
-            organization_ids:
-              type: object
-            user_ids:
-              $ref: '#/components/schemas/v3UserIdentifiers'
-          description: Collaborator to grant all rights on the newly created gateway.
-          title: Collaborator to grant all rights on the newly created gateway.
-    v3GatewayAntenna:
-      type: object
-      properties:
-        gain:
-          type: number
-          format: float
-          description: Antenna gain relative to the gateway, in dBi.
-        location:
-          $ref: '#/components/schemas/lorawanv3Location'
-          description: location is the antenna's location.
-        attributes:
-          type: object
-          additionalProperties:
-            type: string
-        placement:
-          $ref: '#/components/schemas/v3GatewayAntennaPlacement'
-      description: GatewayAntenna is the message that defines a gateway antenna.
-    lorawanv3GatewayIdentifiers:
-      type: object
-      properties:
-        gateway_id:
-          type: string
-        eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
-          description: Secondary identifier, which can only be used in specific requests.
-    v3ContactMethod:
-      type: string
-      enum:
-      - CONTACT_METHOD_OTHER
-      - CONTACT_METHOD_EMAIL
-      - CONTACT_METHOD_PHONE
-      default: CONTACT_METHOD_OTHER
-    v3ListGatewaysRequest:
-      type: object
-      properties:
-        collaborator:
-          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
-          description: 'By default we list all gateways the caller has rights on.
-
-            Set the user or the organization (not both) to instead list the gateways
-
-            where the user or organization is collaborator on.'
-        field_mask:
-          type: string
-          description: The names of the gateway fields that should be returned.
-        order:
-          type: string
-          description: 'Order the results by this field path (must be present in the field mask).
-
-            Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
-        limit:
-          type: integer
-          format: int64
-          description: Limit the number of results per page.
-        page:
-          type: integer
-          format: int64
-          description: Page number for pagination. 0 is interpreted as 1.
-        deleted:
-          type: boolean
-          description: Only return recently deleted gateways.
-        filters:
+        gateways:
           type: array
           items:
             type: object
-            $ref: '#/components/schemas/v3ListGatewaysRequestFilter'
-    v3Secret:
+            $ref: '#/components/schemas/v3Gateway'
+    v3GatewayClaimAuthenticationCode:
       type: object
       properties:
-        key_id:
+        secret:
+          $ref: '#/components/schemas/v3Secret'
+        valid_from:
           type: string
-          description: ID of the Key used to encrypt the secret.
-        value:
+          format: date-time
+        valid_to:
           type: string
-          format: byte
-      description: Secret contains a secret value. It also contains the ID of the Encryption key used to encrypt it.
-    lorawanv3Location:
+          format: date-time
+      description: Authentication code for claiming gateways.
+    googlerpcStatus:
       type: object
       properties:
-        latitude:
-          type: number
-          format: double
-          description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
-        longitude:
-          type: number
-          format: double
-          description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
-        altitude:
+        code:
           type: integer
           format: int32
-          description: The altitude (meters), where 0 is the mean sea level.
-        accuracy:
-          type: integer
-          format: int32
-          description: The accuracy of the location (meters).
-        source:
-          $ref: '#/components/schemas/v3LocationSource'
-          description: Source of the location information.
-    v3LocationSource:
-      type: string
-      enum:
-      - SOURCE_UNKNOWN
-      - SOURCE_GPS
-      - SOURCE_REGISTRY
-      - SOURCE_IP_GEOLOCATION
-      - SOURCE_WIFI_RSSI_GEOLOCATION
-      - SOURCE_BT_RSSI_GEOLOCATION
-      - SOURCE_LORA_RSSI_GEOLOCATION
-      - SOURCE_LORA_TDOA_GEOLOCATION
-      - SOURCE_COMBINED_GEOLOCATION
-      default: SOURCE_UNKNOWN
-      description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
-    v3UserIdentifiers:
-      type: object
-      properties:
-        user_id:
+        message:
           type: string
-          description: This ID shares namespace with organization IDs.
-        email:
-          type: string
-          description: Secondary identifier, which can only be used in specific requests.
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
     v3ContactType:
       type: string
       enum:
@@ -651,14 +533,6 @@ components:
       - CONTACT_TYPE_BILLING
       - CONTACT_TYPE_TECHNICAL
       default: CONTACT_TYPE_OTHER
-    v3DownlinkPathConstraint:
-      type: string
-      enum:
-      - DOWNLINK_PATH_CONSTRAINT_NONE
-      - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER
-      - DOWNLINK_PATH_CONSTRAINT_NEVER
-      default: DOWNLINK_PATH_CONSTRAINT_NONE
-      description: " - DOWNLINK_PATH_CONSTRAINT_NONE: Indicates that the gateway can be selected for downlink without constraints by the Network Server.\n - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER: Indicates that the gateway can be selected for downlink only if no other or better gateway can be selected.\n - DOWNLINK_PATH_CONSTRAINT_NEVER: Indicates that this gateway will never be selected for downlink, even if that results in no available downlink path."
     v3GatewayRegistryUpdateBody:
       type: object
       properties:
@@ -820,46 +694,94 @@ components:
         field_mask:
           type: string
           description: The names of the gateway fields that should be updated.
-    v3GatewayClaimAuthenticationCode:
+    v3GatewayRegistryCreateBody:
       type: object
       properties:
-        secret:
-          $ref: '#/components/schemas/v3Secret'
-        valid_from:
-          type: string
-          format: date-time
-        valid_to:
-          type: string
-          format: date-time
-      description: Authentication code for claiming gateways.
-    GatewayLRFHSS:
+        gateway:
+          $ref: '#/components/schemas/v3Gateway'
+        collaborator:
+          type: object
+          properties:
+            organization_ids:
+              type: object
+            user_ids:
+              $ref: '#/components/schemas/v3UserIdentifiers'
+          description: Collaborator to grant all rights on the newly created gateway.
+          title: Collaborator to grant all rights on the newly created gateway.
+    v3ContactInfo:
       type: object
       properties:
-        supported:
+        contact_type:
+          $ref: '#/components/schemas/v3ContactType'
+        contact_method:
+          $ref: '#/components/schemas/v3ContactMethod'
+        value:
+          type: string
+        public:
           type: boolean
-          description: The gateway supports the LR-FHSS uplink channels.
-      description: LR-FHSS gateway capabilities.
-    v3OrganizationIdentifiers:
-      type: object
-      properties:
-        organization_id:
-          type: string
-          description: This ID shares namespace with user IDs.
-    v3OrganizationOrUserIdentifiers:
-      type: object
-      properties:
-        organization_ids:
-          $ref: '#/components/schemas/v3OrganizationIdentifiers'
-        user_ids:
-          $ref: '#/components/schemas/v3UserIdentifiers'
-      description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
-    v3ListGatewaysRequestFilter:
-      type: object
-      properties:
-        updated_since:
+        validated_at:
           type: string
           format: date-time
-      description: Filter gateways by fields.
+    v3ContactMethod:
+      type: string
+      enum:
+      - CONTACT_METHOD_OTHER
+      - CONTACT_METHOD_EMAIL
+      - CONTACT_METHOD_PHONE
+      default: CONTACT_METHOD_OTHER
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+      additionalProperties: {}
+      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    lorawanv3Location:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
+        longitude:
+          type: number
+          format: double
+          description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
+        altitude:
+          type: integer
+          format: int32
+          description: The altitude (meters), where 0 is the mean sea level.
+        accuracy:
+          type: integer
+          format: int32
+          description: The accuracy of the location (meters).
+        source:
+          $ref: '#/components/schemas/v3LocationSource'
+          description: Source of the location information.
+    v3UserIdentifiers:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: This ID shares namespace with organization IDs.
+        email:
+          type: string
+          description: Secondary identifier, which can only be used in specific requests.
+    v3LocationSource:
+      type: string
+      enum:
+      - SOURCE_UNKNOWN
+      - SOURCE_GPS
+      - SOURCE_REGISTRY
+      - SOURCE_IP_GEOLOCATION
+      - SOURCE_WIFI_RSSI_GEOLOCATION
+      - SOURCE_BT_RSSI_GEOLOCATION
+      - SOURCE_LORA_RSSI_GEOLOCATION
+      - SOURCE_LORA_TDOA_GEOLOCATION
+      - SOURCE_COMBINED_GEOLOCATION
+      default: SOURCE_UNKNOWN
+      description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
     v3Gateway:
       type: object
       properties:
@@ -1008,35 +930,97 @@ components:
         disable_packet_broker_forwarding:
           type: boolean
       description: Gateway is the message that defines a gateway on the network.
-    googlerpcStatus:
+    v3Secret:
       type: object
       properties:
-        code:
+        key_id:
+          type: string
+          description: ID of the Key used to encrypt the secret.
+        value:
+          type: string
+          format: byte
+      description: Secret contains a secret value. It also contains the ID of the Encryption key used to encrypt it.
+    v3ListGatewaysRequest:
+      type: object
+      properties:
+        collaborator:
+          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
+          description: 'By default we list all gateways the caller has rights on.
+
+            Set the user or the organization (not both) to instead list the gateways
+
+            where the user or organization is collaborator on.'
+        field_mask:
+          type: string
+          description: The names of the gateway fields that should be returned.
+        order:
+          type: string
+          description: 'Order the results by this field path (must be present in the field mask).
+
+            Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        limit:
           type: integer
-          format: int32
-        message:
-          type: string
-        details:
+          format: int64
+          description: Limit the number of results per page.
+        page:
+          type: integer
+          format: int64
+          description: Page number for pagination. 0 is interpreted as 1.
+        deleted:
+          type: boolean
+          description: Only return recently deleted gateways.
+        filters:
           type: array
           items:
             type: object
-            $ref: '#/components/schemas/protobufAny'
-    protobufAny:
+            $ref: '#/components/schemas/v3ListGatewaysRequestFilter'
+    lorawanv3GatewayIdentifiers:
       type: object
       properties:
-        '@type':
+        gateway_id:
           type: string
-          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
-      additionalProperties: {}
-      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
-    v3Gateways:
+        eui:
+          type: string
+          format: string
+          example: 70B3D57ED000ABCD
+          description: Secondary identifier, which can only be used in specific requests.
+    v3ListGatewaysRequestFilter:
       type: object
       properties:
-        gateways:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3Gateway'
+        updated_since:
+          type: string
+          format: date-time
+      description: Filter gateways by fields.
+    v3OrganizationIdentifiers:
+      type: object
+      properties:
+        organization_id:
+          type: string
+          description: This ID shares namespace with user IDs.
+    GatewayLRFHSS:
+      type: object
+      properties:
+        supported:
+          type: boolean
+          description: The gateway supports the LR-FHSS uplink channels.
+      description: LR-FHSS gateway capabilities.
+    v3GatewayAntenna:
+      type: object
+      properties:
+        gain:
+          type: number
+          format: float
+          description: Antenna gain relative to the gateway, in dBi.
+        location:
+          $ref: '#/components/schemas/lorawanv3Location'
+          description: location is the antenna's location.
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+        placement:
+          $ref: '#/components/schemas/v3GatewayAntennaPlacement'
+      description: GatewayAntenna is the message that defines a gateway antenna.
     v3GatewayAntennaPlacement:
       type: string
       enum:
@@ -1044,20 +1028,36 @@ components:
       - INDOOR
       - OUTDOOR
       default: PLACEMENT_UNKNOWN
-    v3ContactInfo:
+    v3OrganizationOrUserIdentifiers:
       type: object
       properties:
-        contact_type:
-          $ref: '#/components/schemas/v3ContactType'
-        contact_method:
-          $ref: '#/components/schemas/v3ContactMethod'
-        value:
+        organization_ids:
+          $ref: '#/components/schemas/v3OrganizationIdentifiers'
+        user_ids:
+          $ref: '#/components/schemas/v3UserIdentifiers'
+      description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+    v3GatewayVersionIdentifiers:
+      type: object
+      properties:
+        brand_id:
           type: string
-        public:
-          type: boolean
-        validated_at:
+        model_id:
           type: string
-          format: date-time
+        hardware_version:
+          type: string
+        firmware_version:
+          type: string
+        runtime_version:
+          type: string
+      description: Identifies an end device model with version information.
+    v3DownlinkPathConstraint:
+      type: string
+      enum:
+      - DOWNLINK_PATH_CONSTRAINT_NONE
+      - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER
+      - DOWNLINK_PATH_CONSTRAINT_NEVER
+      default: DOWNLINK_PATH_CONSTRAINT_NONE
+      description: " - DOWNLINK_PATH_CONSTRAINT_NONE: Indicates that the gateway can be selected for downlink without constraints by the Network Server.\n - DOWNLINK_PATH_CONSTRAINT_PREFER_OTHER: Indicates that the gateway can be selected for downlink only if no other or better gateway can be selected.\n - DOWNLINK_PATH_CONSTRAINT_NEVER: Indicates that this gateway will never be selected for downlink, even if that results in no available downlink path."
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

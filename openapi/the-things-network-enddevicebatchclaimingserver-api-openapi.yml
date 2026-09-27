@@ -77,21 +77,14 @@ paths:
       - EndDeviceBatchClaimingServer
 components:
   schemas:
-    v3GetInfoByJoinEUIsResponse:
+    v3GetInfoByJoinEUIsRequest:
       type: object
       properties:
-        infos:
+        requests:
           type: array
           items:
             type: object
-            $ref: '#/components/schemas/v3GetInfoByJoinEUIResponse'
-    v3GetInfoByJoinEUIRequest:
-      type: object
-      properties:
-        join_eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
+            $ref: '#/components/schemas/v3GetInfoByJoinEUIRequest'
     protobufAny:
       type: object
       properties:
@@ -112,6 +105,11 @@ components:
           description: 'End devices that could not be unclaimed.
 
             The key is the device ID.'
+    v3ApplicationIdentifiers:
+      type: object
+      properties:
+        application_id:
+          type: string
     googlerpcStatus:
       type: object
       properties:
@@ -125,6 +123,13 @@ components:
           items:
             type: object
             $ref: '#/components/schemas/protobufAny'
+    v3GetInfoByJoinEUIRequest:
+      type: object
+      properties:
+        join_eui:
+          type: string
+          format: string
+          example: 70B3D57ED000ABCD
     v3ErrorDetails:
       type: object
       properties:
@@ -165,19 +170,6 @@ components:
       description: 'Error details that are communicated over gRPC (and HTTP) APIs.
 
         The messages (for translation) are stored as "error:<namespace>:<name>".'
-    v3ApplicationIdentifiers:
-      type: object
-      properties:
-        application_id:
-          type: string
-    v3GetInfoByJoinEUIsRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3GetInfoByJoinEUIRequest'
     v3GetInfoByJoinEUIResponse:
       type: object
       properties:
@@ -188,6 +180,14 @@ components:
         supports_claiming:
           type: boolean
           description: If set, this Join EUI is available for claiming on one of the configured Join Servers.
+    v3GetInfoByJoinEUIsResponse:
+      type: object
+      properties:
+        infos:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3GetInfoByJoinEUIResponse'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -464,47 +464,21 @@ paths:
         required: true
 components:
   schemas:
-    v3UserIdentifiers:
+    v3Applications:
       type: object
       properties:
-        user_id:
-          type: string
-          description: This ID shares namespace with organization IDs.
-        email:
-          type: string
-          description: Secondary identifier, which can only be used in specific requests.
-    v3ApplicationIdentifiers:
-      type: object
-      properties:
-        application_id:
-          type: string
-    v3ApplicationRegistryCreateBody:
-      type: object
-      properties:
-        application:
-          $ref: '#/components/schemas/v3Application'
-        collaborator:
-          type: object
-          properties:
-            organization_ids:
-              type: object
-            user_ids:
-              $ref: '#/components/schemas/v3UserIdentifiers'
-          description: Collaborator to grant all rights on the newly created application.
-          title: Collaborator to grant all rights on the newly created application.
-    googlerpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
+        applications:
           type: array
           items:
             type: object
-            $ref: '#/components/schemas/protobufAny'
+            $ref: '#/components/schemas/v3Application'
+    v3ContactMethod:
+      type: string
+      enum:
+      - CONTACT_METHOD_OTHER
+      - CONTACT_METHOD_EMAIL
+      - CONTACT_METHOD_PHONE
+      default: CONTACT_METHOD_OTHER
     protobufAny:
       type: object
       properties:
@@ -513,149 +487,6 @@ components:
           description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
       additionalProperties: {}
       description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
-    v3ContactMethod:
-      type: string
-      enum:
-      - CONTACT_METHOD_OTHER
-      - CONTACT_METHOD_EMAIL
-      - CONTACT_METHOD_PHONE
-      default: CONTACT_METHOD_OTHER
-    v3ContactType:
-      type: string
-      enum:
-      - CONTACT_TYPE_OTHER
-      - CONTACT_TYPE_ABUSE
-      - CONTACT_TYPE_BILLING
-      - CONTACT_TYPE_TECHNICAL
-      default: CONTACT_TYPE_OTHER
-    v3IssueDevEUIResponse:
-      type: object
-      properties:
-        dev_eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
-    v3OrganizationIdentifiers:
-      type: object
-      properties:
-        organization_id:
-          type: string
-          description: This ID shares namespace with user IDs.
-    v3OrganizationOrUserIdentifiers:
-      type: object
-      properties:
-        organization_ids:
-          $ref: '#/components/schemas/v3OrganizationIdentifiers'
-        user_ids:
-          $ref: '#/components/schemas/v3UserIdentifiers'
-      description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
-    v3Application:
-      type: object
-      properties:
-        ids:
-          $ref: '#/components/schemas/v3ApplicationIdentifiers'
-          description: The identifiers of the application. These are public and can be seen by any authenticated user in the network.
-        created_at:
-          type: string
-          format: date-time
-          description: When the application was created. This information is public and can be seen by any authenticated user in the network.
-        updated_at:
-          type: string
-          format: date-time
-          description: When the application was last updated. This information is public and can be seen by any authenticated user in the network.
-        deleted_at:
-          type: string
-          format: date-time
-          description: When the application was deleted. This information is public and can be seen by any authenticated user in the network.
-        name:
-          type: string
-          description: The name of the application.
-        description:
-          type: string
-          description: A description for the application.
-        attributes:
-          type: object
-          additionalProperties:
-            type: string
-          description: Key-value attributes for this application. Typically used for organizing applications or for storing integration-specific data.
-        contact_info:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3ContactInfo'
-          description: 'Contact information for this application. Typically used to indicate who to contact with technical/security questions about the application.
-
-            This field is deprecated. Use administrative_contact and technical_contact instead.'
-        administrative_contact:
-          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
-        technical_contact:
-          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
-        network_server_address:
-          type: string
-          description: 'The address of the Network Server where this application is supposed to be registered.
-
-            If set, this fields indicates where end devices for this application should be registered.
-
-
-            Stored in Entity Registry.
-
-            The typical format of the address is "host:port". If the port is omitted,
-
-            the normal port inference (with DNS lookup, otherwise defaults) is used.
-
-            The connection shall be established with transport layer security (TLS).
-
-            Custom certificate authorities may be configured out-of-band.'
-        application_server_address:
-          type: string
-          description: 'The address of the Application Server where this application is supposed to be registered.
-
-            If set, this fields indicates where end devices for this application should be registered.
-
-
-            Stored in Entity Registry.
-
-            The typical format of the address is "host:port". If the port is omitted,
-
-            the normal port inference (with DNS lookup, otherwise defaults) is used.
-
-            The connection shall be established with transport layer security (TLS).
-
-            Custom certificate authorities may be configured out-of-band.'
-        join_server_address:
-          type: string
-          description: 'The address of the Join Server where this application is supposed to be registered.
-
-            If set, this fields indicates where end devices for this application should be registered.
-
-
-            Stored in Entity Registry.
-
-            The typical format of the address is "host:port". If the port is omitted,
-
-            the normal port inference (with DNS lookup, otherwise defaults) is used.
-
-            The connection shall be established with transport layer security (TLS).
-
-            Custom certificate authorities may be configured out-of-band.'
-        dev_eui_counter:
-          type: integer
-          format: int64
-      description: Application is the message that defines an Application in the network.
-    v3ContactInfo:
-      type: object
-      properties:
-        contact_type:
-          $ref: '#/components/schemas/v3ContactType'
-        contact_method:
-          $ref: '#/components/schemas/v3ContactMethod'
-        value:
-          type: string
-        public:
-          type: boolean
-        validated_at:
-          type: string
-          format: date-time
     v3ApplicationRegistryUpdateBody:
       type: object
       properties:
@@ -756,14 +587,183 @@ components:
         field_mask:
           type: string
           description: The names of the application fields that should be updated.
-    v3Applications:
+    v3OrganizationIdentifiers:
       type: object
       properties:
-        applications:
+        organization_id:
+          type: string
+          description: This ID shares namespace with user IDs.
+    v3ContactInfo:
+      type: object
+      properties:
+        contact_type:
+          $ref: '#/components/schemas/v3ContactType'
+        contact_method:
+          $ref: '#/components/schemas/v3ContactMethod'
+        value:
+          type: string
+        public:
+          type: boolean
+        validated_at:
+          type: string
+          format: date-time
+    v3ApplicationIdentifiers:
+      type: object
+      properties:
+        application_id:
+          type: string
+    v3ApplicationRegistryCreateBody:
+      type: object
+      properties:
+        application:
+          $ref: '#/components/schemas/v3Application'
+        collaborator:
+          type: object
+          properties:
+            organization_ids:
+              type: object
+            user_ids:
+              $ref: '#/components/schemas/v3UserIdentifiers'
+          description: Collaborator to grant all rights on the newly created application.
+          title: Collaborator to grant all rights on the newly created application.
+    googlerpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
           type: array
           items:
             type: object
-            $ref: '#/components/schemas/v3Application'
+            $ref: '#/components/schemas/protobufAny'
+    v3ContactType:
+      type: string
+      enum:
+      - CONTACT_TYPE_OTHER
+      - CONTACT_TYPE_ABUSE
+      - CONTACT_TYPE_BILLING
+      - CONTACT_TYPE_TECHNICAL
+      default: CONTACT_TYPE_OTHER
+    v3UserIdentifiers:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: This ID shares namespace with organization IDs.
+        email:
+          type: string
+          description: Secondary identifier, which can only be used in specific requests.
+    v3Application:
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/v3ApplicationIdentifiers'
+          description: The identifiers of the application. These are public and can be seen by any authenticated user in the network.
+        created_at:
+          type: string
+          format: date-time
+          description: When the application was created. This information is public and can be seen by any authenticated user in the network.
+        updated_at:
+          type: string
+          format: date-time
+          description: When the application was last updated. This information is public and can be seen by any authenticated user in the network.
+        deleted_at:
+          type: string
+          format: date-time
+          description: When the application was deleted. This information is public and can be seen by any authenticated user in the network.
+        name:
+          type: string
+          description: The name of the application.
+        description:
+          type: string
+          description: A description for the application.
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+          description: Key-value attributes for this application. Typically used for organizing applications or for storing integration-specific data.
+        contact_info:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3ContactInfo'
+          description: 'Contact information for this application. Typically used to indicate who to contact with technical/security questions about the application.
+
+            This field is deprecated. Use administrative_contact and technical_contact instead.'
+        administrative_contact:
+          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
+        technical_contact:
+          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
+        network_server_address:
+          type: string
+          description: 'The address of the Network Server where this application is supposed to be registered.
+
+            If set, this fields indicates where end devices for this application should be registered.
+
+
+            Stored in Entity Registry.
+
+            The typical format of the address is "host:port". If the port is omitted,
+
+            the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+            The connection shall be established with transport layer security (TLS).
+
+            Custom certificate authorities may be configured out-of-band.'
+        application_server_address:
+          type: string
+          description: 'The address of the Application Server where this application is supposed to be registered.
+
+            If set, this fields indicates where end devices for this application should be registered.
+
+
+            Stored in Entity Registry.
+
+            The typical format of the address is "host:port". If the port is omitted,
+
+            the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+            The connection shall be established with transport layer security (TLS).
+
+            Custom certificate authorities may be configured out-of-band.'
+        join_server_address:
+          type: string
+          description: 'The address of the Join Server where this application is supposed to be registered.
+
+            If set, this fields indicates where end devices for this application should be registered.
+
+
+            Stored in Entity Registry.
+
+            The typical format of the address is "host:port". If the port is omitted,
+
+            the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+            The connection shall be established with transport layer security (TLS).
+
+            Custom certificate authorities may be configured out-of-band.'
+        dev_eui_counter:
+          type: integer
+          format: int64
+      description: Application is the message that defines an Application in the network.
+    v3IssueDevEUIResponse:
+      type: object
+      properties:
+        dev_eui:
+          type: string
+          format: string
+          example: 70B3D57ED000ABCD
+    v3OrganizationOrUserIdentifiers:
+      type: object
+      properties:
+        organization_ids:
+          $ref: '#/components/schemas/v3OrganizationIdentifiers'
+        user_ids:
+          $ref: '#/components/schemas/v3UserIdentifiers'
+      description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
