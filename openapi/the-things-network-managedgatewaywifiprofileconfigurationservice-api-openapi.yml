@@ -464,6 +464,48 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    v3ManagedGatewayNetworkInterfaceAddresses:
+      type: object
+      properties:
+        ip_addresses:
+          type: string
+          example:
+          - 192.0.2.0
+          - 2001:db8::1
+          items:
+            type: string
+            format: string
+        subnet_mask:
+          type: string
+          format: string
+          example: 192.0.2.0
+        gateway:
+          type: string
+          format: string
+          example: 192.0.2.0
+        dns_servers:
+          type: string
+          example:
+          - 192.0.2.0
+          - 192.0.2.1
+          items:
+            type: string
+            format: string
+    v3ManagedGatewayWiFiProfile:
+      type: object
+      properties:
+        profile_id:
+          type: string
+        profile_name:
+          type: string
+        shared:
+          type: boolean
+        ssid:
+          type: string
+        password:
+          type: string
+        network_interface_addresses:
+          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceAddresses'
     v3ManagedGatewayWiFiProfileConfigurationServiceCreateBody:
       type: object
       properties:
@@ -526,6 +568,14 @@ components:
         organization_id:
           type: string
           description: This ID shares namespace with user IDs.
+    v3ManagedGatewayWiFiProfiles:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3ManagedGatewayWiFiProfile'
     googlerpcStatus:
       type: object
       properties:
@@ -539,56 +589,6 @@ components:
           items:
             type: object
             $ref: '#/components/schemas/protobufAny'
-    v3ManagedGatewayNetworkInterfaceAddresses:
-      type: object
-      properties:
-        ip_addresses:
-          type: string
-          example:
-          - 192.0.2.0
-          - 2001:db8::1
-          items:
-            type: string
-            format: string
-        subnet_mask:
-          type: string
-          format: string
-          example: 192.0.2.0
-        gateway:
-          type: string
-          format: string
-          example: 192.0.2.0
-        dns_servers:
-          type: string
-          example:
-          - 192.0.2.0
-          - 192.0.2.1
-          items:
-            type: string
-            format: string
-    v3ManagedGatewayWiFiProfile:
-      type: object
-      properties:
-        profile_id:
-          type: string
-        profile_name:
-          type: string
-        shared:
-          type: boolean
-        ssid:
-          type: string
-        password:
-          type: string
-        network_interface_addresses:
-          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceAddresses'
-    v3ManagedGatewayWiFiProfiles:
-      type: object
-      properties:
-        profiles:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3ManagedGatewayWiFiProfile'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

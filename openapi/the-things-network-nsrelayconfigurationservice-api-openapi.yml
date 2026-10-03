@@ -446,16 +446,47 @@ paths:
         required: true
 components:
   schemas:
-    v3RelaySettings:
+    v3RelayEndDeviceAlwaysMode:
+      type: object
+    v3RelayEndDeviceControlledMode:
+      type: object
+    protobufAny:
       type: object
       properties:
-        serving:
-          $ref: '#/components/schemas/v3ServingRelaySettings'
-        served:
-          $ref: '#/components/schemas/v3ServedRelaySettings'
-      description: 'RelaySettings represent the settings of a relay.
-
-        This is used internally by the Network Server.'
+        '@type':
+          type: string
+          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+      additionalProperties: {}
+      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    v3RelaySecondChAckOffset:
+      type: string
+      enum:
+      - RELAY_SECOND_CH_ACK_OFFSET_0
+      - RELAY_SECOND_CH_ACK_OFFSET_200
+      - RELAY_SECOND_CH_ACK_OFFSET_400
+      - RELAY_SECOND_CH_ACK_OFFSET_800
+      - RELAY_SECOND_CH_ACK_OFFSET_1600
+      - RELAY_SECOND_CH_ACK_OFFSET_3200
+      default: RELAY_SECOND_CH_ACK_OFFSET_0
+      title: "- RELAY_SECOND_CH_ACK_OFFSET_0: 0 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_200: 200 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_400: 400 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_800: 800 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_1600: 1.6 MHz\n - RELAY_SECOND_CH_ACK_OFFSET_3200: 3.2 MHz"
+    v3CreateRelayResponse:
+      type: object
+      properties:
+        settings:
+          $ref: '#/components/schemas/v3RelaySettings'
+          description: Relay configuration.
+    v3GetRelayResponse:
+      type: object
+      properties:
+        settings:
+          $ref: '#/components/schemas/v3RelaySettings'
+          description: Relay configuration.
+    v3UpdateRelayUplinkForwardingRuleResponse:
+      type: object
+      properties:
+        rule:
+          $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
+          description: Uplink forwarding rule.
     NsRelayConfigurationServiceCreateRelayUplinkForwardingRuleBody:
       type: object
       properties:
@@ -488,30 +519,14 @@ components:
         rule:
           $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
           description: Uplink forwarding rule.
-    v3RelaySecondChannel:
+    v3RelayEndDeviceDynamicMode:
       type: object
       properties:
-        ack_offset:
-          $ref: '#/components/schemas/v3RelaySecondChAckOffset'
-          description: The frequency (Hz) offset used for the WOR acknowledgement.
-        data_rate_index:
-          $ref: '#/components/schemas/v3DataRateIndex'
-          description: The data rate index used by the WOR and WOR acknowledgement.
-        frequency:
-          type: string
-          format: uint64
-          description: The frequency (Hz) used by the wake on radio message.
-    v3RelayCADPeriodicity:
-      type: string
-      enum:
-      - RELAY_CAD_PERIODICITY_1_SECOND
-      - RELAY_CAD_PERIODICITY_500_MILLISECONDS
-      - RELAY_CAD_PERIODICITY_250_MILLISECONDS
-      - RELAY_CAD_PERIODICITY_100_MILLISECONDS
-      - RELAY_CAD_PERIODICITY_50_MILLISECONDS
-      - RELAY_CAD_PERIODICITY_20_MILLISECONDS
-      default: RELAY_CAD_PERIODICITY_1_SECOND
-      title: '- RELAY_CAD_PERIODICITY_20_MILLISECONDS: sic'
+        smart_enable_level:
+          $ref: '#/components/schemas/v3RelaySmartEnableLevel'
+          description: 'The number of consecutive uplinks without a valid downlink before the end device attempts
+
+            to use the relay mode to transmit messages.'
     v3ServingRelaySettings:
       type: object
       properties:
@@ -538,19 +553,25 @@ components:
           description: 'Configured forwarding limits.
 
             If unset, the default value from Network Server configuration will be used.'
-    googlerpcStatus:
+    v3RelayUplinkForwardingRule:
       type: object
       properties:
-        code:
+        limits:
+          $ref: '#/components/schemas/v3RelayUplinkForwardLimits'
+          description: 'Bucket configuration for the served end device.
+
+            If unset, no individual limits will apply to the end device, but the relay global limitations will apply.'
+        last_w_f_cnt:
           type: integer
-          format: int32
-        message:
+          format: int64
+          description: Last wake on radio frame counter used by the served end device.
+        device_id:
           type: string
-        details:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/protobufAny'
+          description: End device identifier of the served end device.
+        session_key_id:
+          type: string
+          format: byte
+          description: Session key ID of the session keys used to derive the root relay session key.
     NsRelayConfigurationServiceCreateRelayBody:
       type: object
       properties:
@@ -581,12 +602,102 @@ components:
         settings:
           $ref: '#/components/schemas/v3RelaySettings'
           description: Relay configuration.
+    v3ServingRelayForwardingLimits:
+      type: object
+      properties:
+        reset_behavior:
+          $ref: '#/components/schemas/v3RelayResetLimitCounter'
+          description: Reset behavior of the buckets upon limit update.
+        join_requests:
+          $ref: '#/components/schemas/v3RelayForwardLimits'
+          description: 'Bucket configuration for join requests.
+
+            If unset, no individual limits will apply to join requests, but the relay overall limitations will apply.'
+        notifications:
+          $ref: '#/components/schemas/v3RelayForwardLimits'
+          description: 'Bucket configuration for unknown device notifications.
+
+            If unset, no individual limits will apply to unknown end device notifications, but the relay overall
+
+            limitations will still apply.'
+        uplink_messages:
+          $ref: '#/components/schemas/v3RelayForwardLimits'
+          description: 'Bucket configuration for uplink messages across all served end devices.
+
+            If unset, no individual limits will apply to uplink messages across all served end devices, but the relay
+
+            overall limitations will still apply.'
+        overall:
+          $ref: '#/components/schemas/v3RelayForwardLimits'
+          description: 'Bucket configuration for all relay messages.
+
+            If unset, no overall limits will apply to the relay, but individual limitations will still apply.'
+    v3RelayResetLimitCounter:
+      type: string
+      enum:
+      - RELAY_RESET_LIMIT_COUNTER_ZERO
+      - RELAY_RESET_LIMIT_COUNTER_RELOAD_RATE
+      - RELAY_RESET_LIMIT_COUNTER_MAX_VALUE
+      - RELAY_RESET_LIMIT_COUNTER_NO_RESET
+      default: RELAY_RESET_LIMIT_COUNTER_ZERO
+    v3GetRelayUplinkForwardingRuleResponse:
+      type: object
+      properties:
+        rule:
+          $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
+          description: Uplink forwarding rule.
+    v3ListRelayUplinkForwardingRulesResponse:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
+          description: Uplink forwarding rules.
+    v3DeleteRelayResponse:
+      type: object
+    googlerpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
     v3UpdateRelayResponse:
       type: object
       properties:
         settings:
           $ref: '#/components/schemas/v3RelaySettings'
           description: Relay configuration.
+    v3DeleteRelayUplinkForwardingRuleResponse:
+      type: object
+    v3RelayCADPeriodicity:
+      type: string
+      enum:
+      - RELAY_CAD_PERIODICITY_1_SECOND
+      - RELAY_CAD_PERIODICITY_500_MILLISECONDS
+      - RELAY_CAD_PERIODICITY_250_MILLISECONDS
+      - RELAY_CAD_PERIODICITY_100_MILLISECONDS
+      - RELAY_CAD_PERIODICITY_50_MILLISECONDS
+      - RELAY_CAD_PERIODICITY_20_MILLISECONDS
+      default: RELAY_CAD_PERIODICITY_1_SECOND
+      title: '- RELAY_CAD_PERIODICITY_20_MILLISECONDS: sic'
+    v3RelayLimitBucketSize:
+      type: string
+      enum:
+      - RELAY_LIMIT_BUCKET_SIZE_1
+      - RELAY_LIMIT_BUCKET_SIZE_2
+      - RELAY_LIMIT_BUCKET_SIZE_4
+      - RELAY_LIMIT_BUCKET_SIZE_12
+      default: RELAY_LIMIT_BUCKET_SIZE_1
+      title: '- RELAY_LIMIT_BUCKET_SIZE_12: sic'
     NsRelayConfigurationServiceUpdateRelayBody:
       type: object
       properties:
@@ -618,64 +729,16 @@ components:
         field_mask:
           type: string
           description: Field mask of the fields to update.
-    v3RelayEndDeviceDynamicMode:
+    v3RelaySettings:
       type: object
       properties:
-        smart_enable_level:
-          $ref: '#/components/schemas/v3RelaySmartEnableLevel'
-          description: 'The number of consecutive uplinks without a valid downlink before the end device attempts
+        serving:
+          $ref: '#/components/schemas/v3ServingRelaySettings'
+        served:
+          $ref: '#/components/schemas/v3ServedRelaySettings'
+      description: 'RelaySettings represent the settings of a relay.
 
-            to use the relay mode to transmit messages.'
-    v3RelayResetLimitCounter:
-      type: string
-      enum:
-      - RELAY_RESET_LIMIT_COUNTER_ZERO
-      - RELAY_RESET_LIMIT_COUNTER_RELOAD_RATE
-      - RELAY_RESET_LIMIT_COUNTER_MAX_VALUE
-      - RELAY_RESET_LIMIT_COUNTER_NO_RESET
-      default: RELAY_RESET_LIMIT_COUNTER_ZERO
-    v3RelaySmartEnableLevel:
-      type: string
-      enum:
-      - RELAY_SMART_ENABLE_LEVEL_8
-      - RELAY_SMART_ENABLE_LEVEL_16
-      - RELAY_SMART_ENABLE_LEVEL_32
-      - RELAY_SMART_ENABLE_LEVEL_64
-      default: RELAY_SMART_ENABLE_LEVEL_8
-    v3CreateRelayResponse:
-      type: object
-      properties:
-        settings:
-          $ref: '#/components/schemas/v3RelaySettings'
-          description: Relay configuration.
-    v3RelayLimitBucketSize:
-      type: string
-      enum:
-      - RELAY_LIMIT_BUCKET_SIZE_1
-      - RELAY_LIMIT_BUCKET_SIZE_2
-      - RELAY_LIMIT_BUCKET_SIZE_4
-      - RELAY_LIMIT_BUCKET_SIZE_12
-      default: RELAY_LIMIT_BUCKET_SIZE_1
-      title: '- RELAY_LIMIT_BUCKET_SIZE_12: sic'
-    v3RelayUplinkForwardingRule:
-      type: object
-      properties:
-        limits:
-          $ref: '#/components/schemas/v3RelayUplinkForwardLimits'
-          description: 'Bucket configuration for the served end device.
-
-            If unset, no individual limits will apply to the end device, but the relay global limitations will apply.'
-        last_w_f_cnt:
-          type: integer
-          format: int64
-          description: Last wake on radio frame counter used by the served end device.
-        device_id:
-          type: string
-          description: End device identifier of the served end device.
-        session_key_id:
-          type: string
-          format: byte
-          description: Session key ID of the session keys used to derive the root relay session key.
+        This is used internally by the Network Server.'
     NsRelayConfigurationServiceUpdateRelayUplinkForwardingRuleBody:
       type: object
       properties:
@@ -707,114 +770,14 @@ components:
         field_mask:
           type: string
           description: Field mask of the fields to update.
-    v3DeleteRelayUplinkForwardingRuleResponse:
-      type: object
-    v3GetRelayUplinkForwardingRuleResponse:
-      type: object
-      properties:
-        rule:
-          $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
-          description: Uplink forwarding rule.
-    v3RelayEndDeviceControlledMode:
-      type: object
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
-      additionalProperties: {}
-      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
-    v3CreateRelayUplinkForwardingRuleResponse:
-      type: object
-      properties:
-        rule:
-          $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
-          description: Uplink forwarding rule.
-    v3UpdateRelayUplinkForwardingRuleResponse:
-      type: object
-      properties:
-        rule:
-          $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
-          description: Uplink forwarding rule.
-    v3ServingRelayForwardingLimits:
-      type: object
-      properties:
-        reset_behavior:
-          $ref: '#/components/schemas/v3RelayResetLimitCounter'
-          description: Reset behavior of the buckets upon limit update.
-        join_requests:
-          $ref: '#/components/schemas/v3RelayForwardLimits'
-          description: 'Bucket configuration for join requests.
-
-            If unset, no individual limits will apply to join requests, but the relay overall limitations will apply.'
-        notifications:
-          $ref: '#/components/schemas/v3RelayForwardLimits'
-          description: 'Bucket configuration for unknown device notifications.
-
-            If unset, no individual limits will apply to unknown end device notifications, but the relay overall
-
-            limitations will still apply.'
-        uplink_messages:
-          $ref: '#/components/schemas/v3RelayForwardLimits'
-          description: 'Bucket configuration for uplink messages across all served end devices.
-
-            If unset, no individual limits will apply to uplink messages across all served end devices, but the relay
-
-            overall limitations will still apply.'
-        overall:
-          $ref: '#/components/schemas/v3RelayForwardLimits'
-          description: 'Bucket configuration for all relay messages.
-
-            If unset, no overall limits will apply to the relay, but individual limitations will still apply.'
-    v3RelayForwardLimits:
-      type: object
-      properties:
-        bucket_size:
-          $ref: '#/components/schemas/v3RelayLimitBucketSize'
-          description: 'The multiplier used to compute the total bucket size for the limits.
-
-            The multiplier is multiplied by the reload rate in order to compute the total bucket size.'
-        reload_rate:
-          type: integer
-          format: int64
-          description: The number of tokens which are replenished in the bucket every hour.
-    v3RelaySecondChAckOffset:
+    v3RelaySmartEnableLevel:
       type: string
       enum:
-      - RELAY_SECOND_CH_ACK_OFFSET_0
-      - RELAY_SECOND_CH_ACK_OFFSET_200
-      - RELAY_SECOND_CH_ACK_OFFSET_400
-      - RELAY_SECOND_CH_ACK_OFFSET_800
-      - RELAY_SECOND_CH_ACK_OFFSET_1600
-      - RELAY_SECOND_CH_ACK_OFFSET_3200
-      default: RELAY_SECOND_CH_ACK_OFFSET_0
-      title: "- RELAY_SECOND_CH_ACK_OFFSET_0: 0 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_200: 200 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_400: 400 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_800: 800 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_1600: 1.6 MHz\n - RELAY_SECOND_CH_ACK_OFFSET_3200: 3.2 MHz"
-    v3RelayUplinkForwardLimits:
-      type: object
-      properties:
-        bucket_size:
-          $ref: '#/components/schemas/v3RelayLimitBucketSize'
-          description: 'The multiplier used to compute the total bucket size for the limits.
-
-            The multiplier is multiplied by the reload rate in order to compute the total bucket size.'
-        reload_rate:
-          type: integer
-          format: int64
-          description: The number of tokens which are replenished in the bucket every hour.
-    v3RelayEndDeviceAlwaysMode:
-      type: object
-    v3ListRelayUplinkForwardingRulesResponse:
-      type: object
-      properties:
-        rules:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
-          description: Uplink forwarding rules.
-    v3DeleteRelayResponse:
-      type: object
+      - RELAY_SMART_ENABLE_LEVEL_8
+      - RELAY_SMART_ENABLE_LEVEL_16
+      - RELAY_SMART_ENABLE_LEVEL_32
+      - RELAY_SMART_ENABLE_LEVEL_64
+      default: RELAY_SMART_ENABLE_LEVEL_8
     v3DataRateIndex:
       type: string
       enum:
@@ -835,12 +798,49 @@ components:
       - DATA_RATE_14
       - DATA_RATE_15
       default: DATA_RATE_0
-    v3GetRelayResponse:
+    v3RelayForwardLimits:
       type: object
       properties:
-        settings:
-          $ref: '#/components/schemas/v3RelaySettings'
-          description: Relay configuration.
+        bucket_size:
+          $ref: '#/components/schemas/v3RelayLimitBucketSize'
+          description: 'The multiplier used to compute the total bucket size for the limits.
+
+            The multiplier is multiplied by the reload rate in order to compute the total bucket size.'
+        reload_rate:
+          type: integer
+          format: int64
+          description: The number of tokens which are replenished in the bucket every hour.
+    v3RelaySecondChannel:
+      type: object
+      properties:
+        ack_offset:
+          $ref: '#/components/schemas/v3RelaySecondChAckOffset'
+          description: The frequency (Hz) offset used for the WOR acknowledgement.
+        data_rate_index:
+          $ref: '#/components/schemas/v3DataRateIndex'
+          description: The data rate index used by the WOR and WOR acknowledgement.
+        frequency:
+          type: string
+          format: uint64
+          description: The frequency (Hz) used by the wake on radio message.
+    v3RelayUplinkForwardLimits:
+      type: object
+      properties:
+        bucket_size:
+          $ref: '#/components/schemas/v3RelayLimitBucketSize'
+          description: 'The multiplier used to compute the total bucket size for the limits.
+
+            The multiplier is multiplied by the reload rate in order to compute the total bucket size.'
+        reload_rate:
+          type: integer
+          format: int64
+          description: The number of tokens which are replenished in the bucket every hour.
+    v3CreateRelayUplinkForwardingRuleResponse:
+      type: object
+      properties:
+        rule:
+          $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
+          description: Uplink forwarding rule.
     v3ServedRelaySettings:
       type: object
       properties:

@@ -159,126 +159,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ManagedGatewayConfigurationServiceScanWiFiAccessPointsBody:
-      type: object
-      properties:
-        eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
-          description: Secondary identifier, which can only be used in specific requests.
-    v3ManagedGatewayEventData:
-      type: object
-      properties:
-        entity:
-          $ref: '#/components/schemas/v3ManagedGateway'
-        location:
-          $ref: '#/components/schemas/lorawanv3Location'
-        system_status:
-          $ref: '#/components/schemas/v3ManagedGatewaySystemStatus'
-        controller_connection:
-          $ref: '#/components/schemas/v3ManagedGatewayControllerConnection'
-        gateway_server_connection:
-          $ref: '#/components/schemas/v3ManagedGatewayGatewayServerConnection'
-        cellular_backhaul:
-          $ref: '#/components/schemas/v3ManagedGatewayCellularBackhaul'
-        wifi_backhaul:
-          $ref: '#/components/schemas/v3ManagedGatewayWiFiBackhaul'
-        ethernet_backhaul:
-          $ref: '#/components/schemas/v3ManagedGatewayEthernetBackhaul'
-    googlerpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/protobufAny'
-    v3ManagedGatewayWiFiAccessPoint:
-      type: object
-      properties:
-        ssid:
-          type: string
-        bssid:
-          type: string
-          format: string
-          example: EC656E000100
-        channel:
-          type: integer
-          format: int64
-        authentication_mode:
-          type: string
-        rssi:
-          type: number
-          format: float
-    v3ManagedGatewayNetworkInterfaceType:
-      type: string
-      enum:
-      - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_UNSPECIFIED
-      - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_CELLULAR
-      - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_WIFI
-      - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_ETHERNET
-      default: MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_UNSPECIFIED
-    v3ManagedGatewaySystemStatus:
-      type: object
-      properties:
-        cpu_temperature:
-          type: number
-          format: float
-          description: CPU temperature (Celsius).
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
-      additionalProperties: {}
-      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
-    v3ManagedGatewayCellularBackhaul:
-      type: object
-      properties:
-        network_interface:
-          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceInfo'
-        operator:
-          type: string
-        rssi:
-          type: number
-          format: float
-    lorawanv3Location:
-      type: object
-      properties:
-        latitude:
-          type: number
-          format: double
-          description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
-        longitude:
-          type: number
-          format: double
-          description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
-        altitude:
-          type: integer
-          format: int32
-          description: The altitude (meters), where 0 is the mean sea level.
-        accuracy:
-          type: integer
-          format: int32
-          description: The accuracy of the location (meters).
-        source:
-          $ref: '#/components/schemas/v3LocationSource'
-          description: Source of the location information.
-    v3ManagedGatewayNetworkInterfaceStatus:
-      type: string
-      enum:
-      - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED
-      - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_DOWN
-      - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UP
-      - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_FAILED
-      default: MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED
     v3ManagedGatewayNetworkInterfaceAddresses:
       type: object
       properties:
@@ -306,26 +186,6 @@ components:
           items:
             type: string
             format: string
-    ManagedGatewayConfigurationServiceStreamEventsBody:
-      type: object
-      properties:
-        eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
-          description: Secondary identifier, which can only be used in specific requests.
-    v3ManagedGatewayGatewayServerConnection:
-      type: object
-      properties:
-        network_interface_type:
-          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceType'
-        address:
-          type: string
-    v3ManagedGatewayControllerConnection:
-      type: object
-      properties:
-        network_interface_type:
-          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceType'
     v3LocationSource:
       type: string
       enum:
@@ -340,48 +200,32 @@ components:
       - SOURCE_COMBINED_GEOLOCATION
       default: SOURCE_UNKNOWN
       description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
-    v3ManagedGatewayNetworkInterfaceInfo:
+    lorawanv3GatewayIdentifiers:
       type: object
       properties:
-        status:
-          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceStatus'
-        dhcp_enabled:
-          type: boolean
-        addresses:
-          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceAddresses'
-    v3GatewayVersionIdentifiers:
-      type: object
-      properties:
-        brand_id:
+        gateway_id:
           type: string
-        model_id:
-          type: string
-        hardware_version:
-          type: string
-        firmware_version:
-          type: string
-        runtime_version:
-          type: string
-      description: Identifies an end device model with version information.
-    v3ManagedGatewayWiFiBackhaul:
-      type: object
-      properties:
-        network_interface:
-          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceInfo'
-        ssid:
-          type: string
-        bssid:
+        eui:
           type: string
           format: string
-          example: EC656E000100
-        channel:
-          type: integer
-          format: int64
-        authentication_mode:
+          example: 70B3D57ED000ABCD
+          description: Secondary identifier, which can only be used in specific requests.
+    protobufAny:
+      type: object
+      properties:
+        '@type':
           type: string
-        rssi:
-          type: number
-          format: float
+          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+      additionalProperties: {}
+      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    v3ManagedGatewayNetworkInterfaceType:
+      type: string
+      enum:
+      - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_UNSPECIFIED
+      - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_CELLULAR
+      - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_WIFI
+      - MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_ETHERNET
+      default: MANAGED_GATEWAY_NETWORK_INTERFACE_TYPE_UNSPECIFIED
     v3ManagedGatewayConfigurationServiceUpdateBody:
       type: object
       properties:
@@ -417,24 +261,82 @@ components:
         field_mask:
           type: string
           description: The names of the gateway fields that should be updated.
-    lorawanv3GatewayIdentifiers:
+    v3ManagedGatewayNetworkInterfaceStatus:
+      type: string
+      enum:
+      - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED
+      - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_DOWN
+      - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UP
+      - MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_FAILED
+      default: MANAGED_GATEWAY_NETWORK_INTERFACE_STATUS_UNSPECIFIED
+    v3ManagedGatewayGatewayServerConnection:
       type: object
       properties:
-        gateway_id:
+        network_interface_type:
+          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceType'
+        address:
           type: string
+    v3ManagedGatewayNetworkInterfaceInfo:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceStatus'
+        dhcp_enabled:
+          type: boolean
+        addresses:
+          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceAddresses'
+    lorawanv3Location:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
+        longitude:
+          type: number
+          format: double
+          description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
+        altitude:
+          type: integer
+          format: int32
+          description: The altitude (meters), where 0 is the mean sea level.
+        accuracy:
+          type: integer
+          format: int32
+          description: The accuracy of the location (meters).
+        source:
+          $ref: '#/components/schemas/v3LocationSource'
+          description: Source of the location information.
+    v3ManagedGatewayWiFiAccessPoint:
+      type: object
+      properties:
+        ssid:
+          type: string
+        bssid:
+          type: string
+          format: string
+          example: EC656E000100
+        channel:
+          type: integer
+          format: int64
+        authentication_mode:
+          type: string
+        rssi:
+          type: number
+          format: float
+    v3ManagedGatewayEthernetBackhaul:
+      type: object
+      properties:
+        network_interface:
+          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceInfo'
+    ManagedGatewayConfigurationServiceScanWiFiAccessPointsBody:
+      type: object
+      properties:
         eui:
           type: string
           format: string
           example: 70B3D57ED000ABCD
           description: Secondary identifier, which can only be used in specific requests.
-    v3ManagedGatewayWiFiAccessPoints:
-      type: object
-      properties:
-        access_points:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3ManagedGatewayWiFiAccessPoint'
     v3ManagedGateway:
       type: object
       properties:
@@ -458,11 +360,109 @@ components:
           type: string
         ethernet_profile_id:
           type: string
-    v3ManagedGatewayEthernetBackhaul:
+    googlerpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
+    v3GatewayVersionIdentifiers:
+      type: object
+      properties:
+        brand_id:
+          type: string
+        model_id:
+          type: string
+        hardware_version:
+          type: string
+        firmware_version:
+          type: string
+        runtime_version:
+          type: string
+      description: Identifies an end device model with version information.
+    v3ManagedGatewayEventData:
+      type: object
+      properties:
+        entity:
+          $ref: '#/components/schemas/v3ManagedGateway'
+        location:
+          $ref: '#/components/schemas/lorawanv3Location'
+        system_status:
+          $ref: '#/components/schemas/v3ManagedGatewaySystemStatus'
+        controller_connection:
+          $ref: '#/components/schemas/v3ManagedGatewayControllerConnection'
+        gateway_server_connection:
+          $ref: '#/components/schemas/v3ManagedGatewayGatewayServerConnection'
+        cellular_backhaul:
+          $ref: '#/components/schemas/v3ManagedGatewayCellularBackhaul'
+        wifi_backhaul:
+          $ref: '#/components/schemas/v3ManagedGatewayWiFiBackhaul'
+        ethernet_backhaul:
+          $ref: '#/components/schemas/v3ManagedGatewayEthernetBackhaul'
+    ManagedGatewayConfigurationServiceStreamEventsBody:
+      type: object
+      properties:
+        eui:
+          type: string
+          format: string
+          example: 70B3D57ED000ABCD
+          description: Secondary identifier, which can only be used in specific requests.
+    v3ManagedGatewaySystemStatus:
+      type: object
+      properties:
+        cpu_temperature:
+          type: number
+          format: float
+          description: CPU temperature (Celsius).
+    v3ManagedGatewayWiFiBackhaul:
       type: object
       properties:
         network_interface:
           $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceInfo'
+        ssid:
+          type: string
+        bssid:
+          type: string
+          format: string
+          example: EC656E000100
+        channel:
+          type: integer
+          format: int64
+        authentication_mode:
+          type: string
+        rssi:
+          type: number
+          format: float
+    v3ManagedGatewayWiFiAccessPoints:
+      type: object
+      properties:
+        access_points:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3ManagedGatewayWiFiAccessPoint'
+    v3ManagedGatewayControllerConnection:
+      type: object
+      properties:
+        network_interface_type:
+          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceType'
+    v3ManagedGatewayCellularBackhaul:
+      type: object
+      properties:
+        network_interface:
+          $ref: '#/components/schemas/v3ManagedGatewayNetworkInterfaceInfo'
+        operator:
+          type: string
+        rssi:
+          type: number
+          format: float
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

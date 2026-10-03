@@ -492,14 +492,63 @@ paths:
         required: true
 components:
   schemas:
-    v3Gateways:
+    v3LocationSource:
+      type: string
+      enum:
+      - SOURCE_UNKNOWN
+      - SOURCE_GPS
+      - SOURCE_REGISTRY
+      - SOURCE_IP_GEOLOCATION
+      - SOURCE_WIFI_RSSI_GEOLOCATION
+      - SOURCE_BT_RSSI_GEOLOCATION
+      - SOURCE_LORA_RSSI_GEOLOCATION
+      - SOURCE_LORA_TDOA_GEOLOCATION
+      - SOURCE_COMBINED_GEOLOCATION
+      default: SOURCE_UNKNOWN
+      description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
+    v3GatewayAntenna:
       type: object
       properties:
-        gateways:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3Gateway'
+        gain:
+          type: number
+          format: float
+          description: Antenna gain relative to the gateway, in dBi.
+        location:
+          $ref: '#/components/schemas/lorawanv3Location'
+          description: location is the antenna's location.
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+        placement:
+          $ref: '#/components/schemas/v3GatewayAntennaPlacement'
+      description: GatewayAntenna is the message that defines a gateway antenna.
+    v3ContactType:
+      type: string
+      enum:
+      - CONTACT_TYPE_OTHER
+      - CONTACT_TYPE_ABUSE
+      - CONTACT_TYPE_BILLING
+      - CONTACT_TYPE_TECHNICAL
+      default: CONTACT_TYPE_OTHER
+    lorawanv3GatewayIdentifiers:
+      type: object
+      properties:
+        gateway_id:
+          type: string
+        eui:
+          type: string
+          format: string
+          example: 70B3D57ED000ABCD
+          description: Secondary identifier, which can only be used in specific requests.
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+      additionalProperties: {}
+      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
     v3GatewayClaimAuthenticationCode:
       type: object
       properties:
@@ -512,6 +561,76 @@ components:
           type: string
           format: date-time
       description: Authentication code for claiming gateways.
+    v3OrganizationIdentifiers:
+      type: object
+      properties:
+        organization_id:
+          type: string
+          description: This ID shares namespace with user IDs.
+    GatewayLRFHSS:
+      type: object
+      properties:
+        supported:
+          type: boolean
+          description: The gateway supports the LR-FHSS uplink channels.
+      description: LR-FHSS gateway capabilities.
+    lorawanv3Location:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
+        longitude:
+          type: number
+          format: double
+          description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
+        altitude:
+          type: integer
+          format: int32
+          description: The altitude (meters), where 0 is the mean sea level.
+        accuracy:
+          type: integer
+          format: int32
+          description: The accuracy of the location (meters).
+        source:
+          $ref: '#/components/schemas/v3LocationSource'
+          description: Source of the location information.
+    v3ContactMethod:
+      type: string
+      enum:
+      - CONTACT_METHOD_OTHER
+      - CONTACT_METHOD_EMAIL
+      - CONTACT_METHOD_PHONE
+      default: CONTACT_METHOD_OTHER
+    v3ListGatewaysRequestFilter:
+      type: object
+      properties:
+        updated_since:
+          type: string
+          format: date-time
+      description: Filter gateways by fields.
+    v3GatewayAntennaPlacement:
+      type: string
+      enum:
+      - PLACEMENT_UNKNOWN
+      - INDOOR
+      - OUTDOOR
+      default: PLACEMENT_UNKNOWN
+    v3GatewayVersionIdentifiers:
+      type: object
+      properties:
+        brand_id:
+          type: string
+        model_id:
+          type: string
+        hardware_version:
+          type: string
+        firmware_version:
+          type: string
+        runtime_version:
+          type: string
+      description: Identifies an end device model with version information.
     googlerpcStatus:
       type: object
       properties:
@@ -525,14 +644,251 @@ components:
           items:
             type: object
             $ref: '#/components/schemas/protobufAny'
-    v3ContactType:
-      type: string
-      enum:
-      - CONTACT_TYPE_OTHER
-      - CONTACT_TYPE_ABUSE
-      - CONTACT_TYPE_BILLING
-      - CONTACT_TYPE_TECHNICAL
-      default: CONTACT_TYPE_OTHER
+    v3OrganizationOrUserIdentifiers:
+      type: object
+      properties:
+        organization_ids:
+          $ref: '#/components/schemas/v3OrganizationIdentifiers'
+        user_ids:
+          $ref: '#/components/schemas/v3UserIdentifiers'
+      description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+    v3Secret:
+      type: object
+      properties:
+        key_id:
+          type: string
+          description: ID of the Key used to encrypt the secret.
+        value:
+          type: string
+          format: byte
+      description: Secret contains a secret value. It also contains the ID of the Encryption key used to encrypt it.
+    v3ContactInfo:
+      type: object
+      properties:
+        contact_type:
+          $ref: '#/components/schemas/v3ContactType'
+        contact_method:
+          $ref: '#/components/schemas/v3ContactMethod'
+        value:
+          type: string
+        public:
+          type: boolean
+        validated_at:
+          type: string
+          format: date-time
+    v3Gateway:
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/lorawanv3GatewayIdentifiers'
+          description: The identifiers of the gateway. These are public and can be seen by any authenticated user in the network.
+        created_at:
+          type: string
+          format: date-time
+          description: When the gateway was created. This information is public and can be seen by any authenticated user in the network.
+        updated_at:
+          type: string
+          format: date-time
+          description: When the gateway was last updated. This information is public and can be seen by any authenticated user in the network.
+        deleted_at:
+          type: string
+          format: date-time
+          description: When the gateway was deleted. This information is public and can be seen by any authenticated user in the network.
+        name:
+          type: string
+          description: The name of the gateway. This information is public and can be seen by any authenticated user in the network.
+        description:
+          type: string
+          description: A description for the gateway. This information is public and can be seen by any authenticated user in the network.
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+          description: Key-value attributes for this gateway. Typically used for organizing gateways or for storing integration-specific data.
+        contact_info:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3ContactInfo'
+          description: 'Contact information for this gateway. Typically used to indicate who to contact with technical/security questions about the gateway.
+
+            This field is deprecated. Use administrative_contact and technical_contact instead.'
+        administrative_contact:
+          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
+        technical_contact:
+          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
+        version_ids:
+          $ref: '#/components/schemas/v3GatewayVersionIdentifiers'
+        gateway_server_address:
+          type: string
+          description: 'The address of the Gateway Server to connect to.
+
+            This information is public and can be seen by any authenticated user in the network if status_public is true.
+
+            The typical format of the address is "scheme://host:port". The scheme is optional. If the port is omitted,
+
+            the normal port inference (with DNS lookup, otherwise defaults) is used.
+
+            The connection shall be established with transport layer security (TLS).
+
+            Custom certificate authorities may be configured out-of-band.'
+        auto_update:
+          type: boolean
+        update_channel:
+          type: string
+        frequency_plan_id:
+          type: string
+          description: 'Frequency plan ID of the gateway.
+
+            This information is public and can be seen by any authenticated user in the network.
+
+            DEPRECATED: use frequency_plan_ids.
+
+            This equals the first element of the frequency_plan_ids field.'
+        frequency_plan_ids:
+          type: array
+          items:
+            type: string
+          description: 'Frequency plan IDs of the gateway.
+
+            This information is public and can be seen by any authenticated user in the network.
+
+            The first element equals the frequency_plan_id field.'
+        antennas:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3GatewayAntenna'
+          description: Antennas of the gateway. Location information of the antennas is public and can be seen by any authenticated user in the network if location_public=true.
+        status_public:
+          type: boolean
+          description: The status of this gateway may be publicly displayed.
+        location_public:
+          type: boolean
+          description: The location of this gateway may be publicly displayed.
+        schedule_downlink_late:
+          type: boolean
+          description: 'Enable server-side buffering of downlink messages. This is recommended for gateways using the Semtech UDP Packet
+
+            Forwarder v2.x or older, as it does not feature a just-in-time queue. If enabled, the Gateway Server schedules the
+
+            downlink message late to the gateway so that it does not overwrite previously scheduled downlink messages that have
+
+            not been transmitted yet.'
+        enforce_duty_cycle:
+          type: boolean
+          description: 'Enforcing gateway duty cycle is recommended for all gateways to respect spectrum regulations. Disable enforcing the
+
+            duty cycle only in controlled research and development environments.'
+        downlink_path_constraint:
+          $ref: '#/components/schemas/v3DownlinkPathConstraint'
+        schedule_anytime_delay:
+          type: string
+          description: Adjust the time that GS schedules class C messages in advance. This is useful for gateways that have a known high latency backhaul, like 3G and satellite.
+        update_location_from_status:
+          type: boolean
+          description: Update the location of this gateway from status messages. This only works for gateways connecting with authentication; gateways connected over UDP are not supported.
+        lbs_lns_secret:
+          $ref: '#/components/schemas/v3Secret'
+          description: 'The LoRa Basics Station LNS secret.
+
+            This is either an auth token (such as an API Key) or a TLS private certificate.
+
+            Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+        claim_authentication_code:
+          $ref: '#/components/schemas/v3GatewayClaimAuthenticationCode'
+          description: 'The authentication code for gateway claiming.
+
+            Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.
+
+            The entire field must be used in RPCs since sub-fields are validated wrt to each other. Direct selection/update of sub-fields only are not allowed.
+
+            Use the top level field mask `claim_authentication_code` even when updating single fields.'
+        target_cups_uri:
+          type: string
+          description: 'CUPS URI for LoRa Basics Station CUPS redirection.
+
+            The CUPS Trust field will be automatically fetched from the cert chain presented by the target server.'
+        target_cups_key:
+          $ref: '#/components/schemas/v3Secret'
+          description: 'CUPS Key for LoRa Basics Station CUPS redirection.
+
+            If redirecting to another instance of TTS, use the CUPS API Key for the gateway on the target instance.
+
+            Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
+        require_authenticated_connection:
+          type: boolean
+          description: Require an authenticated gateway connection. This prevents the gateway from using the UDP protocol and requires authentication when using other protocols.
+        lrfhss:
+          $ref: '#/components/schemas/GatewayLRFHSS'
+        disable_packet_broker_forwarding:
+          type: boolean
+      description: Gateway is the message that defines a gateway on the network.
+    v3GatewayRegistryCreateBody:
+      type: object
+      properties:
+        gateway:
+          $ref: '#/components/schemas/v3Gateway'
+        collaborator:
+          type: object
+          properties:
+            organization_ids:
+              type: object
+            user_ids:
+              $ref: '#/components/schemas/v3UserIdentifiers'
+          description: Collaborator to grant all rights on the newly created gateway.
+          title: Collaborator to grant all rights on the newly created gateway.
+    v3ListGatewaysRequest:
+      type: object
+      properties:
+        collaborator:
+          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
+          description: 'By default we list all gateways the caller has rights on.
+
+            Set the user or the organization (not both) to instead list the gateways
+
+            where the user or organization is collaborator on.'
+        field_mask:
+          type: string
+          description: The names of the gateway fields that should be returned.
+        order:
+          type: string
+          description: 'Order the results by this field path (must be present in the field mask).
+
+            Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
+        limit:
+          type: integer
+          format: int64
+          description: Limit the number of results per page.
+        page:
+          type: integer
+          format: int64
+          description: Page number for pagination. 0 is interpreted as 1.
+        deleted:
+          type: boolean
+          description: Only return recently deleted gateways.
+        filters:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3ListGatewaysRequestFilter'
+    v3UserIdentifiers:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: This ID shares namespace with organization IDs.
+        email:
+          type: string
+          description: Secondary identifier, which can only be used in specific requests.
+    v3Gateways:
+      type: object
+      properties:
+        gateways:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3Gateway'
     v3GatewayRegistryUpdateBody:
       type: object
       properties:
@@ -694,362 +1050,6 @@ components:
         field_mask:
           type: string
           description: The names of the gateway fields that should be updated.
-    v3GatewayRegistryCreateBody:
-      type: object
-      properties:
-        gateway:
-          $ref: '#/components/schemas/v3Gateway'
-        collaborator:
-          type: object
-          properties:
-            organization_ids:
-              type: object
-            user_ids:
-              $ref: '#/components/schemas/v3UserIdentifiers'
-          description: Collaborator to grant all rights on the newly created gateway.
-          title: Collaborator to grant all rights on the newly created gateway.
-    v3ContactInfo:
-      type: object
-      properties:
-        contact_type:
-          $ref: '#/components/schemas/v3ContactType'
-        contact_method:
-          $ref: '#/components/schemas/v3ContactMethod'
-        value:
-          type: string
-        public:
-          type: boolean
-        validated_at:
-          type: string
-          format: date-time
-    v3ContactMethod:
-      type: string
-      enum:
-      - CONTACT_METHOD_OTHER
-      - CONTACT_METHOD_EMAIL
-      - CONTACT_METHOD_PHONE
-      default: CONTACT_METHOD_OTHER
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
-      additionalProperties: {}
-      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
-    lorawanv3Location:
-      type: object
-      properties:
-        latitude:
-          type: number
-          format: double
-          description: The North–South position (degrees; -90 to +90), where 0 is the equator, North pole is positive, South pole is negative.
-        longitude:
-          type: number
-          format: double
-          description: The East-West position (degrees; -180 to +180), where 0 is the Prime Meridian (Greenwich), East is positive , West is negative.
-        altitude:
-          type: integer
-          format: int32
-          description: The altitude (meters), where 0 is the mean sea level.
-        accuracy:
-          type: integer
-          format: int32
-          description: The accuracy of the location (meters).
-        source:
-          $ref: '#/components/schemas/v3LocationSource'
-          description: Source of the location information.
-    v3UserIdentifiers:
-      type: object
-      properties:
-        user_id:
-          type: string
-          description: This ID shares namespace with organization IDs.
-        email:
-          type: string
-          description: Secondary identifier, which can only be used in specific requests.
-    v3LocationSource:
-      type: string
-      enum:
-      - SOURCE_UNKNOWN
-      - SOURCE_GPS
-      - SOURCE_REGISTRY
-      - SOURCE_IP_GEOLOCATION
-      - SOURCE_WIFI_RSSI_GEOLOCATION
-      - SOURCE_BT_RSSI_GEOLOCATION
-      - SOURCE_LORA_RSSI_GEOLOCATION
-      - SOURCE_LORA_TDOA_GEOLOCATION
-      - SOURCE_COMBINED_GEOLOCATION
-      default: SOURCE_UNKNOWN
-      description: " - SOURCE_UNKNOWN: The source of the location is not known or not set.\n - SOURCE_GPS: The location is determined by GPS.\n - SOURCE_REGISTRY: The location is set in and updated from a registry.\n - SOURCE_IP_GEOLOCATION: The location is estimated with IP geolocation.\n - SOURCE_WIFI_RSSI_GEOLOCATION: The location is estimated with WiFi RSSI geolocation.\n - SOURCE_BT_RSSI_GEOLOCATION: The location is estimated with BT/BLE RSSI geolocation.\n - SOURCE_LORA_RSSI_GEOLOCATION: The location is estimated with LoRa RSSI geolocation.\n - SOURCE_LORA_TDOA_GEOLOCATION: The location is estimated with LoRa TDOA geolocation.\n - SOURCE_COMBINED_GEOLOCATION: The location is estimated by a combination of geolocation sources.\n\nMore estimation methods can be added."
-    v3Gateway:
-      type: object
-      properties:
-        ids:
-          $ref: '#/components/schemas/lorawanv3GatewayIdentifiers'
-          description: The identifiers of the gateway. These are public and can be seen by any authenticated user in the network.
-        created_at:
-          type: string
-          format: date-time
-          description: When the gateway was created. This information is public and can be seen by any authenticated user in the network.
-        updated_at:
-          type: string
-          format: date-time
-          description: When the gateway was last updated. This information is public and can be seen by any authenticated user in the network.
-        deleted_at:
-          type: string
-          format: date-time
-          description: When the gateway was deleted. This information is public and can be seen by any authenticated user in the network.
-        name:
-          type: string
-          description: The name of the gateway. This information is public and can be seen by any authenticated user in the network.
-        description:
-          type: string
-          description: A description for the gateway. This information is public and can be seen by any authenticated user in the network.
-        attributes:
-          type: object
-          additionalProperties:
-            type: string
-          description: Key-value attributes for this gateway. Typically used for organizing gateways or for storing integration-specific data.
-        contact_info:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3ContactInfo'
-          description: 'Contact information for this gateway. Typically used to indicate who to contact with technical/security questions about the gateway.
-
-            This field is deprecated. Use administrative_contact and technical_contact instead.'
-        administrative_contact:
-          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
-        technical_contact:
-          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
-        version_ids:
-          $ref: '#/components/schemas/v3GatewayVersionIdentifiers'
-        gateway_server_address:
-          type: string
-          description: 'The address of the Gateway Server to connect to.
-
-            This information is public and can be seen by any authenticated user in the network if status_public is true.
-
-            The typical format of the address is "scheme://host:port". The scheme is optional. If the port is omitted,
-
-            the normal port inference (with DNS lookup, otherwise defaults) is used.
-
-            The connection shall be established with transport layer security (TLS).
-
-            Custom certificate authorities may be configured out-of-band.'
-        auto_update:
-          type: boolean
-        update_channel:
-          type: string
-        frequency_plan_id:
-          type: string
-          description: 'Frequency plan ID of the gateway.
-
-            This information is public and can be seen by any authenticated user in the network.
-
-            DEPRECATED: use frequency_plan_ids.
-
-            This equals the first element of the frequency_plan_ids field.'
-        frequency_plan_ids:
-          type: array
-          items:
-            type: string
-          description: 'Frequency plan IDs of the gateway.
-
-            This information is public and can be seen by any authenticated user in the network.
-
-            The first element equals the frequency_plan_id field.'
-        antennas:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3GatewayAntenna'
-          description: Antennas of the gateway. Location information of the antennas is public and can be seen by any authenticated user in the network if location_public=true.
-        status_public:
-          type: boolean
-          description: The status of this gateway may be publicly displayed.
-        location_public:
-          type: boolean
-          description: The location of this gateway may be publicly displayed.
-        schedule_downlink_late:
-          type: boolean
-          description: 'Enable server-side buffering of downlink messages. This is recommended for gateways using the Semtech UDP Packet
-
-            Forwarder v2.x or older, as it does not feature a just-in-time queue. If enabled, the Gateway Server schedules the
-
-            downlink message late to the gateway so that it does not overwrite previously scheduled downlink messages that have
-
-            not been transmitted yet.'
-        enforce_duty_cycle:
-          type: boolean
-          description: 'Enforcing gateway duty cycle is recommended for all gateways to respect spectrum regulations. Disable enforcing the
-
-            duty cycle only in controlled research and development environments.'
-        downlink_path_constraint:
-          $ref: '#/components/schemas/v3DownlinkPathConstraint'
-        schedule_anytime_delay:
-          type: string
-          description: Adjust the time that GS schedules class C messages in advance. This is useful for gateways that have a known high latency backhaul, like 3G and satellite.
-        update_location_from_status:
-          type: boolean
-          description: Update the location of this gateway from status messages. This only works for gateways connecting with authentication; gateways connected over UDP are not supported.
-        lbs_lns_secret:
-          $ref: '#/components/schemas/v3Secret'
-          description: 'The LoRa Basics Station LNS secret.
-
-            This is either an auth token (such as an API Key) or a TLS private certificate.
-
-            Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
-        claim_authentication_code:
-          $ref: '#/components/schemas/v3GatewayClaimAuthenticationCode'
-          description: 'The authentication code for gateway claiming.
-
-            Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.
-
-            The entire field must be used in RPCs since sub-fields are validated wrt to each other. Direct selection/update of sub-fields only are not allowed.
-
-            Use the top level field mask `claim_authentication_code` even when updating single fields.'
-        target_cups_uri:
-          type: string
-          description: 'CUPS URI for LoRa Basics Station CUPS redirection.
-
-            The CUPS Trust field will be automatically fetched from the cert chain presented by the target server.'
-        target_cups_key:
-          $ref: '#/components/schemas/v3Secret'
-          description: 'CUPS Key for LoRa Basics Station CUPS redirection.
-
-            If redirecting to another instance of TTS, use the CUPS API Key for the gateway on the target instance.
-
-            Requires the RIGHT_GATEWAY_READ_SECRETS for reading and RIGHT_GATEWAY_WRITE_SECRETS for updating this value.'
-        require_authenticated_connection:
-          type: boolean
-          description: Require an authenticated gateway connection. This prevents the gateway from using the UDP protocol and requires authentication when using other protocols.
-        lrfhss:
-          $ref: '#/components/schemas/GatewayLRFHSS'
-        disable_packet_broker_forwarding:
-          type: boolean
-      description: Gateway is the message that defines a gateway on the network.
-    v3Secret:
-      type: object
-      properties:
-        key_id:
-          type: string
-          description: ID of the Key used to encrypt the secret.
-        value:
-          type: string
-          format: byte
-      description: Secret contains a secret value. It also contains the ID of the Encryption key used to encrypt it.
-    v3ListGatewaysRequest:
-      type: object
-      properties:
-        collaborator:
-          $ref: '#/components/schemas/v3OrganizationOrUserIdentifiers'
-          description: 'By default we list all gateways the caller has rights on.
-
-            Set the user or the organization (not both) to instead list the gateways
-
-            where the user or organization is collaborator on.'
-        field_mask:
-          type: string
-          description: The names of the gateway fields that should be returned.
-        order:
-          type: string
-          description: 'Order the results by this field path (must be present in the field mask).
-
-            Default ordering is by ID. Prepend with a minus (-) to reverse the order.'
-        limit:
-          type: integer
-          format: int64
-          description: Limit the number of results per page.
-        page:
-          type: integer
-          format: int64
-          description: Page number for pagination. 0 is interpreted as 1.
-        deleted:
-          type: boolean
-          description: Only return recently deleted gateways.
-        filters:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3ListGatewaysRequestFilter'
-    lorawanv3GatewayIdentifiers:
-      type: object
-      properties:
-        gateway_id:
-          type: string
-        eui:
-          type: string
-          format: string
-          example: 70B3D57ED000ABCD
-          description: Secondary identifier, which can only be used in specific requests.
-    v3ListGatewaysRequestFilter:
-      type: object
-      properties:
-        updated_since:
-          type: string
-          format: date-time
-      description: Filter gateways by fields.
-    v3OrganizationIdentifiers:
-      type: object
-      properties:
-        organization_id:
-          type: string
-          description: This ID shares namespace with user IDs.
-    GatewayLRFHSS:
-      type: object
-      properties:
-        supported:
-          type: boolean
-          description: The gateway supports the LR-FHSS uplink channels.
-      description: LR-FHSS gateway capabilities.
-    v3GatewayAntenna:
-      type: object
-      properties:
-        gain:
-          type: number
-          format: float
-          description: Antenna gain relative to the gateway, in dBi.
-        location:
-          $ref: '#/components/schemas/lorawanv3Location'
-          description: location is the antenna's location.
-        attributes:
-          type: object
-          additionalProperties:
-            type: string
-        placement:
-          $ref: '#/components/schemas/v3GatewayAntennaPlacement'
-      description: GatewayAntenna is the message that defines a gateway antenna.
-    v3GatewayAntennaPlacement:
-      type: string
-      enum:
-      - PLACEMENT_UNKNOWN
-      - INDOOR
-      - OUTDOOR
-      default: PLACEMENT_UNKNOWN
-    v3OrganizationOrUserIdentifiers:
-      type: object
-      properties:
-        organization_ids:
-          $ref: '#/components/schemas/v3OrganizationIdentifiers'
-        user_ids:
-          $ref: '#/components/schemas/v3UserIdentifiers'
-      description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
-    v3GatewayVersionIdentifiers:
-      type: object
-      properties:
-        brand_id:
-          type: string
-        model_id:
-          type: string
-        hardware_version:
-          type: string
-        firmware_version:
-          type: string
-        runtime_version:
-          type: string
-      description: Identifies an end device model with version information.
     v3DownlinkPathConstraint:
       type: string
       enum:

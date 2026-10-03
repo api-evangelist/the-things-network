@@ -464,14 +464,71 @@ paths:
         required: true
 components:
   schemas:
-    v3Applications:
+    v3UserIdentifiers:
       type: object
       properties:
-        applications:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3Application'
+        user_id:
+          type: string
+          description: This ID shares namespace with organization IDs.
+        email:
+          type: string
+          description: Secondary identifier, which can only be used in specific requests.
+    v3ContactType:
+      type: string
+      enum:
+      - CONTACT_TYPE_OTHER
+      - CONTACT_TYPE_ABUSE
+      - CONTACT_TYPE_BILLING
+      - CONTACT_TYPE_TECHNICAL
+      default: CONTACT_TYPE_OTHER
+    v3ApplicationRegistryCreateBody:
+      type: object
+      properties:
+        application:
+          $ref: '#/components/schemas/v3Application'
+        collaborator:
+          type: object
+          properties:
+            organization_ids:
+              type: object
+            user_ids:
+              $ref: '#/components/schemas/v3UserIdentifiers'
+          description: Collaborator to grant all rights on the newly created application.
+          title: Collaborator to grant all rights on the newly created application.
+    v3OrganizationOrUserIdentifiers:
+      type: object
+      properties:
+        organization_ids:
+          $ref: '#/components/schemas/v3OrganizationIdentifiers'
+        user_ids:
+          $ref: '#/components/schemas/v3UserIdentifiers'
+      description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+    v3IssueDevEUIResponse:
+      type: object
+      properties:
+        dev_eui:
+          type: string
+          format: string
+          example: 70B3D57ED000ABCD
+    v3ContactInfo:
+      type: object
+      properties:
+        contact_type:
+          $ref: '#/components/schemas/v3ContactType'
+        contact_method:
+          $ref: '#/components/schemas/v3ContactMethod'
+        value:
+          type: string
+        public:
+          type: boolean
+        validated_at:
+          type: string
+          format: date-time
+    v3ApplicationIdentifiers:
+      type: object
+      properties:
+        application_id:
+          type: string
     v3ContactMethod:
       type: string
       enum:
@@ -587,75 +644,14 @@ components:
         field_mask:
           type: string
           description: The names of the application fields that should be updated.
-    v3OrganizationIdentifiers:
+    v3Applications:
       type: object
       properties:
-        organization_id:
-          type: string
-          description: This ID shares namespace with user IDs.
-    v3ContactInfo:
-      type: object
-      properties:
-        contact_type:
-          $ref: '#/components/schemas/v3ContactType'
-        contact_method:
-          $ref: '#/components/schemas/v3ContactMethod'
-        value:
-          type: string
-        public:
-          type: boolean
-        validated_at:
-          type: string
-          format: date-time
-    v3ApplicationIdentifiers:
-      type: object
-      properties:
-        application_id:
-          type: string
-    v3ApplicationRegistryCreateBody:
-      type: object
-      properties:
-        application:
-          $ref: '#/components/schemas/v3Application'
-        collaborator:
-          type: object
-          properties:
-            organization_ids:
-              type: object
-            user_ids:
-              $ref: '#/components/schemas/v3UserIdentifiers'
-          description: Collaborator to grant all rights on the newly created application.
-          title: Collaborator to grant all rights on the newly created application.
-    googlerpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
+        applications:
           type: array
           items:
             type: object
-            $ref: '#/components/schemas/protobufAny'
-    v3ContactType:
-      type: string
-      enum:
-      - CONTACT_TYPE_OTHER
-      - CONTACT_TYPE_ABUSE
-      - CONTACT_TYPE_BILLING
-      - CONTACT_TYPE_TECHNICAL
-      default: CONTACT_TYPE_OTHER
-    v3UserIdentifiers:
-      type: object
-      properties:
-        user_id:
-          type: string
-          description: This ID shares namespace with organization IDs.
-        email:
-          type: string
-          description: Secondary identifier, which can only be used in specific requests.
+            $ref: '#/components/schemas/v3Application'
     v3Application:
       type: object
       properties:
@@ -749,21 +745,25 @@ components:
           type: integer
           format: int64
       description: Application is the message that defines an Application in the network.
-    v3IssueDevEUIResponse:
+    v3OrganizationIdentifiers:
       type: object
       properties:
-        dev_eui:
+        organization_id:
           type: string
-          format: string
-          example: 70B3D57ED000ABCD
-    v3OrganizationOrUserIdentifiers:
+          description: This ID shares namespace with user IDs.
+    googlerpcStatus:
       type: object
       properties:
-        organization_ids:
-          $ref: '#/components/schemas/v3OrganizationIdentifiers'
-        user_ids:
-          $ref: '#/components/schemas/v3UserIdentifiers'
-      description: OrganizationOrUserIdentifiers contains either organization or user identifiers.
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
