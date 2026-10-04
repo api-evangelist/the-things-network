@@ -68,33 +68,6 @@ paths:
         required: true
 components:
   schemas:
-    v3UserIdentifiers:
-      type: object
-      properties:
-        user_id:
-          type: string
-          description: This ID shares namespace with organization IDs.
-        email:
-          type: string
-          description: Secondary identifier, which can only be used in specific requests.
-    v3EmailValidation:
-      type: object
-      properties:
-        id:
-          type: string
-        token:
-          type: string
-        address:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        expires_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
     protobufAny:
       type: object
       properties:
@@ -123,6 +96,33 @@ components:
           items:
             type: object
             $ref: '#/components/schemas/protobufAny'
+    v3EmailValidation:
+      type: object
+      properties:
+        id:
+          type: string
+        token:
+          type: string
+        address:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    v3UserIdentifiers:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: This ID shares namespace with organization IDs.
+        email:
+          type: string
+          description: Secondary identifier, which can only be used in specific requests.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

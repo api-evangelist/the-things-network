@@ -149,51 +149,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    v3PayloadFormatter:
+    PubSubProvidersStatus:
       type: string
       enum:
-      - FORMATTER_NONE
-      - FORMATTER_REPOSITORY
-      - FORMATTER_GRPC_SERVICE
-      - FORMATTER_JAVASCRIPT
-      - FORMATTER_CAYENNELPP
-      default: FORMATTER_NONE
-      description: " - FORMATTER_NONE: No payload formatter to work with raw payload only.\n - FORMATTER_REPOSITORY: Use payload formatter for the end device type from a repository.\n - FORMATTER_GRPC_SERVICE: gRPC service payload formatter. The parameter is the host:port of the service.\n - FORMATTER_JAVASCRIPT: Custom payload formatter that executes Javascript code. The parameter is a JavaScript filename.\n - FORMATTER_CAYENNELPP: CayenneLPP payload formatter.\n\nMore payload formatters can be added."
-    v3AsConfiguration:
-      type: object
-      properties:
-        pubsub:
-          $ref: '#/components/schemas/AsConfigurationPubSub'
-        webhooks:
-          $ref: '#/components/schemas/AsConfigurationWebhooks'
-      description: Application Server configuration.
-    AsConfigurationWebhooks:
-      type: object
-      properties:
-        unhealthy_attempts_threshold:
-          type: string
-          format: int64
-        unhealthy_retry_interval:
-          type: string
-    AsSetLinkBody:
-      type: object
-      properties:
-        application_ids:
-          type: object
-        link:
-          $ref: '#/components/schemas/v3ApplicationLink'
-        field_mask:
-          type: string
-    AsConfigurationPubSub:
-      type: object
-      properties:
-        providers:
-          $ref: '#/components/schemas/PubSubProviders'
-    v3GetAsConfigurationResponse:
-      type: object
-      properties:
-        configuration:
-          $ref: '#/components/schemas/v3AsConfiguration'
+      - ENABLED
+      - WARNING
+      - DISABLED
+      default: ENABLED
+      description: " - ENABLED: No restrictions are in place.\n - WARNING: Warnings are being emitted that the provider will be deprecated in the future.\n - DISABLED: New integrations cannot be set up, and old ones do not start."
     protobufAny:
       type: object
       properties:
@@ -215,13 +178,37 @@ components:
           description: 'Skip decryption of uplink payloads and encryption of downlink payloads.
 
             Leave empty for the using the Application Server''s default setting.'
-    PubSubProviders:
+    googlerpcStatus:
       type: object
       properties:
-        mqtt:
-          $ref: '#/components/schemas/PubSubProvidersStatus'
-        nats:
-          $ref: '#/components/schemas/PubSubProvidersStatus'
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
+    AsConfigurationWebhooks:
+      type: object
+      properties:
+        unhealthy_attempts_threshold:
+          type: string
+          format: int64
+        unhealthy_retry_interval:
+          type: string
+    v3PayloadFormatter:
+      type: string
+      enum:
+      - FORMATTER_NONE
+      - FORMATTER_REPOSITORY
+      - FORMATTER_GRPC_SERVICE
+      - FORMATTER_JAVASCRIPT
+      - FORMATTER_CAYENNELPP
+      default: FORMATTER_NONE
+      description: " - FORMATTER_NONE: No payload formatter to work with raw payload only.\n - FORMATTER_REPOSITORY: Use payload formatter for the end device type from a repository.\n - FORMATTER_GRPC_SERVICE: gRPC service payload formatter. The parameter is the host:port of the service.\n - FORMATTER_JAVASCRIPT: Custom payload formatter that executes Javascript code. The parameter is a JavaScript filename.\n - FORMATTER_CAYENNELPP: CayenneLPP payload formatter.\n\nMore payload formatters can be added."
     v3ApplicationLinkStats:
       type: object
       properties:
@@ -249,14 +236,33 @@ components:
           format: uint64
           description: Number of downlink messages forwarded.
       description: Link stats as monitored by the Application Server.
-    PubSubProvidersStatus:
-      type: string
-      enum:
-      - ENABLED
-      - WARNING
-      - DISABLED
-      default: ENABLED
-      description: " - ENABLED: No restrictions are in place.\n - WARNING: Warnings are being emitted that the provider will be deprecated in the future.\n - DISABLED: New integrations cannot be set up, and old ones do not start."
+    AsSetLinkBody:
+      type: object
+      properties:
+        application_ids:
+          type: object
+        link:
+          $ref: '#/components/schemas/v3ApplicationLink'
+        field_mask:
+          type: string
+    v3AsConfiguration:
+      type: object
+      properties:
+        pubsub:
+          $ref: '#/components/schemas/AsConfigurationPubSub'
+        webhooks:
+          $ref: '#/components/schemas/AsConfigurationWebhooks'
+      description: Application Server configuration.
+    AsConfigurationPubSub:
+      type: object
+      properties:
+        providers:
+          $ref: '#/components/schemas/PubSubProviders'
+    v3GetAsConfigurationResponse:
+      type: object
+      properties:
+        configuration:
+          $ref: '#/components/schemas/v3AsConfiguration'
     v3MessagePayloadFormatters:
       type: object
       properties:
@@ -272,19 +278,13 @@ components:
         down_formatter_parameter:
           type: string
           description: Parameter for the down_formatter, must be set together. The API enforces a maximum length of 64KB, but the size may be restricted further by deployment configuration.
-    googlerpcStatus:
+    PubSubProviders:
       type: object
       properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/protobufAny'
+        mqtt:
+          $ref: '#/components/schemas/PubSubProvidersStatus'
+        nats:
+          $ref: '#/components/schemas/PubSubProvidersStatus'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

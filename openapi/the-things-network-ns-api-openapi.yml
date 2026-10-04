@@ -128,542 +128,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    v3RelayEndDeviceAlwaysMode:
-      type: object
-    v3GetDeviceAdressPrefixesResponse:
-      type: object
-      properties:
-        dev_addr_prefixes:
-          type: array
-          example:
-          - 2600AB00/24
-          items:
-            type: string
-            format: byte
-    v3GetNetIDResponse:
-      type: object
-      properties:
-        net_id:
-          type: string
-          format: string
-          example: '000013'
-    v3RelayEndDeviceControlledMode:
-      type: object
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
-      additionalProperties: {}
-      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
-    v3PingSlotPeriod:
-      type: string
-      enum:
-      - PING_EVERY_1S
-      - PING_EVERY_2S
-      - PING_EVERY_4S
-      - PING_EVERY_8S
-      - PING_EVERY_16S
-      - PING_EVERY_32S
-      - PING_EVERY_64S
-      - PING_EVERY_128S
-      default: PING_EVERY_1S
-      description: " - PING_EVERY_1S: Every second.\n - PING_EVERY_2S: Every 2 seconds.\n - PING_EVERY_4S: Every 4 seconds.\n - PING_EVERY_8S: Every 8 seconds.\n - PING_EVERY_16S: Every 16 seconds.\n - PING_EVERY_32S: Every 32 seconds.\n - PING_EVERY_64S: Every 64 seconds.\n - PING_EVERY_128S: Every 128 seconds."
-    v3RelaySecondChAckOffset:
-      type: string
-      enum:
-      - RELAY_SECOND_CH_ACK_OFFSET_0
-      - RELAY_SECOND_CH_ACK_OFFSET_200
-      - RELAY_SECOND_CH_ACK_OFFSET_400
-      - RELAY_SECOND_CH_ACK_OFFSET_800
-      - RELAY_SECOND_CH_ACK_OFFSET_1600
-      - RELAY_SECOND_CH_ACK_OFFSET_3200
-      default: RELAY_SECOND_CH_ACK_OFFSET_0
-      title: "- RELAY_SECOND_CH_ACK_OFFSET_0: 0 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_200: 200 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_400: 400 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_800: 800 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_1600: 1.6 MHz\n - RELAY_SECOND_CH_ACK_OFFSET_3200: 3.2 MHz"
-    v3RxDelayValue:
-      type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/v3RxDelay'
-    v3AggregatedDutyCycle:
-      type: string
-      enum:
-      - DUTY_CYCLE_1
-      - DUTY_CYCLE_2
-      - DUTY_CYCLE_4
-      - DUTY_CYCLE_8
-      - DUTY_CYCLE_16
-      - DUTY_CYCLE_32
-      - DUTY_CYCLE_64
-      - DUTY_CYCLE_128
-      - DUTY_CYCLE_256
-      - DUTY_CYCLE_512
-      - DUTY_CYCLE_1024
-      - DUTY_CYCLE_2048
-      - DUTY_CYCLE_4096
-      - DUTY_CYCLE_8192
-      - DUTY_CYCLE_16384
-      - DUTY_CYCLE_32768
-      default: DUTY_CYCLE_1
-      description: " - DUTY_CYCLE_1: 100%.\n - DUTY_CYCLE_2: 50%.\n - DUTY_CYCLE_4: 25%.\n - DUTY_CYCLE_8: 12.5%.\n - DUTY_CYCLE_16: 6.25%.\n - DUTY_CYCLE_32: 3.125%.\n - DUTY_CYCLE_64: 1.5625%.\n - DUTY_CYCLE_128: Roughly 0.781%.\n - DUTY_CYCLE_256: Roughly 0.390%.\n - DUTY_CYCLE_512: Roughly 0.195%.\n - DUTY_CYCLE_1024: Roughly 0.098%.\n - DUTY_CYCLE_2048: Roughly 0.049%.\n - DUTY_CYCLE_4096: Roughly 0.024%.\n - DUTY_CYCLE_8192: Roughly 0.012%.\n - DUTY_CYCLE_16384: Roughly 0.006%.\n - DUTY_CYCLE_32768: Roughly 0.003%."
-    v3ADRAckDelayExponentValue:
-      type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/v3ADRAckDelayExponent'
-    DynamicModeChannelSteeringSettingsDisabledMode:
-      type: object
-      description: 'Configuration options for cases in which ADR is not supposed to steer the end device
-
-        to another set of channels.'
-    v3RelayEndDeviceDynamicMode:
-      type: object
-      properties:
-        smart_enable_level:
-          $ref: '#/components/schemas/v3RelaySmartEnableLevel'
-          description: 'The number of consecutive uplinks without a valid downlink before the end device attempts
-
-            to use the relay mode to transmit messages.'
-    v3ZeroableFrequencyValue:
-      type: object
-      properties:
-        value:
-          type: string
-          format: uint64
-    v3ServingRelaySettings:
-      type: object
-      properties:
-        second_channel:
-          $ref: '#/components/schemas/v3RelaySecondChannel'
-          description: Second wake on radio channel configuration.
-        default_channel_index:
-          type: integer
-          format: int64
-          description: 'Index of the default wake on radio channel.
-
-            If unset, the default value from Network Server configuration will be used.'
-        cad_periodicity:
-          $ref: '#/components/schemas/v3RelayCADPeriodicity'
-          description: Channel activity detection periodicity.
-        uplink_forwarding_rules:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
-          description: Configured uplink forwarding rules.
-        limits:
-          $ref: '#/components/schemas/v3ServingRelayForwardingLimits'
-          description: 'Configured forwarding limits.
-
-            If unset, the default value from Network Server configuration will be used.'
-    v3RelayUplinkForwardingRule:
-      type: object
-      properties:
-        limits:
-          $ref: '#/components/schemas/v3RelayUplinkForwardLimits'
-          description: 'Bucket configuration for the served end device.
-
-            If unset, no individual limits will apply to the end device, but the relay global limitations will apply.'
-        last_w_f_cnt:
-          type: integer
-          format: int64
-          description: Last wake on radio frame counter used by the served end device.
-        device_id:
-          type: string
-          description: End device identifier of the served end device.
-        session_key_id:
-          type: string
-          format: byte
-          description: Session key ID of the session keys used to derive the root relay session key.
-    v3ADRAckDelayExponent:
-      type: string
-      enum:
-      - ADR_ACK_DELAY_1
-      - ADR_ACK_DELAY_2
-      - ADR_ACK_DELAY_4
-      - ADR_ACK_DELAY_8
-      - ADR_ACK_DELAY_16
-      - ADR_ACK_DELAY_32
-      - ADR_ACK_DELAY_64
-      - ADR_ACK_DELAY_128
-      - ADR_ACK_DELAY_256
-      - ADR_ACK_DELAY_512
-      - ADR_ACK_DELAY_1024
-      - ADR_ACK_DELAY_2048
-      - ADR_ACK_DELAY_4096
-      - ADR_ACK_DELAY_8192
-      - ADR_ACK_DELAY_16384
-      - ADR_ACK_DELAY_32768
-      default: ADR_ACK_DELAY_1
-    v3ADRAckLimitExponentValue:
-      type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/v3ADRAckLimitExponent'
-    lorawanv3BoolValue:
-      type: object
-      properties:
-        value:
-          type: boolean
-    v3ServingRelayForwardingLimits:
-      type: object
-      properties:
-        reset_behavior:
-          $ref: '#/components/schemas/v3RelayResetLimitCounter'
-          description: Reset behavior of the buckets upon limit update.
-        join_requests:
-          $ref: '#/components/schemas/v3RelayForwardLimits'
-          description: 'Bucket configuration for join requests.
-
-            If unset, no individual limits will apply to join requests, but the relay overall limitations will apply.'
-        notifications:
-          $ref: '#/components/schemas/v3RelayForwardLimits'
-          description: 'Bucket configuration for unknown device notifications.
-
-            If unset, no individual limits will apply to unknown end device notifications, but the relay overall
-
-            limitations will still apply.'
-        uplink_messages:
-          $ref: '#/components/schemas/v3RelayForwardLimits'
-          description: 'Bucket configuration for uplink messages across all served end devices.
-
-            If unset, no individual limits will apply to uplink messages across all served end devices, but the relay
-
-            overall limitations will still apply.'
-        overall:
-          $ref: '#/components/schemas/v3RelayForwardLimits'
-          description: 'Bucket configuration for all relay messages.
-
-            If unset, no overall limits will apply to the relay, but individual limitations will still apply.'
-    v3RelayResetLimitCounter:
-      type: string
-      enum:
-      - RELAY_RESET_LIMIT_COUNTER_ZERO
-      - RELAY_RESET_LIMIT_COUNTER_RELOAD_RATE
-      - RELAY_RESET_LIMIT_COUNTER_MAX_VALUE
-      - RELAY_RESET_LIMIT_COUNTER_NO_RESET
-      default: RELAY_RESET_LIMIT_COUNTER_ZERO
-    ADRSettingsStaticMode:
-      type: object
-      properties:
-        data_rate_index:
-          $ref: '#/components/schemas/v3DataRateIndex'
-          description: Data rate index to use.
-        tx_power_index:
-          type: integer
-          format: int64
-          description: Transmission power index to use.
-        nb_trans:
-          type: integer
-          format: int64
-          description: Number of retransmissions.
-      description: Configuration options for static ADR.
-    googlerpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/protobufAny'
-    v3DataRateOffsetValue:
-      type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/v3DataRateOffset'
-    ChannelSteeringSettingsLoRaNarrowMode:
-      type: object
-      description: 'Configuration options for LoRa narrow channels steering.
-
-        The narrow mode attempts to steer the end device towards
-
-        using the LoRa modulated, 125kHz bandwidth channels.'
-    v3AggregatedDutyCycleValue:
-      type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/v3AggregatedDutyCycle'
-    v3DataRateOffset:
-      type: string
-      enum:
-      - DATA_RATE_OFFSET_0
-      - DATA_RATE_OFFSET_1
-      - DATA_RATE_OFFSET_2
-      - DATA_RATE_OFFSET_3
-      - DATA_RATE_OFFSET_4
-      - DATA_RATE_OFFSET_5
-      - DATA_RATE_OFFSET_6
-      - DATA_RATE_OFFSET_7
-      default: DATA_RATE_OFFSET_0
-    v3ADRAckLimitExponent:
-      type: string
-      enum:
-      - ADR_ACK_LIMIT_1
-      - ADR_ACK_LIMIT_2
-      - ADR_ACK_LIMIT_4
-      - ADR_ACK_LIMIT_8
-      - ADR_ACK_LIMIT_16
-      - ADR_ACK_LIMIT_32
-      - ADR_ACK_LIMIT_64
-      - ADR_ACK_LIMIT_128
-      - ADR_ACK_LIMIT_256
-      - ADR_ACK_LIMIT_512
-      - ADR_ACK_LIMIT_1024
-      - ADR_ACK_LIMIT_2048
-      - ADR_ACK_LIMIT_4096
-      - ADR_ACK_LIMIT_8192
-      - ADR_ACK_LIMIT_16384
-      - ADR_ACK_LIMIT_32768
-      default: ADR_ACK_LIMIT_1
-    DynamicModeChannelSteeringSettings:
-      type: object
-      properties:
-        lora_narrow:
-          $ref: '#/components/schemas/ChannelSteeringSettingsLoRaNarrowMode'
-        disabled:
-          $ref: '#/components/schemas/DynamicModeChannelSteeringSettingsDisabledMode'
-      description: 'EXPERIMENTAL: Channel steering settings.'
-    v3RelayCADPeriodicity:
-      type: string
-      enum:
-      - RELAY_CAD_PERIODICITY_1_SECOND
-      - RELAY_CAD_PERIODICITY_500_MILLISECONDS
-      - RELAY_CAD_PERIODICITY_250_MILLISECONDS
-      - RELAY_CAD_PERIODICITY_100_MILLISECONDS
-      - RELAY_CAD_PERIODICITY_50_MILLISECONDS
-      - RELAY_CAD_PERIODICITY_20_MILLISECONDS
-      default: RELAY_CAD_PERIODICITY_1_SECOND
-      title: '- RELAY_CAD_PERIODICITY_20_MILLISECONDS: sic'
-    v3GenerateDevAddrResponse:
-      type: object
-      properties:
-        dev_addr:
-          type: string
-          format: string
-          example: 2600ABCD
-      description: Response of GenerateDevAddr.
-    v3RelayLimitBucketSize:
-      type: string
-      enum:
-      - RELAY_LIMIT_BUCKET_SIZE_1
-      - RELAY_LIMIT_BUCKET_SIZE_2
-      - RELAY_LIMIT_BUCKET_SIZE_4
-      - RELAY_LIMIT_BUCKET_SIZE_12
-      default: RELAY_LIMIT_BUCKET_SIZE_1
-      title: '- RELAY_LIMIT_BUCKET_SIZE_12: sic'
-    DynamicModePerDataRateIndexOverride:
-      type: object
-      properties:
-        min_nb_trans:
-          type: integer
-          format: int64
-          description: 'Minimum number of retransmissions.
-
-            If unset, the default value from Network Server configuration will be used.'
-        max_nb_trans:
-          type: integer
-          format: int64
-          description: 'Maximum number of retransmissions.
-
-            If unset, the default value from Network Server configuration will be used.'
-      description: 'EXPERIMENTAL: Data rate index override settings.'
-    v3RelaySettings:
-      type: object
-      properties:
-        serving:
-          $ref: '#/components/schemas/v3ServingRelaySettings'
-        served:
-          $ref: '#/components/schemas/v3ServedRelaySettings'
-      description: 'RelaySettings represent the settings of a relay.
-
-        This is used internally by the Network Server.'
-    v3ADRSettings:
-      type: object
-      properties:
-        static:
-          $ref: '#/components/schemas/ADRSettingsStaticMode'
-        dynamic:
-          $ref: '#/components/schemas/ADRSettingsDynamicMode'
-        disabled:
-          $ref: '#/components/schemas/v3ADRSettingsDisabledMode'
-      description: Adaptive Data Rate settings.
-    ADRSettingsDynamicMode:
-      type: object
-      properties:
-        margin:
-          type: number
-          format: float
-          description: 'The ADR margin (dB) tells the network server how much margin it should add in ADR requests.
-
-            A bigger margin is less efficient, but gives a better chance of successful reception.
-
-            If unset, the default value from Network Server configuration will be used.'
-        min_data_rate_index:
-          $ref: '#/components/schemas/v3DataRateIndexValue'
-          description: 'Minimum data rate index.
-
-            If unset, the default value from Network Server configuration will be used.'
-        max_data_rate_index:
-          $ref: '#/components/schemas/v3DataRateIndexValue'
-          description: 'Maximum data rate index.
-
-            If unset, the default value from Network Server configuration will be used.'
-        min_tx_power_index:
-          type: integer
-          format: int64
-          description: 'Minimum transmission power index.
-
-            If unset, the default value from Network Server configuration will be used.'
-        max_tx_power_index:
-          type: integer
-          format: int64
-          description: 'Maximum transmission power index.
-
-            If unset, the default value from Network Server configuration will be used.'
-        min_nb_trans:
-          type: integer
-          format: int64
-          description: 'Minimum number of retransmissions.
-
-            If unset, the default value from Network Server configuration will be used.'
-        max_nb_trans:
-          type: integer
-          format: int64
-          description: 'Maximum number of retransmissions.
-
-            If unset, the default value from Network Server configuration will be used.'
-        channel_steering:
-          $ref: '#/components/schemas/DynamicModeChannelSteeringSettings'
-        overrides:
-          $ref: '#/components/schemas/DynamicModeOverrides'
-      description: Configuration options for dynamic ADR.
-    v3RelaySmartEnableLevel:
-      type: string
-      enum:
-      - RELAY_SMART_ENABLE_LEVEL_8
-      - RELAY_SMART_ENABLE_LEVEL_16
-      - RELAY_SMART_ENABLE_LEVEL_32
-      - RELAY_SMART_ENABLE_LEVEL_64
-      default: RELAY_SMART_ENABLE_LEVEL_8
-    DynamicModeOverrides:
-      type: object
-      properties:
-        data_rate_0:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_1:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_2:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_3:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_4:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_5:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_6:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_7:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_8:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_9:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_10:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_11:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_12:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_13:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_14:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-        data_rate_15:
-          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
-      description: 'EXPERIMENTAL: Configuration overrides.'
-    v3RxDelay:
-      type: string
-      enum:
-      - RX_DELAY_0
-      - RX_DELAY_1
-      - RX_DELAY_2
-      - RX_DELAY_3
-      - RX_DELAY_4
-      - RX_DELAY_5
-      - RX_DELAY_6
-      - RX_DELAY_7
-      - RX_DELAY_8
-      - RX_DELAY_9
-      - RX_DELAY_10
-      - RX_DELAY_11
-      - RX_DELAY_12
-      - RX_DELAY_13
-      - RX_DELAY_14
-      - RX_DELAY_15
-      default: RX_DELAY_0
-      description: " - RX_DELAY_0: 1 second.\n - RX_DELAY_1: 1 second.\n - RX_DELAY_2: 2 seconds.\n - RX_DELAY_3: 3 seconds.\n - RX_DELAY_4: 4 seconds.\n - RX_DELAY_5: 5 seconds.\n - RX_DELAY_6: 6 seconds.\n - RX_DELAY_7: 7 seconds.\n - RX_DELAY_8: 8 seconds.\n - RX_DELAY_9: 9 seconds.\n - RX_DELAY_10: 10 seconds.\n - RX_DELAY_11: 11 seconds.\n - RX_DELAY_12: 12 seconds.\n - RX_DELAY_13: 13 seconds.\n - RX_DELAY_14: 14 seconds.\n - RX_DELAY_15: 15 seconds."
-    v3DataRateIndex:
-      type: string
-      enum:
-      - DATA_RATE_0
-      - DATA_RATE_1
-      - DATA_RATE_2
-      - DATA_RATE_3
-      - DATA_RATE_4
-      - DATA_RATE_5
-      - DATA_RATE_6
-      - DATA_RATE_7
-      - DATA_RATE_8
-      - DATA_RATE_9
-      - DATA_RATE_10
-      - DATA_RATE_11
-      - DATA_RATE_12
-      - DATA_RATE_13
-      - DATA_RATE_14
-      - DATA_RATE_15
-      default: DATA_RATE_0
-    v3ADRSettingsDisabledMode:
-      type: object
-      description: 'Configuration options for cases in which ADR is to be disabled
-
-        completely.'
-    v3FrequencyValue:
-      type: object
-      properties:
-        value:
-          type: string
-          format: uint64
-    v3RelayForwardLimits:
-      type: object
-      properties:
-        bucket_size:
-          $ref: '#/components/schemas/v3RelayLimitBucketSize'
-          description: 'The multiplier used to compute the total bucket size for the limits.
-
-            The multiplier is multiplied by the reload rate in order to compute the total bucket size.'
-        reload_rate:
-          type: integer
-          format: int64
-          description: The number of tokens which are replenished in the bucket every hour.
-    v3RelaySecondChannel:
-      type: object
-      properties:
-        ack_offset:
-          $ref: '#/components/schemas/v3RelaySecondChAckOffset'
-          description: The frequency (Hz) offset used for the WOR acknowledgement.
-        data_rate_index:
-          $ref: '#/components/schemas/v3DataRateIndex'
-          description: The data rate index used by the WOR and WOR acknowledgement.
-        frequency:
-          type: string
-          format: uint64
-          description: The frequency (Hz) used by the wake on radio message.
     v3MACSettings:
       type: object
       properties:
@@ -852,6 +316,426 @@ components:
           description: 'The relay settings the Network Server should configure device to use via MAC commands.
 
             If unset, the default value from Network Server configuration or regional parameters specification will be used.'
+    v3ServingRelaySettings:
+      type: object
+      properties:
+        second_channel:
+          $ref: '#/components/schemas/v3RelaySecondChannel'
+          description: Second wake on radio channel configuration.
+        default_channel_index:
+          type: integer
+          format: int64
+          description: 'Index of the default wake on radio channel.
+
+            If unset, the default value from Network Server configuration will be used.'
+        cad_periodicity:
+          $ref: '#/components/schemas/v3RelayCADPeriodicity'
+          description: Channel activity detection periodicity.
+        uplink_forwarding_rules:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/v3RelayUplinkForwardingRule'
+          description: Configured uplink forwarding rules.
+        limits:
+          $ref: '#/components/schemas/v3ServingRelayForwardingLimits'
+          description: 'Configured forwarding limits.
+
+            If unset, the default value from Network Server configuration will be used.'
+    v3ADRAckDelayExponent:
+      type: string
+      enum:
+      - ADR_ACK_DELAY_1
+      - ADR_ACK_DELAY_2
+      - ADR_ACK_DELAY_4
+      - ADR_ACK_DELAY_8
+      - ADR_ACK_DELAY_16
+      - ADR_ACK_DELAY_32
+      - ADR_ACK_DELAY_64
+      - ADR_ACK_DELAY_128
+      - ADR_ACK_DELAY_256
+      - ADR_ACK_DELAY_512
+      - ADR_ACK_DELAY_1024
+      - ADR_ACK_DELAY_2048
+      - ADR_ACK_DELAY_4096
+      - ADR_ACK_DELAY_8192
+      - ADR_ACK_DELAY_16384
+      - ADR_ACK_DELAY_32768
+      default: ADR_ACK_DELAY_1
+    v3RelaySmartEnableLevel:
+      type: string
+      enum:
+      - RELAY_SMART_ENABLE_LEVEL_8
+      - RELAY_SMART_ENABLE_LEVEL_16
+      - RELAY_SMART_ENABLE_LEVEL_32
+      - RELAY_SMART_ENABLE_LEVEL_64
+      default: RELAY_SMART_ENABLE_LEVEL_8
+    ADRSettingsDynamicMode:
+      type: object
+      properties:
+        margin:
+          type: number
+          format: float
+          description: 'The ADR margin (dB) tells the network server how much margin it should add in ADR requests.
+
+            A bigger margin is less efficient, but gives a better chance of successful reception.
+
+            If unset, the default value from Network Server configuration will be used.'
+        min_data_rate_index:
+          $ref: '#/components/schemas/v3DataRateIndexValue'
+          description: 'Minimum data rate index.
+
+            If unset, the default value from Network Server configuration will be used.'
+        max_data_rate_index:
+          $ref: '#/components/schemas/v3DataRateIndexValue'
+          description: 'Maximum data rate index.
+
+            If unset, the default value from Network Server configuration will be used.'
+        min_tx_power_index:
+          type: integer
+          format: int64
+          description: 'Minimum transmission power index.
+
+            If unset, the default value from Network Server configuration will be used.'
+        max_tx_power_index:
+          type: integer
+          format: int64
+          description: 'Maximum transmission power index.
+
+            If unset, the default value from Network Server configuration will be used.'
+        min_nb_trans:
+          type: integer
+          format: int64
+          description: 'Minimum number of retransmissions.
+
+            If unset, the default value from Network Server configuration will be used.'
+        max_nb_trans:
+          type: integer
+          format: int64
+          description: 'Maximum number of retransmissions.
+
+            If unset, the default value from Network Server configuration will be used.'
+        channel_steering:
+          $ref: '#/components/schemas/DynamicModeChannelSteeringSettings'
+        overrides:
+          $ref: '#/components/schemas/DynamicModeOverrides'
+      description: Configuration options for dynamic ADR.
+    v3RelayEndDeviceDynamicMode:
+      type: object
+      properties:
+        smart_enable_level:
+          $ref: '#/components/schemas/v3RelaySmartEnableLevel'
+          description: 'The number of consecutive uplinks without a valid downlink before the end device attempts
+
+            to use the relay mode to transmit messages.'
+    v3RxDelay:
+      type: string
+      enum:
+      - RX_DELAY_0
+      - RX_DELAY_1
+      - RX_DELAY_2
+      - RX_DELAY_3
+      - RX_DELAY_4
+      - RX_DELAY_5
+      - RX_DELAY_6
+      - RX_DELAY_7
+      - RX_DELAY_8
+      - RX_DELAY_9
+      - RX_DELAY_10
+      - RX_DELAY_11
+      - RX_DELAY_12
+      - RX_DELAY_13
+      - RX_DELAY_14
+      - RX_DELAY_15
+      default: RX_DELAY_0
+      description: " - RX_DELAY_0: 1 second.\n - RX_DELAY_1: 1 second.\n - RX_DELAY_2: 2 seconds.\n - RX_DELAY_3: 3 seconds.\n - RX_DELAY_4: 4 seconds.\n - RX_DELAY_5: 5 seconds.\n - RX_DELAY_6: 6 seconds.\n - RX_DELAY_7: 7 seconds.\n - RX_DELAY_8: 8 seconds.\n - RX_DELAY_9: 9 seconds.\n - RX_DELAY_10: 10 seconds.\n - RX_DELAY_11: 11 seconds.\n - RX_DELAY_12: 12 seconds.\n - RX_DELAY_13: 13 seconds.\n - RX_DELAY_14: 14 seconds.\n - RX_DELAY_15: 15 seconds."
+    v3AggregatedDutyCycleValue:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/v3AggregatedDutyCycle'
+    v3ADRAckLimitExponentValue:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/v3ADRAckLimitExponent'
+    ChannelSteeringSettingsLoRaNarrowMode:
+      type: object
+      description: 'Configuration options for LoRa narrow channels steering.
+
+        The narrow mode attempts to steer the end device towards
+
+        using the LoRa modulated, 125kHz bandwidth channels.'
+    v3RelayEndDeviceAlwaysMode:
+      type: object
+    v3DeviceEIRPValue:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/v3DeviceEIRP'
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+          description: "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+      additionalProperties: {}
+      description: "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    googlerpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
+    v3ServingRelayForwardingLimits:
+      type: object
+      properties:
+        reset_behavior:
+          $ref: '#/components/schemas/v3RelayResetLimitCounter'
+          description: Reset behavior of the buckets upon limit update.
+        join_requests:
+          $ref: '#/components/schemas/v3RelayForwardLimits'
+          description: 'Bucket configuration for join requests.
+
+            If unset, no individual limits will apply to join requests, but the relay overall limitations will apply.'
+        notifications:
+          $ref: '#/components/schemas/v3RelayForwardLimits'
+          description: 'Bucket configuration for unknown device notifications.
+
+            If unset, no individual limits will apply to unknown end device notifications, but the relay overall
+
+            limitations will still apply.'
+        uplink_messages:
+          $ref: '#/components/schemas/v3RelayForwardLimits'
+          description: 'Bucket configuration for uplink messages across all served end devices.
+
+            If unset, no individual limits will apply to uplink messages across all served end devices, but the relay
+
+            overall limitations will still apply.'
+        overall:
+          $ref: '#/components/schemas/v3RelayForwardLimits'
+          description: 'Bucket configuration for all relay messages.
+
+            If unset, no overall limits will apply to the relay, but individual limitations will still apply.'
+    v3DataRateIndex:
+      type: string
+      enum:
+      - DATA_RATE_0
+      - DATA_RATE_1
+      - DATA_RATE_2
+      - DATA_RATE_3
+      - DATA_RATE_4
+      - DATA_RATE_5
+      - DATA_RATE_6
+      - DATA_RATE_7
+      - DATA_RATE_8
+      - DATA_RATE_9
+      - DATA_RATE_10
+      - DATA_RATE_11
+      - DATA_RATE_12
+      - DATA_RATE_13
+      - DATA_RATE_14
+      - DATA_RATE_15
+      default: DATA_RATE_0
+    v3DataRateOffset:
+      type: string
+      enum:
+      - DATA_RATE_OFFSET_0
+      - DATA_RATE_OFFSET_1
+      - DATA_RATE_OFFSET_2
+      - DATA_RATE_OFFSET_3
+      - DATA_RATE_OFFSET_4
+      - DATA_RATE_OFFSET_5
+      - DATA_RATE_OFFSET_6
+      - DATA_RATE_OFFSET_7
+      default: DATA_RATE_OFFSET_0
+    lorawanv3BoolValue:
+      type: object
+      properties:
+        value:
+          type: boolean
+    v3PingSlotPeriodValue:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/v3PingSlotPeriod'
+    v3DataRateIndexValue:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/v3DataRateIndex'
+    DynamicModeChannelSteeringSettingsDisabledMode:
+      type: object
+      description: 'Configuration options for cases in which ADR is not supposed to steer the end device
+
+        to another set of channels.'
+    DynamicModeOverrides:
+      type: object
+      properties:
+        data_rate_0:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_1:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_2:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_3:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_4:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_5:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_6:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_7:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_8:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_9:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_10:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_11:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_12:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_13:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_14:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+        data_rate_15:
+          $ref: '#/components/schemas/DynamicModePerDataRateIndexOverride'
+      description: 'EXPERIMENTAL: Configuration overrides.'
+    v3RelayCADPeriodicity:
+      type: string
+      enum:
+      - RELAY_CAD_PERIODICITY_1_SECOND
+      - RELAY_CAD_PERIODICITY_500_MILLISECONDS
+      - RELAY_CAD_PERIODICITY_250_MILLISECONDS
+      - RELAY_CAD_PERIODICITY_100_MILLISECONDS
+      - RELAY_CAD_PERIODICITY_50_MILLISECONDS
+      - RELAY_CAD_PERIODICITY_20_MILLISECONDS
+      default: RELAY_CAD_PERIODICITY_1_SECOND
+      title: '- RELAY_CAD_PERIODICITY_20_MILLISECONDS: sic'
+    v3RelayLimitBucketSize:
+      type: string
+      enum:
+      - RELAY_LIMIT_BUCKET_SIZE_1
+      - RELAY_LIMIT_BUCKET_SIZE_2
+      - RELAY_LIMIT_BUCKET_SIZE_4
+      - RELAY_LIMIT_BUCKET_SIZE_12
+      default: RELAY_LIMIT_BUCKET_SIZE_1
+      title: '- RELAY_LIMIT_BUCKET_SIZE_12: sic'
+    v3GetDeviceAdressPrefixesResponse:
+      type: object
+      properties:
+        dev_addr_prefixes:
+          type: array
+          example:
+          - 2600AB00/24
+          items:
+            type: string
+            format: byte
+    v3RelaySecondChAckOffset:
+      type: string
+      enum:
+      - RELAY_SECOND_CH_ACK_OFFSET_0
+      - RELAY_SECOND_CH_ACK_OFFSET_200
+      - RELAY_SECOND_CH_ACK_OFFSET_400
+      - RELAY_SECOND_CH_ACK_OFFSET_800
+      - RELAY_SECOND_CH_ACK_OFFSET_1600
+      - RELAY_SECOND_CH_ACK_OFFSET_3200
+      default: RELAY_SECOND_CH_ACK_OFFSET_0
+      title: "- RELAY_SECOND_CH_ACK_OFFSET_0: 0 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_200: 200 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_400: 400 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_800: 800 kHz\n - RELAY_SECOND_CH_ACK_OFFSET_1600: 1.6 MHz\n - RELAY_SECOND_CH_ACK_OFFSET_3200: 3.2 MHz"
+    v3RelayUplinkForwardLimits:
+      type: object
+      properties:
+        bucket_size:
+          $ref: '#/components/schemas/v3RelayLimitBucketSize'
+          description: 'The multiplier used to compute the total bucket size for the limits.
+
+            The multiplier is multiplied by the reload rate in order to compute the total bucket size.'
+        reload_rate:
+          type: integer
+          format: int64
+          description: The number of tokens which are replenished in the bucket every hour.
+    v3RelaySecondChannel:
+      type: object
+      properties:
+        ack_offset:
+          $ref: '#/components/schemas/v3RelaySecondChAckOffset'
+          description: The frequency (Hz) offset used for the WOR acknowledgement.
+        data_rate_index:
+          $ref: '#/components/schemas/v3DataRateIndex'
+          description: The data rate index used by the WOR and WOR acknowledgement.
+        frequency:
+          type: string
+          format: uint64
+          description: The frequency (Hz) used by the wake on radio message.
+    v3GetNetIDResponse:
+      type: object
+      properties:
+        net_id:
+          type: string
+          format: string
+          example: '000013'
+    v3ADRSettings:
+      type: object
+      properties:
+        static:
+          $ref: '#/components/schemas/ADRSettingsStaticMode'
+        dynamic:
+          $ref: '#/components/schemas/ADRSettingsDynamicMode'
+        disabled:
+          $ref: '#/components/schemas/v3ADRSettingsDisabledMode'
+      description: Adaptive Data Rate settings.
+    DynamicModePerDataRateIndexOverride:
+      type: object
+      properties:
+        min_nb_trans:
+          type: integer
+          format: int64
+          description: 'Minimum number of retransmissions.
+
+            If unset, the default value from Network Server configuration will be used.'
+        max_nb_trans:
+          type: integer
+          format: int64
+          description: 'Maximum number of retransmissions.
+
+            If unset, the default value from Network Server configuration will be used.'
+      description: 'EXPERIMENTAL: Data rate index override settings.'
+    v3RelayEndDeviceControlledMode:
+      type: object
+    DynamicModeChannelSteeringSettings:
+      type: object
+      properties:
+        lora_narrow:
+          $ref: '#/components/schemas/ChannelSteeringSettingsLoRaNarrowMode'
+        disabled:
+          $ref: '#/components/schemas/DynamicModeChannelSteeringSettingsDisabledMode'
+      description: 'EXPERIMENTAL: Channel steering settings.'
+    ADRSettingsStaticMode:
+      type: object
+      properties:
+        data_rate_index:
+          $ref: '#/components/schemas/v3DataRateIndex'
+          description: Data rate index to use.
+        tx_power_index:
+          type: integer
+          format: int64
+          description: Transmission power index to use.
+        nb_trans:
+          type: integer
+          format: int64
+          description: Number of retransmissions.
+      description: Configuration options for static ADR.
     v3DeviceEIRP:
       type: string
       enum:
@@ -873,33 +757,58 @@ components:
       - DEVICE_EIRP_36
       default: DEVICE_EIRP_8
       description: " - DEVICE_EIRP_8: 8 dBm.\n - DEVICE_EIRP_10: 10 dBm.\n - DEVICE_EIRP_12: 12 dBm.\n - DEVICE_EIRP_13: 13 dBm.\n - DEVICE_EIRP_14: 14 dBm.\n - DEVICE_EIRP_16: 16 dBm.\n - DEVICE_EIRP_18: 18 dBm.\n - DEVICE_EIRP_20: 20 dBm.\n - DEVICE_EIRP_21: 21 dBm.\n - DEVICE_EIRP_24: 24 dBm.\n - DEVICE_EIRP_26: 26 dBm.\n - DEVICE_EIRP_27: 27 dBm.\n - DEVICE_EIRP_29: 29 dBm.\n - DEVICE_EIRP_30: 30 dBm.\n - DEVICE_EIRP_33: 33 dBm.\n - DEVICE_EIRP_36: 36 dBm."
-    v3DataRateIndexValue:
+    v3RelayResetLimitCounter:
+      type: string
+      enum:
+      - RELAY_RESET_LIMIT_COUNTER_ZERO
+      - RELAY_RESET_LIMIT_COUNTER_RELOAD_RATE
+      - RELAY_RESET_LIMIT_COUNTER_MAX_VALUE
+      - RELAY_RESET_LIMIT_COUNTER_NO_RESET
+      default: RELAY_RESET_LIMIT_COUNTER_ZERO
+    v3ADRAckLimitExponent:
+      type: string
+      enum:
+      - ADR_ACK_LIMIT_1
+      - ADR_ACK_LIMIT_2
+      - ADR_ACK_LIMIT_4
+      - ADR_ACK_LIMIT_8
+      - ADR_ACK_LIMIT_16
+      - ADR_ACK_LIMIT_32
+      - ADR_ACK_LIMIT_64
+      - ADR_ACK_LIMIT_128
+      - ADR_ACK_LIMIT_256
+      - ADR_ACK_LIMIT_512
+      - ADR_ACK_LIMIT_1024
+      - ADR_ACK_LIMIT_2048
+      - ADR_ACK_LIMIT_4096
+      - ADR_ACK_LIMIT_8192
+      - ADR_ACK_LIMIT_16384
+      - ADR_ACK_LIMIT_32768
+      default: ADR_ACK_LIMIT_1
+    v3ADRSettingsDisabledMode:
       type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/v3DataRateIndex'
-    v3PingSlotPeriodValue:
-      type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/v3PingSlotPeriod'
-    v3RelayUplinkForwardLimits:
-      type: object
-      properties:
-        bucket_size:
-          $ref: '#/components/schemas/v3RelayLimitBucketSize'
-          description: 'The multiplier used to compute the total bucket size for the limits.
+      description: 'Configuration options for cases in which ADR is to be disabled
 
-            The multiplier is multiplied by the reload rate in order to compute the total bucket size.'
-        reload_rate:
+        completely.'
+    v3RelayUplinkForwardingRule:
+      type: object
+      properties:
+        limits:
+          $ref: '#/components/schemas/v3RelayUplinkForwardLimits'
+          description: 'Bucket configuration for the served end device.
+
+            If unset, no individual limits will apply to the end device, but the relay global limitations will apply.'
+        last_w_f_cnt:
           type: integer
           format: int64
-          description: The number of tokens which are replenished in the bucket every hour.
-    v3DeviceEIRPValue:
-      type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/v3DeviceEIRP'
+          description: Last wake on radio frame counter used by the served end device.
+        device_id:
+          type: string
+          description: End device identifier of the served end device.
+        session_key_id:
+          type: string
+          format: byte
+          description: Session key ID of the session keys used to derive the root relay session key.
     v3ServedRelaySettings:
       type: object
       properties:
@@ -926,6 +835,97 @@ components:
         serving_device_id:
           type: string
           description: End device identifier of the serving end device.
+    v3FrequencyValue:
+      type: object
+      properties:
+        value:
+          type: string
+          format: uint64
+    v3ADRAckDelayExponentValue:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/v3ADRAckDelayExponent'
+    v3RxDelayValue:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/v3RxDelay'
+    v3DataRateOffsetValue:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/v3DataRateOffset'
+    v3RelayForwardLimits:
+      type: object
+      properties:
+        bucket_size:
+          $ref: '#/components/schemas/v3RelayLimitBucketSize'
+          description: 'The multiplier used to compute the total bucket size for the limits.
+
+            The multiplier is multiplied by the reload rate in order to compute the total bucket size.'
+        reload_rate:
+          type: integer
+          format: int64
+          description: The number of tokens which are replenished in the bucket every hour.
+    v3AggregatedDutyCycle:
+      type: string
+      enum:
+      - DUTY_CYCLE_1
+      - DUTY_CYCLE_2
+      - DUTY_CYCLE_4
+      - DUTY_CYCLE_8
+      - DUTY_CYCLE_16
+      - DUTY_CYCLE_32
+      - DUTY_CYCLE_64
+      - DUTY_CYCLE_128
+      - DUTY_CYCLE_256
+      - DUTY_CYCLE_512
+      - DUTY_CYCLE_1024
+      - DUTY_CYCLE_2048
+      - DUTY_CYCLE_4096
+      - DUTY_CYCLE_8192
+      - DUTY_CYCLE_16384
+      - DUTY_CYCLE_32768
+      default: DUTY_CYCLE_1
+      description: " - DUTY_CYCLE_1: 100%.\n - DUTY_CYCLE_2: 50%.\n - DUTY_CYCLE_4: 25%.\n - DUTY_CYCLE_8: 12.5%.\n - DUTY_CYCLE_16: 6.25%.\n - DUTY_CYCLE_32: 3.125%.\n - DUTY_CYCLE_64: 1.5625%.\n - DUTY_CYCLE_128: Roughly 0.781%.\n - DUTY_CYCLE_256: Roughly 0.390%.\n - DUTY_CYCLE_512: Roughly 0.195%.\n - DUTY_CYCLE_1024: Roughly 0.098%.\n - DUTY_CYCLE_2048: Roughly 0.049%.\n - DUTY_CYCLE_4096: Roughly 0.024%.\n - DUTY_CYCLE_8192: Roughly 0.012%.\n - DUTY_CYCLE_16384: Roughly 0.006%.\n - DUTY_CYCLE_32768: Roughly 0.003%."
+    v3RelaySettings:
+      type: object
+      properties:
+        serving:
+          $ref: '#/components/schemas/v3ServingRelaySettings'
+        served:
+          $ref: '#/components/schemas/v3ServedRelaySettings'
+      description: 'RelaySettings represent the settings of a relay.
+
+        This is used internally by the Network Server.'
+    v3PingSlotPeriod:
+      type: string
+      enum:
+      - PING_EVERY_1S
+      - PING_EVERY_2S
+      - PING_EVERY_4S
+      - PING_EVERY_8S
+      - PING_EVERY_16S
+      - PING_EVERY_32S
+      - PING_EVERY_64S
+      - PING_EVERY_128S
+      default: PING_EVERY_1S
+      description: " - PING_EVERY_1S: Every second.\n - PING_EVERY_2S: Every 2 seconds.\n - PING_EVERY_4S: Every 4 seconds.\n - PING_EVERY_8S: Every 8 seconds.\n - PING_EVERY_16S: Every 16 seconds.\n - PING_EVERY_32S: Every 32 seconds.\n - PING_EVERY_64S: Every 64 seconds.\n - PING_EVERY_128S: Every 128 seconds."
+    v3ZeroableFrequencyValue:
+      type: object
+      properties:
+        value:
+          type: string
+          format: uint64
+    v3GenerateDevAddrResponse:
+      type: object
+      properties:
+        dev_addr:
+          type: string
+          format: string
+          example: 2600ABCD
+      description: Response of GenerateDevAddr.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
